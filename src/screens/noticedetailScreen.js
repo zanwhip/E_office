@@ -17,9 +17,14 @@ const noticedetailScreen = () => {
     <Text style={styles.textheader}>Chi tiết thông báo</Text>
      </View>
      <View style={styles.typecontainer}>
-        <Text style={styles.typetexxt}>Loại hình: Văn bản đến</Text>
+        <Text style={styles.typetext}>Loại hình: Văn bản đến</Text>
      </View>
+   
      <ScrollView style={styles.displaycontainer} >
+        <View style={styles.extraccontainer}>
+
+        </View>
+
         <View>
             <View style={styles.propertiescontainter}>
                 <Text style={styles.properties}>Số đến</Text>
@@ -60,14 +65,7 @@ const noticedetailScreen = () => {
                 <Text style={styles.propertiesdetail}>12-05-2023</Text>
             </View>
         </View>
-        <View>
-            <View style={styles.propertiescontainter}>
-                <Text style={styles.properties}>Trích yếu</Text>
-            </View>
-            <View style={styles.propertiesdetailcontainer}>
-                <Text style={styles.propertiesdetail}>Tờ trình về việc phê duyệt kế hoạch đào tạo năm học 2023 - 2024 của Viện Nghiên cứu và Đào tạo Việt - Anh</Text>
-            </View>
-        </View>
+       
         <View>
             <View style={styles.propertiescontainter}>
                 <Text style={styles.properties}>Đơn vị chủ trì</Text>
@@ -89,7 +87,9 @@ const noticedetailScreen = () => {
                 <Text style={styles.properties}>Độ khẩn</Text>
             </View>
             <View style={styles.propertiesdetailcontainer}>
-                <Text style={styles.propertiesdetail}></Text>
+                <View style={styles.buttonstatus}>
+                    <Text>Bình thường</Text>
+                </View>
             </View>
         </View>
         <View>
@@ -113,7 +113,9 @@ const noticedetailScreen = () => {
                 <Text style={styles.properties}>Trạng thái</Text>
             </View>
             <View style={styles.propertiesdetailcontainer}>
-                <Text style={styles.propertiesdetail}></Text>
+            <View style={styles.buttonstatus}>
+                    <Text>Chưa xử lí</Text>
+                </View>
             </View>
         </View>
         <View>
@@ -144,7 +146,7 @@ const noticedetailScreen = () => {
             <View style={styles.propertiescontainter}>
                 <Text style={styles.properties}>Người chủ trì</Text>
             </View>
-            <View style={styles.propertiesdetailcontainer}>
+            <View style={styles.propertiesdetailcontainer1}>
                 <Text style={styles.propertiesdetail}>TS. Trần Đình Khôi Quốc - Ban Đào tạo - nqphi@sdc.udn.vn,</Text>
             </View>
         </View>
@@ -152,7 +154,7 @@ const noticedetailScreen = () => {
             <View style={styles.propertiescontainter}>
                 <Text style={styles.properties}>Người phối hợp</Text>
             </View>
-            <View style={styles.propertiesdetailcontainer}>
+            <View style={styles.propertiesdetailcontainer1}>
                 <Text style={styles.propertiesdetail}>PGS.TS. Lê Thành Bắc - Ban Giám đốc - nqphi@sdc.udn.vn, ThS. Ngô Thị Hương Giang - Ban Thanh tra - Pháp chế - vanthu@id.udn.vn,</Text>
             </View>
         </View>
@@ -163,6 +165,9 @@ const noticedetailScreen = () => {
             <View style={styles.propertiesdetailcontainer}>
                 <Text style={styles.propertiesdetail}></Text>
             </View>
+        </View>
+        <View style={styles.footer}>
+            <Text>Bạn cần vào trang web dev.office.azurecloud.vn để chỉnh sửa và xem chi tiết hơn</Text>
         </View>
      </ScrollView>
     </View>
@@ -204,7 +209,7 @@ const styles = StyleSheet.create({
    // marginBottom : 15,
     backgroundColor :'#ffffff'
   },
-  typetexxt : {
+  typetext : {
     color : '#000000',
     fontSize : 20,
     fontWeight : "bold",
@@ -213,7 +218,7 @@ const styles = StyleSheet.create({
   },
   displaycontainer : {
     width : '100%',
-    height : '100%',
+    height : 520,
     backgroundColor : '#ffffff'
   },
   propertiescontainter : {
@@ -228,6 +233,13 @@ const styles = StyleSheet.create({
     backgroundColor : '#ffffff',
     width : '100%',
     height : 38,
+    paddingVertical : 8,
+    paddingHorizontal : 16
+  },
+  propertiesdetailcontainer1 : {
+    backgroundColor : '#ffffff',
+    width : '100%',
+    height : 50,
     paddingVertical : 8,
     paddingHorizontal : 16
   },
@@ -248,5 +260,24 @@ const styles = StyleSheet.create({
     height : 38,
     paddingVertical : 8,
     paddingHorizontal : 16
+  },
+  buttonstatus : {
+    width : 105,
+    height : 28,
+    backgroundColor : '#999999',
+     borderRadius : 8,
+    paddingHorizontal : 10,
+    paddingVertical : 5,
+
+  }, 
+  footer : {
+    paddingHorizontal : 20,
+    paddingVertical : 10,
+  },
+  extraccontainer : {
+    width : '90%',
+    height : 160,
+    backgroundColor : '#ffffff',
   }
+
 })

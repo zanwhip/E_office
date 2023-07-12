@@ -3,9 +3,13 @@ import React from 'react';
 import loginscreen from '../screens/loginscreen';
 import { NavigationContainer } from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import { dataCBVCScreen, noticeScreen, noticedetailScreen, welcomescreen } from '../screens';
+import { dataCBVCScreen, documentScreen, noticeScreen, noticedetailScreen, reportmanageScreen, settingScreen, submissionmanageScreen, welcomescreen, workflowmanageScreen } from '../screens';
 import introduceScreen from '../screens/introduceScreen';
 import newScreen from '../screens/newScreen';
+
+
+
+
 
 
 
@@ -21,7 +25,12 @@ const Navigators = () => {
            {/* <Stack.Screen name="New" component={newScreen} /> */}
            {/* <Stack.Screen name="DataCBVC" component={dataCBVCScreen} /> */}
            {/* <Stack.Screen name="Notice" component={noticeScreen} /> */}
-           <Stack.Screen name="Noticedetal" component={noticedetailScreen} />
+           <Stack.Screen name="Noticedetail" component={noticedetailScreen} />
+           {/* <Stack.Screen name="Reportmange" component={reportmanageScreen} /> */}
+           {/* <Stack.Screen name="Submissionmanage" component={submissionmanageScreen} /> */}
+           {/* <Stack.Screen name="Workflowmanage" component={workflowmanageScreen} />  */}
+           {/* <Stack.Screen name="Document" component={documentScreen} />  */}
+           {/* <Stack.Screen name="Setting" component={settingScreen} /> */}
           </Stack.Navigator>
       </NavigationContainer>
     );

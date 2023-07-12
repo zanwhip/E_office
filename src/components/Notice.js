@@ -39,15 +39,13 @@ const styles = StyleSheet.create({
         height : 90,
         width : '100%',
         backgroundColor : '#ffffff',
-        
-    },
+     },
        newtext : {
         fontSize : 18,
         fontWeight : '200',
         width: 300,
         marginLeft : 10
-
-    },
+     },
     date : {
         fontStyle : 'italic',
         marginTop : 10,
