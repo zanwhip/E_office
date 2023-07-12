@@ -4,7 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Documentary from '../components/Documentary';
 import { ScrollView } from 'react-native';
 
-const documentScreen = () => {
+const DocumentScreen = () => {
   return (
     <View style={styles.container}>
      <View style={styles.header}>
@@ -35,7 +35,7 @@ const documentScreen = () => {
   )
 }
 
-export default documentScreen
+export default DocumentScreen
 
 const styles = StyleSheet.create({
   container : {

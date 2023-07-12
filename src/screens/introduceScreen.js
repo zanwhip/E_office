@@ -9,7 +9,7 @@ const introduceScreen = () => {
      <View style={styles.header}>
     <Ionicons 
     name="arrow-back-outline"
-    size={25}
+    size={20}
     color='#ffffff'
     />
     <Text style={styles.textheader}>Giới thiêu UDN</Text>
@@ -20,7 +20,7 @@ const introduceScreen = () => {
             <Text style={styles.subcontent}>Lời ngỏ </Text>
             <AntDesign 
             name="right"
-            size={25}
+            size={20}
             color='#000000'
             style={{position: 'absolute', right: 5, top : 10}}/>
         </View>
@@ -28,7 +28,7 @@ const introduceScreen = () => {
             <Text style={styles.subcontent}>Sứ mạng - tầm nhìn </Text>
             <AntDesign 
             name="right"
-            size={25}
+            size={20}
             color='#000000'
             style={{position: 'absolute', right: 5, top : 10}}/>
         </View>
@@ -36,7 +36,7 @@ const introduceScreen = () => {
             <Text style={styles.subcontent}>Lịch sử hình thành </Text>
             <AntDesign 
             name="right"
-            size={25}
+            size={20}
             color='#000000'
             style={{position: 'absolute', right: 5, top : 10}}/>
         </View>
@@ -44,7 +44,7 @@ const introduceScreen = () => {
             <Text style={styles.subcontent}>Cơ cấu tổ chức </Text>
             <AntDesign 
             name="right"
-            size={25}
+            size={20}
             color='#000000'
             style={{position: 'absolute', right: 5, top : 10}}/>
         </View>
@@ -52,7 +52,7 @@ const introduceScreen = () => {
             <Text style={styles.subcontent}>Gương mặt tiêu biểu </Text>
             <AntDesign 
             name="right"
-            size={25}
+            size={20}
             color='#000000'
             style={{position: 'absolute', right: 5, top : 10}}/>
         </View>

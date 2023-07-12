@@ -4,7 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { ScrollView } from 'react-native';
 import DataMonth from '../components/DataMonth';
 
-const dataCBVCScreen = () => {
+const DataCBVCScreen = ({navigation}) => {
   return (
     <View>
        <View style={styles.header}>
@@ -34,7 +34,7 @@ const dataCBVCScreen = () => {
   )
 }
 
-export default dataCBVCScreen
+export default DataCBVCScreen
 
 const styles = StyleSheet.create({
   container : {

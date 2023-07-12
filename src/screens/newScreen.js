@@ -3,7 +3,7 @@ import React from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import News from '../components/News';
 
-const newScreen = () => {
+const newScreen = ({navigation}) => {
   return (
     <View>
       <View style={styles.header}>

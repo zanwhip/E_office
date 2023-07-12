@@ -2,8 +2,9 @@ import { StyleSheet, Text, View, Image, ScrollView } from 'react-native'
 import Entypo from 'react-native-vector-icons/Entypo';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import React from 'react'
+import { TouchableOpacity } from 'react-native';
 
-const welcomeScreen = () => {
+const welcomeScreen = ({navigation}) => {
   return (
     <ScrollView style={styles.container}>
      <View style={styles.Header}>
@@ -22,18 +23,29 @@ const welcomeScreen = () => {
         <Text style={styles.subtextheader}>admin_office@id.udn.vn</Text>
      </View>
      <View style={styles.banner}>
-        <View style={styles.bannerrow}>
+        <TouchableOpacity 
+        style={styles.bannerrow}
+        onPress={() => navigation.navigate('Introduce')}
+        >
         <Image source={require('../assets/image/icon1.png')} style={styles.image} />
         <Text style={styles.textbanner}>Giới thiệu UDN</Text>
-        </View>
-        <View style={styles.bannerrow}>
-        <Image source={require('../assets/image/icon2.png')} style={styles.image} />
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.bannerrow}>
+        <Image source={require('../assets/image/icon2.png')} 
+        style={styles.image} 
+        onPress={() => navigation.navigate('New')}
+        />
         <Text style={styles.textbanner}>Tin tức - Sự kiện </Text>
-        </View>
-        <View style={styles.bannerrow}>
-        <Image source={require('../assets/image/icon3.png')} style={styles.image} />
+        </TouchableOpacity>
+        
+        <TouchableOpacity style={styles.bannerrow}>
+        <Image source={require('../assets/image/icon3.png')} 
+        style={styles.image} 
+        onPress={() => navigation.navigate('DataCBVC')}
+        />
         <Text style={styles.textbanner}>Số liệu CBVC</Text>
-        </View>
+        </TouchableOpacity>
      </View>
      <View style={styles.subcontainer}>
         <Text style={styles.textmain}>Điều hành doanh nghiêp </Text>
@@ -87,7 +99,8 @@ const styles = StyleSheet.create({
         position : 'absolute',
         top : 0,
         left : 0,
-        borderRadius : 20,
+        borderBottomLeftRadius : 20,
+        borderBottomRightRadius : 20
         
     },
     banner : {

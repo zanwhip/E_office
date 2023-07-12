@@ -3,12 +3,14 @@ import React from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import { ScrollView } from 'react-native';
+import Extract from '../components/Extract';
 
 
 
 const noticedetailScreen = () => {
   return (
     <View>
+       
      <View style={styles.header}>
     <Ionicons 
     name="arrow-back-outline"
@@ -22,20 +24,7 @@ const noticedetailScreen = () => {
      </View>
    
      <ScrollView style={styles.displaycontainer} >
-        <View style={styles.extraccontainer}>
-        <View style={styles.extact}> 
-            <Text style={styles.properties}>Trích yếu</Text> 
-            </View>
-        <Text style={styles.extactdetail}>Tờ trình về việc phê duyệt kế hoạch đào tạo năm học 2023 - 2024 của Viện Nghiên cứu và Đào tạo Việt - Anh</Text>
-        <View style={styles.link}>
-        <AntDesign 
-    name="link"
-    size={20}
-    color='#1768D4'
-    />
-            <Text style={{ color : '#1768D4' }}>1569-247-ttr-vncdtva_1683875983.pdf</Text>
-        </View>
-        </View>
+     <Extract />
 
         <View>
             <View style={styles.propertiescontainter}>
@@ -182,6 +171,10 @@ const noticedetailScreen = () => {
             <Text>Bạn cần vào trang web dev.office.azurecloud.vn để chỉnh sửa và xem chi tiết hơn</Text>
         </View>
      </ScrollView>
+     
+     <View style={styles.buttonforward}>
+     <Text style={styles.textforward}>Chuyển tiếp</Text>
+     </View>
     </View>
   )
 }
@@ -328,5 +321,6 @@ const styles = StyleSheet.create({
     marginLeft : 10,
     marginRight : 10,
     textDecorationLine: 'underline'
-  }
+  },
+  
 })

@@ -1,7 +1,8 @@
 import { StyleSheet, Text,Image, View, StatusBar } from 'react-native'
 import React from 'react'
+import { TouchableOpacity } from 'react-native'
 
-const loginscreen = () => {
+const loginscreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.image}>
@@ -13,12 +14,18 @@ const loginscreen = () => {
       </View>
      <View style={styles.box}> 
       <Text style={styles.TextHeader}>Đăng nhập</Text>
-      <View style={styles.buttonMicro}>
+      <TouchableOpacity 
+      style={styles.buttonMicro}
+      onPress={() => navigation.navigate('Welcome')}
+      >
         <Text style={styles.textbutton}>Microsoft</Text>
-      </View>
-      <View style={styles.buttonGoogle}>
+      </TouchableOpacity>
+      <TouchableOpacity
+       style={styles.buttonGoogle}
+       onPress={() => navigation.navigate('Welcome')}
+       >
         <Text style={styles.textbutton}>Google</Text>
-      </View>
+      </TouchableOpacity>
       <Text style={styles.subtext}> Chọn đăng nhập bằng tài khoản mail Office 365(màu xanh) hoặc tài khoản Gmail(màu đỏ).</Text>
            </View>
       <StatusBar style="auto" />
