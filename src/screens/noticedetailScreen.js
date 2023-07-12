@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 import { ScrollView } from 'react-native';
 
 
@@ -22,7 +23,18 @@ const noticedetailScreen = () => {
    
      <ScrollView style={styles.displaycontainer} >
         <View style={styles.extraccontainer}>
-
+        <View style={styles.extact}> 
+            <Text style={styles.properties}>Trích yếu</Text> 
+            </View>
+        <Text style={styles.extactdetail}>Tờ trình về việc phê duyệt kế hoạch đào tạo năm học 2023 - 2024 của Viện Nghiên cứu và Đào tạo Việt - Anh</Text>
+        <View style={styles.link}>
+        <AntDesign 
+    name="link"
+    size={20}
+    color='#1768D4'
+    />
+            <Text style={{ color : '#1768D4' }}>1569-247-ttr-vncdtva_1683875983.pdf</Text>
+        </View>
         </View>
 
         <View>
@@ -154,7 +166,7 @@ const noticedetailScreen = () => {
             <View style={styles.propertiescontainter}>
                 <Text style={styles.properties}>Người phối hợp</Text>
             </View>
-            <View style={styles.propertiesdetailcontainer1}>
+            <View style={styles.propertiesdetailcontainer2}>
                 <Text style={styles.propertiesdetail}>PGS.TS. Lê Thành Bắc - Ban Giám đốc - nqphi@sdc.udn.vn, ThS. Ngô Thị Hương Giang - Ban Thanh tra - Pháp chế - vanthu@id.udn.vn,</Text>
             </View>
         </View>
@@ -179,7 +191,7 @@ export default noticedetailScreen
 const styles = StyleSheet.create({
     container : {
         flex: 1,
-        backgroundColor: '#ffffff',
+       
         
     },
     header : {
@@ -207,7 +219,7 @@ const styles = StyleSheet.create({
     width : '100%',
     //marginTop : 15,
    // marginBottom : 15,
-    backgroundColor :'#ffffff'
+    backgroundColor :'#e3e3e3'
   },
   typetext : {
     color : '#000000',
@@ -219,14 +231,15 @@ const styles = StyleSheet.create({
   displaycontainer : {
     width : '100%',
     height : 520,
-    backgroundColor : '#ffffff'
+    backgroundColor : '#e3e3e3',
   },
   propertiescontainter : {
     backgroundColor : '#EEEEEE',
     width : '100%',
     height : 38,
     paddingVertical : 8,
-    paddingHorizontal : 16
+    paddingHorizontal : 16,
+   // marginTop : 20,
 
   },
   propertiesdetailcontainer : {
@@ -235,11 +248,19 @@ const styles = StyleSheet.create({
     height : 38,
     paddingVertical : 8,
     paddingHorizontal : 16
+    
   },
   propertiesdetailcontainer1 : {
     backgroundColor : '#ffffff',
     width : '100%',
     height : 50,
+    paddingVertical : 8,
+    paddingHorizontal : 16
+  },
+  propertiesdetailcontainer2 : {
+    backgroundColor : '#ffffff',
+    width : '100%',
+    height : 80,
     paddingVertical : 8,
     paddingHorizontal : 16
   },
@@ -275,9 +296,37 @@ const styles = StyleSheet.create({
     paddingVertical : 10,
   },
   extraccontainer : {
-    width : '90%',
+    width : 330,
     height : 160,
     backgroundColor : '#ffffff',
-  }
+    //paddingBottom : 10,
+    marginLeft : 15,
+    borderRadius : 20,
+    paddingBottom : 10,
+  },
+  extact: {
+    width : 330,
+    height : 40,
+    borderRadius: 10,
+    backgroundColor : '#EEEEEE',
+    paddingVertical : 10,
+    
 
+  },
+  extactdetail : {
+    fontSize : 14,
+    fontWeight : '400',
+    fontStyle: 'normal',
+    marginHorizontal : 10,
+    marginVertical : 10
+
+  },
+  link : {
+    flexDirection : 'row',
+    justifyContent : 'space-between',
+    paddingHorizontal : 10,
+    marginLeft : 10,
+    marginRight : 10,
+    textDecorationLine: 'underline'
+  }
 })
