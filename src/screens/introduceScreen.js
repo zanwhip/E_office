@@ -3,7 +3,7 @@ import React from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
-const introduceScreen = () => {
+const IntroduceScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
      <View style={styles.header}>
@@ -11,6 +11,7 @@ const introduceScreen = () => {
     name="arrow-back-outline"
     size={20}
     color='#ffffff'
+    onPress={() => navigation.goBack()}
     />
     <Text style={styles.textheader}>Giới thiêu UDN</Text>
      </View>
@@ -62,7 +63,7 @@ const introduceScreen = () => {
   )
 }
 
-export default introduceScreen
+export default IntroduceScreen
 
 const styles = StyleSheet.create({
     container : {

@@ -4,7 +4,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import React from 'react'
 import { TouchableOpacity } from 'react-native';
 
-const welcomeScreen = ({navigation}) => {
+const WelcomeScreen = ({navigation}) => {
   return (
     <ScrollView style={styles.container}>
      <View style={styles.Header}>
@@ -31,19 +31,21 @@ const welcomeScreen = ({navigation}) => {
         <Text style={styles.textbanner}>Giới thiệu UDN</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.bannerrow}>
+        <TouchableOpacity 
+        style={styles.bannerrow}
+        onPress={() => navigation.navigate('New')}>
         <Image source={require('../assets/image/icon2.png')} 
         style={styles.image} 
-        onPress={() => navigation.navigate('New')}
+        
         />
         <Text style={styles.textbanner}>Tin tức - Sự kiện </Text>
         </TouchableOpacity>
         
-        <TouchableOpacity style={styles.bannerrow}>
-        <Image source={require('../assets/image/icon3.png')} 
-        style={styles.image} 
+        <TouchableOpacity 
+        style={styles.bannerrow}
         onPress={() => navigation.navigate('DataCBVC')}
-        />
+        >
+        <Image source={require('../assets/image/icon3.png')} style={styles.image}  />
         <Text style={styles.textbanner}>Số liệu CBVC</Text>
         </TouchableOpacity>
      </View>
@@ -52,38 +54,51 @@ const welcomeScreen = ({navigation}) => {
      </View>
      <View style={styles.contentcontainer} >
      <View style={styles.contentcontainerrow} >
-        <View style={styles.boxcontent}>
+        <TouchableOpacity
+         style={styles.boxcontent}
+         onPress={() => navigation.navigate('Document')}
+         >
         <Image source={require('../assets/image/box1.png')} style={styles.image} />
         <Text style={styles.textbox}>Các văn bản</Text>
         <Text style={styles.subtextbox}>Soạn thảo và gửi văn bản đến các đơn vị. Đồng thời quản lý bút phê, các văn bản gửi đến, gửi đi và ủy quyền gửi văn bản.</Text>
-        </View>
-        <View style={styles.boxcontent}>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+         style={styles.boxcontent}
+         onPress={() => navigation.navigate('Reportmange')
+        }
+         >
         <Image source={require('../assets/image/box2.png')} style={styles.image} />
-        <Text style={styles.textbox}>Các văn bản</Text>
-        <Text style={styles.subtextbox}>Soạn thảo và gửi văn bản đến các đơn vị. Đồng thời quản lý bút phê, các văn bản gửi đến, gửi đi và ủy quyền gửi văn bản.</Text>
+        <Text style={styles.textbox}>Quản lí báo cáo</Text>
+        <Text style={styles.subtextbox}>Soạn thảo và gửi các báo cáo cho các đơn vị cấp trên và các ban, văn phòng. Đồng thời quản lý các báo cáo gửi đến, gửi đi.</Text>
         
-        </View>
+        </TouchableOpacity>
      </View>
      <View style={styles.contentcontainerrow} >
-        <View style={styles.boxcontent}>
+        <TouchableOpacity
+         style={styles.boxcontent}
+         onPress={() => navigation.navigate('Submissionmanage')}
+         >
         <Image source={require('../assets/image/box3.png')} style={styles.image} />
-        <Text style={styles.textbox}>Các văn bản</Text>
-        <Text style={styles.subtextbox}>Soạn thảo và gửi văn bản đến các đơn vị. Đồng thời quản lý bút phê, các văn bản gửi đến, gửi đi và ủy quyền gửi văn bản.</Text>
+        <Text style={styles.textbox}>Quản lý tờ trình</Text>
+        <Text style={styles.subtextbox}>Soạn thảo và gửi tờ trình cho cấp trên. Đồng thời quản lý các tờ trình đã gửi và các tờ trình đã nhận được.</Text>
         
-        </View>
-        <View style={styles.boxcontent}>
+        </TouchableOpacity>
+        <TouchableOpacity
+         style={styles.boxcontent}
+         onPress={() => navigation.navigate('Workflowmanage')}>
         <Image source={require('../assets/image/box4.png')} style={styles.image} />
-        <Text style={styles.textbox}>Các văn bản</Text>
-        <Text style={styles.subtextbox}>Soạn thảo và gửi văn bản đến các đơn vị. Đồng thời quản lý bút phê, các văn bản gửi đến, gửi đi và ủy quyền gửi văn bản.</Text>
+        <Text style={styles.textbox}>Quản lý công việc</Text>
+        <Text style={styles.subtextbox}>Khởi tạo và quản lý các công việc đã giao, được giao.</Text>
         
-        </View>
+        </TouchableOpacity>
      </View>
      </View>
     </ScrollView>
   )
 }
 
-export default welcomeScreen
+export default WelcomeScreen
 
 const styles = StyleSheet.create({
     container : {

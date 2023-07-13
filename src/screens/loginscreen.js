@@ -2,7 +2,7 @@ import { StyleSheet, Text,Image, View, StatusBar } from 'react-native'
 import React from 'react'
 import { TouchableOpacity } from 'react-native'
 
-const loginscreen = ({navigation}) => {
+const Loginscreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.image}>
@@ -33,7 +33,7 @@ const loginscreen = ({navigation}) => {
   )
 }
 
-export default loginscreen
+export default Loginscreen
 
 const styles = StyleSheet.create({
     container: {

@@ -7,7 +7,7 @@ import Extract from '../components/Extract';
 
 
 
-const noticedetailScreen = () => {
+const NoticedetailScreen = ({navigation}) => {
   return (
     <View>
        
@@ -16,6 +16,7 @@ const noticedetailScreen = () => {
     name="arrow-back-outline"
     size={20}
     color='#ffffff'
+    onPress={() => navigation.goBack()}
     />
     <Text style={styles.textheader}>Chi tiết thông báo</Text>
      </View>
@@ -179,7 +180,7 @@ const noticedetailScreen = () => {
   )
 }
 
-export default noticedetailScreen
+export default NoticedetailScreen
 
 const styles = StyleSheet.create({
     container : {

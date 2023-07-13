@@ -3,7 +3,7 @@ import React from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import News from '../components/News';
 
-const newScreen = ({navigation}) => {
+const NewScreen = ({navigation}) => {
   return (
     <View>
       <View style={styles.header}>
@@ -11,6 +11,7 @@ const newScreen = ({navigation}) => {
     name="arrow-back-outline"
     size={20}
     color='#ffffff'
+    onPress={() => navigation.goBack()}
     />
     <Text style={styles.textheader}>Tin tức - Sự kiện</Text>
      </View>
@@ -27,12 +28,14 @@ const newScreen = ({navigation}) => {
         <News/>
         <News/>
         <News/>
+        <News/>
+        <News/>
      </ScrollView>
     </View>
   )
 }
 
-export default newScreen
+export default NewScreen
 
 const styles = StyleSheet.create({
     container : {
@@ -83,7 +86,7 @@ const styles = StyleSheet.create({
   newscontainer : {
      width : '100%',
     backgroundColor : '#e3e3e3',
-    height : '100%',
+    height : 350,
     paddingHorizontal : 10,
 
   },

@@ -4,7 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Notfound from '../components/Notfound';
 
 
-const workflowmanageScreen = () => {
+const WorkflowmanageScreen = ({navigation}) => {
   return (
     <View>
     <View style={styles.header}>
@@ -12,6 +12,7 @@ const workflowmanageScreen = () => {
  name="arrow-back-outline"
  size={20}
  color='#ffffff'
+ onPress={() => navigation.goBack()}
  />
  <Text style={styles.textheader}>Quản lí công việc</Text>
   </View>
@@ -20,7 +21,7 @@ const workflowmanageScreen = () => {
   )
 }
 
-export default workflowmanageScreen
+export default WorkflowmanageScreen
 
 const styles = StyleSheet.create({
   

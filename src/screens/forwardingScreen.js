@@ -6,7 +6,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import { TextInput } from 'react-native';
 import { ScrollView } from 'react-native';
 
-const ForwardingScreen = () => {
+const ForwardingScreen = ({navigation}) => {
   return (
     
     <ScrollView style={styles.container}>

@@ -4,7 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Notfound from '../components/Notfound';
 
 
-const submissionmanageScreen = () => {
+const SubmissionmanageScreen = ({navigation}) => {
   return (
     <View>
     <View style={styles.header}>
@@ -12,6 +12,7 @@ const submissionmanageScreen = () => {
  name="arrow-back-outline"
  size={20}
  color='#ffffff'
+ onPress={() => navigation.goBack()}
  />
  <Text style={styles.textheader}>Quản lí tờ trình</Text>
   </View>
@@ -20,7 +21,7 @@ const submissionmanageScreen = () => {
   )
 }
 
-export default submissionmanageScreen
+export default SubmissionmanageScreen
 
 const styles = StyleSheet.create({
   

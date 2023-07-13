@@ -4,7 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Notfound from '../components/Notfound';
 
 
-const reportmanageScreen = () => {
+const ReportmanageScreen = ({navigation}) => {
   return (
     <View>
     <View style={styles.header}>
@@ -12,6 +12,7 @@ const reportmanageScreen = () => {
  name="arrow-back-outline"
  size={20}
  color='#ffffff'
+ onPress={() => navigation.goBack()}
  />
  <Text style={styles.textheader}>Quản lí báo cáo</Text>
   </View>
@@ -20,7 +21,7 @@ const reportmanageScreen = () => {
   )
 }
 
-export default reportmanageScreen
+export default ReportmanageScreen
 
 const styles = StyleSheet.create({
   

@@ -4,7 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import Entypo from 'react-native-vector-icons/Entypo';
 
-const settingScreen = () => {
+const SettingScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
          <View style={styles.header}>
@@ -12,6 +12,7 @@ const settingScreen = () => {
     name="arrow-back-outline"
     size={20}
     color='#ffffff'
+    onPress={() => navigation.goBack()}
     />
     <Text style={styles.textheader}>Các văn bản</Text>
      </View>
@@ -73,7 +74,7 @@ const settingScreen = () => {
   )
 }
 
-export default settingScreen
+export default SettingScreen
 
 const styles = StyleSheet.create({
     container : {

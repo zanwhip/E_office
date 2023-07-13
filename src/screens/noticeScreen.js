@@ -4,7 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { ScrollView } from 'react-native';
 import Notice from '../components/Notice';
 
-const noticeScreen = () => {
+const NoticeScreen = ({navigation}) => {
   return (
     <View>
        <View style={styles.header}>
@@ -12,6 +12,7 @@ const noticeScreen = () => {
     name="arrow-back-outline"
     size={20}
     color='#ffffff'
+    onPress={() => navigation.goBack()}
     />
     <Text style={styles.textheader}>Thông báo</Text>
      </View>
@@ -31,7 +32,7 @@ const noticeScreen = () => {
   )
 }
 
-export default noticeScreen
+export default NoticeScreen
 
 const styles = StyleSheet.create({
   container : {
