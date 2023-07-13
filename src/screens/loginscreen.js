@@ -1,6 +1,7 @@
 import { StyleSheet, Text,Image, View, StatusBar } from 'react-native'
 import React from 'react'
 import { TouchableOpacity } from 'react-native'
+import Header from '../components/Header';
 
 const Loginscreen = ({navigation}) => {
   return (
@@ -83,6 +84,7 @@ const styles = StyleSheet.create({
           borderRadius : 31,
           marginTop : 10,
           marginBottom : 10,
+          alignItems : 'center'
         },
         buttonGoogle : {
           height : 46,
@@ -91,6 +93,8 @@ const styles = StyleSheet.create({
           borderRadius : 31,
           marginTop : 10,
           marginBottom : 10,
+          
+          alignItems : 'center'
         },
         subtext : {
           fontSize : 14,
@@ -104,11 +108,9 @@ const styles = StyleSheet.create({
         },
         textbutton : {
           fontSize : 15,
-          alignContent : 'center',
-          alignItems : 'center',
+          fontWeight : 'bold',
           justifyContent : 'center',
-          marginBottom : 10,
-          marginTop : 10,
-          marginLeft : 100,
+          marginVertical : 10,
+          
           }
 })

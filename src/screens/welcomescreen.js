@@ -1,22 +1,51 @@
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native'
+import { StyleSheet, Text, View, Image, ScrollView, DrawerLayoutAndroid  } from 'react-native'
 import Entypo from 'react-native-vector-icons/Entypo';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import React from 'react'
+import React , {useState}from 'react'
 import { TouchableOpacity } from 'react-native';
+import Header from '../components/Header';
+import Menu from '../components/Menu';
+
 
 const WelcomeScreen = ({navigation}) => {
+    const [isSidebarOpen, setSidebarOpen] = useState(false);
+    const toggleSidebar = () => {
+        setSidebarOpen(!isSidebarOpen);
+      };
+     
+
+      const renderSidebar = () => {
+        return (
+          <View style={styles.sidebar}>
+            <Menu />
+          </View>
+        );
+      };
   return (
+    <DrawerLayoutAndroid
+    drawerWidth={300}
+    drawerPosition="left"
+    renderNavigationView={renderSidebar}
+    onDrawerClose={() => setSidebarOpen(false)}
+    onDrawerOpen={() => setSidebarOpen(true)}
+    
+  >
     <ScrollView style={styles.container}>
      <View style={styles.Header}>
      <View style={styles.iconheader}>
-     <Entypo name="menu"
+        <TouchableOpacity onPress={toggleSidebar}>
+        <Entypo name="menu"
+      
           size={30}
           color='#ffffff'
-           />
+          />
+        </TouchableOpacity>
+     
            <FontAwesome5 name="bell"
           size={30}
           color='#ffffff'
          style={styles.bellicon}
+         onPress={() => navigation.navigate('Notice')}
          />
         </View>
         <Text style={styles.textheader}>XIN CHÀO</Text>
@@ -95,6 +124,7 @@ const WelcomeScreen = ({navigation}) => {
      </View>
      </View>
     </ScrollView>
+    </DrawerLayoutAndroid>
   )
 }
 
@@ -118,6 +148,14 @@ const styles = StyleSheet.create({
         borderBottomRightRadius : 20
         
     },
+    scrollContainer: {
+        flex: 1,
+        backgroundColor: '#e3e3e3',
+      },
+      sidebar: {
+        flex: 1,
+        backgroundColor: '#f2f2f2',
+      },
     banner : {
         flexDirection: 'row',
         backgroundColor : '#e3e3e3',

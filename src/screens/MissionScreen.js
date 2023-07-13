@@ -1,15 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import Header from '../components/Header';
 
-const DepartmentScreen = () => {
+const MissionScreen = () => {
   return (
     <View>
-      <Text>departmentScreen</Text>
+      <Text>MissionScreen</Text>
     </View>
   )
 }
 
-export default DepartmentScreen
+export default MissionScreen
 
 const styles = StyleSheet.create({})

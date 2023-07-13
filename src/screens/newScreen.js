@@ -2,6 +2,8 @@ import { StyleSheet, Text, View, Image, ScrollView } from 'react-native'
 import React from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import News from '../components/News';
+import { TouchableOpacity } from 'react-native';
+import Header from '../components/Header';
 
 const NewScreen = ({navigation}) => {
   return (
@@ -18,7 +20,15 @@ const NewScreen = ({navigation}) => {
 
      <View style={styles.banner}>
         <Text style={styles.subheader}>Tin nổi bật</Text>
-     <Image source={require('../assets/image/bannerNew.png')} style={styles.image}/>
+        <TouchableOpacity
+        onPress={() => navigation.navigate('Hotnew')}>
+        <Image 
+     source={require('../assets/image/bannerNew.png')} 
+     style={styles.image}
+     
+     />
+        </TouchableOpacity>
+    
      </View>
 
      <ScrollView style={styles.newscontainer}>

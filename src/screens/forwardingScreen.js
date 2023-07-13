@@ -5,19 +5,15 @@ import Extract from '../components/Extract';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import { TextInput } from 'react-native';
 import { ScrollView } from 'react-native';
+import Header from '../components/Header';
+
+const header = 'Chuyển tiếp văn bản'
 
 const ForwardingScreen = ({navigation}) => {
   return (
     
     <ScrollView style={styles.container}>
-      <View style={styles.header}>
-    <Ionicons 
-    name="arrow-back-outline"
-    size={20}
-    color='#ffffff'
-       />
-    <Text style={styles.textheader}>Chuyển tiếp văn bản</Text>
-     </View>
+     <Header header={header} />
      <Extract />
      <View>
      <View style={styles.typecontainer}>

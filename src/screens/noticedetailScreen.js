@@ -4,6 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import { ScrollView } from 'react-native';
 import Extract from '../components/Extract';
+import Header from '../components/Header';
 
 
 

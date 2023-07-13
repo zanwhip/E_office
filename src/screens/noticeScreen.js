@@ -3,6 +3,8 @@ import React from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { ScrollView } from 'react-native';
 import Notice from '../components/Notice';
+import Header from '../components/Header';
+import { TouchableOpacity } from 'react-native';
 
 const NoticeScreen = ({navigation}) => {
   return (
@@ -18,9 +20,9 @@ const NoticeScreen = ({navigation}) => {
      </View>
      <View style={styles.datamonth}>
      <ScrollView style={styles.datacontainer}>
+         
      <Notice />
-     <Notice />
-     <Notice />
+     <Notice  onPress={() => navigation.navigate('Noticedetail')} />
      <Notice />
      <Notice />
      <Notice />

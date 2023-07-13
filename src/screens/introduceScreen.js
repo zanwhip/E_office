@@ -2,37 +2,38 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import Header from '../components/Header';
+import { TouchableOpacity } from 'react-native';
 
+const header = 'Giới thiệu UDN'
 const IntroduceScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
-     <View style={styles.header}>
-    <Ionicons 
-    name="arrow-back-outline"
-    size={20}
-    color='#ffffff'
-    onPress={() => navigation.goBack()}
-    />
-    <Text style={styles.textheader}>Giới thiêu UDN</Text>
-     </View>
+     <Header header={header} />
 
      <View  style={styles.contentcontainer}>
-        <View style={styles.subcontentcontainer}>
+        <TouchableOpacity 
+        style={styles.subcontentcontainer}
+        onPress={() => navigation.navigate('OpenLetter')}
+        >
             <Text style={styles.subcontent}>Lời ngỏ </Text>
             <AntDesign 
             name="right"
             size={20}
             color='#000000'
             style={{position: 'absolute', right: 5, top : 10}}/>
-        </View>
-        <View style={styles.subcontentcontainer}>
+        </TouchableOpacity>
+        <TouchableOpacity
+         style={styles.subcontentcontainer}
+         onPress={() => navigation.navigate('Mission')}
+         >
             <Text style={styles.subcontent}>Sứ mạng - tầm nhìn </Text>
             <AntDesign 
             name="right"
             size={20}
             color='#000000'
             style={{position: 'absolute', right: 5, top : 10}}/>
-        </View>
+        </TouchableOpacity>
         <View style={styles.subcontentcontainer}>
             <Text style={styles.subcontent}>Lịch sử hình thành </Text>
             <AntDesign 
@@ -49,8 +50,20 @@ const IntroduceScreen = ({navigation}) => {
             color='#000000'
             style={{position: 'absolute', right: 5, top : 10}}/>
         </View>
+        <TouchableOpacity style={styles.subcontentcontainer}>
+            <Text 
+            style={styles.subcontent}
+            onPress={() => navigation.navigate('TypicalPerson')}
+            >
+                Gương mặt tiêu biểu </Text>
+            <AntDesign 
+            name="right"
+            size={20}
+            color='#000000'
+            style={{position: 'absolute', right: 5, top : 10}}/>
+        </TouchableOpacity>
         <View style={styles.subcontentcontainer}>
-            <Text style={styles.subcontent}>Gương mặt tiêu biểu </Text>
+            <Text style={styles.subcontent}>Website Đại Học Đà Nẵng  </Text>
             <AntDesign 
             name="right"
             size={20}

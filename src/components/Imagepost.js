@@ -5,7 +5,7 @@ const Imagepost = ( {image,caption}) => {
   return (
     <View style = {styles.container}>
        <Image src={image} style={styles.image}  />
-      <Text>{caption}</Text>
+      <Text style={styles.title}>{caption}</Text>
     </View>
   )
 }
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
         width : '100%',
         height : 253,
         backgroundColor : '#e3e3e3',
-        marginVertical : 50,
+        marginVertical : 30,
         justifyContent : 'center',
 
 

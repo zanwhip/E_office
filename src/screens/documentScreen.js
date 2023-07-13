@@ -3,18 +3,14 @@ import React from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Documentary from '../components/Documentary';
 import { ScrollView } from 'react-native';
+import Header from '../components/Header';
+
+const header = 'Các văn bản'
 
 const DocumentScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
-     <View style={styles.header}>
-    <Ionicons 
-    name="arrow-back-outline"
-    size={20}
-    color='#ffffff'
-    />
-    <Text style={styles.textheader}>Các văn bản</Text>
-     </View>
+     <Header header={header} />
      <View style={styles.typecontainer}>
         <Text style={styles.typetext}>Có 6 văn bản mới đến</Text>
      </View>

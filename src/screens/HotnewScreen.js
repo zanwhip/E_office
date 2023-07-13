@@ -19,9 +19,9 @@ const openning = 'Tiếp nối thành công của hai mùa trước, Cuộc thi 
 const title1 = ' Tham dự Chương trình phát động có Bà Lê Thị Thục-Phó Giám đốc Sở KHCN thành phố Đà Nẵng; Ông Lê Công Hùng-Phó Chủ tịch Trung ương Hội SV Việt Nam, Phó Bí thư Thành Đoàn, Chủ tịch Hội SV thành phố Đà Nẵng; PGS.TS. Lê Thành Bắc-Phó Giám đốc ĐHĐN; đại diện lãnh đạo các đơn vị, doanh nghiệp đối tác đồng hành; đại diện lãnh đạo các ban hữu quan và các trường ĐH thành viên của ĐHĐN cùng các chuyên gia và các nhóm SV đăng ký tham dự, quan tâm đến Cuộc thi'
 const title2 = 'Phát biểu tại Chương trình phát động InTE-UD 2023, TS. Đỗ Lê Hưng Toàn-Chủ tịch Hội SV ĐHĐN, Trưởng Ban Tổ chức Cuộc thi cho biết, Cuộc thi năm nay nhằm tìm kiếm những hạt nhân, ý tưởng sáng tạo và khởi nghiệp trong SV, qua đó hỗ trợ, đồng hành với những ước mơ, khát vọng khởi nghiệp trẻ trong tương lai.'
 
-const header = 'Tin tức - Sự kiện '
+const header = 'Tin nổi bật '
 
-const HotnewScreen = ( image, caption , header) => {
+const HotnewScreen = ({navigation} ) => {
   return (
     <View style={styles.container}>
     <Header header={header} />

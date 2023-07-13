@@ -3,6 +3,7 @@ import React from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import Entypo from 'react-native-vector-icons/Entypo';
+import Header from '../components/Header';
 
 const SettingScreen = ({navigation}) => {
   return (

@@ -3,16 +3,14 @@ import React from 'react'
 import { TouchableOpacity } from 'react-native'
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
-const Notice = ({
-    image,
-    name, 
-    date
-}
-) => {
+
+const Notice = ({navigation}) => {
   return (
-   <TouchableOpacity>
-    <View style={styles.container}>
-        <View style={styles.newscontent}>
+   <TouchableOpacity >
+    <View style={styles.container}
+     onPress={() => navigation.navigate('Noticedetail')}>
+         <View         
+         style={styles.newscontent}>
         <Text style={styles.newtext}>Bạn vừa nhận được văn bản mới</Text>
         <Text style={styles.date}>5 ngày trước </Text>
         </View>
@@ -25,8 +23,9 @@ const Notice = ({
             style={{top : 30, marginLeft : 25}}/>
         
         </View>
+        
     </View>
-   </TouchableOpacity>
+    </TouchableOpacity>
      )
 }
 
