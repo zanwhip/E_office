@@ -1,18 +1,50 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import Entypo from 'react-native-vector-icons/Entypo';
+import { color } from 'react-native-reanimated';
 
-const Documentary = () => {
+
+
+const Documentary = ({status}) => {
+  let dotColor = '';
+  let displayStatus = '';
+
+  // Xác định màu sắc dựa trên trạng thái
+  switch (status) {
+    case 'A':
+      dotColor = '#1EDC26';
+      displayStatus = 'Đã xử lí';
+      break;
+    case 'B':
+      dotColor = '#F29100';
+      displayStatus = 'Đang xử lí';
+      break;
+    case 'C':
+      dotColor = '#99999';
+      displayStatus = 'Chưa xử lí';
+      break;
+    default:
+      dotColor = 'gray';
+      break;
+  }
+
   return (
     <View style={styles.documentarycontainer}>
       <View style={styles.title}> 
-        <Text>Công văn</Text>
+        <Text style={styles.documental}>Công văn</Text>
       </View>
       <View style={styles.titledisplay}>
         <Text style={styles.namenotice}>P test gửi mail cảnh báo sắp hết hạn xử lý</Text>
         <View style={styles.description}>
         <Text style={styles.date}>30/07/2021</Text>
-        <Text style={styles.status}>Chưa xử lý</Text>
+        <View style={{ flexDirection : 'row' }}>
+        <Entypo 
+            name="dot-single"
+            size={40}
+            style={{ color : dotColor   }}/>
+        <Text style={styles.status}>{displayStatus}</Text>
         </View>
+         </View>
       </View>
     </View>
   )
@@ -26,13 +58,19 @@ const styles = StyleSheet.create({
         height : 105,
         borderRadius : 10,
       backgroundColor  : '#ffffff',
-        borderWidth : 0.5
+        borderWidth : 0.5,
+        marginVertical : 5,
 
     },
+    documental : {
+      fontSize : 20,
+      fontWeight : 'bold',
+    },
+
     title : {
         backgroundColor : '#EEEEEE',
         height : 30,
-        paddingHorizontal : 20, 
+        paddingHorizontal : 10, 
         width : '100%',
         borderTopLeftRadius : 10,
         borderTopRightRadius : 10,
@@ -55,6 +93,9 @@ const styles = StyleSheet.create({
     status :{
         fontSize : 14,
         marginLeft : 0,
+        alignItems :'center',
+        top :'10%',
+        //color : dotColor,
 
     },
     description : {

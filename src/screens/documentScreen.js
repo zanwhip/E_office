@@ -3,10 +3,13 @@ import React from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Documentary from '../components/Documentary';
 import { ScrollView } from 'react-native';
+import Entypo from 'react-native-vector-icons/Entypo';
 import Header from '../components/Header';
 
 const header = 'Các văn bản'
-
+const status1 = 'A'; // Thay đổi giá trị status tại đây
+const status2 = 'B'; // Thay đổi giá trị status tại đây
+const status3 = 'C'; // Thay đổi giá trị status tại đây
 const DocumentScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
@@ -15,15 +18,14 @@ const DocumentScreen = ({navigation}) => {
         <Text style={styles.typetext}>Có 6 văn bản mới đến</Text>
      </View>
      <ScrollView style={styles.displaycontainer}>
-     <Documentary />
-     <Documentary />
-     <Documentary />
-     <Documentary />
-     <Documentary />
-     <Documentary />
-
-     <Documentary />
-     <Documentary />
+     <Documentary status="A"/>
+     <Documentary status="B" />
+     <Documentary status="C"/>
+     <Documentary status="B"/>
+     <Documentary status="C"/>
+     <Documentary status="A" />
+     <Documentary status="C"/>
+     <Documentary status="A"/>
      </ScrollView>
       
  

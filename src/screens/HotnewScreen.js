@@ -6,9 +6,10 @@ import { ScrollView } from 'react-native';
 import Imagepost from '../components/Imagepost';
 import Header from '../components/Header';
 
-const hotnew1 = '../assets/image/hotnew1.png'
-const hotnew2 = '../assets/image/hotnew2.png'
-const hotnew3 = '../assets/image/hotnew3.png'
+const hotnew1 = require('../assets/image/hotnew1.png');
+const hotnew2 = require('../assets/image/hotnew2.png');
+const hotnew3 = require('../assets/image/hotnew3.png');
+
 
 const caption1 = 'Toàn cảnh Chương trình phát động InTE-UD 2023 tại ĐHĐN'
 const caption2 = 'TS. Đỗ Lê Hưng Toàn-Chủ tịch Hội SV ĐHĐN chia sẻ với SV'
@@ -40,10 +41,10 @@ const HotnewScreen = ({navigation} ) => {
         <View style={styles.openning}>
         <Text style={styles.openningtext}>{openning}</Text>
         </View>
-        <Imagepost image={hotnew1} caption={caption1} />
-        <Text>{title1}</Text>
+        <Imagepost image={hotnew1} caption={caption1} style={styles.content} />
+        <Text style={styles.newtext}>{title1}</Text>
         <Imagepost image={hotnew2} caption={caption2} />
-        <Text>{title2}</Text>
+        <Text style={styles.newtext}>{title2}</Text>
         <Imagepost image={hotnew3} caption={caption3}/>  
      </ScrollView>
     </View>
@@ -66,6 +67,8 @@ displaycontainer : {
   caption : {
     width : '100%',
     marginTop : 10,
+    justifyContent : 'center',
+    textAlign : 'justify',
     //paddingHorizontal : 15,
 
 
@@ -74,6 +77,8 @@ displaycontainer : {
     fontSize : 16,
     fontWeight : 'bold',
     color : '#1668C7',
+    justifyContent : 'center',
+    textAlign : 'justify',
 
   },
   date : {
@@ -101,5 +106,11 @@ displaycontainer : {
     fontWeight : 600,
     textAlign : 'justify',
     fontWeight : 'bold'
+  },
+  newtext : {
+    fontSize : 15,
+    fontWeight : 600,
+    textAlign : 'justify',
+    fontWeight : '400'
   }
 })

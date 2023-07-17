@@ -3,7 +3,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import React from 'react'
 
-const Header = ({header}) => {
+const Header = ({header}, {navigation}) => {
   return (
     <View >
      <View style={styles.header}>
@@ -17,10 +17,7 @@ const Header = ({header}) => {
     <View >
     <Text style={styles.textheader}>{header}</Text>
     </View>
-   
-    
      </View>
-     
     </View>
   )
 }
@@ -38,12 +35,13 @@ const styles = StyleSheet.create({
     header : {
       flexDirection : 'row',
       width : '100%',
-      height : 60,
+      height : 80,
       backgroundColor : '#1668C7',
       top : 0,
       paddingTop : 20,
       alignContent : 'center',
       paddingHorizontal : 10,
+      
       //justifyContent : 'center'
 
   },

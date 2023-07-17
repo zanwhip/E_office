@@ -1,9 +1,10 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 
-const handleLinkPress = () => {
-  // Xử lý khi người dùng nhấn vào liên kết
-  Linking.openURL('https://facebook.com');
+
+const handlePress = () => {
+  const url = {link}; // Thay thế URL bằng liên kết bạn muốn mở
+  Linking.openURL(url);
 };
 
 const Bio = ({image,name, unit, address, phone, email, link}) => {
@@ -12,7 +13,7 @@ const Bio = ({image,name, unit, address, phone, email, link}) => {
     <View>
     <View style = {styles.container}>
       <View style={styles.imagecontainer}> 
-      <Image src={image} style={styles.image}  />
+      <Image source={image} style={styles.image}  />
       </View>
       
       <Text style={styles.name}>{name}</Text>
@@ -20,11 +21,9 @@ const Bio = ({image,name, unit, address, phone, email, link}) => {
       <Text style={styles.title}>Địa chỉ liên hệ : {address}</Text>
       <Text style={styles.title}>Điện thoại cơ quan :{phone}</Text>
       <Text style={styles.title}>Email :{email}</Text>
-      <TouchableOpacity onPress={handleLinkPress}>
-          <Text style={{ color: 'blue', textDecorationLine: 'underline' }}>
-            Lý lịch hoạt động
-          </Text>
-        </TouchableOpacity>
+      <TouchableOpacity onPress={handlePress}>
+      <Text style={{ color: 'blue', textDecorationLine: 'underline' }}>Lí lịch hoạt động</Text>
+    </TouchableOpacity>
     </View>
     </View>
   )

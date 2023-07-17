@@ -5,37 +5,45 @@ import React , {useState}from 'react'
 import { TouchableOpacity } from 'react-native';
 import Header from '../components/Header';
 import Menu from '../components/Menu';
+// import 'react-native-gesture-handler';
+// import { createDrawerNavigator } from '@react-navigation/drawer';
+// import { NavigationContainer } from '@react-navigation/native';
 
+// const Drawer = createDrawerNavigator();
 
 const WelcomeScreen = ({navigation}) => {
-    const [isSidebarOpen, setSidebarOpen] = useState(false);
-    const toggleSidebar = () => {
-        setSidebarOpen(!isSidebarOpen);
-      };
+    // const [isSidebarOpen, setSidebarOpen] = useState(false);
+    // const toggleSidebar = () => {
+    //     setSidebarOpen(!isSidebarOpen);
+    //   };
      
 
-      const renderSidebar = () => {
-        return (
-          <View style={styles.sidebar}>
-            <Menu />
-          </View>
-        );
-      };
+    //   const renderSidebar = () => {
+    //     return (
+    //       <View style={styles.sidebar}>
+    //         <Menu />
+    //       </View>
+    //     );
+    //   };
   return (
-    <DrawerLayoutAndroid
-    drawerWidth={300}
-    drawerPosition="left"
-    renderNavigationView={renderSidebar}
-    onDrawerClose={() => setSidebarOpen(false)}
-    onDrawerOpen={() => setSidebarOpen(true)}
+//     <DrawerLayoutAndroid
+//     drawerWidth={300}
+//     drawerPosition="left"
+//     renderNavigationView={renderSidebar}
+//     onDrawerClose={() => setSidebarOpen(false)}
+//     onDrawerOpen={() => setSidebarOpen(true)}
+//     ref={(ref) => {
+//         this.drawer = ref;
+//       }}
     
-  >
+//   >
     <ScrollView style={styles.container}>
+         {/* <Header onPressMenu={toggleSidebar} onPressBell={() => navigation.navigate('Notice')} /> */}
      <View style={styles.Header}>
      <View style={styles.iconheader}>
-        <TouchableOpacity onPress={toggleSidebar}>
+        <TouchableOpacity >
         <Entypo name="menu"
-      
+          
           size={30}
           color='#ffffff'
           />
@@ -124,7 +132,7 @@ const WelcomeScreen = ({navigation}) => {
      </View>
      </View>
     </ScrollView>
-    </DrawerLayoutAndroid>
+    // </DrawerLayoutAndroid>
   )
 }
 
@@ -134,13 +142,13 @@ const styles = StyleSheet.create({
     container : {
         flex: 1,
         backgroundColor: '#e3e3e3',
-       
+       width : 420
         
     },
     Header :{
         backgroundColor : '#0051AE',
         width : '100%',
-        height : 151,
+        height : 180,
         position : 'absolute',
         top : 0,
         left : 0,
@@ -194,7 +202,7 @@ const styles = StyleSheet.create({
     contentcontainer : {
         width : '100%',
         height : '100%',
-        marginTop : 20,
+       paddingVertical : 10,
         marginHorizontal : 5,
 
     },
@@ -211,10 +219,8 @@ const styles = StyleSheet.create({
         backgroundColor : '#ffffff',
         height : 200,
         width : '40%',
-        marginLeft : 10 ,
-        marginRight : 10,
-        marginTop : 5, 
-        marginBottom : 5,
+        marginHorizontal : 10,
+        marginVertical :10,
         borderRadius : 10,
         alignContent : 'center',
         paddingTop : 5,
@@ -249,15 +255,14 @@ const styles = StyleSheet.create({
     },
     iconheader : {
         flexDirection : 'row',
-        marginTop : 20,
-        //backgroundColor : '#000000',
+        marginTop : 30,
         height : 40,
         width : '100%',
         paddingLeft : 20,
         
     },
     bellicon : {
-        marginLeft : 250,
+        marginLeft : '80%',
       
     }
 

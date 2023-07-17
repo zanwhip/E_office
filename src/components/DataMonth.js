@@ -22,8 +22,7 @@ const DataMonth = ({
             name="right"
             size={20}
             color='#000000'
-            style={{top : 0, marginLeft : 25}}/>
-        
+            style={{top : 0, right :3, top :'40%'}}/>
         </View>
     </View>
    </TouchableOpacity>
@@ -39,17 +38,20 @@ const styles = StyleSheet.create({
         height : 90,
         width : '100%',
         backgroundColor : '#ffffff',
+        justifyContent : 'space-around',
+        marginVertical : 5,
+        paddingVertical :5,
         
     },
        newtext : {
         fontSize : 18,
-        fontWeight : '200',
+        fontWeight : '400',
         width: 300,
         marginLeft : 10
 
     },
     date : {
-        marginTop : 10,
+        marginTop : 20,
         marginLeft : 10
     }
 })

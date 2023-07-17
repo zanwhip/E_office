@@ -4,7 +4,7 @@ import React from 'react'
 const Imagepost = ( {image,caption}) => { 
   return (
     <View style = {styles.container}>
-       <Image src={image} style={styles.image}  />
+       <Image source={image} style={styles.image}  />
       <Text style={styles.title}>{caption}</Text>
     </View>
   )
@@ -19,6 +19,8 @@ const styles = StyleSheet.create({
         backgroundColor : '#e3e3e3',
         marginVertical : 30,
         justifyContent : 'center',
+   
+        textAlign : 'justify',
 
 
     },
@@ -33,6 +35,8 @@ const styles = StyleSheet.create({
       fontSize : 15,
       fontWeight : '500',
       fontStyle : 'italic',
+      justifyContent : 'center',
+      textAlign : 'justify',
       
     }
 })
