@@ -5,18 +5,11 @@ import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Header from '../components/Header';
 
+const header = 'Cài đặt'
 const SettingScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
-         <View style={styles.header}>
-    <Ionicons 
-    name="arrow-back-outline"
-    size={20}
-    color='#ffffff'
-    onPress={() => navigation.goBack()}
-    />
-    <Text style={styles.textheader}>Các văn bản</Text>
-     </View>
+          <Header header={header} />
         <View style={styles.banner}>
         <Image source={require('../assets/image/setting.png')} style={styles.image} />
         </View>

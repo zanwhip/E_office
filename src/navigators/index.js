@@ -10,6 +10,7 @@ import OpenletterScreen from '../screens/OpenletterScreen';
 import MissionScreen from '../screens/MissionScreen';
 import TypicalPeopleScreen from '../screens/TypicalPeopleScreen';
 import HistoryScreen from '../screens/HistoryScreen';
+import SalaryScreen from '../screens/SalaryScreen';
 
 
 
@@ -45,6 +46,7 @@ const Navigators = () => {
            <Stack.Screen name="Mission" component={MissionScreen} />
            <Stack.Screen name="TypicalPerson" component={TypicalPeopleScreen} />
            <Stack.Screen name="History" component={HistoryScreen} />
+           <Stack.Screen name="Salary" component={SalaryScreen} />
            
           </Stack.Navigator>
       </NavigationContainer>

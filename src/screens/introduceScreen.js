@@ -83,10 +83,12 @@ const IntroduceScreen = ({navigation}) => {
             color='#000000'
             style={{position: 'absolute', right: 5, top : 10}}/>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.subcontentcontainer}>
+        <TouchableOpacity style={styles.subcontentcontainer}
+         onPress={() => navigation.navigate('TypicalPerson')}>
+
             <Text 
             style={styles.subcontent}
-            onPress={() => navigation.navigate('TypicalPerson')}
+           
             >
                 Gương mặt tiêu biểu </Text>
             <AntDesign 

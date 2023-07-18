@@ -20,11 +20,11 @@ const Documentary = ({status}) => {
       displayStatus = 'Đang xử lí';
       break;
     case 'C':
-      dotColor = '#99999';
+      dotColor = '#AAAAAA';
       displayStatus = 'Chưa xử lí';
       break;
     default:
-      dotColor = 'gray';
+      dotColor = '#AAAAAA';
       break;
   }
 
@@ -41,8 +41,8 @@ const Documentary = ({status}) => {
         <Entypo 
             name="dot-single"
             size={40}
-            style={{ color : dotColor   }}/>
-        <Text style={styles.status}>{displayStatus}</Text>
+            style={{ color : dotColor , top  : '15%', marginRight : 0  }}/>
+        <Text style={{  fontSize : 14, alignItems :'center',  top :'27%', color : dotColor }}>{displayStatus}</Text>
         </View>
          </View>
       </View>
@@ -86,18 +86,12 @@ const styles = StyleSheet.create({
     },
     date : {
        // right : 0,
+       marginTop : '8%',
         fontStyle : 'italic',
         
 
     },
-    status :{
-        fontSize : 14,
-        marginLeft : 0,
-        alignItems :'center',
-        top :'10%',
-        //color : dotColor,
-
-    },
+  
     description : {
         flexDirection : 'row',
         justifyContent : 'space-between'

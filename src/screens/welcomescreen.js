@@ -5,45 +5,39 @@ import React , {useState}from 'react'
 import { TouchableOpacity } from 'react-native';
 import Header from '../components/Header';
 import Menu from '../components/Menu';
-// import 'react-native-gesture-handler';
-// import { createDrawerNavigator } from '@react-navigation/drawer';
-// import { NavigationContainer } from '@react-navigation/native';
-
-// const Drawer = createDrawerNavigator();
+import Modal from 'react-native-modal';
 
 const WelcomeScreen = ({navigation}) => {
-    // const [isSidebarOpen, setSidebarOpen] = useState(false);
-    // const toggleSidebar = () => {
-    //     setSidebarOpen(!isSidebarOpen);
-    //   };
-     
+    const [isSidebarOpen, setSidebarOpen] = useState(false);
 
-    //   const renderSidebar = () => {
-    //     return (
-    //       <View style={styles.sidebar}>
-    //         <Menu />
-    //       </View>
-    //     );
-    //   };
+    const toggleSidebar = () => {
+      setSidebarOpen(!isSidebarOpen);
+    };
+    const handleMenuItemPress = () => {
+        setSidebarOpen(false);
+    }
   return (
-//     <DrawerLayoutAndroid
-//     drawerWidth={300}
-//     drawerPosition="left"
-//     renderNavigationView={renderSidebar}
-//     onDrawerClose={() => setSidebarOpen(false)}
-//     onDrawerOpen={() => setSidebarOpen(true)}
-//     ref={(ref) => {
-//         this.drawer = ref;
-//       }}
-    
-//   >
-    <ScrollView style={styles.container}>
-         {/* <Header onPressMenu={toggleSidebar} onPressBell={() => navigation.navigate('Notice')} /> */}
-     <View style={styles.Header}>
+    <View style={styles.container}>
+    <Modal
+      isVisible={isSidebarOpen}
+      animationIn="slideInLeft"
+      animationOut="slideOutLeft"
+      swipeDirection="left"
+      onSwipeComplete={toggleSidebar}
+      style={styles.sidebarModal}
+    >
+      <View style={styles.sidebar}>
+        <Menu handleMenuItemPress={handleMenuItemPress} isSidebarOpen={isSidebarOpen}  />
+        
+      </View>
+    </Modal>
+        
+    <ScrollView style={styles.scrollContainer}>
+    <View style={styles.Header}>
      <View style={styles.iconheader}>
         <TouchableOpacity >
         <Entypo name="menu"
-          
+           onPress={toggleSidebar}
           size={30}
           color='#ffffff'
           />
@@ -132,8 +126,9 @@ const WelcomeScreen = ({navigation}) => {
      </View>
      </View>
     </ScrollView>
-    // </DrawerLayoutAndroid>
+    </View>
   )
+  
 }
 
 export default WelcomeScreen
@@ -142,9 +137,23 @@ const styles = StyleSheet.create({
     container : {
         flex: 1,
         backgroundColor: '#e3e3e3',
-       width : 420
+       width : '100%'
         
     },
+    scrollContainer: {
+        flex: 1,
+        backgroundColor: '#e3e3e3',
+      },
+      sidebarModal: {
+        margin: 0,
+        justifyContent: 'flex-start',
+        width : '80%'
+      },
+      sidebar: {
+        width: '60%',
+        height: '100%',
+        backgroundColor: '#f2f2f2',
+      },
     Header :{
         backgroundColor : '#0051AE',
         width : '100%',

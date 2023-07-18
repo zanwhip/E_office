@@ -27,7 +27,7 @@ const Loginscreen = ({navigation}) => {
        >
         <Text style={styles.textbutton}>Google</Text>
       </TouchableOpacity>
-      <Text style={styles.subtext}> Chọn đăng nhập bằng tài khoản mail Office 365(màu xanh) hoặc tài khoản Gmail(màu đỏ).</Text>
+      <Text style={styles.subtext}> Chọn đăng nhập bằng tài khoản mail <Text style={{ color : '#FF6262' }}>Office 365</Text> hoặc tài khoản <Text style={{ color :'#1668C7' }}>Gmail</Text> .</Text>
            </View>
       <StatusBar style="auto" />
     </View>
@@ -39,7 +39,7 @@ export default Loginscreen
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#25A3DB',
+        backgroundColor: '#1668C7',
         alignItems: 'center',
         justifyContent: 'center',
         
@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
         alignItems : 'center',
         borderRadius : 10,
         marginBottom :5,
+        
     
       },
       image : {
@@ -65,15 +66,14 @@ const styles = StyleSheet.create({
     
       },
       TextHeader : {
-        marginTop : 10,
-        marginBottom : 10,
+        marginVertical : 10,
         fontSize : 20,
-        color : '#000000',
+        color : '#ffffff',
         fontWeight :'bold',
       },
       TextTitle : {
         fontSize : 15,
-        color : '#000000',
+        color : '#ffffff',
         fontWeight :'bold',
         marginBottom : 20,
         },
@@ -98,7 +98,9 @@ const styles = StyleSheet.create({
         },
         subtext : {
           fontSize : 14,
-          fontWeight : '100',
+          fontWeight : '400',
+          justifyContent : 'center',
+          alignContent : 'center'
         },
         image : {
           height : 222.15,
@@ -111,6 +113,7 @@ const styles = StyleSheet.create({
           fontWeight : 'bold',
           justifyContent : 'center',
           marginVertical : 10,
+          color : '#ffffff'
           
           }
 })
