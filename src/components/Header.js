@@ -1,22 +1,31 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { useNavigation } from '@react-navigation/native';
 
 import React from 'react'
 
-const Header = ({header}, {navigation}) => {
+const Header = ({header}) => {
+  const navigation = useNavigation();
+  const handleGoBack = () => {
+    navigation.goBack();
+  };
   return (
     <View >
      <View style={styles.header}>
-     <Ionicons 
+      <TouchableOpacity onPress={handleGoBack} >
+      <Ionicons 
     name="arrow-back-outline"
-    size={20}
+    size={40}
     color='#ffffff'
-    style ={{ left : 10 }}
-    onPress={() => navigation.goBack()}
+    //style ={{ left : 10 }}
+    
     />
+      </TouchableOpacity>
+    
     <View >
     <Text style={styles.textheader}>{header}</Text>
     </View>
+    <View></View>
      </View>
     </View>
   )
@@ -38,12 +47,10 @@ const styles = StyleSheet.create({
       height : 80,
       backgroundColor : '#1668C7',
       top : 0,
-      paddingTop : 20,
+      paddingTop : 40,
       alignContent : 'center',
       paddingHorizontal : 10,
-      
-      
-      //justifyContent : 'center'
+      justifyContent : 'space-between'
 
   },
   textcontainer : {
@@ -58,6 +65,6 @@ const styles = StyleSheet.create({
       fontSize : 22,
       color : '#ffffff',
       fontWeight : 'bold',
-     marginLeft : 80,
+     //marginLeft : 80,
   },
 })

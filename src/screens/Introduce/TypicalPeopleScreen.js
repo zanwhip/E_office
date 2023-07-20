@@ -1,12 +1,12 @@
 import { StyleSheet, Text, View, Image, T } from 'react-native'
 import React from 'react'
-import Bio from '../components/Bio'
-import Header from '../components/Header'
+import Bio from '../../components/Bio'
+import Header from '../../components/Header'
 import { ScrollView } from 'react-native'
 
 
 
-const bio1 = require('../assets/image/bio.png');
+const bio1 = require('../../assets/image/bio.png');
 const bio2 = '../assets/image/bio.png'
 const name = 'GS.TSKH. Bùi Văn Ga'
 const unit = 'Nguyên Thứ trưởng Bộ GD&ĐT - Bộ GD&ĐT'

@@ -6,7 +6,7 @@ import { ScrollView } from 'react-native';
 
 const extract = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <View style={styles.extraccontainer}>
         <View style={styles.extact}> 
             <Text style={styles.properties}>Trích yếu</Text> 
@@ -18,7 +18,7 @@ const extract = () => {
     size={20}
     color='#1768D4'
     />
-            <Text style={{ color : '#1768D4' }}>1569-247-ttr-vncdtva_1683875983.pdf</Text>
+            <Text style={{ color : '#1768D4',textDecorationLine: 'underline' }}>1569-247-ttr-vncdtva_1683875983.pdf</Text>
         </View>
         </View>
     </View>
@@ -28,10 +28,13 @@ const extract = () => {
 export default extract
 
 const styles = StyleSheet.create({
+  container : {
+    flex : 1,
     
+  },
   extraccontainer : {
-    width : 330,
-    height : 160,
+    width : '90%',
+    height : 140,
     backgroundColor : '#ffffff',
     //paddingBottom : 10,
     marginLeft : 15,
@@ -40,7 +43,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   extact: {
-    width : 330,
+    width : '100%',
     height : 40,
     borderRadius: 10,
     backgroundColor : '#EEEEEE',

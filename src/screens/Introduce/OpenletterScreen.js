@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
-import Header from '../components/Header'
+import Header from '../../components/Header'
 import { ScrollView } from 'react-native'
 
 const header = 'Lời ngỏ'
@@ -10,7 +10,7 @@ const OpenletterScreen = ({navigation}) => {
     <View styles={styles.container}>
       <Header header={header}/>
       <ScrollView style={styles.displaycontainer}>
-      <Image source={require('../assets/image/openningletter.jpg')} style={styles.image} />
+      <Image source={require('../../assets/image/openningletter.jpg')} style={styles.image} />
       <Text style={styles.name}>PGS.TS.NGƯT LƯU TRANG</Text>
       <Text style={styles.position}>HIỆU TRƯỞNG</Text>
       <View style={styles.openninglettercontainer}>

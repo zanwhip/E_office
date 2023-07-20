@@ -7,19 +7,52 @@ import { useNavigation } from '@react-navigation/native';
 const Menu = ({ handleMenuItemPress, isSidebarOpen }) => {
  
   const navigation = useNavigation();
+
+
   const handleMenuPressSetting  = () => {
     handleMenuItemPress();
       navigation.navigate('Setting');
     };
-    const handleMenuPressSalary  = () => {
-      handleMenuItemPress();
+  const handleMenuPressSalary  = () => {
+    handleMenuItemPress();
         navigation.navigate('Salary');
-      };
+    };
+  const handleMenuPressProcessManage  = () => {
+    handleMenuItemPress();
+       navigation.navigate('ProcessManage');
+  };  
+    const handleMenuPressWorkManage  = () => {
+      handleMenuItemPress();
+         navigation.navigate('WorkManage');
+    };   
+
+    const handleMenuIncommingDocumetary  = () => {
+      handleMenuItemPress();
+         navigation.navigate('IncommingDocumetary');
+    };  
+    const handleMenuOutgoingDocumetary  = () => {
+      handleMenuItemPress();
+         navigation.navigate('OutgoingDocumentary');
+    };    
+
+    const handleMenuInternalDocumentReceive = () => {
+      handleMenuItemPress();
+         navigation.navigate('InternalDocumentReceive');
+    };
+
+    const handleMenuInternalDocumentSend = () => {
+      handleMenuItemPress();
+         navigation.navigate('InternalDocumentSend');
+    };
+
+
+        
+
     const [isDropdownAOpen, setDropdownAOpen] = useState(false);
     const [isDropdownA1Open, setDropdownA1Open] = useState(false);
     const [isDropdownA2Open, setDropdownA2Open] = useState(false);
     const [isDropdownA3Open, setDropdownA3Open] = useState(false);
-    const [isDropdownA9Open, setDropdownA9Open] = useState(false);
+   
     const toggleDropdownA = () => {
       setDropdownAOpen(!isDropdownAOpen);
     };
@@ -34,11 +67,8 @@ const Menu = ({ handleMenuItemPress, isSidebarOpen }) => {
       const toggleDropdownA3 = () => {
         setDropdownA3Open(!isDropdownA3Open);
       };
-      const toggleDropdownA9 = () => {
-        setDropdownA9Open(!isDropdownA9Open);
-      };
-    const getDropdownIcon = (isOpen) => {
-        return isOpen ? 'chevron-down' : 'chevron-up';
+      const getDropdownIcon = (isOpen) => {
+        return isOpen ? 'chevron-up' : 'chevron-down';
       };
   
     const [isDropdownBOpen, setDropdownBOpen] = useState(false);
@@ -65,7 +95,7 @@ const Menu = ({ handleMenuItemPress, isSidebarOpen }) => {
       
 
 <ScrollView style={styles.dropdowncontainer} contentContainerStyle={styles.contentContainer}>
-      <TouchableOpacity style={styles.menuItem} onPress={handleMenuItemPress}>
+      <TouchableOpacity style={styles.menuItem} onPress={toggleDropdownA}>
           <Text style={styles.menuItemText}>Điều hành tác nghiệp</Text>
           <Entypo
           name={getDropdownIcon(isDropdownAOpen)}
@@ -83,7 +113,7 @@ const Menu = ({ handleMenuItemPress, isSidebarOpen }) => {
             </TouchableOpacity>
             {isDropdownA1Open && (
               <View style={styles.subDropdown}>
-                <TouchableOpacity style={styles.subDropdownItem}>
+                <TouchableOpacity style={styles.subDropdownItem} onPress={handleMenuIncommingDocumetary} >
                   <Text style={styles.subDropdownItemText}>Danh sách văn bản đến</Text>
                 </TouchableOpacity>
               </View>
@@ -98,9 +128,9 @@ const Menu = ({ handleMenuItemPress, isSidebarOpen }) => {
               />
             </TouchableOpacity>
             {isDropdownA2Open && (
-              <View style={styles.subDropdown}>
-                <TouchableOpacity style={styles.subDropdownItem}>
-                  <Text style={styles.subDropdownItemText}>Danh sách văn bản gửi di </Text>
+              <View style={styles.subDropdown} >
+                <TouchableOpacity style={styles.subDropdownItem} onPress={handleMenuOutgoingDocumetary}>
+                  <Text style={styles.subDropdownItemText}>Danh sách văn bản đi </Text>
                 </TouchableOpacity>
 
               </View>
@@ -117,25 +147,31 @@ const Menu = ({ handleMenuItemPress, isSidebarOpen }) => {
             </TouchableOpacity>
             {isDropdownA3Open && (
               <View style={styles.subDropdown}>
-                <TouchableOpacity style={styles.subDropdownItem}>
+                <TouchableOpacity style={styles.subDropdownItem} onPress={handleMenuInternalDocumentSend} >
                   <Text style={styles.subDropdownItemText}>Văn bản nội bộ đã gửi</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.subDropdownItem}>
+                <TouchableOpacity style={styles.subDropdownItem} onPress={handleMenuInternalDocumentReceive} >
                   <Text style={styles.subDropdownItemText}>Văn bản nội bộ đã nhận</Text>
                 </TouchableOpacity>
 
               </View>
             )}
 
-            <TouchableOpacity style={styles.dropdownItem}>
-              <Text style={styles.dropdownItemText}>Quản lí công việc</Text>
+            <TouchableOpacity
+             style={styles.dropdownItem}
+             onPress={handleMenuPressWorkManage}
+             >
+              <Text style={styles.dropdownItemText}>Quản lý công việc</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.dropdownItem}>
               <Text style={styles.dropdownItemText}>Đăng kí lịch tuần</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.dropdownItem}>
-              <Text style={styles.dropdownItemText}>Quản lí tiến độ</Text>
+            <TouchableOpacity 
+            style={styles.dropdownItem}
+            onPress={handleMenuPressProcessManage}
+            >
+              <Text style={styles.dropdownItemText}>Quản lý tiến độ</Text>
             </TouchableOpacity>
            
           </View>
@@ -210,7 +246,6 @@ const styles = StyleSheet.create({
       menuItem: {
         paddingVertical: 10,
         paddingHorizontal: 20,
-        // borderBottomWidth: 1,
         backgroundColor: '#ffffff',
         flexDirection : 'row',
         width : '100%',
@@ -224,8 +259,6 @@ const styles = StyleSheet.create({
         color : '#1668C7'
       },
       dropdown: {
-        //marginLeft: 10,
-       // marginTop: 5,
        
       },
       dropdownItem: {
@@ -236,10 +269,7 @@ const styles = StyleSheet.create({
         flexDirection : 'row',
         height : 60,
         backgroundColor : '#ffffff'
-        
-
-
-      },
+        },
       dropdownItemText: {
         fontSize: 16,
         fontWeight : '600',
@@ -264,9 +294,7 @@ const styles = StyleSheet.create({
         fontSize: 16,        
         fontWeight : '600',
         color : '#1668C7'
-
-
-      },
+    },
       dropdowncontainer : {
         flex: 1,
         height: '100%',

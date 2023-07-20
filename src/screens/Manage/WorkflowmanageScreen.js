@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Notfound from '../components/Notfound';
-import Header from '../components/Header';
+import Notfound from '../../components/Notfound';
+import Header from '../../components/Header';
 
 
 const WorkflowmanageScreen = ({navigation}) => {

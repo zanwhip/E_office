@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, ImageBackground, ScrollView } from 'react-native'
-import Header from '../components/Header'
+import Header from '../../components/Header'
 
 import React from 'react'
 const header = 'Lịch sử hình thành'
@@ -9,7 +9,7 @@ const HistoryScreen = () => {
     <View style={styles.container}>
       <Header header={header} />
     
-       <ImageBackground source={require('../assets/image/background2.png')} style={styles.backgroundImage} > 
+       <ImageBackground source={require('../../assets/image/background2.png')} style={styles.backgroundImage} > 
    
   <ScrollView>
     <View style={styles.contentdisplay}>

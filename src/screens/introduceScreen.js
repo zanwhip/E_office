@@ -50,7 +50,7 @@ const IntroduceScreen = ({navigation}) => {
             name="right"
             size={20}
             color='#000000'
-            style={{position: 'absolute', right: 5, top : 10}}/>
+            />
         </TouchableOpacity>
         <TouchableOpacity
          style={styles.subcontentcontainer}
@@ -61,7 +61,7 @@ const IntroduceScreen = ({navigation}) => {
             name="right"
             size={20}
             color='#000000'
-            style={{position: 'absolute', right: 5, top : 10}}/>
+            />
         </TouchableOpacity>
         <TouchableOpacity
         onPress={() => navigation.navigate('History')}
@@ -71,7 +71,7 @@ const IntroduceScreen = ({navigation}) => {
             name="right"
             size={20}
             color='#000000'
-            style={{position: 'absolute', right: 5, top : 10}}/>
+            />
         </TouchableOpacity>
         <TouchableOpacity
          onPress={handleOpenLink}
@@ -81,7 +81,7 @@ const IntroduceScreen = ({navigation}) => {
             name="right"
             size={20}
             color='#000000'
-            style={{position: 'absolute', right: 5, top : 10}}/>
+           />
         </TouchableOpacity>
         <TouchableOpacity style={styles.subcontentcontainer}
          onPress={() => navigation.navigate('TypicalPerson')}>
@@ -95,7 +95,7 @@ const IntroduceScreen = ({navigation}) => {
             name="right"
             size={20}
             color='#000000'
-            style={{position: 'absolute', right: 5, top : 10}}/>
+            />
         </TouchableOpacity>
         <TouchableOpacity 
         onPress={handlePress}
@@ -105,7 +105,7 @@ const IntroduceScreen = ({navigation}) => {
             name="right"
             size={20}
             color='#000000'
-            style={{position: 'absolute', right: 5, top : 10}}/>
+            />
 
         </TouchableOpacity>
 
@@ -141,27 +141,28 @@ const styles = StyleSheet.create({
     },
     contentcontainer : {
         marginTop : 30,
-        paddingHorizontal : 10,
+        paddingHorizontal : 15,
         width : '100%',
-        height : 372,
         backgroundColor : '#e3e3e3'
 
     },
     subcontentcontainer : {
         width : '100%',
-        height : 50,
+        height : 70,
         backgroundColor : '#ffffff',
-        marginTop : 20,
+        marginTop : 10,
         borderRadius : 10,
-        marginLeft : 2,
-        flexDirection : 'row'
+        flexDirection : 'row',
+        alignItems : 'center',
+        paddingHorizontal : 20,
+        justifyContent : 'space-between'
+        
 
     },
        subcontent : {
         fontSize : 20,
         fontWeight : 'bold',
-        marginLeft : 20,
-        marginTop : 10,
+        
     }
 
 

@@ -5,7 +5,7 @@ import { ScrollView } from 'react-native';
 import DataMonth from '../components/DataMonth';
 import Header from '../components/Header';
 
-const header = 'Số liêu CBVC'
+const header = 'Số liệu CBVC'
 
 const DataCBVCScreen = ({navigation}) => {
   return (

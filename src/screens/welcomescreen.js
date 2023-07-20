@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, ScrollView, DrawerLayoutAndroid  } from 'react-native'
+import { StyleSheet, Text, View, Image, ScrollView, TouchableWithoutFeedback } from 'react-native'
 import Entypo from 'react-native-vector-icons/Entypo';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import React , {useState}from 'react'
@@ -9,14 +9,16 @@ import Modal from 'react-native-modal';
 
 const WelcomeScreen = ({navigation}) => {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
-
+   
     const toggleSidebar = () => {
       setSidebarOpen(!isSidebarOpen);
     };
     const handleMenuItemPress = () => {
         setSidebarOpen(false);
     }
+    
   return (
+    
     <View style={styles.container}>
     <Modal
       isVisible={isSidebarOpen}
@@ -26,7 +28,7 @@ const WelcomeScreen = ({navigation}) => {
       onSwipeComplete={toggleSidebar}
       style={styles.sidebarModal}
     >
-      <View style={styles.sidebar}>
+      <View style={styles.sidebar} >
         <Menu handleMenuItemPress={handleMenuItemPress} isSidebarOpen={isSidebarOpen}  />
         
       </View>
@@ -35,13 +37,13 @@ const WelcomeScreen = ({navigation}) => {
     <ScrollView style={styles.scrollContainer}>
     <View style={styles.Header}>
      <View style={styles.iconheader}>
-        <TouchableOpacity >
+        <TouchableOpacity  onPress={toggleSidebar} >
         <Entypo name="menu"
-           onPress={toggleSidebar}
+           
           size={30}
           color='#ffffff'
           />
-        </TouchableOpacity>
+        </TouchableOpacity >
      
            <FontAwesome5 name="bell"
           size={30}
@@ -81,7 +83,7 @@ const WelcomeScreen = ({navigation}) => {
         </TouchableOpacity>
      </View>
      <View style={styles.subcontainer}>
-        <Text style={styles.textmain}>Điều hành doanh nghiêp </Text>
+        <Text style={styles.textmain}>Điều hành tác nghiệp </Text>
      </View>
      <View style={styles.contentcontainer} >
      <View style={styles.contentcontainerrow} >
@@ -100,7 +102,7 @@ const WelcomeScreen = ({navigation}) => {
         }
          >
         <Image source={require('../assets/image/box2.png')} style={styles.image} />
-        <Text style={styles.textbox}>Quản lí báo cáo</Text>
+        <Text style={styles.textbox}>Quản lý báo cáo</Text>
         <Text style={styles.subtextbox}>Soạn thảo và gửi các báo cáo cho các đơn vị cấp trên và các ban, văn phòng. Đồng thời quản lý các báo cáo gửi đến, gửi đi.</Text>
         
         </TouchableOpacity>
@@ -127,6 +129,7 @@ const WelcomeScreen = ({navigation}) => {
      </View>
     </ScrollView>
     </View>
+    
   )
   
 }
@@ -194,7 +197,7 @@ const styles = StyleSheet.create({
         width : 80,
     },
     textbanner : {
-        fontSize : 12,
+        fontSize : 14,
         fontWeight : 'bold',
     },
     subcontainer : {
@@ -204,7 +207,7 @@ const styles = StyleSheet.create({
     textmain : {
         paddingLeft : 10,
         color : '#000000',
-        fontSize : 22,
+        fontSize : 20,
         fontWeight : 'bold',
 
     },
@@ -212,14 +215,14 @@ const styles = StyleSheet.create({
         width : '100%',
         height : '100%',
        paddingVertical : 10,
-        marginHorizontal : 5,
+       
 
     },
     contentcontainerrow : {
         flexDirection: 'row',
         backgroundColor : '#e3e3e3',
         width : '100%',
-        height : 220,
+        //height : 220,
         alignItems : 'center',
         marginBottom : 5,
             },

@@ -2,27 +2,21 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { ScrollView } from 'react-native';
-import Notice from '../components/Notice';
-import Header from '../components/Header';
+import Notice from '../../components/Notice';
+import Header from '../../components/Header';
 import { TouchableOpacity } from 'react-native';
 
+const header = 'Thông báo'
 const NoticeScreen = ({navigation}) => {
   return (
     <View>
-       <View style={styles.header}>
-    <Ionicons 
-    name="arrow-back-outline"
-    size={20}
-    color='#ffffff'
-    onPress={() => navigation.goBack()}
-    />
-    <Text style={styles.textheader}>Thông báo</Text>
-     </View>
+        <Header header={header} />
+       
      <View style={styles.datamonth}>
      <ScrollView style={styles.datacontainer}>
          
      <Notice />
-     <Notice  onPress={() => navigation.navigate('Noticedetail')} />
+     <Notice />
      <Notice />
      <Notice />
      <Notice />

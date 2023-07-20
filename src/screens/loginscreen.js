@@ -14,7 +14,7 @@ const Loginscreen = ({navigation}) => {
         <Text style={styles.TextTitle}>CHỨNG THỰC TẬP TRUNG UDN</Text>
       </View>
      <View style={styles.box}> 
-      <Text style={styles.TextHeader}>Đăng nhập</Text>
+      <Text style={{  marginVertical : 10,fontSize : 20,color : '#000000',fontWeight :'bold', }}>Đăng nhập</Text>
       <TouchableOpacity 
       style={styles.buttonMicro}
       onPress={() => navigation.navigate('Welcome')}
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
       },
       box : {
         height : 268,
-        width : 328,
+        width : '76%',
         backgroundColor : '#ffffff',
         alignItems : 'center',
         borderRadius : 10,
@@ -100,7 +100,9 @@ const styles = StyleSheet.create({
           fontSize : 14,
           fontWeight : '400',
           justifyContent : 'center',
-          alignContent : 'center'
+          alignContent : 'center',
+          paddingHorizontal : 10,
+         
         },
         image : {
           height : 222.15,

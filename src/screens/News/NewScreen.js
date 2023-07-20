@@ -1,25 +1,17 @@
 import { StyleSheet, Text, View, Image, ScrollView } from 'react-native'
 import React, { useState } from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import News from '../components/News';
+import News from '../../components/News';
 import { TouchableOpacity } from 'react-native';
-import Header from '../components/Header';
+import Header from '../../components/Header';
+import BannerImage from "../../assets/image/bannerNew.png"
 
-
-
+const header = 'Tin tức - Sự kiện'
 
 const NewScreen = ({navigation}) => {
   return (
     <View>
-      <View style={styles.header}>
-    <Ionicons 
-    name="arrow-back-outline"
-    size={20}
-    color='#ffffff'
-    onPress={() => navigation.goBack()}
-    />
-    <Text style={styles.textheader}>Tin tức - Sự kiện</Text>
-     </View>
+    <Header header={header} />
 
      <View style={styles.banner}>
         <Text style={styles.subheader}>Tin nổi bật</Text>
@@ -27,7 +19,7 @@ const NewScreen = ({navigation}) => {
          onPress={() => navigation.navigate('Hotnew')}>
         <Image 
        
-     source={require('../assets/image/bannerNew.png')} 
+     source={require('../../assets/image/bannerNew.png')} 
      style={styles.image}
      
      />
@@ -61,28 +53,12 @@ const styles = StyleSheet.create({
         backgroundColor: '#e3e3e3',
         
     },
-    header : {
-      flexDirection : 'row',
-      width : '100%',
-      height : 60,
-      backgroundColor : '#1668C7',
-      top : 0,
-      paddingTop : 20,
-      alignContent : 'center',
-      //paddingHorizontal : 10,
-
-  },
-  textheader : {
-      fontSize : 22,
-      color : '#ffffff',
-      fontWeight : 'bold',
-      marginLeft : 80,
-  },
+   
   banner : {
     backgroundColor : '#1668C7',
       top : 0,
       width : '100%',
-      height : 281,
+      height : 280,
       //alignItems : 'center',
       //paddingHorizontal : 20,
   }, 

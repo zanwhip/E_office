@@ -3,12 +3,12 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
 import React from 'react'
 import { ScrollView } from 'react-native';
-import Imagepost from '../components/Imagepost';
-import Header from '../components/Header';
+import Imagepost from '../../components/Imagepost';
+import Header from '../../components/Header';
 
-const hotnew1 = require('../assets/image/hotnew1.png');
-const hotnew2 = require('../assets/image/hotnew2.png');
-const hotnew3 = require('../assets/image/hotnew3.png');
+const hotnew1 = require('../../assets/image/hotnew1.png');
+const hotnew2 = require('../../assets/image/hotnew2.png');
+const hotnew3 = require('../../assets/image/hotnew3.png');
 
 
 const caption1 = 'Toàn cảnh Chương trình phát động InTE-UD 2023 tại ĐHĐN'

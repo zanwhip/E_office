@@ -1,28 +1,22 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Notfound from '../components/Notfound';
-import Header from '../components/Header';
+import Notfound from '../../components/Notfound';
+import Header from '../../components/Header';
 
 
-const ReportmanageScreen = ({navigation}) => {
+const header = 'Quản lý tờ trình'
+
+const SubmissionmanageScreen = ({navigation}) => {
   return (
     <View>
-    <View style={styles.header}>
- <Ionicons 
- name="arrow-back-outline"
- size={20}
- color='#ffffff'
- onPress={() => navigation.goBack()}
- />
- <Text style={styles.textheader}>Quản lí báo cáo</Text>
-  </View>
+      <Header header={header} />
   <Notfound />
   </View>
   )
 }
 
-export default ReportmanageScreen
+export default SubmissionmanageScreen
 
 const styles = StyleSheet.create({
   

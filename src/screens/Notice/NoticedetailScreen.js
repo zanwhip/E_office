@@ -1,30 +1,49 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import { ScrollView } from 'react-native';
-import Extract from '../components/Extract';
-import Header from '../components/Header';
+import Extract from '../../components/Extract';
+import Header from '../../components/Header';
+import { TouchableOpacity } from 'react-native';
 
-
+const header = 'Chi tiết thông báo '
 
 const NoticedetailScreen = ({navigation}) => {
+  
+    const handleGoBack = () => {
+      navigation.goBack();
+    }
   return (
     <View>
-       
+        <View >
      <View style={styles.header}>
-    <Ionicons 
+     <Ionicons 
     name="arrow-back-outline"
     size={20}
     color='#ffffff'
-    onPress={() => navigation.goBack()}
+    //style ={{ left : 10 }}
+    onPress={handleGoBack}
     />
-    <Text style={styles.textheader}>Chi tiết thông báo</Text>
+    <View >
+    <Text style={styles.textheader}>{header}</Text>
+    </View>
+    <MaterialCommunityIcons 
+    name="near-me"
+    size={30}
+    color='#ffffff'
+    //style={{ marginRight : 2 }}
+    onPress={() => navigation.navigate('Forwarding')}
+    />
+    
      </View>
+    </View>
+    
      <View style={styles.typecontainer}>
         <Text style={styles.typetext}>Loại hình: Văn bản đến</Text>
      </View>
-   
+   <View style={styles.contentContainer}>
      <ScrollView style={styles.displaycontainer} >
      <Extract />
 
@@ -172,10 +191,17 @@ const NoticedetailScreen = ({navigation}) => {
         <View style={styles.footer}>
             <Text>Bạn cần vào trang web dev.office.azurecloud.vn để chỉnh sửa và xem chi tiết hơn</Text>
         </View>
+        <View style={styles.footer}>
+            <Text></Text>
+        </View>
      </ScrollView>
      
-     <View style={styles.buttonforward}>
-     <Text style={styles.textforward}>Chuyển tiếp</Text>
+     <TouchableOpacity 
+     style={styles.buttonforward}
+     onPress={() => navigation.navigate('ReplyEmail')}
+     >
+     <Text style={styles.textforward}>Phản hồi email</Text>
+     </TouchableOpacity>
      </View>
     </View>
   )
@@ -186,25 +212,34 @@ export default NoticedetailScreen
 const styles = StyleSheet.create({
     container : {
         flex: 1,
-       
+        position: 'relative',
         
     },
-    header : {
-      flexDirection : 'row',
-      width : '100%',
-      height : 60,
-      backgroundColor : '#1668C7',
-      top : 0,
-      paddingTop : 20,
-      alignContent : 'center',
-      //paddingHorizontal : 10,
+  
+  header : {
+    flexDirection : 'row',
+        width : '100%',
+        height : 80,
+        backgroundColor : '#1668C7',
+        paddingTop : 40,
+        alignContent : 'center',
+        paddingHorizontal : 10,
+        justifyContent : 'space-between',
+        left : 0
+        
+},
 
-  },
+textheader : {
+    fontSize : 22,
+    color : '#ffffff',
+    fontWeight : 'bold',
+   //marginLeft : 80,
+},
   textheader : {
       fontSize : 22,
       color : '#ffffff',
       fontWeight : 'bold',
-      marginLeft : 80,
+      //marginLeft : 80,
       
   },
   typecontainer : {
@@ -225,7 +260,7 @@ const styles = StyleSheet.create({
   },
   displaycontainer : {
     width : '100%',
-    height : 520,
+    height : '85%',
     backgroundColor : '#e3e3e3',
   },
   propertiescontainter : {
@@ -324,5 +359,27 @@ const styles = StyleSheet.create({
     marginRight : 10,
     textDecorationLine: 'underline'
   },
+  contentContainer: {
+   // flex: 1,
+    //width : '100%',
+    //height : '100%',
+  
+  },
+  buttonforward : {
+    position: 'absolute',
+    bottom: 10, // 10px from the bottom
+    left: '10%', // Align horizontally in the center (adjust as needed)
+    width: '80%',
+    height: 50,
+    backgroundColor: '#1668C7',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10,
+  },
+  textforward : {
+    color: '#ffffff',
+    fontSize: 18,
+    fontWeight: 'bold',
+  }
   
 })
