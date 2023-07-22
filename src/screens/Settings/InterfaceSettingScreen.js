@@ -44,7 +44,7 @@ const InterfaceSettingScreen = () => {
         <CheckBox
           checked={brightness}
           onPress={() => handleCheckboxChange('brightness')}
-          checkedColor="green"
+          checkedColor="#1668C7"
         />
       </View>
       <View style={styles.option}>
@@ -52,7 +52,7 @@ const InterfaceSettingScreen = () => {
         <CheckBox
           checked={darkMode}
           onPress={() => handleCheckboxChange('darkMode')}
-          checkedColor="green"
+          checkedColor="#1668C7"
         />
       </View>
       <View style={styles.option}>
@@ -69,7 +69,7 @@ const InterfaceSettingScreen = () => {
         <CheckBox
           checked={systemMode}
           onPress={() => handleCheckboxChange('systemMode')}
-          checkedColor="green"
+          checkedColor="#1668C7"
         />
         
       </View>

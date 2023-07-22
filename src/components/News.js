@@ -13,7 +13,7 @@ const News = ({}) => {
   return (
    <TouchableOpacity onPress={handleNavigate}  >
     <View style={styles.container}>
-    <Image source={require('../assets/image/bannerNew.png')} style={styles.image}/>
+    <Image source={require('../assets/image/banner.png')} style={styles.image}/>
     <View style={styles.newscontent}>
         <Text style={styles.newtext}>Phát động Cuộc thi “Khởi nghiệp Công nghệ trong sinh viên” InTE-UD lần thứ III: Góp phần kiến t...</Text>
         <Text style={styles.date}>09/09/2020</Text>

@@ -1,9 +1,7 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
 import React ,{useState}from 'react'
-import Header from '../../components/Header'
 import { ScrollView } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import AntDesign from 'react-native-vector-icons/AntDesign';
 import Modal from 'react-native-modal';
 import { TouchableOpacity } from 'react-native';
 import DetailWork from '../../components/DetailWork';
@@ -94,7 +92,7 @@ switch (process) {
             <ScrollView style={styles.displaycontainer}>
                 <Text style={{ fontSize : 20, fontWeight : 'bold', marginVertical : 15, marginHorizontal : 10, }}>Phân tích dự án</Text>
             <View style={{ flexDirection : 'row' , marginVertical : 8 }}>
-        <Text style={{ width : '45%' , fontSize : 18, fontWeight : '600'}}>Ưu tien: </Text>
+        <Text style={{ width : '45%' , fontSize : 18, fontWeight : '600'}}>Ưu tiên: </Text>
         <Text style={{ fontWeight : '400' , fontSize : 16 }}> {prority} </Text>
       </View>
 

@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     fontSize : 14,
     fontWeight : '400',
     fontStyle: 'normal',
-    marginHorizontal : 10,
+    marginHorizontal : 20,
     marginVertical : 10
 
   },
@@ -66,5 +66,10 @@ const styles = StyleSheet.create({
     marginLeft : 10,
     marginRight : 10,
     textDecorationLine: 'underline'
+  },
+  properties : {
+    fontWeight :'700',
+    fontSize : 16,
+    marginHorizontal : 20
   }
 })

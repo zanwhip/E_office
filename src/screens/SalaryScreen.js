@@ -95,7 +95,7 @@ const SalaryScreen = () => {
           
           <View style={styles.properties}>
           <View style={styles.propertiesname}>
-            <Text style={styles.propertiestext}>Phụ cấp thâm niên vượt khung </Text>
+            <Text style={styles.propertiestext}>Phụ cấp thâm niên vượt khung</Text>
           </View>
           <View style ={styles.unitcontainer}>
             <View style={styles.unit}>
@@ -367,29 +367,32 @@ const styles = StyleSheet.create({
     properties : {
      // backgroundColor : "#ffffff",
       flexDirection : 'row',
-      marginVertical : 5,
+      //marginVertical : 5,
+      borderWidth : 0.2,
+      borderColor : '#B8B8B8'
     },
     propertiesname : {
-      width : '20%',
-      backgroundColor : '#1668C7',
+      width : '28%',
+      backgroundColor : '#e4e4e4',
       paddingHorizontal : 8,
       paddingVertical : 10  ,
-      marginHorizontal : 10,
-
+      //marginHorizontal : 10,
+      justifyContent :'center'
 
     },
     content : {
-      flexDirection : 'column'
+      flexDirection : 'column',
+      justifyContent :'center'
     },
     contentcontainer : {
       backgroundColor : '#ffffff',
       paddingHorizontal : 10,
       paddingVertical : 10  ,
-      
+      justifyContent :'center'
     },
     unitcontainer : {
-     width : '20%'
-
+     width : '20%',
+    
     },
     unit : {
       flexDirection : 'column',
@@ -397,16 +400,16 @@ const styles = StyleSheet.create({
       paddingVertical : 10,
       //width : '20%',
       height : 40,
-      backgroundColor : '#B9D9FF',
+      backgroundColor : '#eeeeee',
       marginBottom : 1,
-      paddingHorizontal : 5,
+      //borderBottomWidth : 0.2
 
 
     },
     propertiestext : {
-      fontSize : 20,
+      fontSize : 18,
       fontWeight : '400',
-      color : '#ffffff'
+      color : '#000000'
     },
     unittext : {
 

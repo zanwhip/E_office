@@ -2,12 +2,19 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import Entypo from 'react-native-vector-icons/Entypo';
 import { color } from 'react-native-reanimated';
-
+import { TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 
 const Documentary = ({status}) => {
   let dotColor = '';
   let displayStatus = '';
+
+
+  const navigation = useNavigation();
+    const handleNavigate = () => {
+        navigation.navigate('Noticedetail');
+      };
 
   // Xác định màu sắc dựa trên trạng thái
   switch (status) {
@@ -29,7 +36,10 @@ const Documentary = ({status}) => {
   }
 
   return (
-    <View style={styles.documentarycontainer}>
+    <TouchableOpacity 
+    style={styles.documentarycontainer}
+    onPress={handleNavigate}
+    >
       <View style={styles.title}> 
         <Text style={styles.documental}>1598</Text>
       </View>
@@ -47,7 +57,7 @@ const Documentary = ({status}) => {
         </View>
          </View>
       </View>
-    </View>
+    </TouchableOpacity>
   )
 }
 

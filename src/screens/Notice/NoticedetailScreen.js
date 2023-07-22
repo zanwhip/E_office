@@ -2,14 +2,28 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import AntDesign from 'react-native-vector-icons/AntDesign';
+import Feather from 'react-native-vector-icons/Feather';
 import { ScrollView } from 'react-native';
 import Extract from '../../components/Extract';
 import Header from '../../components/Header';
 import { TouchableOpacity } from 'react-native';
 
+const number = '1569'
+const date = '12-05-2023'
+const issued = 'Viện Nghiên cứu và đào tạo Việt-Anh, ĐHĐN'
+const signnumber = '247/TTr-VNCĐTVA'
+const host = 'Ban Đào tạo'
+const combination = 'Ban Thanh tra - Pháp chế, Ban Giám đốc'
+const rate = 'Bình thường'
 const header = 'Chi tiết thông báo '
-
+const type = 'Tờ trình'
+const deadline = ''
+const status = 'Chưa xử lí'
+const personsign = ''
+const note = ''
+const hostperson = 'TS.Trần Đình Khôi Quốc - Ban Đào tạo - nqphi@sdc.udn.vn'
+const combinationperson = 'PGS.TS. Lê Thành Bắc - Ban Giám đốc - nqphi@sdc.udn.vn, ThS. Ngô Thị Hương Giang - Ban Thanh tra - Pháp chế - vanthu@id.udn.vn,'
+const comment = ''
 const NoticedetailScreen = ({navigation}) => {
   
     const handleGoBack = () => {
@@ -46,160 +60,152 @@ const NoticedetailScreen = ({navigation}) => {
    <View style={styles.contentContainer}>
      <ScrollView style={styles.displaycontainer} >
      <Extract />
+     <View style={styles.displaytable}>
+        <View style={styles.row}>
+        <View style={styles.column1}>
+            <Text style={styles.text}>Số đến</Text>
+        </View>
+        <View style={styles.column2}>
+            <Text style={styles.text1}>{number}</Text>
+        </View>
+        </View>
+        <View style={styles.row}>
+        <View style={styles.column1}>
+            <Text style={styles.text}>Ngày đến - Ngày VB</Text>
+        </View>
+        <View style={styles.column2}>
+            <Text style={styles.text1}>{date}</Text>
+        </View>
+        </View>
+        <View style={styles.row}>
+        <View style={styles.column1}>
+            <Text style={styles.text}>Nơi ban hành</Text>
+        </View>
+        <View style={styles.column2}>
+            <Text style={styles.text1}>{issued}</Text>
+        </View>
+        </View>
+        <View style={styles.row}>
+        <View style={styles.column1}>
+            <Text style={styles.text}>Số kí hiệu</Text>
+        </View>
+        <View style={styles.column2}>
+            <Text style={styles.text1}>{signnumber}</Text>
+        </View>
+        </View>
+        <View style={styles.row}>
+        <View style={styles.column1}>
+            <Text style={styles.text}>Đơn vị chủ trì</Text>
+        </View>
+        <View style={styles.column2}>
+            <Text style={styles.text1}>{host}</Text>
+        </View>
+        </View>
+        <View style={styles.row}>
+        <View style={styles.column1}>
+            <Text style={styles.text}>Đơn vị phối hợp</Text>
+        </View>
+        <View style={styles.column2}>
+            <Text style={styles.text1}>{combination}</Text>
+        </View>
+        </View>
+        <View style={styles.row}>
+        <View style={styles.column1}>
+            <Text style={styles.text}>Độ khẩn</Text>
+        </View>
+        <View style={styles.column2}>
+            <View style={{ backgroundColor :'#B8B8B8', width : '50%' , height : 30 , borderRadius : 10, marginHorizontal : 10, justifyContent :'center' }}>
+            <Text style={styles.textradious}>{rate}</Text>
+            </View>
+           
+            
+            
+        </View>
+        </View>
+        <View style={styles.row}>
+        <View style={styles.column1}>
+            <Text style={styles.text}>Loại văn bản</Text>
+        </View>
+        <View style={styles.column2}>
+            <Text style={styles.text1}>{type}</Text>
+        </View>
+        </View>
+        <View style={styles.row}>
+        <View style={styles.column1}>
+            <Text style={styles.text}>Hạn xử lí</Text>
+        </View>
+        <View style={styles.column2}>
+            <Text style={styles.text1}>{deadline}</Text>
+        </View>
+        </View>
+        <View style={styles.row}>
+        <View style={styles.column1}>
+            <Text style={styles.text}>Trạng thái</Text>
+        </View>
+        <View style={styles.column2}>
+        <View style={{ backgroundColor :'#B8B8B8', width : '50%' , height : 30 , borderRadius : 10, marginHorizontal : 10, justifyContent :'center' }}>
+            <Text style={styles.textradious}>{status}</Text>
+            </View>
+        </View>
+        </View>
+        <View style={styles.row}>
+        <View style={styles.column1}>
+            <Text style={styles.text}>Người kí</Text>
+        </View>
+        <View style={styles.column2}>
+            <Text style={styles.text1}>{personsign}</Text>
+        </View>
+        </View>
+        <View style={styles.row}>
+        <View style={styles.column1}>
+            <Text style={styles.text}>Ghi chú</Text>
+        </View>
+        <View style={styles.column2}>
+            <Text style={styles.text1}>{note}</Text>
+        </View>
+        </View>
+        <View style={styles.row}>
+        <View style={styles.column1}>
+            <Text style={styles.text}>Người chủ trì</Text>
+        </View>
+        <View style={styles.column2}>
+            <Text style={styles.text1}>{hostperson}</Text>
+        </View>
+        </View>
+        <View style={styles.row}>
+        <View style={styles.column1}>
+            <Text style={styles.text}>Người phối hợp</Text>
+        </View>
+        <View style={styles.column2}>
+            <Text style={styles.text1}>{combinationperson}</Text>
+        </View>
+        </View>
+        <View style={styles.row}>
+        <View style={{backgroundColor : '#E5B300', width : '35%',   paddingHorizontal : 10,}}>
+            <Text style={{ marginHorizontal : 10, marginVertical : 20, fontSize : 16, fontWeight : '600' , color : '#ffffff'}}>Nội dung bút phê</Text>
+        </View>
+        <View style={styles.column2}>
+            <Text style={styles.text1}>{comment}</Text>
+        </View>
+        </View>
+        <View style={styles.footer}>
+            <Text style={styles.footertext}>Bạn cần vào trang web <Text style={{ fontStyle :'italic' ,  textDecorationLine: 'underline', }}>dev.office.azurecloud.vn</Text> để chỉnh sửa và xem chi tiết hơn</Text>
+        </View>
+     </View>
 
-        <View>
-            <View style={styles.propertiescontainter}>
-                <Text style={styles.properties}>Số đến</Text>
-            </View>
-            <View style={styles.propertiesdetailcontainer}>
-                <Text style={styles.propertiesdetail}>1569</Text>
-            </View>
-        </View>
-        <View>
-            <View style={styles.propertiescontainter}>
-                <Text style={styles.properties}>Ngày đến</Text>
-            </View>
-            <View style={styles.propertiesdetailcontainer}>
-                <Text style={styles.propertiesdetail}>12-05-2023</Text>
-            </View>
-        </View>
-        <View>
-            <View style={styles.propertiescontainter}>
-                <Text style={styles.properties}>Nơi ban hành</Text>
-            </View>
-            <View style={styles.propertiesdetailcontainer}>
-                <Text style={styles.propertiesdetail}>Viện Nghiên cứu và Đào tạo Việt-Anh, ĐHĐN</Text>
-            </View>
-        </View>
-        <View>
-            <View style={styles.propertiescontainter}>
-                <Text style={styles.properties}>Số kí hiệu</Text>
-            </View>
-            <View style={styles.propertiesdetailcontainer}>
-                <Text style={styles.propertiesdetail}>247/TTr-VNCĐTVA</Text>
-            </View>
-        </View>
-        <View>
-            <View style={styles.propertiescontainter}>
-                <Text style={styles.properties}>Ngày VB</Text>
-            </View>
-            <View style={styles.propertiesdetailcontainer}>
-                <Text style={styles.propertiesdetail}>12-05-2023</Text>
-            </View>
-        </View>
-       
-        <View>
-            <View style={styles.propertiescontainter}>
-                <Text style={styles.properties}>Đơn vị chủ trì</Text>
-            </View>
-            <View style={styles.propertiesdetailcontainer}>
-                <Text style={styles.propertiesdetail}>Ban Đào tạo</Text>
-            </View>
-        </View>
-        <View>
-            <View style={styles.propertiescontainter}>
-                <Text style={styles.properties}>Đơn vị phối hợp</Text>
-            </View>
-            <View style={styles.propertiesdetailcontainer}>
-                <Text style={styles.propertiesdetail}>Ban Thanh tra - Pháp chế, Ban Giám đốc,</Text>
-            </View>
-        </View>
-        <View>
-            <View style={styles.propertiescontainter}>
-                <Text style={styles.properties}>Độ khẩn</Text>
-            </View>
-            <View style={styles.propertiesdetailcontainer}>
-                <View style={styles.buttonstatus}>
-                    <Text>Bình thường</Text>
-                </View>
-            </View>
-        </View>
-        <View>
-            <View style={styles.propertiescontainter}>
-                <Text style={styles.properties}>Loại văn bản</Text>
-            </View>
-            <View style={styles.propertiesdetailcontainer}>
-                <Text style={styles.propertiesdetail}>Tờ trình</Text>
-            </View>
-        </View>
-        <View>
-            <View style={styles.propertiescontainter}>
-                <Text style={styles.properties}>Hạn xử lý</Text>
-            </View>
-            <View style={styles.propertiesdetailcontainer}>
-                <Text style={styles.propertiesdetail}></Text>
-            </View>
-        </View>
-        <View>
-            <View style={styles.propertiescontainter}>
-                <Text style={styles.properties}>Trạng thái</Text>
-            </View>
-            <View style={styles.propertiesdetailcontainer}>
-            <View style={styles.buttonstatus}>
-                    <Text>Chưa xử lí</Text>
-                </View>
-            </View>
-        </View>
-        <View>
-            <View style={styles.propertiescontainter}>
-                <Text style={styles.properties}>Người ký</Text>
-            </View>
-            <View style={styles.propertiesdetailcontainer}>
-                <Text style={styles.propertiesdetail}></Text>
-            </View>
-        </View>
-        <View>
-            <View style={styles.propertiescontainter}>
-                <Text style={styles.properties}>File văn bản</Text>
-            </View>
-            <View style={styles.propertiesdetailcontainer}>
-                <Text style={styles.propertiesdetail}>1569-247-ttr-vncdtva_1683875983.pdf</Text>
-            </View>
-        </View>
-        <View>
-            <View style={styles.propertiescontainter}>
-                <Text style={styles.properties}>Ghi chú</Text>
-            </View>
-            <View style={styles.propertiesdetailcontainer}>
-                <Text style={styles.propertiesdetail}></Text>
-            </View>
-        </View>
-        <View>
-            <View style={styles.propertiescontainter}>
-                <Text style={styles.properties}>Người chủ trì</Text>
-            </View>
-            <View style={styles.propertiesdetailcontainer1}>
-                <Text style={styles.propertiesdetail}>TS. Trần Đình Khôi Quốc - Ban Đào tạo - nqphi@sdc.udn.vn,</Text>
-            </View>
-        </View>
-        <View>
-            <View style={styles.propertiescontainter}>
-                <Text style={styles.properties}>Người phối hợp</Text>
-            </View>
-            <View style={styles.propertiesdetailcontainer2}>
-                <Text style={styles.propertiesdetail}>PGS.TS. Lê Thành Bắc - Ban Giám đốc - nqphi@sdc.udn.vn, ThS. Ngô Thị Hương Giang - Ban Thanh tra - Pháp chế - vanthu@id.udn.vn,</Text>
-            </View>
-        </View>
-        <View>
-            <View style={styles.propertiescontainter1}>
-                <Text style={styles.properties}>Nội dung bút phê</Text>
-            </View>
-            <View style={styles.propertiesdetailcontainer}>
-                <Text style={styles.propertiesdetail}></Text>
-            </View>
-        </View>
-        <View style={styles.footer}>
-            <Text>Bạn cần vào trang web dev.office.azurecloud.vn để chỉnh sửa và xem chi tiết hơn</Text>
-        </View>
-        <View style={styles.footer}>
-            <Text></Text>
-        </View>
+      
+        
      </ScrollView>
      
      <TouchableOpacity 
      style={styles.buttonforward}
      onPress={() => navigation.navigate('ReplyEmail')}
      >
+        <Feather 
+         name="rotate-cw"
+         size={30}
+         color='#ffffff'
+        />
      <Text style={styles.textforward}>Phản hồi email</Text>
      </TouchableOpacity>
      </View>
@@ -212,7 +218,7 @@ export default NoticedetailScreen
 const styles = StyleSheet.create({
     container : {
         flex: 1,
-        position: 'relative',
+        //position: 'relative',
         
     },
   
@@ -233,13 +239,13 @@ textheader : {
     fontSize : 22,
     color : '#ffffff',
     fontWeight : 'bold',
-   //marginLeft : 80,
+  
 },
   textheader : {
       fontSize : 22,
       color : '#ffffff',
       fontWeight : 'bold',
-      //marginLeft : 80,
+      
       
   },
   typecontainer : {
@@ -247,9 +253,7 @@ textheader : {
     alignContent : 'center',
     justifyContent : 'center',
     width : '100%',
-    //marginTop : 15,
-   // marginBottom : 15,
-    backgroundColor :'#e3e3e3'
+     backgroundColor :'#e3e3e3'
   },
   typetext : {
     color : '#000000',
@@ -262,55 +266,15 @@ textheader : {
     width : '100%',
     height : '85%',
     backgroundColor : '#e3e3e3',
+ 
   },
-  propertiescontainter : {
-    backgroundColor : '#EEEEEE',
+  displaytable : {
     width : '100%',
-    height : 38,
-    paddingVertical : 8,
-    paddingHorizontal : 16,
-   // marginTop : 20,
-
-  },
-  propertiesdetailcontainer : {
-    backgroundColor : '#ffffff',
-    width : '100%',
-    height : 38,
-    paddingVertical : 8,
-    paddingHorizontal : 16
-    
-  },
-  propertiesdetailcontainer1 : {
-    backgroundColor : '#ffffff',
-    width : '100%',
-    height : 50,
-    paddingVertical : 8,
-    paddingHorizontal : 16
-  },
-  propertiesdetailcontainer2 : {
-    backgroundColor : '#ffffff',
-    width : '100%',
-    height : 80,
-    paddingVertical : 8,
-    paddingHorizontal : 16
-  },
-  properties : {
-    fontSize : 16,
-    fontWeight : '500',
-    fontStyle: 'normal',
-  
-  },
-  propertiesdetail : {
-    fontSize : 14,
-    fontWeight : '400',
-    fontStyle: 'normal',
-  },
-  propertiescontainter1 : {
-    backgroundColor : '#FFC804',
-    width : '100%',
-    height : 38,
-    paddingVertical : 8,
-    paddingHorizontal : 16
+    height : '100%',
+    backgroundColor : '#e3e3e3',
+   paddingHorizontal : 15,
+   paddingVertical : 20
+   
   },
   buttonstatus : {
     width : 105,
@@ -322,33 +286,22 @@ textheader : {
 
   }, 
   footer : {
-    paddingHorizontal : 20,
+    height : 100,
     paddingVertical : 10,
+    top : 0,
   },
-  extraccontainer : {
-    width : 330,
-    height : 160,
-    backgroundColor : '#ffffff',
-    //paddingBottom : 10,
-    marginLeft : 15,
-    borderRadius : 20,
-    paddingBottom : 10,
+  footertext : {
+    fontSize : 12,
+    fontWeight :'500'
   },
-  extact: {
-    width : 330,
-    height : 40,
-    borderRadius: 10,
-    backgroundColor : '#EEEEEE',
-    paddingVertical : 10,
-    
-
-  },
+  
+  
   extactdetail : {
     fontSize : 14,
     fontWeight : '400',
     fontStyle: 'normal',
     marginHorizontal : 10,
-    marginVertical : 10
+   
 
   },
   link : {
@@ -359,27 +312,66 @@ textheader : {
     marginRight : 10,
     textDecorationLine: 'underline'
   },
-  contentContainer: {
-   // flex: 1,
-    //width : '100%',
-    //height : '100%',
-  
+  row : {
+    backgroundColor :'#ffffff',
+    width :'100%',
+    flexDirection : 'row',
+    borderBottomWidth : 0.5,
+    borderBottomColor : '#B8B8B8'
+    
   },
+  column1 : {
+    backgroundColor : '#EEEEEE',
+    width : '35%',
+     paddingHorizontal : 5,
+     justifyContent : 'center'
+    
+  },
+  column2 : {
+    backgroundColor : '#ffffff',
+    justifyContent : 'center',
+    width : '60%',
+    paddingVertical : 15
+  },
+  text : {
+    marginHorizontal : 10,
+    marginVertical : 20,
+    fontSize : 18,
+    fontWeight : '600'
+  },
+  text1 : {
+    marginHorizontal : 10,
+   // marginVertical : 20,
+    fontSize : 17,
+    fontWeight : '400'
+  },
+  textradious : {
+    marginHorizontal : 10,
+    // marginVertical : 20,
+     fontSize : 17,
+     fontWeight : '400',
+     color : '#ffffff'
+     
+  },
+ 
+  
   buttonforward : {
     position: 'absolute',
-    bottom: 10, // 10px from the bottom
-    left: '10%', // Align horizontally in the center (adjust as needed)
+    bottom: 10, 
+    left: '10%', 
     width: '80%',
     height: 50,
     backgroundColor: '#1668C7',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
+    flexDirection :'row'
   },
   textforward : {
     color: '#ffffff',
     fontSize: 18,
     fontWeight: 'bold',
+    marginHorizontal : 10
   }
   
 })

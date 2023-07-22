@@ -32,12 +32,10 @@ const Filter = () => {
   const hideSidebar = () => {
     setSidebarVisibility(false);
   };
-  const handleDateSelect = (date) => {
-    setSelectedDate(date);
-  };
+ 
 
 
-
+  
 
 
   return (
@@ -45,7 +43,10 @@ const Filter = () => {
       <View style={styles.header}>
         <View style={{ width : 20, backgroundColor : '#1668C7', borderRadius : 5 }}></View>
         <Text style={{ fontSize : 23, fontWeight : 'bold',marginLeft :10 , marginVertical : 10, width : '80%'}}>Bộ lọc nâng cao</Text>
-        <Image source={require('../assets/image/cancel.png')} style={{ width : 50, height :50, left : 5, }} />
+        <TouchableOpacity onPress={hideSidebar}>
+        <Image source={require('../assets/image/cancel.png')} style={{ width : 50, height :50, left : 5, }} onPress={hideSidebar}/>
+        </TouchableOpacity>
+       
       </View>
 
       <View style={styles.infor}>

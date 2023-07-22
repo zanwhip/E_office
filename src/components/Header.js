@@ -15,7 +15,7 @@ const Header = ({header}) => {
       <TouchableOpacity onPress={handleGoBack} >
       <Ionicons 
     name="arrow-back-outline"
-    size={40}
+    size={30}
     color='#ffffff'
     //style ={{ left : 10 }}
     

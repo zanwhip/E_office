@@ -1,45 +1,59 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React, {useState} from 'react'
 import { TouchableOpacity } from 'react-native'
+import { useNavigation } from '@react-navigation/native';
 
 const DetailWork = ({ handleMenuItemPress, isSidebarOpen }) => {
- 
+  const navigation = useNavigation();
   const [selectedOption, setSelectedOption] = useState(null);
   const handleOptionPress = (optionName) => {
     setSelectedOption(optionName);
   }
+  
+  const handleMenuPressDetail  = () => { 
+    handleMenuItemPress();
+      navigation.navigate('WorkDetail');
+    };
+    
+  const handleMenuPressFile  = () => {
+    handleMenuItemPress();
+      navigation.navigate('File');
+    };
+    const handleMenuPressMess = () => {
+      handleMenuItemPress();
+        navigation.navigate('Mess');
+      };
+      const handleMenuPressReportWork = () => {
+        handleMenuItemPress();
+          navigation.navigate('ReportWork');
+        };
   return (
     <View style={styles.container}>
      <TouchableOpacity
         style={[styles.options, selectedOption === 'Chi tiết' && styles.selectedOption]}
-        onPress={() => handleOptionPress('Chi tiết')}
+        onPress={handleMenuPressDetail}
       >
         <Text style={[styles.text, selectedOption === 'Chi tiết' && styles.selectedText]}> Chi tiết</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={[styles.options, selectedOption === 'Tài liệu' && styles.selectedOption]}
-        onPress={() => handleOptionPress('Tài liệu')}
+        onPress={handleMenuPressFile}
       >
         <Text style={[styles.text, selectedOption === 'Tài liệu' && styles.selectedText]}> Tài liệu</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={[styles.options, selectedOption === 'Thảo luận' && styles.selectedOption]}
-        onPress={() => handleOptionPress('Thảo luận')}
+        onPress={handleMenuPressMess}
       >
         <Text style={[styles.text, selectedOption === 'Thảo luận' && styles.selectedText]}>Thảo luận</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={[styles.options, selectedOption === 'Báo cáo' && styles.selectedOption]}
-        onPress={() => handleOptionPress('Báo cáo')}
+        onPress={handleMenuPressReportWork}
       >
         <Text style={[styles.text, selectedOption === 'Báo cáo' && styles.selectedText]}>Báo cáo</Text>
       </TouchableOpacity>
-      <TouchableOpacity
-        style={[styles.options, selectedOption === 'Người tham gia' && styles.selectedOption]}
-        onPress={() => handleOptionPress('Người tham gia')}
-      >
-        <Text style={[styles.text, selectedOption === 'Người tham gia' && styles.selectedText]}>Người tham gia</Text>
-      </TouchableOpacity>
+      
       </View>
   )
 }

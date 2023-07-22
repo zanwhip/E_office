@@ -22,7 +22,11 @@ import InternalDocumentSendScreen from '../screens/Document/InternalDocumentSend
 import OutgoingDocumentaryScreen from '../screens/Document/OutgoingDocumentaryScreen';
 import InterfaceSettingScreen from '../screens/Settings/InterfaceSettingScreen';
 import NoticeSettingScreen from '../screens/Settings/NoticeSettingScreen';
-
+import LanguageSettingScreen from '../screens/Settings/LanguageSettingScreen';
+import FileScreen from '../screens/FileScreen';
+import MessageScreen from '../screens/MessageScreen';
+import ReportWorkScreen from '../screens/ReportWorkScreen';
+import StatisticsScreen from '../screens/StatisticsScreen';
 
 
 
@@ -49,7 +53,6 @@ const Navigators = () => {
            <Stack.Screen name="Document" component={DocumentScreen} /> 
            <Stack.Screen name="Setting" component={SettingScreen} /> 
            <Stack.Screen name="Forwarding" component={ForwardingScreen} />
-           <Stack.Screen name="Department" component={DepartmentScreen} />
            <Stack.Screen name="Hotnew" component={HotnewScreen} />
            <Stack.Screen name="OpenLetter" component={OpenletterScreen} /> 
            <Stack.Screen name="Mission" component={MissionScreen} />
@@ -66,6 +69,12 @@ const Navigators = () => {
            <Stack.Screen name="OutgoingDocumentary" component={OutgoingDocumentaryScreen} /> 
            <Stack.Screen name="InterfaceSetting" component={InterfaceSettingScreen} />
            <Stack.Screen name="NoticeSetting" component={NoticeSettingScreen} />
+           <Stack.Screen name="LanguageSetting" component={LanguageSettingScreen} />
+           <Stack.Screen name="Department" component={DepartmentScreen} /> 
+            <Stack.Screen name="File" component={FileScreen} />
+           <Stack.Screen name="Mess" component={MessageScreen} /> 
+           <Stack.Screen name="ReportWork" component={ReportWorkScreen} />
+           <Stack.Screen name="Statistics" component={StatisticsScreen} />
           </Stack.Navigator>
       </NavigationContainer>
     );

@@ -10,7 +10,7 @@ const status2 = 'B';
 const status3 = 'C'; 
 
 const WorkManageScreen = () => {
-    const header = 'Quản lí công việc'
+    const header = 'Quản lý công việc'
   return (
     <View style={styles.container}>
         <Header  header={header}  />

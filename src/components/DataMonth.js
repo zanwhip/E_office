@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
 import { TouchableOpacity } from 'react-native'
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import { useNavigation } from '@react-navigation/native';
 
 const DataMonth = ({
     image,
@@ -9,8 +10,14 @@ const DataMonth = ({
     date
 }
 ) => {
+    
+    const navigation = useNavigation();
+    const handleMenuPressStatistics  = () => { 
+      navigation.navigate('Statistics');
+    };
   return (
-   <TouchableOpacity>
+   <TouchableOpacity
+   onPress={handleMenuPressStatistics} >
     <View style={styles.container}>
         <View style={styles.newscontent}>
         <Text style={styles.newtext}>Số liệu CBVC Đại học Đà Nẵng tháng 8_2020</Text>

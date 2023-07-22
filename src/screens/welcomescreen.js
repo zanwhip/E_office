@@ -189,15 +189,15 @@ const styles = StyleSheet.create({
         height : 81,
         width : 75,
         alignItems : 'center',
-        marginLeft : 12,
-        marginRight : 12,
+        marginLeft : 5,
+        marginRight : 5,
     },
     bannerimage : {
         height : 80,
         width : 80,
     },
     textbanner : {
-        fontSize : 14,
+        fontSize : 15,
         fontWeight : 'bold',
     },
     subcontainer : {
@@ -247,6 +247,7 @@ const styles = StyleSheet.create({
         paddingHorizontal : 12,
         fontSize : 14,
         fontWeight : '300',
+        textAlign : 'justify'
         
     },
     textheader : {

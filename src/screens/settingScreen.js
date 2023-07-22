@@ -4,6 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Header from '../components/Header';
+import { TouchableOpacity } from 'react-native';
 
 const header = 'Cài đặt'
 const SettingScreen = ({navigation}) => {
@@ -15,7 +16,10 @@ const SettingScreen = ({navigation}) => {
         </View>
 
         <View style={styles.adjustmentsdisplay}>
-            <View style={styles.adjustments}>
+            <TouchableOpacity 
+            style={styles.adjustments}
+            onPress={() => navigation.navigate('LanguageSetting')}
+            >
             <Ionicons 
                 name="language"
                 size={25}
@@ -30,8 +34,11 @@ const SettingScreen = ({navigation}) => {
                 size={20}
                 style={{ marginLeft : 10, marginTop : 25 }}
                 />
-            </View>
-            <View style={styles.adjustments}>
+            </TouchableOpacity>
+            <TouchableOpacity
+             style={styles.adjustments}
+             onPress={() => navigation.navigate('NoticeSetting')}
+             >
             <EvilIcons 
                 name="bell"
                 size={25}
@@ -46,8 +53,11 @@ const SettingScreen = ({navigation}) => {
                 size={20}
                 style={{ marginLeft : 10, marginTop : 25 }}
                 />
-            </View>
-            <View style={styles.adjustments}>
+            </TouchableOpacity>
+            <TouchableOpacity
+             style={styles.adjustments}
+             onPress={() => navigation.navigate('InterfaceSetting')}
+             >
             <EvilIcons 
                 name="spinner"
                 size={25}
@@ -62,7 +72,7 @@ const SettingScreen = ({navigation}) => {
                 size={20}
                 style={{ marginLeft : 10, marginTop : 25 }}
                 />
-            </View>
+            </TouchableOpacity>
         </View>
     </View>
   )

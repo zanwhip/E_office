@@ -2,7 +2,7 @@ import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-nati
 import React, {useState} from 'react'
 import Entypo from 'react-native-vector-icons/Entypo';
 import { useNavigation } from '@react-navigation/native';
-
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const Menu = ({ handleMenuItemPress, isSidebarOpen }) => {
  
@@ -68,15 +68,18 @@ const Menu = ({ handleMenuItemPress, isSidebarOpen }) => {
         setDropdownA3Open(!isDropdownA3Open);
       };
       const getDropdownIcon = (isOpen) => {
-        return isOpen ? 'chevron-up' : 'chevron-down';
+        return isOpen ? 'caret-up' : 'caret-down';
+      };
+      const getcolorDropdownIcon = (isOpen) => {
+        return isOpen ? '#000000' : '#1668C7';
       };
   
     const [isDropdownBOpen, setDropdownBOpen] = useState(false);
     const [isDropdownB1Open, setDropdownB1Open] = useState(false);
   
-    // const handleMenuItemPress = () => {
-    //   handleMenuItemPress();
-    // };
+//  const handleMenuItemPress = () => {
+//   handleMenuItemPress();
+//  };
     const toggleDropdownB = () => {
       setDropdownBOpen(!isDropdownBOpen);
     };
@@ -84,6 +87,7 @@ const Menu = ({ handleMenuItemPress, isSidebarOpen }) => {
     const toggleDropdownB1 = () => {
       setDropdownB1Open(!isDropdownB1Open);
     };
+
     
 
   return (
@@ -97,19 +101,20 @@ const Menu = ({ handleMenuItemPress, isSidebarOpen }) => {
 <ScrollView style={styles.dropdowncontainer} contentContainerStyle={styles.contentContainer}>
       <TouchableOpacity style={styles.menuItem} onPress={toggleDropdownA}>
           <Text style={styles.menuItemText}>Điều hành tác nghiệp</Text>
-          <Entypo
+          <FontAwesome
+          
           name={getDropdownIcon(isDropdownAOpen)}
           size={20}
-          color="#000000"/>
+          color={getcolorDropdownIcon(isDropdownAOpen)}/>
         </TouchableOpacity>
         {isDropdownAOpen && (
           <View style={styles.dropdown}>
             <TouchableOpacity style={styles.dropdownItem} onPress={toggleDropdownA1}>
               <Text style={styles.dropdownItemText}>Văn bản đến</Text>
-              <Entypo
+              <FontAwesome
                 name={getDropdownIcon(isDropdownA1Open)}
                 size={20}
-                color="#000000" />
+                color={getcolorDropdownIcon(isDropdownA1Open)} />
             </TouchableOpacity>
             {isDropdownA1Open && (
               <View style={styles.subDropdown}>
@@ -121,10 +126,10 @@ const Menu = ({ handleMenuItemPress, isSidebarOpen }) => {
 
             <TouchableOpacity style={styles.dropdownItem} onPress={toggleDropdownA2}>
               <Text style={styles.dropdownItemText}>Văn bản đi</Text>
-              <Entypo
+              <FontAwesome
                 name={getDropdownIcon(isDropdownA2Open)}
                 size={20}
-                color="#000000"
+                color={getcolorDropdownIcon(isDropdownA2Open)}
               />
             </TouchableOpacity>
             {isDropdownA2Open && (
@@ -139,10 +144,10 @@ const Menu = ({ handleMenuItemPress, isSidebarOpen }) => {
            
 <TouchableOpacity style={styles.dropdownItem} onPress={toggleDropdownA3}>
               <Text style={styles.dropdownItemText}>Điều hành tác nghiệp</Text>
-              <Entypo
+              <FontAwesome
                 name={getDropdownIcon(isDropdownA3Open)}
                 size={20}
-                color="#000000"
+                color={getcolorDropdownIcon(isDropdownA3Open)}
               />
             </TouchableOpacity>
             {isDropdownA3Open && (
@@ -180,10 +185,10 @@ const Menu = ({ handleMenuItemPress, isSidebarOpen }) => {
 
       <TouchableOpacity style={styles.menuItem} onPress={toggleDropdownB}>
           <Text style={styles.menuItemText}>Tra cứu Lương - Thuế</Text>
-          <Entypo
+          <FontAwesome
                 name={getDropdownIcon(isDropdownBOpen)}
                 size={20}
-                color="#000000" />
+                color={getcolorDropdownIcon(isDropdownBOpen)} />
         </TouchableOpacity>
 
         {isDropdownBOpen && (
@@ -250,7 +255,7 @@ const styles = StyleSheet.create({
         flexDirection : 'row',
         width : '100%',
         height : 60,
-        
+        justifyContent : 'space-between'
         
       },
       menuItemText: {
@@ -268,7 +273,8 @@ const styles = StyleSheet.create({
         borderBottomColor: '#cccccc',
         flexDirection : 'row',
         height : 60,
-        backgroundColor : '#ffffff'
+        backgroundColor : '#ffffff',
+        justifyContent :'space-between'
         },
       dropdownItemText: {
         fontSize: 16,

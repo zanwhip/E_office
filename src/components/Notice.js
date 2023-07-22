@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
      },
        newtext : {
         fontSize : 18,
-        fontWeight : '200',
+        fontWeight : '300',
         width: '100%',
         
         

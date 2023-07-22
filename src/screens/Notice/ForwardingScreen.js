@@ -6,8 +6,9 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import { TextInput } from 'react-native';
 import { ScrollView } from 'react-native';
 import Header from '../../components/Header';
+import { TouchableOpacity } from 'react-native';
 
-const header = 'Phản hồi email'
+const header = 'Chuyển tiếp văn bản'
 
 const ForwardingScreen = ({navigation}) => {
   return (
@@ -21,18 +22,20 @@ const ForwardingScreen = ({navigation}) => {
      <View style={styles.typecontainer}>
      <Text style={styles.typetext}>Tên Phòng, Ban, Khoa,...</Text>
      </View>
-     <View style={styles.button}> 
+     <TouchableOpacity 
+     style={styles.button}
+     onPress={() => navigation.navigate('Department')}> 
       <Text>Chọn Phòng, Ban, Khoa</Text>
       <AntDesign 
             name="right"
             size={20}
             color='#000000'
           />
-       </View>
+       </TouchableOpacity>
        <View style={styles.typecontainer1}>
      <Text style={styles.typetext}>Nội dung bút phê</Text>
      </View>
-        <TextInput name="content" placeholder='Nhập văn bản...' style={styles.input} />
+        <TextInput name="content" placeholder='Nhập văn bản...' multiline style={styles.input} />
      </View>
      </ScrollView>
      <View style={styles.buttonforward}>
@@ -49,8 +52,7 @@ const styles = StyleSheet.create({
   container : {
     flex: 1,
     backgroundColor: '#e3e3e3',
-
-    
+ 
 },
 header : {
   flexDirection : 'row',

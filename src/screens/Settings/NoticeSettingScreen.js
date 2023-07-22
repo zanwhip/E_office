@@ -1,12 +1,12 @@
-import { StyleSheet, Text, View, Switch, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, Switch, TouchableOpacity, Image } from 'react-native'
 import React , { useState } from 'react'
 import Header from '../../components/Header';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { CheckBox } from 'react-native-elements';
 
-const header = 'Giao diện'
+const header = 'Thông báo'
 
-const NoticeSettingScreen = () => {
+const NoticeSettingScreen = ({navigation}) => {
    
     const [selectedOption, setSelectedOption] = useState(null);
 
@@ -14,10 +14,11 @@ const NoticeSettingScreen = () => {
     setSelectedOption(optionName);
   }
   
-  const OptionItem = ({ text, icon, isChecked, onPress }) => {
+  const OptionItem = ({ text, icon, isChecked, onPress, imageSource }) => {
     return (
       <View style={styles.option}>
         <View style={styles.leftContent}>
+        {imageSource && <Image source={imageSource} style={styles.optionImage} />}
           <FontAwesome name={icon} size={24} />
           <Text style={styles.optionText}>{text}</Text>
         </View>
@@ -31,25 +32,33 @@ const NoticeSettingScreen = () => {
       </View>
     );
   };
+  
+const NoticeSettingScreen = () => {
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const handleOptionChange = (optionName) => {
+    setSelectedOption(optionName);
+  }
+}
   return (
     <View style={styles.container}>
       <Header header={header} />
       <View style={styles.display}>
         <OptionItem
-          text="Rung"
-          
+          text="Rung" 
+          imageSource={require('../../assets/image/rung.png')}         
           isChecked={selectedOption === 'vibrate'}
           onPress={() => handleOptionChange('vibrate')}
         />
         <OptionItem
           text="Rung + Chuông"
-        
+          imageSource={require('../../assets/image/chuong.png')}         
           isChecked={selectedOption === 'ringtone'}
           onPress={() => handleOptionChange('ringtone')}
         />
         <OptionItem
           text="Im lặng"
-       
+          imageSource={require('../../assets/image/imlang.png')}         
           isChecked={selectedOption === 'silent'}
           onPress={() => handleOptionChange('silent')}
         />
@@ -84,5 +93,10 @@ export default NoticeSettingScreen
   optionText: {
     marginLeft: 10,
     fontSize: 18,
+  },
+  optionImage: {
+    width: 30,
+    height: 30,
+    marginRight: 10,
   },
 });
