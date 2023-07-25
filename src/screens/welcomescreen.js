@@ -37,20 +37,22 @@ const WelcomeScreen = ({navigation}) => {
     <ScrollView style={styles.scrollContainer}>
     <View style={styles.Header}>
      <View style={styles.iconheader}>
-        <TouchableOpacity  onPress={toggleSidebar} >
+        <TouchableOpacity style={{ width : 50 }} onPress={toggleSidebar} >
         <Entypo name="menu"
            
           size={30}
           color='#ffffff'
           />
         </TouchableOpacity >
-     
-           <FontAwesome5 name="bell"
+     <TouchableOpacity style={{right : 0}}  onPress={() => navigation.navigate('Notice')}>
+     <FontAwesome5 name="bell"
           size={30}
           color='#ffffff'
          style={styles.bellicon}
-         onPress={() => navigation.navigate('Notice')}
+        
          />
+     </TouchableOpacity>
+          
         </View>
         <Text style={styles.textheader}>XIN CHÀO</Text>
         <Text style={styles.subtextheader}>admin_office@id.udn.vn</Text>

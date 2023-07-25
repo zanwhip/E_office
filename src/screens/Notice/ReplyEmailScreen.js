@@ -1,6 +1,8 @@
 import { StyleSheet, Text, View, TextInput, Alert, TouchableOpacity, ScrollView } from 'react-native';
 import React from 'react';
 import Header from '../../components/Header';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'; // Thêm thư viện
+
 
 const header = 'Phản hồi email';
 
@@ -35,7 +37,7 @@ const ReplyEmailScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Header header={header} />
-      <ScrollView>
+      <KeyboardAwareScrollView >
         <View style={styles.displaycontainer}>
           <View style={styles.infor}>
             <Text style={styles.infortext1}>Tên người gửi</Text>
@@ -55,11 +57,14 @@ const ReplyEmailScreen = ({navigation}) => {
           <Text style={styles.infortext1}>Nhập nội dung phản hồi</Text>
           <TextInput name="content" multiline placeholder="Nhập văn bản..." style={styles.input} />
         </View>
-      </ScrollView>
+        
+      </KeyboardAwareScrollView>
 
       <TouchableOpacity style={styles.buttonforward} onPress={handleSendButtonPress}>
         <Text style={styles.textforward}>Gửi</Text>
       </TouchableOpacity>
+       
+      
     </View>
   );
 };

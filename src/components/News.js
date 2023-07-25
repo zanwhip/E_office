@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     },
     image : {
         height : '100%',
-        width : 93,
+        width : 100,
 
     },
     newscontent : {

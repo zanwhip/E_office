@@ -5,7 +5,6 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import News from '../../components/News';
 import Header from '../../components/Header';
 
-
 const header = 'Tin tức - Sự kiện';
 
 const bannerData = [
@@ -19,18 +18,19 @@ const bannerData = [
 const NewScreen = ({ navigation }) => {
   const renderBannerItem = ({ item }) => {
     return (
-      <TouchableOpacity style={{ }}onPress={() => navigation.navigate('Hotnew')}>
+      <TouchableOpacity onPress={() => navigation.navigate('Hotnew')}>
         <View style={styles.bannerItem}>
           <Image source={item.image} style={styles.bannerImage} />
           <LinearGradient
             colors={['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 0.7)']}
             style={styles.gradientOverlay}
           >
-            <View style={{ flexDirection :'row' , width : 200, marginBottom : 10  }}>
-            <Text style={{ fontSize : 15, color : '#ffffff', fontWeight : '700',  }}>Phát động Cuộc thi “Khởi nghiệp Công nghệ trong sinh viên” InTE-UD lần thứ III: Góp phần kiến tạo cộng đồng khởi nghiệp trẻ từ giảng đường</Text>
-            <Text  style={{ fontSize : 12, color : '#ffffff', fontWeight : '700', marginTop : '45%'}}>09/09/2020</Text>
+            <View style={styles.textContainer}>
+              <Text style={styles.bannerText}>
+                Phát động Cuộc thi “Khởi nghiệp Công nghệ trong sinh viên” InTE-UD lần thứ III: Góp phần kiến tạo cộng đồng khởi nghiệp trẻ từ giảng đường
+              </Text>
+              <Text style={styles.bannerDate}>09/09/2020</Text>
             </View>
-           
           </LinearGradient>
         </View>
       </TouchableOpacity>
@@ -42,22 +42,22 @@ const NewScreen = ({ navigation }) => {
       <Header header={header} />
 
       <View style={styles.banner}>
+        <Text style={styles.bannerTitle}>Tin nổi bật</Text>
         <FlatList
           data={bannerData}
           renderItem={renderBannerItem}
           horizontal
-          pagingEnabled
           showsHorizontalScrollIndicator={false}
           keyExtractor={(item) => item.id}
         />
       </View>
 
       <FlatList
-        style={styles.newscontainer}
+        style={styles.newsContainer}
         data={[...Array(10).keys()]} // Replace this with your actual data for News component
         renderItem={({ index }) => <News />} // Replace this with your actual News component
         keyExtractor={(item, index) => index.toString()}
-        ListHeaderComponent={<Text style={styles.texttile}>Tin tức - Sự kiện</Text>}
+        ListHeaderComponent={<Text style={styles.textTitle}>Tin tức - Sự kiện</Text>}
       />
     </View>
   );
@@ -74,17 +74,15 @@ const styles = StyleSheet.create({
   banner: {
     backgroundColor: '#1668C7',
     width: '100%',
-    height: 280,
-    overflow: 'hidden',
+    height: 300,
   },
   bannerItem: {
-    width:350,
+    width: 350,
     height: 280,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal : 20, 
-    paddingVertical : 20,
-    
+    paddingHorizontal: 10,
+    paddingVertical: 20,
   },
   bannerImage: {
     flex: 1,
@@ -97,17 +95,41 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingBottom: 16,
   },
-  bannerText: {
-    fontSize: 18,
+  bannerTitle: {
+    fontSize: 20,
+    fontWeight: '700',
     color: '#ffffff',
-    fontWeight: 'bold',
-    marginBottom: 8,
+    marginHorizontal: 15,
   },
-  newscontainer: {
+  textContainer: {
+    position: 'absolute',
+    flexDirection : 'row',
+    bottom: 16,
+    left: 16,
+    right: 16,
+  },
+  bannerText: {
+    fontSize: 14,
+    color: '#ffffff',
+    fontWeight: '700',
+    marginBottom: 4,
+    marginHorizontal : 5,
+    width : '65%',
+    lineHeight : 22,
+  },
+  bannerDate: {
+    fontSize: 12,
+    color: '#ffffff',
+    fontWeight: '700',
+    marginTop : '28%', 
+    marginLeft : 10
+    
+  },
+  newsContainer: {
     backgroundColor: '#e3e3e3',
     paddingHorizontal: 10,
   },
-  texttile: {
+  textTitle: {
     color: '#000000',
     fontSize: 22,
     fontWeight: 'bold',

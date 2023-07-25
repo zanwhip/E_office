@@ -27,7 +27,13 @@ import FileScreen from '../screens/FileScreen';
 import MessageScreen from '../screens/MessageScreen';
 import ReportWorkScreen from '../screens/ReportWorkScreen';
 import StatisticsScreen from '../screens/StatisticsScreen';
-
+import RegisterScheduleScreen from '../screens/Schedule/RegisterScheduleScreen';
+import SetSchedule from '../screens/Schedule/SetSchedule';
+import SetScheduleScreen from '../screens/Schedule/SetSchedule';
+import DetailScheduleScreen from '../screens/Schedule/DetailScheduleScreen';
+import EditScheduleScreen from '../screens/Schedule/EditScheduleScreen';
+import ScheduleWeekScreen from '../screens/Schedule/ScheduleWeekScreen';
+ScheduleWeekScreen
 
 
 
@@ -75,6 +81,11 @@ const Navigators = () => {
            <Stack.Screen name="Mess" component={MessageScreen} /> 
            <Stack.Screen name="ReportWork" component={ReportWorkScreen} />
            <Stack.Screen name="Statistics" component={StatisticsScreen} />
+           <Stack.Screen name="RegisterSchedule" component={RegisterScheduleScreen} />
+           <Stack.Screen name="SetSchedule" component={SetScheduleScreen} />
+           <Stack.Screen name="DetailSchedule" component={DetailScheduleScreen} />
+           <Stack.Screen name="EditSchedule" component={EditScheduleScreen} />
+           <Stack.Screen name="ScheduleWeek" component={ScheduleWeekScreen} />
           </Stack.Navigator>
       </NavigationContainer>
     );

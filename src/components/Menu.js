@@ -44,7 +44,14 @@ const Menu = ({ handleMenuItemPress, isSidebarOpen }) => {
       handleMenuItemPress();
          navigation.navigate('InternalDocumentSend');
     };
-
+    const handleMenuSchedule = () => {
+      handleMenuItemPress();
+         navigation.navigate('RegisterSchedule');
+    };
+    const handleMenuScheduleWeek = () => {
+      handleMenuItemPress();
+         navigation.navigate('ScheduleWeek');
+    };
 
         
 
@@ -168,8 +175,10 @@ const Menu = ({ handleMenuItemPress, isSidebarOpen }) => {
              >
               <Text style={styles.dropdownItemText}>Quản lý công việc</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.dropdownItem}>
+            <TouchableOpacity style={styles.dropdownItem}
+             onPress={handleMenuSchedule}>
               <Text style={styles.dropdownItemText}>Đăng kí lịch tuần</Text>
+              
             </TouchableOpacity>
 
             <TouchableOpacity 
@@ -202,7 +211,8 @@ const Menu = ({ handleMenuItemPress, isSidebarOpen }) => {
 
           </View>
         )}
-        <TouchableOpacity style={styles.menuItem}>
+        <TouchableOpacity style={styles.menuItem}
+         onPress={handleMenuScheduleWeek}>
           <Text style={styles.menuItemText}>Lịch tuần</Text>
         </TouchableOpacity>
 

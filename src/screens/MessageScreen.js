@@ -8,6 +8,7 @@ import DetailWork from '../components/DetailWork';
 const header = 'Thảo luận';
 
 const MessageScreen = () => {
+  
   const [messages, setMessages] = useState([
     { id: 1, text: 'Hello', fromMe: false },
     { id: 2, text: 'Hi there!', fromMe: true },

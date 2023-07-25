@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 import { TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 
-const DetailWork = ({ handleMenuItemPress, isSidebarOpen }) => {
+const DetailSchedule = ({ handleMenuItemPress, isSidebarOpen }) => {
   const navigation = useNavigation();
   const [selectedOption, setSelectedOption] = useState(null);
   const handleOptionPress = (optionName) => {
@@ -17,49 +17,39 @@ const DetailWork = ({ handleMenuItemPress, isSidebarOpen }) => {
     
   const handleMenuPressFile  = () => {
     handleMenuItemPress();
-      navigation.navigate('File');
+      navigation.navigate('Accept');
     };
     const handleMenuPressMess = () => {
       handleMenuItemPress();
-        navigation.navigate('Mess');
+        navigation.navigate('Cancel');
       };
-      const handleMenuPressReportWork = () => {
-        handleMenuItemPress();
-          navigation.navigate('ReportWork');
-        };
   return (
     <View style={styles.container}>
      <TouchableOpacity
-        style={[styles.options, selectedOption === 'Chi tiết' && styles.selectedOption]}
+        style={[styles.options, selectedOption === 'Sửa' && styles.selectedOption]}
         onPress={handleMenuPressDetail}
       >
-        <Text style={[styles.text, selectedOption === 'Chi tiết' && styles.selectedText]}> Chi tiết</Text>
+        <Text style={[styles.text, selectedOption === 'Sửa' && styles.selectedText]}> Sửa</Text>
       </TouchableOpacity>
-      
       <TouchableOpacity
-        style={[styles.options, selectedOption === 'Tài liệu' && styles.selectedOption]}
+        style={[styles.options, selectedOption === 'Duyệt lịch tuần' && styles.selectedOption]}
         onPress={handleMenuPressFile}
       >
-        <Text style={[styles.text, selectedOption === 'Tài liệu' && styles.selectedText]}> Tài liệu</Text>
+        <Text style={[styles.text, selectedOption === 'Duyệt lịch tuần' && styles.selectedText]}> Duyệt lịch tuần</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        style={[styles.options, selectedOption === 'Thảo luận' && styles.selectedOption]}
+        style={[styles.options, selectedOption === 'Hủy lịch tuần' && styles.selectedOption]}
         onPress={handleMenuPressMess}
       >
-        <Text style={[styles.text, selectedOption === 'Thảo luận' && styles.selectedText]}>Thảo luận</Text>
+        <Text style={[styles.text1, selectedOption === 'Hủy lịch tuần ' && styles.selectedText]}>Hủy lịch tuần</Text>
       </TouchableOpacity>
-      <TouchableOpacity
-        style={[styles.options, selectedOption === 'Báo cáo' && styles.selectedOption]}
-        onPress={handleMenuPressReportWork}
-      >
-        <Text style={[styles.text, selectedOption === 'Báo cáo' && styles.selectedText]}>Báo cáo</Text>
-      </TouchableOpacity>
+      
       
       </View>
   )
 }
 
-export default DetailWork
+export default DetailSchedule
 
 const styles = StyleSheet.create({
   container: {  
@@ -81,11 +71,16 @@ const styles = StyleSheet.create({
       paddingHorizontal : 30,
       justifyContent : 'center'
     },
-    text : {
+    text: {
       fontWeight : '700',
       fontSize : 18,
       color : '#1668C7'
     },
+    text1: {
+        fontWeight : '700',
+        fontSize : 18,
+        color : '#FF4444'
+      },
     selectedOption: {
       backgroundColor: '#1668C7',
     },
