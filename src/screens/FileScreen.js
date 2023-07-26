@@ -9,7 +9,7 @@ import Modal from 'react-native-modal';
 
 const header = 'Tài liệu'
 
-const FileScreen = () => {
+const FileScreen = ({navigation}) => {
     
     const [isSidebarOpen, setSidebarOpen] = useState(false);
 

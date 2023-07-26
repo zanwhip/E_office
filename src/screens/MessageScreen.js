@@ -7,7 +7,7 @@ import DetailWork from '../components/DetailWork';
 
 const header = 'Thảo luận';
 
-const MessageScreen = () => {
+const MessageScreen = ({navigation}) => {
   
   const [messages, setMessages] = useState([
     { id: 1, text: 'Hello', fromMe: false },
@@ -113,7 +113,7 @@ export default MessageScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#e3e3e3',
   },
   header: {
     flexDirection: 'row',
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
     marginVertical: 5,
   },
   messageContainerOther: {
-    backgroundColor: '#e3e3e3',
+    backgroundColor: '#ffffff',
     borderRadius: 10,
     padding: 10,
     maxWidth: '80%',
@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
     marginVertical: 5,
   },
   messageText: {
-    color: '#ffffff',
+    color: '#000000',
     fontSize: 16,
   },
   inputContainer: {

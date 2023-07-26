@@ -17,6 +17,7 @@ const ScheduleWeekScreen = () => {
 
   const handleDateSelected = (date) => {
     setSelectedDate(moment(date));
+    
   };
 
   const currentWeekNumber = selectedDate.isoWeek();
@@ -104,6 +105,7 @@ const ScheduleWeekScreen = () => {
 
         {/* Rest of the component */}
         <ScrollView style={styles.displaycontainer}>
+          
           <Text style={styles.selectedDateText}>Thứ: {selectedDate.format('dddd')}</Text>
           <Text style={styles.selectedDateText}>Ngày: {selectedDate.format('DD/MM/YYYY')}</Text>
           {/* Các thông tin khác của ngày được chọn */}

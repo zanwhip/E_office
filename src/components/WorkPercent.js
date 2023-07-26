@@ -47,15 +47,17 @@ const Work = ({ status, completionPercentage }) => {
               <SVGText
                 x="50%"
                 y="50%"
-                textAnchor="middle"
-                fontSize={10}
+                textAnchor="end"
+                fontSize={8}
                 fontWeight="bold"
+                
+                letterSpacing={-0.9}
                 fill="#000000"
                 dy="3"
               >
                 
                 {completionPercentage}%
-                {/* <Text style={{ fontSize : 5 , marginLeft : 30 }}>%</Text> */}
+             
               </SVGText>
             </Svg>
         <View style={styles.description}>

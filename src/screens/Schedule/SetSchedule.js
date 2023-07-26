@@ -1,19 +1,22 @@
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity,Modal } from 'react-native';
 import React, { useState } from 'react';
 import Header from '../../components/Header';
+import Octicons from 'react-native-vector-icons/Octicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import SelectDropdown from 'react-native-select-dropdown';
 import { TextInput } from 'react-native';
 import { ScrollView } from 'react-native';
+import WeekDay from '../../components/WeekDay';
 
 const address = ["Hội trường - 41 Lê Duẩn", "Phòng 0804 Khu B - 41 Lê Duẩn", "Phòng 0805 - 41 Lê Duẩn", "Phòng 0806 Khu B - 41 Lê Duẩn", "Phòng 2C"];
 const header = 'Đăng kí lịch';
 const SetScheduleScreen = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [selectedLocation, setSelectedLocation] = useState('Chọn địa điểm'); // Default value for location dropdown
-
+  const [isSidebarVisible, setSidebarVisibility] = useState(false);
   const [isAddressDropdownOpen, setIsAddressDropdownOpen] = useState(false);
+  const [isCalendarModalVisible, setCalendarModalVisible] = useState(false);
   const handleOptionPress = (option) => {
     setSelectedOption(option);
   };
@@ -25,7 +28,12 @@ const SetScheduleScreen = () => {
   const toggleAddressDropdown = () => {
     setIsAddressDropdownOpen((prevValue) => !prevValue);
   };
-
+  const toggleCalendarModal = () => {
+    setCalendarModalVisible((prev) => !prev);
+  };
+  const showSidebar = () => {
+    setSidebarVisibility(true);
+  };
   const CustomRowText = ({ item }) => {
     return <Text style={styles.dropdownSelectedText}>{item}</Text>;
   };
@@ -55,7 +63,7 @@ const SetScheduleScreen = () => {
         </View>
 
         <Text style={styles.label}>Thời gian<Text style={{ fontSize : 16, fontWeight : 'bold', color : '#FF4444' }}>*</Text></Text>
-        <TouchableOpacity style={styles.time}>
+        <TouchableOpacity style={styles.time} onPress={toggleCalendarModal}>
           <Text style={{ fontSize: 16 }}>Nhấp để chọn</Text>
           <AntDesign
             name="right"
@@ -63,7 +71,16 @@ const SetScheduleScreen = () => {
             color="#000000"
           />
         </TouchableOpacity>
-
+        <Modal transparent={true} visible={isCalendarModalVisible} animationType="slide" onRequestClose={toggleCalendarModal}>
+          <View style={styles.modalContainer}>
+            <TouchableOpacity style={styles.closeButton} onPress={toggleCalendarModal}>
+              <Octicons name="x" size={30} color="#ffffff" />
+            </TouchableOpacity>
+            <View style={styles.calendarContainer}>
+              <WeekDay />
+            </View>
+          </View>
+        </Modal>
         <Text style={styles.label}>Địa điểm<Text style={{ fontSize : 16, fontWeight : 'bold', color : '#FF4444' }}>*</Text></Text>
         <SelectDropdown
           data={address}
@@ -210,6 +227,22 @@ const styles = StyleSheet.create({
     width: '90%',
     textAlign : 'left',
     marginTop: 5,
+  },
+  
+  modalContainer: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  
+  calendarContainer: {
+   // backgroundColor: 'white',
+    width: '80%',
+    height: '50%',
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   dropdownSelectedText: {
     fontSize: 14,

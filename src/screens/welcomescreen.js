@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Image, ScrollView, TouchableWithoutFeedback } from 'react-native'
 import Entypo from 'react-native-vector-icons/Entypo';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import React , {useState}from 'react'
 import { TouchableOpacity } from 'react-native';
 import Header from '../components/Header';
@@ -45,7 +45,7 @@ const WelcomeScreen = ({navigation}) => {
           />
         </TouchableOpacity >
      <TouchableOpacity style={{right : 0}}  onPress={() => navigation.navigate('Notice')}>
-     <FontAwesome5 name="bell"
+     <FontAwesome name="bell"
           size={30}
           color='#ffffff'
          style={styles.bellicon}

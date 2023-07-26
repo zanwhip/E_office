@@ -1,11 +1,18 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View , Modal } from 'react-native';
 import React, { useState } from 'react';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import Octicons from 'react-native-vector-icons/Octicons';
 import Feather from 'react-native-vector-icons/Feather';
 import { TouchableOpacity } from 'react-native';
 import SelectDropdown from 'react-native-select-dropdown';
 import WeekSchedule from '../../components/WeekSchedule';
+import Calendar from '../../components/Calendar';
+import moment from 'moment';
+
+
+
+
 
 
 const type = ['Tất cả', 'ĐHĐN', 'Cơ quan'];
@@ -23,9 +30,14 @@ const RegisterScheduleScreen = ({navigation}) => {
   const [isTypeDropdownOpen, setIsTypeDropdownOpen] = useState(false);
   const [isStatusDropdownOpen, setIsStatusDropdownOpen] = useState(false);
   const [isScheduleDropdownOpen, setIsScheduleDropdownOpen] = useState(false);
-
+  const [isCalendarModalVisible, setCalendarModalVisible] = useState(false);
+   const [isSidebarVisible, setSidebarVisibility] = useState(false);
+const [selectedDate, setSelectedDate] = useState(moment());
   const toggleTypeDropdown = () => {
     setIsTypeDropdownOpen((prevValue) => !prevValue);
+  };
+  const toggleCalendarModal = () => {
+    setCalendarModalVisible((prev) => !prev);
   };
 
   const toggleStatusDropdown = () => {
@@ -55,9 +67,22 @@ const RegisterScheduleScreen = ({navigation}) => {
       </View>
 
       <View style={styles.filter}>
-        <View style={styles.calendar}>
+        <TouchableOpacity style={styles.calendar}  onPress={toggleCalendarModal} >
           <Text style={{ fontSize : 18, fontWeight : 'bold',  }}>Tuần 50, năm 2023</Text>
-        </View>
+        </TouchableOpacity>
+
+ {/* Calendar Modal */}
+ <Modal transparent={true} visible={isCalendarModalVisible} animationType="slide" onRequestClose={toggleCalendarModal}>
+          <View style={styles.modalContainer}>
+            <TouchableOpacity style={styles.closeButton} onPress={toggleCalendarModal}>
+              <Octicons name="x" size={30} color="#ffffff" />
+            </TouchableOpacity>
+            <View style={styles.calendarContainer}>
+              <Calendar currentDate={selectedDate.format('YYYY-MM-DD')} selectedDate={selectedDate.format('YYYY-MM-DD')} />
+            </View>
+          </View>
+        </Modal>
+
         <View style={styles.dropdownContainer}>
           <SelectDropdown
             data={type}
@@ -156,6 +181,7 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     fontWeight: 'bold',
   },
+  
   filter: {
     width: '100%',
     backgroundColor: '#1668c7',
@@ -177,6 +203,21 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginTop: 10,
     width: '90%',
+  },
+  
+  modalContainer: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  calendarContainer: {
+    backgroundColor: 'white',
+    width: '80%',
+    height: '50%',
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   dropdownButton: {
     width: '30%',
