@@ -34,6 +34,7 @@ import DetailScheduleScreen from '../screens/Schedule/DetailScheduleScreen';
 import EditScheduleScreen from '../screens/Schedule/EditScheduleScreen';
 import ScheduleWeekScreen from '../screens/Schedule/ScheduleWeekScreen';
 import CreateWorkReport from '../screens/CreateWorkReport';
+import DocumentDetailScreen from '../screens/Document/DocumentDetailScreen';
 
 
 
@@ -73,6 +74,7 @@ const Navigators = () => {
            <Stack.Screen name="InternalDocumentReceive" component={InternalDocumentReceiveScreen} />
            <Stack.Screen name="InternalDocumentSend" component={InternalDocumentSendScreen} />
            <Stack.Screen name="OutgoingDocumentary" component={OutgoingDocumentaryScreen} /> 
+           <Stack.Screen name="DocumentDetail" component={DocumentDetailScreen} /> 
            <Stack.Screen name="InterfaceSetting" component={InterfaceSettingScreen} />
            <Stack.Screen name="NoticeSetting" component={NoticeSettingScreen} />
            <Stack.Screen name="LanguageSetting" component={LanguageSettingScreen} />
@@ -80,13 +82,13 @@ const Navigators = () => {
             <Stack.Screen name="File" component={FileScreen} />
            <Stack.Screen name="Mess" component={MessageScreen} /> 
            <Stack.Screen name="ReportWork" component={ReportWorkScreen} />
-           <Stack.Screen name="Statistics" component={StatisticsScreen} /> */}
-           <Stack.Screen name="RegisterSchedule" component={RegisterScheduleScreen} />
+           <Stack.Screen name="Statistics" component={StatisticsScreen} />  */}
+           <Stack.Screen name="RegisterSchedule" component={RegisterScheduleScreen} /> 
            <Stack.Screen name="SetSchedule" component={SetScheduleScreen} />
            <Stack.Screen name="DetailSchedule" component={DetailScheduleScreen} />
-           <Stack.Screen name="EditSchedule" component={EditScheduleScreen} />
+          {/*  <Stack.Screen name="EditSchedule" component={EditScheduleScreen} /> 
            <Stack.Screen name="ScheduleWeek" component={ScheduleWeekScreen} />
-           <Stack.Screen name="CreateWorkReport" component={CreateWorkReport} />
+           <Stack.Screen name="CreateWorkReport" component={CreateWorkReport} /> */}
           </Stack.Navigator>
       </NavigationContainer>
     );

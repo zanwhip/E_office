@@ -56,7 +56,7 @@ const Filter = () => {
       <View style={styles.header}>
         <View style={styles.headerIcon} />
         <Text style={styles.headerText}>Bộ lọc nâng cao</Text>
-        <TouchableOpacity >
+        <TouchableOpacity onPress={hideSidebar} >
           <Image source={require('../assets/image/cancel.png')} style={styles.cancelIcon} />
         </TouchableOpacity>
       </View>
@@ -242,6 +242,7 @@ const styles = StyleSheet.create({
     width: '80%',
   },
   cancelIcon: {
+   
     width: 50,
     height: 50,
     left: 5,

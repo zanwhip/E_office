@@ -13,7 +13,7 @@ const Documentary = ({status}) => {
 
   const navigation = useNavigation();
     const handleNavigate = () => {
-        navigation.navigate('Noticedetail');
+        navigation.navigate('DocumentDetail');
       };
 
   // Xác định màu sắc dựa trên trạng thái

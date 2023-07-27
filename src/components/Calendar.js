@@ -6,40 +6,35 @@ import { getISOWeek, parse, format } from 'date-fns'; // Import 'format' functio
 const Calendar = ({ currentDate, selectedDate, closeSidebar, toggleCalendarModal }) => {
   const [selectedWeek, setSelectedWeek] = useState(null);
   const [isDateSelected, setIsDateSelected] = useState(false);
+  const [formattedDate, setFormattedDate] = useState('');
+
 
   useEffect(() => {
     const selectedDateObject = parse(selectedDate, 'yyyy-MM-dd', new Date());
+    
     if (!isNaN(selectedDateObject)) {
       setSelectedWeek(getWeekNumber(selectedDateObject));
       setIsDateSelected(true);
+      const formattedDateStr = format(selectedDateObject, 'dd/MM/yyyy');
+      setFormattedDate(formattedDateStr);
     } else {
       setSelectedWeek(null);
       setIsDateSelected(false);
+      setFormattedDate('Invalid'); // Set the date to "Invalid" when it's not a valid date
     }
   }, [selectedDate]);
 
   const getWeekNumber = (date) => {
     return getISOWeek(date);
+    
   };
 
   const handleDateChange = (date) => {
-    const selectedDateObject = parse(date, 'yyyy-MM-dd', new Date());
-    if (!isNaN(selectedDateObject)) {
-      setSelectedWeek(getWeekNumber(selectedDateObject));
-      setIsDateSelected(true);
-
-      const formattedDate = format(selectedDateObject, 'dd/MM/yyyy'); // Format the date
-
-      console.log('Ngày đã chọn:', formattedDate);
-
-      // Đóng sidebar
-      closeSidebar();
-      toggleCalendarModal(); // Close the calendar modal when a date is selected
-    } else {
-      setSelectedWeek(null);
-      setIsDateSelected(false);
-      console.log('Ngày đã chọn: Invalid'); // Log 'Invalid' string directly
-    }
+    console.log('date:', date);
+    const formattedDateStr = date
+    console.log('selectedDateObject:', formattedDateStr);
+    console.log('isNaN(selectedDateObject):', isNaN(formattedDateStr));
+    setFormattedDate(formattedDateStr);
   };
 
   return (
@@ -50,11 +45,8 @@ const Calendar = ({ currentDate, selectedDate, closeSidebar, toggleCalendarModal
       </View>
 
       <View style={styles.weekNumberContainer}>
-        {isDateSelected ? (
-          <Text style={styles.weekNumberText}>{`Tuần ${selectedWeek}, năm 2023`}</Text>
-        ) : (
-          <Text style={styles.weekNumberText}>Invalid</Text>
-        )}
+        <Text style={styles.weekNumberText}>{`Ngày : ${formattedDate}`}</Text>
+        
       </View>
 
       {/* Date Picker */}
@@ -88,7 +80,7 @@ const styles = StyleSheet.create({
   },
   headerContainer: {
     backgroundColor: '#1668c7',
-    height: 40, 
+    height: 40,
     alignItems: 'center',
     justifyContent: 'center',
     paddingTop: 10,
@@ -101,7 +93,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     textAlign: 'center',
     fontWeight: 'bold',
-    color: 'white', 
+    color: 'white',
   },
   weekNumberContainer: {
     backgroundColor: '#1668c7',

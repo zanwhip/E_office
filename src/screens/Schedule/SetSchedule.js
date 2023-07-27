@@ -73,11 +73,22 @@ const SetScheduleScreen = () => {
         </TouchableOpacity>
         <Modal transparent={true} visible={isCalendarModalVisible} animationType="slide" onRequestClose={toggleCalendarModal}>
           <View style={styles.modalContainer}>
-            <TouchableOpacity style={styles.closeButton} onPress={toggleCalendarModal}>
-              <Octicons name="x" size={30} color="#ffffff" />
-            </TouchableOpacity>
+          
             <View style={styles.calendarContainer}>
               <WeekDay />
+              <TouchableOpacity
+           style={{
+            width: '100%',
+            backgroundColor: '#ffffff',
+            height: 50,
+            justifyContent: 'center',
+            paddingHorizontal: '44%',
+             borderRadius: 10,
+          }}
+          onPress={toggleCalendarModal}
+           >
+          <Text style={{ fontSize: 17, color: '#000000', fontWeight: '500',marginVertical : '30%', }}> Hủy</Text>
+        </TouchableOpacity>
             </View>
           </View>
         </Modal>

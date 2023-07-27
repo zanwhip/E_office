@@ -8,62 +8,125 @@ const header = 'Tên Phòng, Ban, Khoa,...'
 
 const DepartmentScreen = () => {
   const [selectedOptions, setSelectedOptions] = useState({
-    ĐHĐN1: false,
-         ĐHĐN1A: false,
-         ĐHĐN1B: false,
-    ĐHĐN2: false,
-          ĐHĐN2A: false,
-         ĐHĐN2B: false,
-    ĐHĐN3: false,
-       ĐHĐN2A: false,
-      ĐHĐN2B: false,
-    ĐHĐN4: false,
-    ĐHĐN5: false,
-    ĐHĐN6: false,
+    DHDN1: false,
+         DHDN1A: false,
+         DHDN1B: false,
+    DHDN2: false,
+          DHDN2A: false,
+          DHDN2B: false,
+          DHDN2C: false,
+          DHDN2D: false,
+    DHDN3: false,
+       DHDN2A: false,
+      DHDN2B: false,
+    DHDN4: false,
+    DHDN5: false,
+    DHDN6: false,
   });
-  const [showDropdown1, setShowDropdown1] = useState(false);
+
+const [showDropdown1, setShowDropdown1] = useState(false);
 const [showDropdown2, setShowDropdown2] = useState(false);
 const [showDropdown3, setShowDropdown3] = useState(false);
+ 
+
+
   const handleCheckboxChange = (checkboxName) => {
-    setSelectedOptions((prevOptions) => ({
-      ...prevOptions,
-      [checkboxName]: !prevOptions[checkboxName],
-    }));
-  
+    setSelectedOptions((prevOptions) => {
+      if (checkboxName === 'DHDN1') {
+        const isDHDN1Checked = !prevOptions.DHDN1;
+        return {
+          ...prevOptions,
+          DHDN1: isDHDN1Checked,
+          DHDN1A: isDHDN1Checked ? true : false,
+          DHDN1B: isDHDN1Checked ? true : false,
+        };
+      } else if (checkboxName === 'DHDN1A') {
+        const isDHDN1AChecked = !prevOptions.DHDN1A;
+        return {
+          ...prevOptions,
+          DHDN1: isDHDN1AChecked && !prevOptions.DHDN1B ? false : isDHDN1AChecked,
+          DHDN1A: isDHDN1AChecked,
+        };
+      } else if (checkboxName === 'DHDN1B') {
+        const isDHDN1BChecked = !prevOptions.DHDN1B;
+        return {
+          ...prevOptions,
+          DHDN1: isDHDN1BChecked && !prevOptions.DHDN1A ? false : isDHDN1BChecked,
+          DHDN1B: isDHDN1BChecked,
+        };
+      } else {
+        return {
+          ...prevOptions,
+          [checkboxName]: !prevOptions[checkboxName],
+        };
+      }
+    });
   };
+
+
+  
+
+  const handleCheckboxChange2 = (checkboxName) => {
+    setSelectedOptions((prevOptions) => {
+      if (checkboxName === 'DHDN2') {
+        const isDHDN2Checked = !prevOptions.DHDN2;
+        const areAllSubChecked =
+          isDHDN2Checked &&
+          prevOptions.DHDN2A &&
+          prevOptions.DHDN2B &&
+          prevOptions.DHDN2C &&
+          prevOptions.DHDN2D;
+
+        return {
+          ...prevOptions,
+          DHDN2: areAllSubChecked || isDHDN2Checked,
+          DHDN2A: isDHDN2Checked,
+          DHDN2B: isDHDN2Checked,
+          DHDN2C: isDHDN2Checked,
+          DHDN2D: isDHDN2Checked,
+        };
+      } else if (
+        checkboxName === 'DHDN2A' ||
+        checkboxName === 'DHDN2B' ||
+        checkboxName === 'DHDN2C' ||
+        checkboxName === 'DHDN2D'
+      ) {
+        const isSubChecked = !prevOptions[checkboxName];
+        const areAllSubChecked =
+          isSubChecked &&
+          prevOptions.DHDN2A &&
+          prevOptions.DHDN2B &&
+          prevOptions.DHDN2C &&
+          prevOptions.DHDN2D;
+        const isDHDN2Checked =
+          areAllSubChecked || prevOptions.DHDN2 || isSubChecked;
+
+        return {
+          ...prevOptions,
+          [checkboxName]: isSubChecked,
+          DHDN2: isDHDN2Checked && areAllSubChecked,
+        };
+      } else {
+        return {
+          ...prevOptions,
+          [checkboxName]: !prevOptions[checkboxName],
+        };
+      }
+    });
+  };
+
+
+
+
   const toggleDropdown1 = () => {
     setShowDropdown1(!showDropdown1);
   };
-
+  const getDropdownIcon = (isOpen) => {
+    return isOpen ? 'caret-up' : 'caret-down';
+  };
   const toggleDropdown2 = () => {
     setShowDropdown2(!showDropdown2);
   };
-
-  useEffect(() => {
-    // HOI DONG DHDN1
-    // Check if both DHDN1A and DHDN1B are selected, then automatically select DHDN1
-    if (selectedOptions.ĐHĐN1A && selectedOptions.ĐHĐN1B) {
-      setSelectedOptions((prevOptions) => ({
-        ...prevOptions,
-        ĐHĐN1: true,
-      }));
-    } else if (selectedOptions.ĐHĐN1) {
-      // If DHDN1 is selected, automatically select DHDN1A and DHDN1B
-      setSelectedOptions((prevOptions) => ({
-        ...prevOptions,
-        ĐHĐN1A: true,
-        ĐHĐN1B: true,
-      }));
-    } else {
-      setSelectedOptions((prevOptions) => ({
-        ...prevOptions,
-        ĐHĐN1: false,
-      }));
-    }
-  }, [selectedOptions.ĐHĐN1A, selectedOptions.ĐHĐN1B, selectedOptions.ĐHĐN1]
-
-
-  );
 
 
   return (
@@ -74,35 +137,35 @@ const [showDropdown3, setShowDropdown3] = useState(false);
         <View style={styles.option}>
         <TouchableOpacity style={{ flexDirection :"row" }} onPress={toggleDropdown1}>
         <FontAwesome          
-          name='caret-up'
+        name={getDropdownIcon(showDropdown1)}
           size={20}
           color='#000000'
           style={{marginLeft : 20}}/>
-        <Text style={styles.optiontext}>Hội đồng ĐHĐN</Text>
+        <Text style={styles.optiontext}>Hội đồng DHDN</Text>
         </TouchableOpacity>
          <CheckBox
-  checked={selectedOptions.ĐHĐN1}
-  onPress={() => handleCheckboxChange('ĐHĐN1')}
+  checked={selectedOptions.DHDN1}
+  onPress={() => handleCheckboxChange('DHDN1')}
   checkedColor="#1668C7"
         />
         </View>      
 {showDropdown1 && (
   <View> 
-    <TouchableOpacity style={{ justifyContent:'space-between' , height :60, width : '100%', flexDirection : 'row', alignItems :'center', paddingLeft : 80 }} >
-         <Text style={{ fontSize : 18, fontWeight : '600'  }}>Hội đồng ĐHĐN</Text>
+    <TouchableOpacity style={styles.optionsub} >
+         <Text style={{ fontSize : 18, fontWeight : '600'  }}>Hội đồng DHDN 1A</Text>
          <CheckBox
-  checked={selectedOptions.ĐHĐN1A}
-  onPress={() => handleCheckboxChange('ĐHĐN1A')}
+  checked={selectedOptions.DHDN1A}
+  onPress={() => handleCheckboxChange('DHDN1A')}
   checkedColor="#1668C7"
         />
         </TouchableOpacity>
    
    
-        <TouchableOpacity style={{ justifyContent:'space-between' , height :60, width : '100%', flexDirection : 'row', alignItems :'center', paddingLeft : 80 }} >
-         <Text style={{ fontSize : 18, fontWeight : '600'  }}>Hội đồng ĐHĐN</Text>
+        <TouchableOpacity style={styles.optionsub} >
+         <Text style={{ fontSize : 18, fontWeight : '600'  }}>Hội đồng DHDN 1B</Text>
          <CheckBox
-  checked={selectedOptions.ĐHĐN1B}
-  onPress={() => handleCheckboxChange('ĐHĐN1B')}
+  checked={selectedOptions.DHDN1B}
+  onPress={() => handleCheckboxChange('DHDN1B')}
   checkedColor="#1668C7"
         />
         </TouchableOpacity>
@@ -111,40 +174,59 @@ const [showDropdown3, setShowDropdown3] = useState(false);
 )
   
 }
-      </View>
-      <View>
-      <View style={styles.option}>
-      <TouchableOpacity style={{ flexDirection :"row" }} onPress={toggleDropdown2} >
+{/* Hoi dong DHDN2 */}
+<View>
+        <View style={styles.option}>
+        <TouchableOpacity style={{ flexDirection :"row" }} onPress={toggleDropdown2}>
         <FontAwesome          
-          name='caret-up'
+        name={getDropdownIcon(showDropdown2)}
           size={20}
           color='#000000'
           style={{marginLeft : 20}}/>
-        <Text style={styles.optiontext}>Hội đồng ĐHĐN</Text>
+        <Text style={styles.optiontext}>Hội đồng DHDN 2</Text>
         </TouchableOpacity>
-        <CheckBox
-  checked={selectedOptions.ĐHĐN2}
-  onPress={() => handleCheckboxChange('ĐHĐN2')}
+         <CheckBox
+  checked={selectedOptions.DHDN2}
+  onPress={() => handleCheckboxChange2('DHDN2')}
   checkedColor="#1668C7"
-/>
-</View>
+        />
+        </View>      
 {showDropdown2 && (
   <View> 
-    <TouchableOpacity style={{ justifyContent:'space-between' , height :60, width : '100%', flexDirection : 'row', alignItems :'center', paddingLeft : 80 }} >
-         <Text style={{ fontSize : 18, fontWeight : '600'  }}>Hội đồng ĐHĐN</Text>
+    <TouchableOpacity style={styles.optionsub} >
+         <Text style={{ fontSize : 18, fontWeight : '600'  }}>Hội đồng DHDN 2A</Text>
          <CheckBox
-  checked={selectedOptions.ĐHĐN2A}
-  onPress={() => handleCheckboxChange('ĐHĐN2A')}
+  checked={selectedOptions.DHDN2A}
+  onPress={() => handleCheckboxChange('DHDN2A')}
   checkedColor="#1668C7"
         />
         </TouchableOpacity>
    
    
-        <TouchableOpacity style={{ justifyContent:'space-between' , height :60, width : '100%', flexDirection : 'row', alignItems :'center', paddingLeft : 80 }} >
-         <Text style={{ fontSize : 18, fontWeight : '600'  }}>Hội đồng ĐHĐN</Text>
+        <TouchableOpacity style={styles.optionsub} >
+         <Text style={{ fontSize : 18, fontWeight : '600'  }}>Hội đồng DHDN 2B</Text>
          <CheckBox
-  checked={selectedOptions.ĐHĐN2B}
-  onPress={() => handleCheckboxChange('ĐHĐN2B')}
+  checked={selectedOptions.DHDN2B}
+  onPress={() => handleCheckboxChange('DHDN2B')}
+  checkedColor="#1668C7"
+        />
+        </TouchableOpacity>
+
+
+        <TouchableOpacity style={styles.optionsub} >
+         <Text style={{ fontSize : 18, fontWeight : '600'  }}>Hội đồng DHDN 2C</Text>
+         <CheckBox
+  checked={selectedOptions.DHDN2C}
+  onPress={() => handleCheckboxChange('DHDN2C')}
+  checkedColor="#1668C7"
+        />
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.optionsub} >
+         <Text style={{ fontSize : 18, fontWeight : '600'  }}>Hội đồng DHDN 2D</Text>
+         <CheckBox
+  checked={selectedOptions.DHDN2D}
+  onPress={() => handleCheckboxChange('DHDN2D')}
   checkedColor="#1668C7"
         />
         </TouchableOpacity>
@@ -154,12 +236,8 @@ const [showDropdown3, setShowDropdown3] = useState(false);
   
 }
 
-
-
-
-   
+ </View>
         </View>
-      
     </View>
     
     </View>
@@ -187,7 +265,17 @@ option : {
   flexDirection : 'row',
   alignItems : 'center',
   justifyContent: 'space-between',
+  backgroundColor :'#ffffff'
   
+},
+optionsub : {
+   justifyContent:'space-between' ,
+    height :60, 
+    width : '100%', 
+    flexDirection : 'row', 
+    alignItems :'center', 
+    paddingLeft : 80, 
+    backgroundColor :'#ffffff' ,
 },
 optiontext : {
   marginHorizontal : 20,
@@ -205,7 +293,8 @@ council : {
   height : 60,
   backgroundColor : '#ffffff',
   alignItems :'center',
-  padding :20
+  padding :20,
+  backgroundColor :'#ffffff'
 },
 icon : {
   width : 30,

@@ -1,6 +1,7 @@
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View , Image} from 'react-native'
 import React, {useState} from 'react'
-import Entypo from 'react-native-vector-icons/Entypo';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+
 import { useNavigation } from '@react-navigation/native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
@@ -78,9 +79,14 @@ const Menu = ({ handleMenuItemPress, isSidebarOpen }) => {
         return isOpen ? 'caret-up' : 'caret-down';
       };
       const getcolorDropdownIcon = (isOpen) => {
-        return isOpen ? '#000000' : '#1668C7';
+        return isOpen ? '#ffffff' : '#1668C7';
       };
-  
+      const getcolorDropdownBackground = (isOpen) => {
+        return isOpen ? '#1668c7' : '#ffffff';
+      };
+      const getcolorDropdownBackgroundsub = (isOpen) => {
+        return isOpen ? '#c4d7f4' : '#ffffff';
+      };
     const [isDropdownBOpen, setDropdownBOpen] = useState(false);
     const [isDropdownB1Open, setDropdownB1Open] = useState(false);
   
@@ -101,13 +107,22 @@ const Menu = ({ handleMenuItemPress, isSidebarOpen }) => {
     <View style={styles.container}>
       <View style={{ flexDirection : 'row' , justifyContent : 'space-between' , height : '10%' , borderBottomWidth : 5, borderBottomColor : '#e3e3e3', backgroundColor : '#ffffff',paddingTop : 30 }}>
       <Text style={styles.menutext}>Menu</Text>
-      <Text style={{ fontSize : 20,fontWeight : 'bold', marginTop : '5%', color :'#1668C7', borderBottomWidth : 1, marginRight : 5 }}>Đăng xuất</Text>
+      <Text style={{ fontSize : 16,fontWeight : 'bold', marginTop : '10%', color :'#1668C7', borderBottomWidth : 1, marginRight : 5 }}>Đăng xuất</Text>
       </View>
       
 
 <ScrollView style={styles.dropdowncontainer} contentContainerStyle={styles.contentContainer}>
-      <TouchableOpacity style={styles.menuItem} onPress={toggleDropdownA}>
-          <Text style={styles.menuItemText}>Điều hành tác nghiệp</Text>
+      <TouchableOpacity style={[styles.menuItem , {backgroundColor : getcolorDropdownBackground(isDropdownAOpen), }]} onPress={toggleDropdownA}>
+        <View style={{ flexDirection :'row' }}>
+        <FontAwesome 
+        name='bank'
+        size={20}
+        style={{ marginRight : 10 }}
+        color={getcolorDropdownIcon(isDropdownAOpen)}
+        />
+          <Text style={[styles.menuItemText, {color : getcolorDropdownIcon(isDropdownAOpen)}]}>Điều hành tác nghiệp</Text>
+        </View>
+        
           <FontAwesome
           
           name={getDropdownIcon(isDropdownAOpen)}
@@ -116,12 +131,12 @@ const Menu = ({ handleMenuItemPress, isSidebarOpen }) => {
         </TouchableOpacity>
         {isDropdownAOpen && (
           <View style={styles.dropdown}>
-            <TouchableOpacity style={styles.dropdownItem} onPress={toggleDropdownA1}>
+            <TouchableOpacity style={[styles.dropdownItem , {backgroundColor : getcolorDropdownBackgroundsub(isDropdownA1Open)}]} onPress={toggleDropdownA1}>
               <Text style={styles.dropdownItemText}>Văn bản đến</Text>
               <FontAwesome
                 name={getDropdownIcon(isDropdownA1Open)}
                 size={20}
-                color={getcolorDropdownIcon(isDropdownA1Open)} />
+                color={'#1668c7'} />
             </TouchableOpacity>
             {isDropdownA1Open && (
               <View style={styles.subDropdown}>
@@ -131,12 +146,12 @@ const Menu = ({ handleMenuItemPress, isSidebarOpen }) => {
               </View>
             )}
 
-            <TouchableOpacity style={styles.dropdownItem} onPress={toggleDropdownA2}>
+            <TouchableOpacity style={[styles.dropdownItem , {backgroundColor : getcolorDropdownBackgroundsub(isDropdownA2Open)}]} onPress={toggleDropdownA2}>
               <Text style={styles.dropdownItemText}>Văn bản đi</Text>
               <FontAwesome
                 name={getDropdownIcon(isDropdownA2Open)}
                 size={20}
-                color={getcolorDropdownIcon(isDropdownA2Open)}
+                color={'#1668c7'}
               />
             </TouchableOpacity>
             {isDropdownA2Open && (
@@ -149,12 +164,12 @@ const Menu = ({ handleMenuItemPress, isSidebarOpen }) => {
             )}
 
            
-<TouchableOpacity style={styles.dropdownItem} onPress={toggleDropdownA3}>
+<TouchableOpacity style={[styles.dropdownItem , {backgroundColor : getcolorDropdownBackgroundsub(isDropdownA3Open)}]} onPress={toggleDropdownA3}>
               <Text style={styles.dropdownItemText}>Điều hành tác nghiệp</Text>
               <FontAwesome
                 name={getDropdownIcon(isDropdownA3Open)}
                 size={20}
-                color={getcolorDropdownIcon(isDropdownA3Open)}
+                color={'#1668c7'}
               />
             </TouchableOpacity>
             {isDropdownA3Open && (
@@ -192,8 +207,18 @@ const Menu = ({ handleMenuItemPress, isSidebarOpen }) => {
         )}
         
 
-      <TouchableOpacity style={styles.menuItem} onPress={toggleDropdownB}>
-          <Text style={styles.menuItemText}>Tra cứu Lương - Thuế</Text>
+      <TouchableOpacity style={[styles.menuItem , {backgroundColor : getcolorDropdownBackground(isDropdownBOpen), }]} onPress={toggleDropdownB}>
+       
+        <View style={{ flexDirection :'row' }}>
+        <FontAwesome5 
+        name='percentage'
+        size={20}
+        style={{ marginRight : 10 }}
+        color={getcolorDropdownIcon(isDropdownBOpen)} 
+        />
+         <Text style={[styles.menuItemText, {color : getcolorDropdownIcon(isDropdownBOpen)}]}>Tra cứu Lương - Thuế</Text>
+        </View>
+         
           <FontAwesome
                 name={getDropdownIcon(isDropdownBOpen)}
                 size={20}
@@ -211,15 +236,17 @@ const Menu = ({ handleMenuItemPress, isSidebarOpen }) => {
 
           </View>
         )}
-        <TouchableOpacity style={styles.menuItem}
+        <TouchableOpacity style={styles.menuItem1}
          onPress={handleMenuScheduleWeek}>
+          <Image source={require('../assets/image/Calendar.png')} style={{ width : 22, height : 20, marginRight : 10 }} />
           <Text style={styles.menuItemText}>Lịch tuần</Text>
         </TouchableOpacity>
 
         <TouchableOpacity 
-        style={styles.menuItem} 
+        style={styles.menuItem1} 
         onPress={handleMenuPressSetting} 
         >
+          <Image source={require('../assets/image/Caidat.png')} style={{ width : 22, height : 20 , marginRight : 10 }} />
           <Text style={styles.menuItemText}>Cài đặt </Text>
         </TouchableOpacity>
         </ScrollView>
@@ -266,6 +293,16 @@ const styles = StyleSheet.create({
         width : '100%',
         height : 60,
         justifyContent : 'space-between'
+        
+      },
+      menuItem1: {
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        backgroundColor: '#ffffff',
+        flexDirection : 'row',
+        width : '100%',
+        height : 60,
+       // justifyContent : 'space-between'
         
       },
       menuItemText: {
@@ -318,5 +355,10 @@ const styles = StyleSheet.create({
       },
       logout : {
         backgroundColor : '#000000'
+      },
+      iconmenu : {
+        paddingHorizontal : 20,
+        width : 22,
+        height : 20
       }
 })

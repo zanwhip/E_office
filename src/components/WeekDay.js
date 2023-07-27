@@ -1,22 +1,64 @@
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import React,{ useState, useEffect }  from 'react';
-import { getISOWeek, parse, format } from 'date-fns'; // Import 'format' function
+import { StyleSheet, Text, View, TouchableOpacity , FlatList} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { getISOWeek, parse, format } from 'date-fns';
+import DateTimePicker from '@react-native-community/datetimepicker';
+import { timing } from 'react-native-reanimated';
+
 const WeekDay = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedWeek, setSelectedWeek] = useState(null);
   const [isDateSelected, setIsDateSelected] = useState(false);
   const [selectedDay, setSelectedDay] = useState(null);
+  const [isTimeSelected, setIsTimeSelected] = useState(false);
+  const [selectedhours, setSelectedhours] = useState(new Date());
+  const [selectedminute, setSelectedminute] = useState(new Date());
+  const [mode, setMode] = useState('date');
+
+  const generateTimeOptions = () => {
+    const hours = [];
+    const minutes = [];
+    for (let hour = 0; hour <= 24; hour++) {
+      const formattedHour = hour.toString().padStart(2, '0');
+      hours.push({ label: formattedHour, value: formattedHour });
+    }
+    for (let minute = 0; minute < 60; minute += 5) {
+      const formattedMinute = minute.toString().padStart(2, '0');
+      minutes.push({ label: formattedMinute, value: formattedMinute });
+    }
+    return { hours, minutes };
+  };
+
+  const { hours, minutes } = generateTimeOptions();
+
   const handleDayPress = (day) => {
     setSelectedDate(day);
     setSelectedDay(day);
   };
+
+  const handleTimePress = () => {
+    setMode('time');
+    setIsTimeSelected(true);
+    setSelectedhours(new Date());
+    setSelectedminute(new Date());
+  };
+  const handleHourChange = (hour) => {
+    const newTime = new Date(selectedhours);
+    newTime.setHours(hour);
+    setSelectedhours(newTime);
+  };
+  
+  const handleMinuteChange = (minute) => {
+    const newTime = new Date(selectedminute);
+    newTime.setMinutes(minute);
+    setSelectedminute(newTime);
+  };
+  
+
   useEffect(() => {
     const selectedDateObject = parse(selectedDate, 'yyyy-MM-dd', new Date());
     if (!isNaN(selectedDateObject)) {
-      setSelectedWeek(getWeekNumber(selectedDateObject));
       setIsDateSelected(true);
     } else {
-      setSelectedWeek(null);
       setIsDateSelected(false);
     }
   }, [selectedDate]);
@@ -27,35 +69,51 @@ const WeekDay = () => {
     setSelectedWeek(currentWeekNumber);
   }, []);
 
-  const getWeekNumber = (date) => {
-    return getISOWeek(date);
-  };
-
 
   return (
     <View>
       <View style={styles.container}>
         <Text style={styles.header}>Chọn ngày và giờ</Text>
-        <Text style={styles.header}>Chọn ngày và giờ</Text>
-        {selectedWeek !== null ? (
-           <Text>{`Tuần ${selectedWeek}, năm ${new Date().getFullYear()}`}</Text>
-        ) : (
-          <Text>{`Tuần ${selectedWeek}, năm ${new Date().getFullYear()}`}</Text>
-        )}
-        <View style={styles.option}>
-          <Text style={styles.optiontext}>Chọn ngày</Text>
-          <Text style={styles.optiontext}>Chọn giờ</Text>
-        </View>
-        {/* Khu vực chọn thứ trong tuần */}
+
+        {mode === 'date' ? (
+          selectedDate !== null ? (
+            <Text style={styles.week}>{`${selectedDate}, Tuần ${selectedWeek}, năm ${new Date().getFullYear()}`}</Text>
+          ) : (
+            <Text style={styles.week}>{`Tuần ${selectedWeek}, năm ${new Date().getFullYear()}`}</Text>
+          )
+        ) : null}
+
+          {mode === 'time' ? (
+            
+          selectedhours && selectedminute !== null ? (
+            <Text style={styles.week}>{`Thời gian: ${format(selectedhours, 'HH')}:${format(selectedminute, 'mm')}`}</Text>
+          ) : (
+            <Text>Invalid</Text>
+          )
+        ) : null}
+
         <View style={styles.display}>
+
+
+        <View style={styles.option}>
+          <TouchableOpacity onPress={() => setMode('date')}>
+            <Text style={[styles.optiontext, mode === 'date' ? { color: '#1668c7' } : null]}>Chọn ngày</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleTimePress}>
+            <Text style={[styles.optiontext, mode === 'time' ? { color: '#1668c7' } : null]}>Chọn giờ</Text>
+          </TouchableOpacity>
+        </View>
+        {mode === 'date' ? (
+
+        <View>
           <View style={styles.row}>
-            <TouchableOpacity
+                      <TouchableOpacity
               style={[
                 styles.square,
-                selectedDay === 'Mon' ? { backgroundColor: '#1668c7' } : null,
+                selectedDay === 'Thứ Hai' ? { backgroundColor: '#1668c7' } : null,
               ]}
-              
-              onPress={() => handleDayPress('Mon')}
+
+              onPress={() => handleDayPress('Thứ Hai')}
             >
             <Text
                 style={[
@@ -69,10 +127,10 @@ const WeekDay = () => {
             <TouchableOpacity
              style={[
                 styles.square,
-                selectedDay === 'Tue' ? { backgroundColor: '#1668c7' } : null,
+                selectedDay === 'Thứ Ba' ? { backgroundColor: '#1668c7' } : null,
               ]}
-              
-              onPress={() => handleDayPress('Tue')}
+
+              onPress={() => handleDayPress('Thứ Ba')}
             >
             <Text
                 style={[
@@ -86,10 +144,10 @@ const WeekDay = () => {
             <TouchableOpacity
              style={[
                 styles.square,
-                selectedDay === 'Wed' ? { backgroundColor: '#1668c7' } : null,
+                selectedDay === 'Thứ Tư' ? { backgroundColor: '#1668c7' } : null,
               ]}
-              
-              onPress={() => handleDayPress('Wed')}
+
+              onPress={() => handleDayPress('Thứ Tư')}
             >
             <Text
                 style={[
@@ -105,10 +163,10 @@ const WeekDay = () => {
             <TouchableOpacity
               style={[
                 styles.square,
-                selectedDay === 'Thu' ? { backgroundColor: '#1668c7' } : null,
+                selectedDay === 'Thứ Năm' ? { backgroundColor: '#1668c7' } : null,
               ]}
-              
-              onPress={() => handleDayPress('Thu')}
+
+              onPress={() => handleDayPress('Thứ Năm')}
             >
             <Text
                 style={[
@@ -122,10 +180,10 @@ const WeekDay = () => {
             <TouchableOpacity
              style={[
                 styles.square,
-                selectedDay === 'Fri' ? { backgroundColor: '#1668c7' } : null,
+                selectedDay === 'Thứ Sáu' ? { backgroundColor: '#1668c7' } : null,
               ]}
-              
-              onPress={() => handleDayPress('Fri')}
+
+              onPress={() => handleDayPress('Thứ Sáu')}
             >
             <Text
                 style={[
@@ -139,10 +197,10 @@ const WeekDay = () => {
             <TouchableOpacity
              style={[
                 styles.square,
-                selectedDay === 'Sat' ? { backgroundColor: '#1668c7' } : null,
+                selectedDay === 'Thứ Bảy' ? { backgroundColor: '#1668c7' } : null,
               ]}
-              
-              onPress={() => handleDayPress('Sat')}
+
+              onPress={() => handleDayPress('Thứ Bảy')}
             >
             <Text
                 style={[
@@ -158,10 +216,10 @@ const WeekDay = () => {
             <TouchableOpacity
              style={[
                 styles.square,
-                selectedDay === 'Sun' ? { backgroundColor: '#1668c7' } : null,
+                selectedDay === 'Chủ Nhật' ? { backgroundColor: '#1668c7' } : null,
               ]}
-              
-              onPress={() => handleDayPress('Sun')}
+
+              onPress={() => handleDayPress('Chủ Nhật')}
             >
             <Text
                 style={[
@@ -172,119 +230,174 @@ const WeekDay = () => {
                 Sun
               </Text>
             </TouchableOpacity>
+
           </View>
-        </View>
-        <Text style={styles.accept}>Xác nhận</Text>
-      </View>
 
-      <View style={styles.container}>
-        <View
-          style={{
-            width: '100%',
-            backgroundColor: '#ffffff',
-            height: 50,
-            justifyContent: 'center',
-            paddingHorizontal: '45%',
-            borderRadius: 10,
-          }}
-        >
-          <Text
-            style={{ fontSize: 17, color: '#000000', fontWeight: '600' }}
-          >
-            Hủy
-          </Text>
-        </View>
-      </View>
+          </View>
 
-      {/* Display selected date */}
-      {selectedDate && (
-        <View style={styles.container}>
-          <Text style={{ fontSize: 16, fontWeight: '600' }}>
-            Ngày được chọn: {selectedDate}
-          </Text>
+   ) : null}
+
+         {mode === 'time' && isTimeSelected && (
+        <View style={{ width : 335, height : 260 , justifyContent :'center', alignItems : 'center', flexDirection : 'row' , marginVertical : 20,}}>
+
+                  <View  style={{ marginHorizontal : 10,}} >
+                    <Text style={{ fontSize : 18, fontWeight : '600' ,paddingBottom : 20,}}>Giờ</Text>
+              <FlatList
+              style={{ backgroundColor :'#ffffff', height : 120, }}
+                data={hours}
+                keyExtractor={(item) => item.value}
+                renderItem={({ item }) => (
+                  <TouchableOpacity
+                    style={[styles.timePickerOption,
+                      item.value === format(selectedhours, 'HH') ? { backgroundColor: '#B9D9FF' } : null,
+                    ]}
+                    onPress={() => handleHourChange(parseInt(item.value, 10))}
+                  >
+                    <Text
+                      style={[
+                        styles.text,
+                        item.value === format(selectedhours, 'HH') ? { color: '#ffffff' } : null,
+                      ]}
+                    >
+                      {item.label}
+                    </Text>
+                  </TouchableOpacity>
+                )}
+              />
+              </View>
+            <View style={{ marginHorizontal : 10 }}>
+              <Text style={{ fontSize : 18, fontWeight : '600' ,paddingBottom : 20,}}>Phút</Text>
+              <FlatList
+              style={{ backgroundColor :'#ffffff', height : 80 }}
+                data={minutes}
+                keyExtractor={(item) => item.value}
+                renderItem={({ item }) => (
+                  <TouchableOpacity
+                    style={[
+                      styles.timePickerOption,
+                      item.value === format(selectedminute, 'mm') ? { backgroundColor: '#B9D9FF' } : null,
+                    ]}
+                    onPress={() => handleMinuteChange(parseInt(item.value, 10))}
+                  >
+                    <Text
+                      style={[
+                        styles.text,
+                        item.value === format(selectedminute, 'mm') ? { color: '#ffffff' } : null,
+                      ]}
+                    >
+
+                      {item.label}
+
+                    </Text>
+                  </TouchableOpacity>
+
+                )}
+              />
         </View>
+            </View>
+
       )}
-    </View>
+        <TouchableOpacity style={styles.accept} disabled={!isDateSelected}>
+            <Text style={{ fontSize: 18, fontWeight: '700', color: '#1668c7'  }}>Xác nhận</Text>
+          </TouchableOpacity>
+      </View>
+
+
+
+
+
+</View>
+       </View>
   );
 };
 
-
-export default WeekDay
+export default WeekDay;
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#ffffff',
+    width: '100%',
+    marginVertical: 10,
+    borderRadius: 10,
+  },
+  header: {
+    fontSize: 18,
+    fontWeight: '700',
+    textAlign: 'center',
+    top: 5,
+    marginVertical: 10,
+  },
+  display: {
+    paddingVertical: 10,
+  },
+  week: {
+    fontSize: 18,
+    fontWeight: '700',
+    textAlign: 'center',
+    top: 5,
+    marginVertical: 20,
+    marginHorizontal: 10,
+  },
+  option: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  optiontext: {
+    fontSize: 16,
+    fontWeight: '600',
+    paddingHorizontal: 10,
+  },
+  row: {
+    flexDirection: 'row',
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    backgroundColor: '#ffffff',
+    marginHorizontal: 10,
+    marginVertical: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  square: {
+    height: 80,
+    width: 80,
+    backgroundColor: '#e3e3e3',
+    marginHorizontal: 10,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  text: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#000000',
+  },
+  text1: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#FF4444',
+  },
+  accept: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: '#1668c7',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
+    paddingBottom: 20,
+  },
+  timePicker: {
+    backgroundColor: '#ffffff',
+    width: '100%',
+    marginVertical: 10,
+    borderRadius: 10,
+    alignItems: 'center',
+  },
+  timePickerOption : {
+    height : 50,
+    width : 60,
+    justifyContent :'center',
+    alignItems :'center',
 
-    container : {
-        backgroundColor : '#ffffff',
-        width : '100%',
-        marginVertical : 10,
-        borderRadius : 10,
-        
-    },
-    header : {
-        fontSize : 18, 
-        fontWeight :'700', 
-        textAlign : 'center' ,
-         top : 5, 
-         marginVertical : 10,
-    },
-    display : {
-        paddingVertical : 10,
-    },
-    week : {
-        fontSize : 18, 
-        fontWeight :'700', 
-        textAlign : 'center' , 
-        top : 5, 
-        marginVertical : 20, 
-        marginHorizontal : 10,
-    },
-    option : { 
-    flexDirection : 'row', 
-    justifyContent : 'center', 
-    alignItems :'center' 
-},
-optiontext : { 
-    fontSize : 16, 
-    fontWeight :'600' , 
-    paddingHorizontal : 10 
-    },
-    row :  {
-        flexDirection :'row',
-        paddingHorizontal : 10, 
-        paddingVertical : 5 ,
-        backgroundColor : '#ffffff',
-        marginHorizontal : 10,
-        marginVertical : 5,
-        alignItems : 'center',
-        justifyContent : 'center',
-    },
-    square : {
-        height : 80,
-        width : 80,
-        backgroundColor : '#e3e3e3',
-        marginHorizontal : 10,
-        borderRadius : 10,
-        alignItems : 'center',
-        justifyContent : 'center',
-    },
-    text : {
-        fontSize : 16,
-        fontWeight : '600',
-        color : '#000000'
-    },
-    text1 : {
-        fontSize : 16,
-        fontWeight : '600',
-        color : '#FF4444'
-    },
-    accept : { 
-        fontSize : 18,
-        fontWeight : '700',
-        color : '#1668c7',
-        alignItems : 'center',
-        justifyContent : 'center',
-        textAlign : 'center',
-        paddingBottom : 20,
-    }
-
-})
+  }
+});
