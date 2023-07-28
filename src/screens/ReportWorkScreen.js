@@ -69,6 +69,10 @@ const ReportWorkScreen = ({navigation}) => {
         <WorkPercent status="B" completionPercentage={50} />
         <WorkPercent status="A" completionPercentage={20} />
      </ScrollView>
+
+     <View style={{ width : '80%', height : 40, backgroundColor : '#1668c7', borderRadius : 10, justifyContent : 'center', alignItems : 'center', marginBottom : 10 }}>
+      <Text style={{ fontSize : 18, color : '#ffffff', fontWeight : '700' }}>Tạo báo cáo</Text>
+     </View>
     </View>
   )
 }
@@ -79,10 +83,11 @@ const styles = StyleSheet.create({
     container : {
         flex: 1,
         backgroundColor: '#e3e3e3',
+        alignItems :'center',
         
     },
     displaycontainer : {
-        paddingHorizontal : 10,
+        paddingHorizontal : 5,
         paddingVertical : 20,
     },
     sidebarModal: {

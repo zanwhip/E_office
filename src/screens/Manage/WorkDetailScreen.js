@@ -5,6 +5,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Modal from 'react-native-modal';
 import { TouchableOpacity } from 'react-native';
 import DetailWork from '../../components/DetailWork';
+import Entypo from 'react-native-vector-icons/Entypo';
 
 const prority = 'Cao'
 const time = '14/04/2003 - 14/05/2023'
@@ -123,6 +124,36 @@ switch (process) {
         <Text style={{ width : '45%' , fontSize : 18, fontWeight : '600'}}>Nội dung công việc </Text>
         <Text style={{ fontWeight : '400' , fontSize : 16 }}> {work} </Text>
       </View>
+
+    {/* Tài liệu */}
+      <Text style={{ fontSize : 20, fontWeight :'700', marginVertical : 20, }}>Tài liệu</Text>
+      <View style={styles.file}>
+    <Text style={{ fontSize : 16,  }}>files/c4gJ_1631171358.xlsx</Text>
+    <Entypo 
+    name="download"
+    size={20}
+    color='#1668C7'
+    style ={{ left : 10 }}
+       />
+    </View>
+    <View style={styles.file}>
+    <Text style={{ fontSize : 16,  }}>files/c4gJ_1631171358.xlsx</Text>
+    <Entypo 
+    name="download"
+    size={20}
+    color='#1668C7'
+    style ={{ left : 10 }}
+       />
+    </View>
+    <View style={styles.file}>
+    <Text style={{ fontSize : 16,  }}>files/c4gJ_1631171358.xlsx</Text>
+    <Entypo 
+    name="download"
+    size={20}
+    color='#1668C7'
+    style ={{ left : 10 }}
+       />
+    </View>
             </ScrollView>
      
        </View>
@@ -181,4 +212,17 @@ const styles = StyleSheet.create({
         height: '100%',
         backgroundColor: '#ffffff',
       },
+      file : {
+        width : '100%',
+        height : 60,
+        backgroundColor  : '#ffffff',
+        borderRadius : 10,
+        borderWidth : 0.2,
+        alignItems : 'center',
+        marginVertical : 10,
+        paddingHorizontal : 20,
+        flexDirection : 'row',
+        justifyContent :'space-between'
+        
+      }
 })

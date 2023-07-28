@@ -1,9 +1,12 @@
-import { StyleSheet, Text, View, Modal, Image } from 'react-native'
-import React ,{ useState} from 'react'
+  import { StyleSheet, Text, View, Modal, Image , TouchableWithoutFeedback } from 'react-native'
+import React ,{useState} from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { ScrollView } from 'react-native';
 import Extract from '../../components/Extract';
 import { TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
+
 
 const number = '1569'
 const date = '12-05-2023'
@@ -24,23 +27,54 @@ const comment = ''
 
 
 
-const DocumentDetailScreen = ({navigation}) => {
- 
-  const [isSidebarOpen, setSidebarOpen] = useState(false);
+const DocumentDetailScreen = () => {
+  const navigation = useNavigation();
+  const [isSidebarVisible, setSidebarVisible] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(null);
 
-  const toggleSidebarDetailWork = () => {
-    setSidebarOpen(!isSidebarOpen);
+  const handleMenuPressForward = () => {
+    handleImagePress()
+    navigation.navigate('Forwarding');
   };
-  const handleMenuItemPress = () => {
-      setSidebarOpen(false);
-  }
+  const handleMenuPressReply = () => {
+    handleImagePress()
+    navigation.navigate('ReplyDocument');
+  };
+  const SidebarContent = () => {
+      return (
+      <View style={styles.sidebar}>
+        
+        <TouchableOpacity
+        style={[styles.options, selectedOption === 'Chuyển tiếp văn bản' && styles.selectedOption]}
+        onPress={handleMenuPressForward}
+      >
+        <Text style={[styles.text, selectedOption === 'Chuyển tiếp văn bản' && styles.selectedText]}>Chuyển tiếp văn bản</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={[styles.options, selectedOption === 'Phản hồi' && styles.selectedOption]}
+        onPress={handleMenuPressReply}
+      >
+        <Text style={[styles.text, selectedOption === 'Phản hồi' && styles.selectedText]}>Phản hồi</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={[styles.options, selectedOption === 'Luồng văn bản' && styles.selectedOption]}
+        onPress={handleMenuPressReply}
+      >
+        <Text style={[styles.text, selectedOption === 'Luồng văn bản' && styles.selectedText]}>Luồng văn bản</Text>
+      </TouchableOpacity>
+   </View>
+    );
+  };
+
+  const handleImagePress = () => {
+    setSidebarVisible(false);
+  };
 
   return (
- 
-  
     <View style={styles.container}>
-       
-  <View>
+     <View>
      <View style={styles.header}>
      <Ionicons 
     name="arrow-back-outline"
@@ -52,7 +86,7 @@ const DocumentDetailScreen = ({navigation}) => {
     <View>
     <Text style={styles.textheader}>{header}</Text>
     </View>
-    <TouchableOpacity onPress={toggleSidebarDetailWork}>
+    <TouchableOpacity onPress={() => setSidebarVisible(true)}>
   <Image source={require('../../assets/image/Infor.png')} style={{ right: 0 }} />
     </TouchableOpacity>
         </View>
@@ -195,7 +229,26 @@ const DocumentDetailScreen = ({navigation}) => {
      </View>
      </ScrollView>
      </View>
-     
+
+
+
+
+
+     <Modal
+         animationIn="slideInLeft"
+         animationOut="slideOutLeft"
+        transparent={true}
+        visible={isSidebarVisible}
+        onRequestClose={() => setSidebarVisible(false)}
+      > 
+      <TouchableWithoutFeedback onPress={handleImagePress}>
+        <View style={styles.modalContainer}>
+        <View style={styles.sidebarModal}>
+          <SidebarContent />
+          </View>
+        </View>
+        </TouchableWithoutFeedback>
+      </Modal>
 </View>
     
   )
@@ -205,9 +258,10 @@ export default DocumentDetailScreen
 
 const styles = StyleSheet.create({
     container : {
-        flex: 1,
-        backgroundColor: '#e3e3e3',
-        
+      position: 'absolute',
+    flex: 1,
+    backgroundColor: '#e3e3e3',
+    width: '100%',
     },
   
   header : {
@@ -233,9 +287,7 @@ textheader : {
       fontSize : 22,
       color : '#ffffff',
       fontWeight : 'bold',
-      
-      
-  },
+},
   typecontainer : {
     height : 50,
     alignContent : 'center',
@@ -248,21 +300,18 @@ textheader : {
     fontSize : 20,
     fontWeight : "bold",
     marginLeft : 20,
-    
-  },
+},
   displaycontainer : {
     width : '100%',
-    height : '90%',
+    height : '65%',
     backgroundColor : '#e3e3e3',
- 
-  },
+},
   displaytable : {
     width : '100%',
     height : '100%',
     backgroundColor : '#e3e3e3',
    paddingHorizontal : 15,
    paddingVertical : 20
-   
   },
   buttonstatus : {
     width : 105,
@@ -271,7 +320,6 @@ textheader : {
      borderRadius : 8,
     paddingHorizontal : 10,
     paddingVertical : 5,
-
   }, 
   footer : {
     top : 0,
@@ -280,16 +328,12 @@ textheader : {
     fontSize : 12,
     fontWeight :'500'
   },
-  
-  
   extactdetail : {
     fontSize : 14,
     fontWeight : '400',
     fontStyle: 'normal',
     marginHorizontal : 10,
-   
-
-  },
+ },
   link : {
     flexDirection : 'row',
     justifyContent : 'space-between',
@@ -304,7 +348,6 @@ textheader : {
     flexDirection : 'row',
     borderBottomWidth : 0.5,
     borderBottomColor : '#B8B8B8'
-    
   },
   column1 : {
     backgroundColor : '#EEEEEE',
@@ -337,42 +380,58 @@ textheader : {
      fontSize : 17,
      fontWeight : '400',
      color : '#ffffff'
-     
-  },
- 
-  
-  buttonforward : {
-    position: 'absolute',
-    bottom: 10, 
-    left: '10%', 
-    width: '80%',
-    height: 50,
-    backgroundColor: '#1668C7',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 10,
-    flexDirection :'row'
-  },
-  textforward : {
-    color: '#ffffff',
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginHorizontal : 10
+  },  
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'flex-start',
+    alignItems: 'flex-end', // Align the Modal to the right side
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Transparent background to cover the entire screen
   },
   
   sidebarModal: {
-    margin: 0,
-    justifyContent: 'flex-end',
-    width : '90%',
-    marginLeft : '30%',
-    
+    flex: 1,
+    justifyContent: 'flex-start',
+    width: '75%',
+    backgroundColor: '#ffffff',
+    alignItems: 'flex-end', 
+    paddingTop : '30%',
   },
   sidebar: {
-    flex: 1, 
-    justifyContent : 'center',
-    width: '70%',
-    height: '100%',
-    backgroundColor: '#000000',
+    flex: 1,
+    backgroundColor: '#ffffff',
+    width :'100%'
   },
-  
+  options: {
+    backgroundColor: '#ffffff',
+    width: '100%',
+    height: 60,
+    backgroundColor: '#ffffff',
+    borderBottomWidth: 0.2,
+    borderColor: '#1668C7',
+    paddingHorizontal: 30,
+    justifyContent: 'center',
+    position: 'relative', // Add this to position the unreadMessageButton absolutely
+  },
+  text: {
+    fontWeight: '700',
+    fontSize: 18,
+    color: '#1668C7',
+  },
+  selectedOption: {
+    backgroundColor: '#1668C7',
+  },
+  selectedText: {
+    color: '#ffffff',
+  },
+  unreadMessageButton: {
+    position: 'absolute',
+   right : '10%',
+
+    backgroundColor: 'red',
+    borderRadius: 10,
+    width: 20,
+    height: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 })

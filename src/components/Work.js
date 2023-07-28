@@ -4,7 +4,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import { TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const Work = ({status}) => {
+const Work = ({status, title, date, rate}) => {
     const navigation = useNavigation();
     const handleNavigate = () => {
         navigation.navigate('WorkDetail');
@@ -24,17 +24,54 @@ const Work = ({status}) => {
         dotColor = '#1EDC26';
         displayStatus = 'Đã hoàn thành';
         break;
+        case 'C':
+        dotColor = '#959595';
+        displayStatus = 'Tạm dừng';
+        break;
       default:
         dotColor = '#AAAAAA';
         break;
     }
+    
+    let textcolorRate = '';
+    let backgroundColorRate = '';
+    let  displayrate = '';
+    let widthRate = null
+    // Xác định màu sắc dựa trên rate
+    switch (rate) {
+      case '1':
+        textcolorRate = '#FF4444';
+        displayrate = 'Cao';
+        backgroundColorRate = '#FFDADA'
+        widthRate = 50
+        break;
+      case '2':
+        textcolorRate = '#DB6A18';
+        displayrate = 'Trung bình';
+        backgroundColorRate = '#FEE4D1'
+        widthRate = 110
+        break;
+      case '3':
+        textcolorRate = '#20AD72';
+        displayrate = 'Thấp';
+        backgroundColorRate = '#CFFFEB'
+        widthRate = 80
+      break;
+      default:
+        textcolorRate = '#AAAAAA';
+        break;
+    }
+  
   
   return (
     <TouchableOpacity style={styles.container} onPress={handleNavigate}>
+      <View style={{ backgroundColor : backgroundColorRate , height : 30,width : widthRate, borderRadius : 15, justifyContent : 'center', alignItems : 'center'}}>
+          <Text style={{ color : textcolorRate }}>{displayrate}</Text>
+      </View>
       <View style={styles.titledisplay}>
-        <Text style={styles.namenotice}>Phân tích công việc</Text>
+        <Text style={styles.namenotice}>{title}</Text>
         <View style={styles.description}>
-        <Text style={styles.date}>14/4/2023 - 14/05/2023</Text>
+        <Text style={styles.date}>{date}</Text>
         <View style={{ flexDirection : 'row',}}>
         <Entypo 
             name="dot-single"
@@ -55,10 +92,13 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#ffffff',
         width : '100%',
-        height : 80,
+        height : 120,
         borderRadius : 10,
        borderWidth : 0.2,
         marginVertical : 3,
+        paddingHorizontal : 16,
+        paddingVertical : 10,
+
     },
     documental : {
         fontSize : 20,
@@ -68,7 +108,6 @@ const styles = StyleSheet.create({
       title : {
           backgroundColor : '#EEEEEE',
           height : 30,
-          paddingHorizontal : 10, 
           width : '100%',
           borderTopLeftRadius : 10,
           borderTopRightRadius : 10,
@@ -77,23 +116,16 @@ const styles = StyleSheet.create({
       namenotice : {
           fontSize : 18,
           fontWeight : '600',
-          marginHorizontal : 10,
-          marginVertical : 5,
-          
-  
+         marginVertical : 5,
       },
       date : {
-        marginHorizontal : 10,
         fontStyle : 'italic',
-        marginVertical : 5,
-        marginRight : 70
+        marginRight : 70,
+        marginTop: 8,
+        
         },
-    
       description : {
           flexDirection : 'row',
          
-          paddingTop : 5,
-          
-          
       }
 })

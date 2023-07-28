@@ -23,7 +23,7 @@ import OutgoingDocumentaryScreen from '../screens/Document/OutgoingDocumentarySc
 import InterfaceSettingScreen from '../screens/Settings/InterfaceSettingScreen';
 import NoticeSettingScreen from '../screens/Settings/NoticeSettingScreen';
 import LanguageSettingScreen from '../screens/Settings/LanguageSettingScreen';
-import FileScreen from '../screens/FileScreen';
+
 import MessageScreen from '../screens/MessageScreen';
 import ReportWorkScreen from '../screens/ReportWorkScreen';
 import StatisticsScreen from '../screens/StatisticsScreen';
@@ -35,6 +35,8 @@ import EditScheduleScreen from '../screens/Schedule/EditScheduleScreen';
 import ScheduleWeekScreen from '../screens/Schedule/ScheduleWeekScreen';
 import CreateWorkReport from '../screens/CreateWorkReport';
 import DocumentDetailScreen from '../screens/Document/DocumentDetailScreen';
+import ReplyDocumentScreen from '../screens/Document/ReplyDocumentScreen';
+
 
 
 
@@ -47,7 +49,7 @@ const Navigators = () => {
     return (
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
-           <Stack.Screen name="Login" component={Loginscreen} />
+           {/* <Stack.Screen name="Login" component={Loginscreen} />
            <Stack.Screen name="Welcome" component={Welcomescreen} />
            <Stack.Screen name="Introduce" component={IntroduceScreen} />
            <Stack.Screen name="New" component={NewScreen} />
@@ -59,27 +61,28 @@ const Navigators = () => {
            <Stack.Screen name="Workflowmanage" component={WorkflowmanageScreen} /> 
            <Stack.Screen name="Document" component={DocumentScreen} /> 
            <Stack.Screen name="Setting" component={SettingScreen} /> 
-           <Stack.Screen name="Forwarding" component={ForwardingScreen} />
            <Stack.Screen name="Hotnew" component={HotnewScreen} />
            <Stack.Screen name="OpenLetter" component={OpenletterScreen} /> 
            <Stack.Screen name="Mission" component={MissionScreen} />
            <Stack.Screen name="TypicalPerson" component={TypicalPeopleScreen} />
            <Stack.Screen name="History" component={HistoryScreen} />
            <Stack.Screen name="Salary" component={SalaryScreen} />
-           <Stack.Screen name="ProcessManage" component={ProcessManageScreen} />
-           <Stack.Screen name="WorkManage" component={WorkManageScreen} />
+           <Stack.Screen name="ProcessManage" component={ProcessManageScreen} />*/}
+           <Stack.Screen name="WorkManage" component={WorkManageScreen} /> 
            <Stack.Screen name="WorkDetail" component={WorkDetailScreen} />
            <Stack.Screen name="ReplyEmail" component={ReplyEmailScreen} />
            <Stack.Screen name="IncommingDocumetary" component={IncomingDocumentaryScreen} />
            <Stack.Screen name="InternalDocumentReceive" component={InternalDocumentReceiveScreen} />
            <Stack.Screen name="InternalDocumentSend" component={InternalDocumentSendScreen} />
            <Stack.Screen name="OutgoingDocumentary" component={OutgoingDocumentaryScreen} /> 
-           <Stack.Screen name="DocumentDetail" component={DocumentDetailScreen} /> 
+            <Stack.Screen name="Forwarding" component={ForwardingScreen} />
+           <Stack.Screen name="DocumentDetail" component={DocumentDetailScreen} />       
+           <Stack.Screen name="ReplyDocument" component={ReplyDocumentScreen} />       
            <Stack.Screen name="InterfaceSetting" component={InterfaceSettingScreen} />
            <Stack.Screen name="NoticeSetting" component={NoticeSettingScreen} />
            <Stack.Screen name="LanguageSetting" component={LanguageSettingScreen} />
            <Stack.Screen name="Department" component={DepartmentScreen} /> 
-            <Stack.Screen name="File" component={FileScreen} />
+        
            <Stack.Screen name="Mess" component={MessageScreen} /> 
            <Stack.Screen name="ReportWork" component={ReportWorkScreen} />
            <Stack.Screen name="Statistics" component={StatisticsScreen} /> 

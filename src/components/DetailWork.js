@@ -17,11 +17,6 @@ const DetailWork = ({ handleMenuItemPress, isSidebarOpen }) => {
     navigation.navigate('WorkDetail');
   };
 
-  const handleMenuPressFile = () => {
-    handleMenuItemPress();
-    navigation.navigate('File');
-  };
-
   const handleMenuPressMess = () => {
     handleMenuItemPress();
     // When the "Mess" section is selected, reset the unread message count to 0
@@ -43,12 +38,7 @@ const DetailWork = ({ handleMenuItemPress, isSidebarOpen }) => {
         <Text style={[styles.text, selectedOption === 'Chi tiết' && styles.selectedText]}>Chi tiết</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity
-        style={[styles.options, selectedOption === 'Tài liệu' && styles.selectedOption]}
-        onPress={handleMenuPressFile}
-      >
-        <Text style={[styles.text, selectedOption === 'Tài liệu' && styles.selectedText]}>Tài liệu</Text>
-      </TouchableOpacity>
+     
 
       <TouchableOpacity
         style={[styles.options, selectedOption === 'Thảo luận' && styles.selectedOption]}
