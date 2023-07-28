@@ -1,15 +1,17 @@
-import noticeScreen from "./noticeScreen";
-import dataCBVCScreen from "./dataCBVCScreen";
-import introduceScreen from "./introduceScreen";
-import loginscreen from "./loginscreen";
-import newScreen from "./newScreen";
-import welcomescreen from "./welcomescreen";
-import noticedetailScreen from "./noticedetailScreen";
-import reportmanageScreen from "./reportmanageScreen";
-import submissionmanageScreen from "./submissionmanageScreen";
-import workflowmanageScreen from "./workflowmanageScreen";
-import documentScreen from "./documentScreen";
-import settingScreen from "./settingScreen";
+import NoticeScreen from "./Notice/NoticeScreen";
+import DataCBVCScreen from "./DataCBVCScreen";
+import IntroduceScreen from "./IntroduceScreen";
+import Loginscreen from "./LoginScreen";
+import NewScreen from "./News/NewScreen";
+import Welcomescreen from "./Welcomescreen";
+import NoticedetailScreen from "./Notice/NoticedetailScreen";
+import ReportmanageScreen from "./Manage/ReportmanageScreen";
+import SubmissionmanageScreen from "./Manage/SubmissionmanageScreen";
+import WorkflowmanageScreen from "./Work/WorkflowmanageScreen";
+import DocumentScreen from "./Document/DocumentScreen";
+import SettingScreen from "./SettingScreen";
+import ForwardingScreen from "./Notice/ForwardingScreen";
+import DepartmentScreen from "./DepartmentScreen";
 
 
 
@@ -20,4 +22,18 @@ import settingScreen from "./settingScreen";
 
 
 
-export {loginscreen,welcomescreen,newScreen,dataCBVCScreen, noticeScreen, noticedetailScreen, introduceScreen, reportmanageScreen, submissionmanageScreen, workflowmanageScreen, documentScreen, settingScreen}
+export {Loginscreen,
+     Welcomescreen,
+     NewScreen,
+     DataCBVCScreen,
+     NoticeScreen, 
+     NoticedetailScreen, 
+     IntroduceScreen, 
+     ReportmanageScreen, 
+     SubmissionmanageScreen, 
+     WorkflowmanageScreen, 
+     DocumentScreen, 
+     SettingScreen, 
+     ForwardingScreen,
+     DepartmentScreen,
+    }

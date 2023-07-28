@@ -1,68 +1,120 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Linking, Alert } from 'react-native'
 import React from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import Header from '../components/Header';
+import { TouchableOpacity } from 'react-native';
 
-const introduceScreen = () => {
+const handleOpenLink = () => {
+    const url = 'https://www.udn.vn/gioi-thieu/co-cau-to-chuc'; // Thay thế URL bằng liên kết bạn muốn chuyển đến
+
+    Alert.alert(
+      'Xác nhận',
+      'Bạn có muốn chuyển tới trình duyệt để xem không?',
+      [
+        { text: 'Hủy', style: 'cancel' },
+        {
+          text: 'Đồng ý',
+          onPress: () => {
+            Linking.openURL(url);
+          },
+        },
+      ]
+    );
+  };
+
+const handlePress = async () => {
+    const url = 'https://www.udn.vn/'; 
+    const supported = await Linking.canOpenURL(url);
+
+    if (supported) {
+      await Linking.openURL(url);
+    } else {
+      console.log("Không thể mở liên kết");
+    }
+}
+
+const header = 'Giới thiệu UDN'
+const IntroduceScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
-     <View style={styles.header}>
-    <Ionicons 
-    name="arrow-back-outline"
-    size={25}
-    color='#ffffff'
-    />
-    <Text style={styles.textheader}>Giới thiêu UDN</Text>
-     </View>
+     <Header header={header} />
 
      <View  style={styles.contentcontainer}>
-        <View style={styles.subcontentcontainer}>
+        <TouchableOpacity 
+        style={styles.subcontentcontainer}
+        onPress={() => navigation.navigate('OpenLetter')}
+        >
             <Text style={styles.subcontent}>Lời ngỏ </Text>
             <AntDesign 
             name="right"
-            size={25}
+            size={20}
             color='#000000'
-            style={{position: 'absolute', right: 5, top : 10}}/>
-        </View>
-        <View style={styles.subcontentcontainer}>
+            />
+        </TouchableOpacity>
+        <TouchableOpacity
+         style={styles.subcontentcontainer}
+         onPress={() => navigation.navigate('Mission')}
+         >
             <Text style={styles.subcontent}>Sứ mạng - tầm nhìn </Text>
             <AntDesign 
             name="right"
-            size={25}
+            size={20}
             color='#000000'
-            style={{position: 'absolute', right: 5, top : 10}}/>
-        </View>
-        <View style={styles.subcontentcontainer}>
+            />
+        </TouchableOpacity>
+        <TouchableOpacity
+        onPress={() => navigation.navigate('History')}
+        style={styles.subcontentcontainer}>
             <Text style={styles.subcontent}>Lịch sử hình thành </Text>
             <AntDesign 
             name="right"
-            size={25}
+            size={20}
             color='#000000'
-            style={{position: 'absolute', right: 5, top : 10}}/>
-        </View>
-        <View style={styles.subcontentcontainer}>
+            />
+        </TouchableOpacity>
+        <TouchableOpacity
+         onPress={handleOpenLink}
+        style={styles.subcontentcontainer}>
             <Text style={styles.subcontent}>Cơ cấu tổ chức </Text>
             <AntDesign 
             name="right"
-            size={25}
+            size={20}
             color='#000000'
-            style={{position: 'absolute', right: 5, top : 10}}/>
-        </View>
-        <View style={styles.subcontentcontainer}>
-            <Text style={styles.subcontent}>Gương mặt tiêu biểu </Text>
+           />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.subcontentcontainer}
+         onPress={() => navigation.navigate('TypicalPerson')}>
+
+            <Text 
+            style={styles.subcontent}
+           
+            >
+                Gương mặt tiêu biểu </Text>
             <AntDesign 
             name="right"
-            size={25}
+            size={20}
             color='#000000'
-            style={{position: 'absolute', right: 5, top : 10}}/>
-        </View>
+            />
+        </TouchableOpacity>
+        <TouchableOpacity 
+        onPress={handlePress}
+        style={styles.subcontentcontainer}>
+            <Text style={styles.subcontent}>Website Đại Học Đà Nẵng  </Text>
+            <AntDesign 
+            name="right"
+            size={20}
+            color='#000000'
+            />
+
+        </TouchableOpacity>
 
      </View>
     </View>
   )
 }
 
-export default introduceScreen
+export default IntroduceScreen
 
 const styles = StyleSheet.create({
     container : {
@@ -89,27 +141,28 @@ const styles = StyleSheet.create({
     },
     contentcontainer : {
         marginTop : 30,
-        paddingHorizontal : 10,
+        paddingHorizontal : 15,
         width : '100%',
-        height : 372,
         backgroundColor : '#e3e3e3'
 
     },
     subcontentcontainer : {
         width : '100%',
-        height : 50,
+        height : 70,
         backgroundColor : '#ffffff',
-        marginTop : 20,
+        marginTop : 10,
         borderRadius : 10,
-        marginLeft : 2,
-        flexDirection : 'row'
+        flexDirection : 'row',
+        alignItems : 'center',
+        paddingHorizontal : 20,
+        justifyContent : 'space-between'
+        
 
     },
        subcontent : {
         fontSize : 20,
         fontWeight : 'bold',
-        marginLeft : 20,
-        marginTop : 10,
+        
     }
 
 

@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
 import { TouchableOpacity } from 'react-native'
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import { useNavigation } from '@react-navigation/native';
 
 const DataMonth = ({
     image,
@@ -9,8 +10,14 @@ const DataMonth = ({
     date
 }
 ) => {
+    
+    const navigation = useNavigation();
+    const handleMenuPressStatistics  = () => { 
+      navigation.navigate('Statistics');
+    };
   return (
-   <TouchableOpacity>
+   <TouchableOpacity
+   onPress={handleMenuPressStatistics} >
     <View style={styles.container}>
         <View style={styles.newscontent}>
         <Text style={styles.newtext}>Số liệu CBVC Đại học Đà Nẵng tháng 8_2020</Text>
@@ -22,8 +29,7 @@ const DataMonth = ({
             name="right"
             size={20}
             color='#000000'
-            style={{top : 0, marginLeft : 25}}/>
-        
+            style={{top : 0, right :3, top :'40%'}}/>
         </View>
     </View>
    </TouchableOpacity>
@@ -39,17 +45,20 @@ const styles = StyleSheet.create({
         height : 90,
         width : '100%',
         backgroundColor : '#ffffff',
+        justifyContent : 'space-around',
+        marginVertical : 5,
+        paddingVertical :5,
         
     },
        newtext : {
         fontSize : 18,
-        fontWeight : '200',
+        fontWeight : '400',
         width: 300,
         marginLeft : 10
 
     },
     date : {
-        marginTop : 10,
+        marginTop : 20,
         marginLeft : 10
     }
 })

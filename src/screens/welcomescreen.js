@@ -1,95 +1,183 @@
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native'
+import { StyleSheet, Text, View, Image, ScrollView, TouchableWithoutFeedback } from 'react-native'
 import Entypo from 'react-native-vector-icons/Entypo';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import React from 'react'
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import React , {useState}from 'react'
+import { TouchableOpacity } from 'react-native';
+import Header from '../components/Header';
+import Menu from '../components/Menu';
+import Modal from 'react-native-modal';
 
-const welcomeScreen = () => {
+const WelcomeScreen = ({navigation}) => {
+    const [isSidebarOpen, setSidebarOpen] = useState(false);
+   
+    const toggleSidebar = () => {
+      setSidebarOpen(!isSidebarOpen);
+    };
+    const handleMenuItemPress = () => {
+        setSidebarOpen(false);
+    }
+    
   return (
-    <ScrollView style={styles.container}>
-     <View style={styles.Header}>
+    
+    <View style={styles.container}>
+    <Modal
+      isVisible={isSidebarOpen}
+      animationIn="slideInLeft"
+      animationOut="slideOutLeft"
+      swipeDirection="left"
+      onSwipeComplete={toggleSidebar}
+      style={styles.sidebarModal}
+    >
+      <View style={styles.sidebar} >
+        <Menu handleMenuItemPress={handleMenuItemPress} isSidebarOpen={isSidebarOpen}  />
+        
+      </View>
+    </Modal>
+        
+    <ScrollView style={styles.scrollContainer}>
+    <View style={styles.Header}>
      <View style={styles.iconheader}>
-     <Entypo name="menu"
+        <TouchableOpacity style={{ width : 50 }} onPress={toggleSidebar} >
+        <Entypo name="menu"
+           
           size={30}
           color='#ffffff'
-           />
-           <FontAwesome5 name="bell"
+          />
+        </TouchableOpacity >
+     <TouchableOpacity style={{right : 0}}  onPress={() => navigation.navigate('Notice')}>
+     <FontAwesome name="bell"
           size={30}
           color='#ffffff'
          style={styles.bellicon}
+        
          />
+     </TouchableOpacity>
+          
         </View>
         <Text style={styles.textheader}>XIN CHÀO</Text>
         <Text style={styles.subtextheader}>admin_office@id.udn.vn</Text>
      </View>
      <View style={styles.banner}>
-        <View style={styles.bannerrow}>
+        <TouchableOpacity 
+        style={styles.bannerrow}
+        onPress={() => navigation.navigate('Introduce')}
+        >
         <Image source={require('../assets/image/icon1.png')} style={styles.image} />
         <Text style={styles.textbanner}>Giới thiệu UDN</Text>
-        </View>
-        <View style={styles.bannerrow}>
-        <Image source={require('../assets/image/icon2.png')} style={styles.image} />
+        </TouchableOpacity>
+
+        <TouchableOpacity 
+        style={styles.bannerrow}
+        onPress={() => navigation.navigate('New')}>
+        <Image source={require('../assets/image/icon2.png')} 
+        style={styles.image} 
+        
+        />
         <Text style={styles.textbanner}>Tin tức - Sự kiện </Text>
-        </View>
-        <View style={styles.bannerrow}>
-        <Image source={require('../assets/image/icon3.png')} style={styles.image} />
+        </TouchableOpacity>
+        
+        <TouchableOpacity 
+        style={styles.bannerrow}
+        onPress={() => navigation.navigate('DataCBVC')}
+        >
+        <Image source={require('../assets/image/icon3.png')} style={styles.image}  />
         <Text style={styles.textbanner}>Số liệu CBVC</Text>
-        </View>
+        </TouchableOpacity>
      </View>
      <View style={styles.subcontainer}>
-        <Text style={styles.textmain}>Điều hành doanh nghiêp </Text>
+        <Text style={styles.textmain}>Điều hành tác nghiệp </Text>
      </View>
      <View style={styles.contentcontainer} >
      <View style={styles.contentcontainerrow} >
-        <View style={styles.boxcontent}>
+        <TouchableOpacity
+         style={styles.boxcontent}
+         onPress={() => navigation.navigate('Document')}
+         >
         <Image source={require('../assets/image/box1.png')} style={styles.image} />
         <Text style={styles.textbox}>Các văn bản</Text>
         <Text style={styles.subtextbox}>Soạn thảo và gửi văn bản đến các đơn vị. Đồng thời quản lý bút phê, các văn bản gửi đến, gửi đi và ủy quyền gửi văn bản.</Text>
-        </View>
-        <View style={styles.boxcontent}>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+         style={styles.boxcontent}
+         onPress={() => navigation.navigate('Reportmange')
+        }
+         >
         <Image source={require('../assets/image/box2.png')} style={styles.image} />
-        <Text style={styles.textbox}>Các văn bản</Text>
-        <Text style={styles.subtextbox}>Soạn thảo và gửi văn bản đến các đơn vị. Đồng thời quản lý bút phê, các văn bản gửi đến, gửi đi và ủy quyền gửi văn bản.</Text>
+        <Text style={styles.textbox}>Quản lý báo cáo</Text>
+        <Text style={styles.subtextbox}>Soạn thảo và gửi các báo cáo cho các đơn vị cấp trên và các ban, văn phòng. Đồng thời quản lý các báo cáo gửi đến, gửi đi.</Text>
         
-        </View>
+        </TouchableOpacity>
      </View>
      <View style={styles.contentcontainerrow} >
-        <View style={styles.boxcontent}>
+        <TouchableOpacity
+         style={styles.boxcontent}
+         onPress={() => navigation.navigate('Submissionmanage')}
+         >
         <Image source={require('../assets/image/box3.png')} style={styles.image} />
-        <Text style={styles.textbox}>Các văn bản</Text>
-        <Text style={styles.subtextbox}>Soạn thảo và gửi văn bản đến các đơn vị. Đồng thời quản lý bút phê, các văn bản gửi đến, gửi đi và ủy quyền gửi văn bản.</Text>
+        <Text style={styles.textbox}>Quản lý tờ trình</Text>
+        <Text style={styles.subtextbox}>Soạn thảo và gửi tờ trình cho cấp trên. Đồng thời quản lý các tờ trình đã gửi và các tờ trình đã nhận được.</Text>
         
-        </View>
-        <View style={styles.boxcontent}>
+        </TouchableOpacity>
+        <TouchableOpacity
+         style={styles.boxcontent}
+         onPress={() => navigation.navigate('Workflowmanage')}>
         <Image source={require('../assets/image/box4.png')} style={styles.image} />
-        <Text style={styles.textbox}>Các văn bản</Text>
-        <Text style={styles.subtextbox}>Soạn thảo và gửi văn bản đến các đơn vị. Đồng thời quản lý bút phê, các văn bản gửi đến, gửi đi và ủy quyền gửi văn bản.</Text>
+        <Text style={styles.textbox}>Quản lý công việc</Text>
+        <Text style={styles.subtextbox}>Khởi tạo và quản lý các công việc đã giao, được giao.</Text>
         
-        </View>
+        </TouchableOpacity>
      </View>
      </View>
     </ScrollView>
+    </View>
+    
   )
+  
 }
 
-export default welcomeScreen
+export default WelcomeScreen
 
 const styles = StyleSheet.create({
     container : {
         flex: 1,
         backgroundColor: '#e3e3e3',
-       
+       width : '100%'
         
     },
+    scrollContainer: {
+        flex: 1,
+        backgroundColor: '#e3e3e3',
+      },
+      sidebarModal: {
+        margin: 0,
+        justifyContent: 'flex-start',
+        width : '80%'
+      },
+      sidebar: {
+        width: '60%',
+        height: '100%',
+        backgroundColor: '#f2f2f2',
+      },
     Header :{
         backgroundColor : '#0051AE',
         width : '100%',
-        height : 151,
+        height : 180,
         position : 'absolute',
         top : 0,
         left : 0,
-        borderRadius : 20,
+        borderBottomLeftRadius : 20,
+        borderBottomRightRadius : 20
         
     },
+    scrollContainer: {
+        flex: 1,
+        backgroundColor: '#e3e3e3',
+      },
+      sidebar: {
+        flex: 1,
+        backgroundColor: '#f2f2f2',
+      },
     banner : {
         flexDirection: 'row',
         backgroundColor : '#e3e3e3',
@@ -103,15 +191,15 @@ const styles = StyleSheet.create({
         height : 81,
         width : 75,
         alignItems : 'center',
-        marginLeft : 12,
-        marginRight : 12,
+        marginLeft : 5,
+        marginRight : 5,
     },
     bannerimage : {
         height : 80,
         width : 80,
     },
     textbanner : {
-        fontSize : 12,
+        fontSize : 15,
         fontWeight : 'bold',
     },
     subcontainer : {
@@ -121,22 +209,22 @@ const styles = StyleSheet.create({
     textmain : {
         paddingLeft : 10,
         color : '#000000',
-        fontSize : 22,
+        fontSize : 20,
         fontWeight : 'bold',
 
     },
     contentcontainer : {
         width : '100%',
         height : '100%',
-        marginTop : 20,
-        marginHorizontal : 5,
+       paddingVertical : 10,
+       
 
     },
     contentcontainerrow : {
         flexDirection: 'row',
         backgroundColor : '#e3e3e3',
         width : '100%',
-        height : 220,
+        //height : 220,
         alignItems : 'center',
         marginBottom : 5,
             },
@@ -145,10 +233,8 @@ const styles = StyleSheet.create({
         backgroundColor : '#ffffff',
         height : 200,
         width : '40%',
-        marginLeft : 10 ,
-        marginRight : 10,
-        marginTop : 5, 
-        marginBottom : 5,
+        marginHorizontal : 10,
+        marginVertical :10,
         borderRadius : 10,
         alignContent : 'center',
         paddingTop : 5,
@@ -163,6 +249,7 @@ const styles = StyleSheet.create({
         paddingHorizontal : 12,
         fontSize : 14,
         fontWeight : '300',
+        textAlign : 'justify'
         
     },
     textheader : {
@@ -183,15 +270,14 @@ const styles = StyleSheet.create({
     },
     iconheader : {
         flexDirection : 'row',
-        marginTop : 20,
-        //backgroundColor : '#000000',
+        marginTop : 30,
         height : 40,
         width : '100%',
         paddingLeft : 20,
         
     },
     bellicon : {
-        marginLeft : 250,
+        marginLeft : '80%',
       
     }
 

@@ -3,24 +3,23 @@ import React from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import Entypo from 'react-native-vector-icons/Entypo';
+import Header from '../components/Header';
+import { TouchableOpacity } from 'react-native';
 
-const settingScreen = () => {
+const header = 'Cài đặt'
+const SettingScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
-         <View style={styles.header}>
-    <Ionicons 
-    name="arrow-back-outline"
-    size={20}
-    color='#ffffff'
-    />
-    <Text style={styles.textheader}>Các văn bản</Text>
-     </View>
+          <Header header={header} />
         <View style={styles.banner}>
         <Image source={require('../assets/image/setting.png')} style={styles.image} />
         </View>
 
         <View style={styles.adjustmentsdisplay}>
-            <View style={styles.adjustments}>
+            <TouchableOpacity 
+            style={styles.adjustments}
+            onPress={() => navigation.navigate('LanguageSetting')}
+            >
             <Ionicons 
                 name="language"
                 size={25}
@@ -35,8 +34,11 @@ const settingScreen = () => {
                 size={20}
                 style={{ marginLeft : 10, marginTop : 25 }}
                 />
-            </View>
-            <View style={styles.adjustments}>
+            </TouchableOpacity>
+            <TouchableOpacity
+             style={styles.adjustments}
+             onPress={() => navigation.navigate('NoticeSetting')}
+             >
             <EvilIcons 
                 name="bell"
                 size={25}
@@ -51,8 +53,11 @@ const settingScreen = () => {
                 size={20}
                 style={{ marginLeft : 10, marginTop : 25 }}
                 />
-            </View>
-            <View style={styles.adjustments}>
+            </TouchableOpacity>
+            <TouchableOpacity
+             style={styles.adjustments}
+             onPress={() => navigation.navigate('InterfaceSetting')}
+             >
             <EvilIcons 
                 name="spinner"
                 size={25}
@@ -67,13 +72,13 @@ const settingScreen = () => {
                 size={20}
                 style={{ marginLeft : 10, marginTop : 25 }}
                 />
-            </View>
+            </TouchableOpacity>
         </View>
     </View>
   )
 }
 
-export default settingScreen
+export default SettingScreen
 
 const styles = StyleSheet.create({
     container : {

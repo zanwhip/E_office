@@ -1,7 +1,9 @@
 import { StyleSheet, Text,Image, View, StatusBar } from 'react-native'
 import React from 'react'
+import { TouchableOpacity } from 'react-native'
+import Header from '../components/Header';
 
-const loginscreen = () => {
+const Loginscreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.image}>
@@ -12,37 +14,44 @@ const loginscreen = () => {
         <Text style={styles.TextTitle}>CHỨNG THỰC TẬP TRUNG UDN</Text>
       </View>
      <View style={styles.box}> 
-      <Text style={styles.TextHeader}>Đăng nhập</Text>
-      <View style={styles.buttonMicro}>
+      <Text style={{  marginVertical : 10,fontSize : 20,color : '#000000',fontWeight :'bold', }}>Đăng nhập</Text>
+      <TouchableOpacity 
+      style={styles.buttonMicro}
+      onPress={() => navigation.navigate('Welcome')}
+      >
         <Text style={styles.textbutton}>Microsoft</Text>
-      </View>
-      <View style={styles.buttonGoogle}>
+      </TouchableOpacity>
+      <TouchableOpacity
+       style={styles.buttonGoogle}
+       onPress={() => navigation.navigate('Welcome')}
+       >
         <Text style={styles.textbutton}>Google</Text>
-      </View>
-      <Text style={styles.subtext}> Chọn đăng nhập bằng tài khoản mail Office 365(màu xanh) hoặc tài khoản Gmail(màu đỏ).</Text>
+      </TouchableOpacity>
+      <Text style={styles.subtext}> Chọn đăng nhập bằng tài khoản mail <Text style={{ color : '#FF6262' }}>Office 365</Text> hoặc tài khoản <Text style={{ color :'#1668C7' }}>Gmail</Text> .</Text>
            </View>
       <StatusBar style="auto" />
     </View>
   )
 }
 
-export default loginscreen
+export default Loginscreen
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#25A3DB',
+        backgroundColor: '#1668C7',
         alignItems: 'center',
         justifyContent: 'center',
         
       },
       box : {
         height : 268,
-        width : 328,
+        width : '76%',
         backgroundColor : '#ffffff',
         alignItems : 'center',
         borderRadius : 10,
         marginBottom :5,
+        
     
       },
       image : {
@@ -57,15 +66,14 @@ const styles = StyleSheet.create({
     
       },
       TextHeader : {
-        marginTop : 10,
-        marginBottom : 10,
+        marginVertical : 10,
         fontSize : 20,
-        color : '#000000',
+        color : '#ffffff',
         fontWeight :'bold',
       },
       TextTitle : {
         fontSize : 15,
-        color : '#000000',
+        color : '#ffffff',
         fontWeight :'bold',
         marginBottom : 20,
         },
@@ -76,6 +84,7 @@ const styles = StyleSheet.create({
           borderRadius : 31,
           marginTop : 10,
           marginBottom : 10,
+          alignItems : 'center'
         },
         buttonGoogle : {
           height : 46,
@@ -84,10 +93,16 @@ const styles = StyleSheet.create({
           borderRadius : 31,
           marginTop : 10,
           marginBottom : 10,
+          
+          alignItems : 'center'
         },
         subtext : {
           fontSize : 14,
-          fontWeight : '100',
+          fontWeight : '400',
+          justifyContent : 'center',
+          alignContent : 'center',
+          paddingHorizontal : 10,
+         
         },
         image : {
           height : 222.15,
@@ -97,11 +112,10 @@ const styles = StyleSheet.create({
         },
         textbutton : {
           fontSize : 15,
-          alignContent : 'center',
-          alignItems : 'center',
+          fontWeight : 'bold',
           justifyContent : 'center',
-          marginBottom : 10,
-          marginTop : 10,
-          marginLeft : 100,
+          marginVertical : 10,
+          color : '#ffffff'
+          
           }
 })
