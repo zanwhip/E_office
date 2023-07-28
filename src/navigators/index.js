@@ -47,7 +47,7 @@ const Navigators = () => {
     return (
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
-           {/* <Stack.Screen name="Login" component={Loginscreen} />
+           <Stack.Screen name="Login" component={Loginscreen} />
            <Stack.Screen name="Welcome" component={Welcomescreen} />
            <Stack.Screen name="Introduce" component={IntroduceScreen} />
            <Stack.Screen name="New" component={NewScreen} />
@@ -82,13 +82,13 @@ const Navigators = () => {
             <Stack.Screen name="File" component={FileScreen} />
            <Stack.Screen name="Mess" component={MessageScreen} /> 
            <Stack.Screen name="ReportWork" component={ReportWorkScreen} />
-           <Stack.Screen name="Statistics" component={StatisticsScreen} />  */}
+           <Stack.Screen name="Statistics" component={StatisticsScreen} /> 
            <Stack.Screen name="RegisterSchedule" component={RegisterScheduleScreen} /> 
            <Stack.Screen name="SetSchedule" component={SetScheduleScreen} />
            <Stack.Screen name="DetailSchedule" component={DetailScheduleScreen} />
-          {/*  <Stack.Screen name="EditSchedule" component={EditScheduleScreen} /> 
+           <Stack.Screen name="EditSchedule" component={EditScheduleScreen} /> 
            <Stack.Screen name="ScheduleWeek" component={ScheduleWeekScreen} />
-           <Stack.Screen name="CreateWorkReport" component={CreateWorkReport} /> */}
+           <Stack.Screen name="CreateWorkReport" component={CreateWorkReport} />
           </Stack.Navigator>
       </NavigationContainer>
     );

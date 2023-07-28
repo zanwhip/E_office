@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import DatePicker from 'react-native-modern-datepicker';
-import { getISOWeek, parse, format } from 'date-fns'; // Import 'format' function
+import { getISOWeek, parse, format, isSaturday, isSunday } from 'date-fns'; // Import 'format' function
 
 const Calendar = ({ currentDate, selectedDate, closeSidebar, toggleCalendarModal }) => {
   const [selectedWeek, setSelectedWeek] = useState(null);
@@ -59,6 +59,10 @@ const Calendar = ({ currentDate, selectedDate, closeSidebar, toggleCalendarModal
           mainColor: '#1668c7',
           textSecondaryColor: '#000000',
           borderColor: 'rgba(122, 146, 165, 0.1)',
+          dayNames: ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'],
+          weekendDay: {
+            color: '#FF4444',
+          },
         }}
         current={currentDate}
         selected={selectedDate}
@@ -67,6 +71,7 @@ const Calendar = ({ currentDate, selectedDate, closeSidebar, toggleCalendarModal
         style={styles.datePicker}
         onDateChange={handleDateChange}
       />
+       
     </View>
   );
 };
