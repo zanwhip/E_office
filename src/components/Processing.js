@@ -13,7 +13,7 @@ switch (process) {
     displayStatus = 'Đang tiến hành';
     break;
   case 'B':
-    dotColor = '#1EDC26';
+    dotColor = '#20AD72';
     displayStatus = 'Đã tiến hành';
     break;
   case 'C':

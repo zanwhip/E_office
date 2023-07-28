@@ -21,7 +21,7 @@ const Work = ({status, title, date, rate}) => {
         displayStatus = 'Đang thực hiện';
         break;
       case 'B':
-        dotColor = '#1EDC26';
+        dotColor = '#20AD72';
         displayStatus = 'Đã hoàn thành';
         break;
         case 'C':

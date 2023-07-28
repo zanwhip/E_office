@@ -70,9 +70,9 @@ const ReportWorkScreen = ({navigation}) => {
         <WorkPercent status="A" completionPercentage={20} />
      </ScrollView>
 
-     <View style={{ width : '80%', height : 40, backgroundColor : '#1668c7', borderRadius : 10, justifyContent : 'center', alignItems : 'center', marginBottom : 10 }}>
+     <TouchableOpacity style={{ width : '80%', height : 40, backgroundColor : '#1668c7', borderRadius : 10, justifyContent : 'center', alignItems : 'center', marginBottom : 10 }}  onPress={() => navigation.navigate('CreateWorkReport')}>
       <Text style={{ fontSize : 18, color : '#ffffff', fontWeight : '700' }}>Tạo báo cáo</Text>
-     </View>
+     </TouchableOpacity>
     </View>
   )
 }

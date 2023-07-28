@@ -19,7 +19,7 @@ const Documentary = ({status}) => {
   // Xác định màu sắc dựa trên trạng thái
   switch (status) {
     case 'A':
-      dotColor = '#1EDC26';
+      dotColor = '#20AD72';
       displayStatus = 'Đã xử lí';
       break;
     case 'B':

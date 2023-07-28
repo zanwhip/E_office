@@ -82,7 +82,6 @@ const Navigators = () => {
            <Stack.Screen name="NoticeSetting" component={NoticeSettingScreen} />
            <Stack.Screen name="LanguageSetting" component={LanguageSettingScreen} />
            <Stack.Screen name="Department" component={DepartmentScreen} /> 
-        
            <Stack.Screen name="Mess" component={MessageScreen} /> 
            <Stack.Screen name="ReportWork" component={ReportWorkScreen} />
            <Stack.Screen name="Statistics" component={StatisticsScreen} /> 

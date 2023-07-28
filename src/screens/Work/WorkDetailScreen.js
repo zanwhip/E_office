@@ -37,7 +37,7 @@ let displayStatus = '';
 // Xác định màu sắc dựa trên trạng thái
 switch (process) {
     case 'A':
-      dotColor = '#1EDC26';
+      dotColor = '#20AD72';
       displayStatus = 'Đã hoàn thiên';
       break;
     case 'B':

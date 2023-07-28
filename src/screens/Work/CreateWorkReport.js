@@ -68,11 +68,11 @@ export default CreateWorkReport
 const styles = StyleSheet.create({
     container : {
         flex: 1,
-        backgroundColor: '#e3e3e3',
+        backgroundColor: '#ffffff',
         
     },
     displaycontainer : {
-        paddingHorizontal : 10,
+        paddingHorizontal : 20,
         paddingVertical : 20,
     }, input : {
         width : '100%',
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
       typetext : {
         color : '#000000',
         fontSize : 16,
-        fontWeight : "500",
+        fontWeight : 'bold',
         letterSpacing : 0.2,
         paddingVertical : 10,
       
