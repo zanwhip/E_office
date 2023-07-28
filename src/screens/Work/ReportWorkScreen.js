@@ -1,12 +1,12 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native'
 import React,  { useState, useRef } from 'react'
-import Header from '../components/Header'
-import Work from '../components/Work'
+import Header from '../../components/Header'
+import Work from '../../components/Work'
 import { ScrollView } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Modal from 'react-native-modal';
-import DetailWork from '../components/DetailWork';
-import WorkPercent from '../components/WorkPercent'
+import DetailWork from '../../components/DetailWork';
+import WorkPercent from '../../components/WorkPercent'
 
 const percent1 = 90
 
@@ -55,7 +55,7 @@ const ReportWorkScreen = ({navigation}) => {
             <Text style={styles.textheader}>{header}</Text>
           </View>
           <TouchableOpacity onPress={toggleSidebarDetailWork}>
-            <Image source={require('../assets/image/Infor.png')} style={{ right: 0 }} />
+            <Image source={require('../../assets/image/Infor.png')} style={{ right: 0 }} />
           </TouchableOpacity>
         </View>
 

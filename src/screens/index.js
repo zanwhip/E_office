@@ -7,7 +7,7 @@ import Welcomescreen from "./Welcomescreen";
 import NoticedetailScreen from "./Notice/NoticedetailScreen";
 import ReportmanageScreen from "./Manage/ReportmanageScreen";
 import SubmissionmanageScreen from "./Manage/SubmissionmanageScreen";
-import WorkflowmanageScreen from "./Manage/WorkflowmanageScreen";
+import WorkflowmanageScreen from "./Work/WorkflowmanageScreen";
 import DocumentScreen from "./Document/DocumentScreen";
 import SettingScreen from "./SettingScreen";
 import ForwardingScreen from "./Notice/ForwardingScreen";

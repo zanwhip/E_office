@@ -13,8 +13,8 @@ import TypicalPeopleScreen from '../screens/Introduce/TypicalPeopleScreen';
 import HistoryScreen from '../screens/Introduce/HistoryScreen'
 import SalaryScreen from '../screens/SalaryScreen';
 import ProcessManageScreen from '../screens/Manage/ProcessManageScreen';
-import WorkManageScreen from '../screens/Manage/WorkManageScreen';
-import WorkDetailScreen from '../screens/Manage/WorkDetailScreen';
+import WorkManageScreen from '../screens/Work/WorkManageScreen';
+import WorkDetailScreen from '../screens/Work/WorkDetailScreen';
 import ReplyEmailScreen from '../screens/Notice/ReplyEmailScreen';
 import IncomingDocumentaryScreen from '../screens/Document/IncommingDocumentaryScreen';
 import InternalDocumentReceiveScreen from '../screens/Document/InternalDocumentReceiveScreen';
@@ -25,7 +25,7 @@ import NoticeSettingScreen from '../screens/Settings/NoticeSettingScreen';
 import LanguageSettingScreen from '../screens/Settings/LanguageSettingScreen';
 
 import MessageScreen from '../screens/MessageScreen';
-import ReportWorkScreen from '../screens/ReportWorkScreen';
+import ReportWorkScreen from '../screens/Work/ReportWorkScreen';
 import StatisticsScreen from '../screens/StatisticsScreen';
 import RegisterScheduleScreen from '../screens/Schedule/RegisterScheduleScreen';
 import SetSchedule from '../screens/Schedule/SetSchedule';
@@ -33,7 +33,7 @@ import SetScheduleScreen from '../screens/Schedule/SetSchedule';
 import DetailScheduleScreen from '../screens/Schedule/DetailScheduleScreen';
 import EditScheduleScreen from '../screens/Schedule/EditScheduleScreen';
 import ScheduleWeekScreen from '../screens/Schedule/ScheduleWeekScreen';
-import CreateWorkReport from '../screens/CreateWorkReport';
+import CreateWorkReport from '../screens/Work/CreateWorkReport';
 import DocumentDetailScreen from '../screens/Document/DocumentDetailScreen';
 import ReplyDocumentScreen from '../screens/Document/ReplyDocumentScreen';
 
@@ -49,7 +49,7 @@ const Navigators = () => {
     return (
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
-           {/* <Stack.Screen name="Login" component={Loginscreen} />
+           <Stack.Screen name="Login" component={Loginscreen} />
            <Stack.Screen name="Welcome" component={Welcomescreen} />
            <Stack.Screen name="Introduce" component={IntroduceScreen} />
            <Stack.Screen name="New" component={NewScreen} />
@@ -67,7 +67,7 @@ const Navigators = () => {
            <Stack.Screen name="TypicalPerson" component={TypicalPeopleScreen} />
            <Stack.Screen name="History" component={HistoryScreen} />
            <Stack.Screen name="Salary" component={SalaryScreen} />
-           <Stack.Screen name="ProcessManage" component={ProcessManageScreen} />*/}
+           <Stack.Screen name="ProcessManage" component={ProcessManageScreen} />
            <Stack.Screen name="WorkManage" component={WorkManageScreen} /> 
            <Stack.Screen name="WorkDetail" component={WorkDetailScreen} />
            <Stack.Screen name="ReplyEmail" component={ReplyEmailScreen} />
