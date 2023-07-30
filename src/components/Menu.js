@@ -273,14 +273,14 @@ const styles = StyleSheet.create({
     },
     container: {  
       flex: 1,     
-        backgroundColor: '#ffffff',
+        backgroundColor: '#fff',
         borderBottomWidth: 1,
         borderBottomColor: '#000000',
 
         
       },
       menu: {
-        backgroundColor: '#ffffff',
+        backgroundColor: '#fff',
         padding: 10,
         borderRadius: 5,
         
@@ -288,7 +288,7 @@ const styles = StyleSheet.create({
       menuItem: {
         paddingVertical: 10,
         paddingHorizontal: 20,
-        backgroundColor: '#ffffff',
+        backgroundColor: '#fff',
         flexDirection : 'row',
         width : '100%',
         height : 60,
@@ -298,7 +298,7 @@ const styles = StyleSheet.create({
       menuItem1: {
         paddingVertical: 10,
         paddingHorizontal: 20,
-        backgroundColor: '#ffffff',
+        backgroundColor: '#fff',
         flexDirection : 'row',
         width : '100%',
         height : 60,

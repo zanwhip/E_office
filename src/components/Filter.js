@@ -218,13 +218,13 @@ const Filter = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#fff',
     paddingHorizontal: 15,
     paddingVertical: 80,
   },
   header: {
     width: '100%',
-    backgroundColor: '#ffffff',
+    backgroundColor: '#fff',
     height: 50,
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -248,7 +248,7 @@ const styles = StyleSheet.create({
     left: 5,
   },
   infor: {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#fff',
     paddingTop: 10,
     paddingHorizontal: 10,
   },
@@ -270,7 +270,7 @@ const styles = StyleSheet.create({
   },
   dropdownButton: {
     width: '100%',
-    backgroundColor: '#ffffff',
+    backgroundColor: '#fff',
     borderRadius: 8,
     borderColor: '#B8B8B8',
     borderWidth: 0.5,
@@ -283,7 +283,7 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   dropdownStyle: {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#fff',
     borderWidth: 1,
     borderColor: '#cccccc',
     borderRadius: 8,
@@ -293,7 +293,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#ffffff',
+    backgroundColor: '#fff',
     borderWidth: 0,
   },
   checkboxText: {
@@ -310,13 +310,13 @@ const styles = StyleSheet.create({
   },
   infor1: {
     flexDirection: 'row',
-    backgroundColor: '#ffffff',
+    backgroundColor: '#fff',
     paddingHorizontal: 10,
   },
   time: {
     flexDirection: 'row',
     width: '40%',
-    backgroundColor: '#ffffff',
+    backgroundColor: '#fff',
     borderRadius: 10,
     height: 50,
     paddingHorizontal: 10,

@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
   selectedCheckbox: {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#fff',
   },
   checkboxInner: {
     width: 12,
@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
   time: {
     flexDirection: 'row',
     width: '100%',
-    backgroundColor: '#ffffff',
+    backgroundColor: '#fff',
     borderRadius: 10,
     height: 50,
     paddingHorizontal: 10,
@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
   },
   dropdownButton: {
     width: '100%',
-    backgroundColor: '#ffffff', 
+    backgroundColor: '#fff', 
     borderRadius: 10,
     paddingHorizontal: 10,
     marginVertical: 10,
@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
   },
   activeDropdownButton: {
     width: '100%',
-    backgroundColor: '#ffffff', 
+    backgroundColor: '#fff', 
     borderRadius: 10,
     paddingHorizontal: 10,
     paddingVertical: 8,
@@ -203,7 +203,7 @@ const styles = StyleSheet.create({
     textAlign : 'left',
   },
   dropdownStyle: {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#fff',
     borderColor: '#cccccc',
     borderWidth: 1,
     borderRadius: 10,

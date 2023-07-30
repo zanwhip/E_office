@@ -315,7 +315,7 @@ export default WeekDay;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#fff',
     width: '100%',
     marginVertical: 10,
     borderRadius: 10,
@@ -352,7 +352,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingHorizontal: 10,
     paddingVertical: 5,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#fff',
     marginHorizontal: 10,
     marginVertical: 5,
     alignItems: 'center',
@@ -387,7 +387,7 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   timePicker: {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#fff',
     width: '100%',
     marginVertical: 10,
     borderRadius: 10,

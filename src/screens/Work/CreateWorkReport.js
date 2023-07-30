@@ -68,7 +68,7 @@ export default CreateWorkReport
 const styles = StyleSheet.create({
     container : {
         flex: 1,
-        backgroundColor: '#ffffff',
+        backgroundColor: '#fff',
         
     },
     displaycontainer : {
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
   },
   dropdownButton: {
     width: '100%',
-    backgroundColor: '#ffffff',
+    backgroundColor: '#fff',
     borderRadius: 8,
     borderColor: '#B8B8B8',
     borderWidth: 0.5,
@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
     
   },
   dropdownStyle: {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#fff',
     borderWidth: 1,
     borderColor: '#cccccc',
     borderRadius: 8,

@@ -329,7 +329,7 @@ export default SalaryScreen
 const styles = StyleSheet.create({
     container : {
         flex: 1,
-        backgroundColor: '#ffffff',
+        backgroundColor: '#fff',
     },
     Selectcontainer : {
         width : '100%',

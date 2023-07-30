@@ -68,16 +68,16 @@ export default DetailWork;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#fff',
     borderBottomWidth: 1,
     borderBottomColor: '#000000',
     paddingTop: 100,
   },
   options: {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#fff',
     width: '100%',
     height: 60,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#fff',
     borderWidth: 0.2,
     borderColor: '#1668C7',
     paddingHorizontal: 30,

@@ -192,7 +192,7 @@ const styles = StyleSheet.create({
   },
   calendar: {
     width: '90%',
-    backgroundColor: '#ffffff',
+    backgroundColor: '#fff',
     height: 50,
     borderRadius: 10,
     alignItems : 'center', 
@@ -228,7 +228,7 @@ const styles = StyleSheet.create({
   },
   activeDropdownButton: {
     width: '30%',
-    backgroundColor: '#ffffff', // White background when selected
+    backgroundColor: '#fff', // White background when selected
     borderRadius: 10,
     paddingHorizontal: 10,
     paddingVertical: 8,
@@ -244,7 +244,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   dropdownStyle: {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#fff',
     borderColor: '#cccccc',
     borderWidth: 1,
     borderRadius: 10,

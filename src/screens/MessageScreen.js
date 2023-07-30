@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
     marginVertical: 5,
   },
   messageContainerOther: {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#fff',
     borderRadius: 10,
     padding: 10,
     maxWidth: '80%',
@@ -185,6 +185,6 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '80%',
     height: '100%',
-    backgroundColor: '#ffffff',
+    backgroundColor: '#fff',
   },
 });

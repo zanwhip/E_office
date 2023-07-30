@@ -77,7 +77,7 @@ export default IncomingDocumentaryScreen
 const styles = StyleSheet.create({
   container : {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#fff',
     
 },
 header : {

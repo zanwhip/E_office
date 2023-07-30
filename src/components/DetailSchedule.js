@@ -54,7 +54,7 @@ export default DetailSchedule
 const styles = StyleSheet.create({
   container: {  
     flex: 1,     
-      backgroundColor: '#ffffff',
+      backgroundColor: '#fff',
       borderBottomWidth: 1,
       borderBottomColor: '#000000',
       paddingTop : 100,
