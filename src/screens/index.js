@@ -3,7 +3,7 @@ import DataCBVCScreen from "./DataCBVCScreen";
 import IntroduceScreen from "./IntroduceScreen";
 import Loginscreen from "./LoginScreen";
 import NewScreen from "./News/NewScreen";
-import Welcomescreen from "./Welcomescreen";
+import Welcomescreen from "./WelcomeScreen";
 import NoticedetailScreen from "./Notice/NoticedetailScreen";
 import ReportmanageScreen from "./Manage/ReportmanageScreen";
 import SubmissionmanageScreen from "./Manage/SubmissionmanageScreen";

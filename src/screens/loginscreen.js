@@ -3,7 +3,7 @@ import React from 'react'
 import { TouchableOpacity } from 'react-native'
 import Header from '../components/Header';
 
-const Loginscreen = ({navigation}) => {
+const LoginScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.image}>
@@ -34,7 +34,7 @@ const Loginscreen = ({navigation}) => {
   )
 }
 
-export default Loginscreen
+export default LoginScreen
 
 const styles = StyleSheet.create({
     container: {
