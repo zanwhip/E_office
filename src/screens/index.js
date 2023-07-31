@@ -1,5 +1,4 @@
 import NoticeScreen from "./Notice/NoticeScreen";
-import DataCBVCScreen from "./DataCBVCScreen";
 import IntroduceScreen from "./IntroduceScreen";
 import Loginscreen from "./LoginScreen";
 import NewScreen from "./News/NewScreen";
@@ -12,7 +11,7 @@ import DocumentScreen from "./Document/DocumentScreen";
 import SettingScreen from "./SettingScreen";
 import ForwardingScreen from "./Notice/ForwardingScreen";
 import DepartmentScreen from "./DepartmentScreen";
-
+import DataCBVCScreen from "./DataCBVCScreen";
 
 
 

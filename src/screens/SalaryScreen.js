@@ -1,19 +1,80 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Modal,StyleSheet } from 'react-native';
-
+import moment from 'moment';
 import Header from '../components/Header'
 import { ScrollView } from 'react-native';
-
+import Octicons from 'react-native-vector-icons/Octicons';
+import Month from '../components/Month';
 const header = 'Xem Lương - Thuế cá nhân'
+
+
 const SalaryScreen = () => {
+  const [selectedDate, setSelectedDate] = useState(moment());
+  const [isCalendarModalVisible, setCalendarModalVisible] = useState(false);
+  const [selectedMonthText, setSelectedMonthText] = useState('May');
+
+  const handleDateSelected = (date) => {
+    setSelectedDate(moment(date));
+    
+  };
+  const getMonthInVietnamese = (englishMonth) => {
+    const monthMapping = {
+      'Jan': 'Tháng 1',
+      'Feb': 'Tháng 2',
+      'Mar': 'Tháng 3',
+      'Apr': 'Tháng 4',
+      'May': 'Tháng 5',
+      'Jun': 'Tháng 6',
+      'Jul': 'Tháng 7',
+      'Aug': 'Tháng 8',
+      'Sep': 'Tháng 9',
+      'Oct': 'Tháng 10',
+      'Nov': 'Tháng 11',
+      'Dec': 'Tháng 12',
+    };
+  
+    return monthMapping[englishMonth];
+  };
+  const currentWeekNumber = selectedDate.isoWeek();
+
+  // Custom styles for Saturdays and Sundays
+  const weekendStyle = { color: 'red' };
+
+  // Function to handle left swipe
+  const handleLeftSwipe = () => {
+    setSelectedDate((prevDate) => moment(prevDate).add(1, 'week'));
+  };
+  const handleMonthSelected = (monthText) => {
+    setSelectedMonthText(monthText);
+    setCalendarModalVisible(false); // Close the calendar modal after selecting the month
+  };
+  // Function to handle right swipe
+  const handleRightSwipe = () => {
+    setSelectedDate((prevDate) => moment(prevDate).subtract(1, 'week'));
+  };
+
+  // Function to toggle the Calendar modal
+  const toggleCalendarModal = () => {
+    setCalendarModalVisible((prev) => !prev);
+  };
+
   return (
     <View style={styles.container}>
+        <Modal transparent={true} visible={isCalendarModalVisible} animationType="slide" onRequestClose={toggleCalendarModal}>
+          <View style={styles.modalContainer}>
+            <TouchableOpacity style={styles.closeButton} onPress={toggleCalendarModal}>
+              <Octicons name="x" size={30} color="#ffffff" />
+            </TouchableOpacity>
+            <View style={styles.calendarContainer}>
+            <Month onMonthSelected={handleMonthSelected} />
+            </View>
+          </View>
+        </Modal>
          <Header header={header} />
          <View style={styles.Selectcontainer}>
-              <View style={styles.monthpicker}>
-                <Text style={styles.monthtext}>THÁNG 5 </Text>
-                
-              </View>
+              <TouchableOpacity style={styles.monthpicker} onPress={toggleCalendarModal}>
+              <Text style={styles.monthtext}>{getMonthInVietnamese(selectedMonthText)}</Text>
+              </TouchableOpacity>
         </View>
         <View style={styles.titlecontainer}>
         <Text style={styles.title}>Danh sách lương và phụ cấp</Text>
@@ -364,6 +425,12 @@ const styles = StyleSheet.create({
       paddingHorizontal : 10,
       paddingVertical : 10
     },
+    modalContainer: {
+      flex: 1,
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
     properties : {
      // backgroundColor : "#ffffff",
       flexDirection : 'row',
@@ -380,6 +447,15 @@ const styles = StyleSheet.create({
       justifyContent :'center'
 
     },
+    
+  calendarContainer: {
+    backgroundColor: 'white',
+    width: '80%',
+    height: '50%',
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
     content : {
       flexDirection : 'column',
       justifyContent :'center'
