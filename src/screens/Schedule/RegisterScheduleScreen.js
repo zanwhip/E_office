@@ -51,13 +51,9 @@ const [selectedDate, setSelectedDate] = useState(moment());
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Ionicons
-          name="arrow-back-outline"
-          size={20}
-          color="#ffffff"
-          style={{ left: 10 }}
-          onPress={() => navigation.goBack()}
-        />
+      <TouchableOpacity  onPress={() => navigation.goBack()}>
+      <Image source={require('../../assets/image/goback.png')} style={{ width : 40, height : 40 }} />
+      </TouchableOpacity>
         <View>
           <Text style={styles.textheader}>{header}</Text>
         </View>

@@ -105,7 +105,7 @@ const Menu = ({ handleMenuItemPress, isSidebarOpen }) => {
 
   return (
     <View style={styles.container}>
-      <View style={{ flexDirection : 'row' , justifyContent : 'space-between' , height : '10%' , borderBottomWidth : 5, borderBottomColor : '#e3e3e3', backgroundColor : '#ffffff',paddingTop : 30 }}>
+      <View style={{ flexDirection : 'row' , justifyContent : 'space-between' , height : 100 , borderBottomWidth : 5, borderBottomColor : '#e3e3e3', backgroundColor : '#ffffff',paddingTop : 30 }}>
       <Text style={styles.menutext}>Menu</Text>
       <Text style={{ fontSize : 16,fontWeight : 'bold', marginTop : '10%', color :'#1668C7', borderBottomWidth : 1, marginRight : 5 }}>Đăng xuất</Text>
       </View>

@@ -68,6 +68,7 @@ const ScheduleWeekScreen = () => {
 
         {/* CalendarStrip */}
         <CalendarStrip
+        
           calendarAnimation={{ type: 'sequence', duration: 30 }}
           daySelectionAnimation={{
             type: 'border',

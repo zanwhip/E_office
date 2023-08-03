@@ -61,13 +61,9 @@ const MessageScreen = ({navigation}) => {
 
         {/* Header */}
         <View style={styles.header}>
-          <Ionicons
-            name="arrow-back-outline"
-            size={20}
-            color='#ffffff'
-            style={{ left: 10 }}
-            onPress={() => navigation.goBack()} // Note: Ensure you have the 'navigation' prop or adjust this as per your navigation setup
-          />
+        <TouchableOpacity  onPress={() => navigation.goBack()}>
+      <Image source={require('../assets/image/goback.png')} style={{ width : 40, height : 40 }} />
+      </TouchableOpacity>
           <View>
             <Text style={styles.textheader}>{header}</Text>
           </View>

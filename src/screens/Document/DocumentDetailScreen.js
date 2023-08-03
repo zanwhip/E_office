@@ -76,12 +76,7 @@ const DocumentDetailScreen = () => {
     <View style={styles.container}>
      <View>
      <View style={styles.header}>
-     <Ionicons 
-    name="arrow-back-outline"
-    size={20}
-    color='#ffffff'
-    onPress={() => navigation.goBack()}
-    />
+     <Image source={require('../../assets/image/goback.png')} style={{ width : 40, height : 40 }} />
 
     <View>
     <Text style={styles.textheader}>{header}</Text>

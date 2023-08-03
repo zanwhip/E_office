@@ -38,19 +38,10 @@ const WelcomeScreen = ({navigation}) => {
     <View style={styles.Header}>
      <View style={styles.iconheader}>
         <TouchableOpacity style={{ width : 50 }} onPress={toggleSidebar} >
-        <Entypo name="menu"
-           
-          size={30}
-          color='#ffffff'
-          />
+        <Image source={require('../assets/image/menu.png')} style={{ width : 30, height : 30 }} />
         </TouchableOpacity >
-     <TouchableOpacity style={{right : 0}}  onPress={() => navigation.navigate('Notice')}>
-     <FontAwesome name="bell"
-          size={30}
-          color='#ffffff'
-         style={styles.bellicon}
-        
-         />
+     <TouchableOpacity style={{ marginLeft : '70%', width : 50}}  onPress={() => navigation.navigate('Notice')}>
+     <Image source={require('../assets/image/Bell.png')}  style={{ width : 30, height : 30 }} />
      </TouchableOpacity>
           
         </View>

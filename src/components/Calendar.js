@@ -20,7 +20,7 @@ const Calendar = ({ currentDate, selectedDate, closeSidebar, toggleCalendarModal
     } else {
       setSelectedWeek(null);
       setIsDateSelected(false);
-      setFormattedDate('Invalid'); // Set the date to "Invalid" when it's not a valid date
+      setFormattedDate('Hôm nay'); // Set the date to "Invalid" when it's not a valid date
     }
   }, [selectedDate]);
 

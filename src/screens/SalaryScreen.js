@@ -32,7 +32,7 @@ const SalaryScreen = () => {
       'Nov': 'Tháng 11',
       'Dec': 'Tháng 12',
     };
-  
+   
     return monthMapping[englishMonth];
   };
   const currentWeekNumber = selectedDate.isoWeek();
@@ -57,7 +57,9 @@ const SalaryScreen = () => {
   const toggleCalendarModal = () => {
     setCalendarModalVisible((prev) => !prev);
   };
-
+  const getCurrentYear = () => {
+    return new Date().getFullYear();
+  };
   return (
     <View style={styles.container}>
         <Modal transparent={true} visible={isCalendarModalVisible} animationType="slide" onRequestClose={toggleCalendarModal}>
@@ -73,7 +75,7 @@ const SalaryScreen = () => {
          <Header header={header} />
          <View style={styles.Selectcontainer}>
               <TouchableOpacity style={styles.monthpicker} onPress={toggleCalendarModal}>
-              <Text style={styles.monthtext}>{getMonthInVietnamese(selectedMonthText)}</Text>
+              <Text style={styles.monthtext}> {getMonthInVietnamese(selectedMonthText)}, năm {getCurrentYear()} </Text>
               </TouchableOpacity>
         </View>
         <View style={styles.titlecontainer}>

@@ -11,6 +11,10 @@ import { TouchableOpacity } from 'react-native';
 const header = 'Chuyển tiếp văn bản'
 
 const ForwardingScreen = ({navigation}) => {
+  const handleOnPress = () => {
+    console.log('Chuyển tiếp văn bản');
+    navigation.goBack();
+  };
   return (
     
     <View style={styles.container}>
@@ -38,9 +42,9 @@ const ForwardingScreen = ({navigation}) => {
         <TextInput name="content" placeholder='Nhập văn bản...' multiline style={styles.input} />
      </View>
      </ScrollView>
-     <View style={styles.buttonforward}>
+     <TouchableOpacity style={styles.buttonforward} onPress={handleOnPress}>
      <Text style={styles.textforward}>Chuyển tiếp</Text>
-     </View>
+     </TouchableOpacity>
      
      </View>
   )

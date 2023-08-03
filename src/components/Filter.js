@@ -35,9 +35,14 @@ const Filter = () => {
   const [isSidebarVisible, setSidebarVisibility] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
 
+
   const handleOptionSelection = (option) => {
     setSelectedOption(option);
   };
+  const updateSelectedDate = (date) => {
+    setSelectedDate(date);
+  };
+  
 
   const toggleDropdown = () => {
     setIsDropdownOpen((prevValue) => !prevValue);
@@ -49,6 +54,7 @@ const Filter = () => {
 
   const hideSidebar = () => {
     setSidebarVisibility(false);
+
   };
 
   return (
@@ -202,13 +208,13 @@ const Filter = () => {
       {isSidebarVisible && (
         <View style={styles.sidebar}>
           <TouchableOpacity style={styles.closeButton} onPress={hideSidebar}>
-            <AntDesign name="close" size={30} color="#ffffff" />
+            <AntDesign name="close" size={30} color="#ffffff"  />
           </TouchableOpacity>
          
           <View style={styles.calendarContainer}>
-           
-          <Calendar />
-          </View>
+  <Calendar/>
+</View>
+
         </View>
       )}
     </View>

@@ -1,8 +1,7 @@
 import { StyleSheet, Text, View, TouchableOpacity , FlatList} from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { getISOWeek, parse, format } from 'date-fns';
-import DateTimePicker from '@react-native-community/datetimepicker';
-import { timing } from 'react-native-reanimated';
+
 
 const WeekDay = () => {
   const [selectedDate, setSelectedDate] = useState(null);

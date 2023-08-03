@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "EOffice",
-    "slug": "E_office",
+    "slug": "eoffice",
     "version": "1.1.0",
     "sdkVersion": "48.0.0",
     "orientation": "portrait",
@@ -31,8 +31,9 @@
     },
     "extra": {
       "eas": {
-        "projectId": "0e31a5a1-a61b-4a19-8a0c-33475d3fe375"
+        "projectId": "5a4fbef5-a3e1-4c47-8c73-48faccdb2984"
       }
-    }
+    },
+    "owner": "zanwhip"
   }
 }

@@ -13,13 +13,7 @@ const Header = ({header}) => {
     <View >
      <View style={styles.header}>
       <TouchableOpacity onPress={handleGoBack} >
-      <Ionicons 
-    name="arrow-back-outline"
-    size={30}
-    color='#ffffff'
-    //style ={{ left : 10 }}
-    
-    />
+      <Image source={require('../assets/image/goback.png')} style={{ width : 40, height : 40 }} />
       </TouchableOpacity>
     
     <View >
