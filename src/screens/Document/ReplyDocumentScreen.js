@@ -24,7 +24,7 @@ const ReplyDocumentScreen = ({navigation}) => {
             // Perform the action for "Đồng ý" (OK) here.
             // For example, you can trigger the email sending logic.
             // This can be an API call or any other action you want to perform.
-            navigation.navigate('Noticedetail')
+            navigation.navigate('DocumentDetail')
             console.log('Đồng ý Pressed');
             // Add your email sending logic here...
           },

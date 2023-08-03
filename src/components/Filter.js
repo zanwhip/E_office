@@ -11,6 +11,7 @@ import { CheckBox } from 'react-native-elements';
 import SelectDropdown from 'react-native-select-dropdown';
 
 import Calendar from './Calendar'
+import { ScrollView } from 'react-native-gesture-handler';
 
 const field = [
   "Bảo hiểm", "Cơ sở vật chất", "Công đoàn", "Công khai",
@@ -57,7 +58,7 @@ const Filter = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.header}>
         <View style={styles.headerIcon} />
         <Text style={styles.headerText}>Bộ lọc nâng cao</Text>
@@ -195,7 +196,7 @@ const Filter = () => {
 
         </View>
       )}
-    </View>
+    </ScrollView>
   );
 };
 

@@ -4,6 +4,8 @@ import Header from '../components/Header';
 import { CheckBox } from 'react-native-elements';
 
 const header = 'Tên Phòng, Ban, Khoa,...'
+import selectedImage from '../assets/image/checked.png';
+import unselectedImage from '../assets/image/uncheck.png';
 
 const DepartmentScreen = () => {
   const [selectedOptions, setSelectedOptions] = useState({
@@ -143,6 +145,9 @@ const [showDropdown3, setShowDropdown3] = useState(false);
          <CheckBox
   checked={selectedOptions.DHDN1}
   onPress={() => handleCheckboxChange('DHDN1')}
+  checkedIcon={<Image source={selectedImage} style={{ width: 20, height: 20 }} />}
+   uncheckedIcon={<Image source={unselectedImage} style={{ width: 30, height: 30 }} />}
+   
   checkedColor="#1668C7"
         />
         </View>      
@@ -153,6 +158,9 @@ const [showDropdown3, setShowDropdown3] = useState(false);
          <CheckBox
   checked={selectedOptions.DHDN1A}
   onPress={() => handleCheckboxChange('DHDN1A')}
+  checkedIcon={<Image source={selectedImage} style={{ width: 20, height: 20 }} />}
+   uncheckedIcon={<Image source={unselectedImage} style={{ width: 30, height: 30 }} />}
+            
   checkedColor="#1668C7"
         />
         </TouchableOpacity>
@@ -163,6 +171,8 @@ const [showDropdown3, setShowDropdown3] = useState(false);
          <CheckBox
   checked={selectedOptions.DHDN1B}
   onPress={() => handleCheckboxChange('DHDN1B')}
+  checkedIcon={<Image source={selectedImage} style={{ width: 20, height: 20 }} />}
+   uncheckedIcon={<Image source={unselectedImage} style={{ width: 30, height: 30 }} />}
   checkedColor="#1668C7"
         />
         </TouchableOpacity>
@@ -185,6 +195,8 @@ const [showDropdown3, setShowDropdown3] = useState(false);
          <CheckBox
   checked={selectedOptions.DHDN2}
   onPress={() => handleCheckboxChange2('DHDN2')}
+  checkedIcon={<Image source={selectedImage} style={{ width: 20, height: 20 }} />}
+   uncheckedIcon={<Image source={unselectedImage} style={{ width: 30, height: 30 }} />}
   checkedColor="#1668C7"
         />
         </View>      
@@ -195,6 +207,8 @@ const [showDropdown3, setShowDropdown3] = useState(false);
          <CheckBox
   checked={selectedOptions.DHDN2A}
   onPress={() => handleCheckboxChange('DHDN2A')}
+  checkedIcon={<Image source={selectedImage} style={{ width: 20, height: 20 }} />}
+   uncheckedIcon={<Image source={unselectedImage} style={{ width: 30, height: 30 }} />}
   checkedColor="#1668C7"
         />
         </TouchableOpacity>
@@ -205,6 +219,8 @@ const [showDropdown3, setShowDropdown3] = useState(false);
          <CheckBox
   checked={selectedOptions.DHDN2B}
   onPress={() => handleCheckboxChange('DHDN2B')}
+  checkedIcon={<Image source={selectedImage} style={{ width: 20, height: 20 }} />}
+   uncheckedIcon={<Image source={unselectedImage} style={{ width: 30, height: 30 }} />}
   checkedColor="#1668C7"
         />
         </TouchableOpacity>
@@ -215,6 +231,8 @@ const [showDropdown3, setShowDropdown3] = useState(false);
          <CheckBox
   checked={selectedOptions.DHDN2C}
   onPress={() => handleCheckboxChange('DHDN2C')}
+  checkedIcon={<Image source={selectedImage} style={{ width: 20, height: 20 }} />}
+   uncheckedIcon={<Image source={unselectedImage} style={{ width: 30, height: 30 }} />}
   checkedColor="#1668C7"
         />
         </TouchableOpacity>
@@ -224,6 +242,8 @@ const [showDropdown3, setShowDropdown3] = useState(false);
          <CheckBox
   checked={selectedOptions.DHDN2D}
   onPress={() => handleCheckboxChange('DHDN2D')}
+  checkedIcon={<Image source={selectedImage} style={{ width: 20, height: 20 }} />}
+   uncheckedIcon={<Image source={unselectedImage} style={{ width: 28, height: 28 }} />}
   checkedColor="#1668C7"
         />
         </TouchableOpacity>
