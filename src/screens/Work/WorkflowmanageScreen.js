@@ -1,20 +1,23 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
-import Ionicons from 'react-native-vector-icons/Ionicons';
+
 import Notfound from '../../components/Notfound';
 import Header from '../../components/Header';
 
+const handleGoBack = () => {
+      
+  navigation.goBack();
+};
 
 const WorkflowmanageScreen = ({navigation}) => {
   return (
     <View>
     <View style={styles.header}>
- <Ionicons 
- name="arrow-back-outline"
- size={20}
- color='#ffffff'
- onPress={() => navigation.goBack()}
- />
+    <TouchableOpacity onPress={handleGoBack}>
+            <Image source={require('../../assets/image/goback.png')} style={{ width : 40, height : 40 }} />
+   
+            </TouchableOpacity>
+         
  <Text style={styles.textheader}>Quản lí công việc</Text>
   </View>
   <Notfound />

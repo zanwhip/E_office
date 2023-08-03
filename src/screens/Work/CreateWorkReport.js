@@ -1,8 +1,8 @@
-import { StyleSheet, Text, View, ScrollView, TouchableOpacity, TextInput } from 'react-native'
+import { StyleSheet, Text, View, ScrollView, TouchableOpacity, TextInput, Image } from 'react-native'
 import React, { useState } from 'react'
 import Header from '../../components/Header';
-import Entypo from 'react-native-vector-icons/Entypo';
-import AntDesign from 'react-native-vector-icons/AntDesign';
+
+
 import SelectDropdown from 'react-native-select-dropdown';
 const header = 'Tạo báo cáo'
 const status = ["Đang xử lí","Đã xử lí", "Chưa xử lí"  ];
@@ -40,11 +40,8 @@ const CreateWorkReport = () => {
           buttonStyle={styles.dropdownButton}
           buttonTextStyle={styles.dropdownButtonText}
           renderDropdownIcon={() => (
-            <Entypo
-              name={isDropdownOpen ? 'chevron-up' : 'chevron-down'}
-              size={20}
-              color="#000000" />
-          )}
+              <Image source={require('../../assets/image/drop_down.png')} style={{ width : 30, height : 30,  }} />
+                      )}
           dropdownStyle={styles.dropdownStyle}
           onDropdownOpen={toggleDropdown}
           onDropdownClose={toggleDropdown}

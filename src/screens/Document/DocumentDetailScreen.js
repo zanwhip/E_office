@@ -35,6 +35,10 @@ const DocumentDetailScreen = () => {
     handleImagePress()
     navigation.navigate('Forwarding');
   };
+  const handleGoBack = () => {
+    console.log('Chuyển tiếp văn bản');
+    navigation.goBack();
+  };
   const handleMenuPressReply = () => {
     handleImagePress()
     navigation.navigate('ReplyDocument');
@@ -75,7 +79,10 @@ const DocumentDetailScreen = () => {
     <View style={styles.container}>
      <View>
      <View style={styles.header}>
-     <Image source={require('../../assets/image/goback.png')} style={{ width : 40, height : 40 }} />
+      <TouchableOpacity onPress={handleGoBack}>
+      <Image source={require('../../assets/image/goback.png')} style={{ width : 40, height : 40 }} />
+      </TouchableOpacity>
+   
 
     <View>
     <Text style={styles.textheader}>{header}</Text>

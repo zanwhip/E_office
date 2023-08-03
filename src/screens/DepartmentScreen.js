@@ -1,7 +1,6 @@
 import { StyleSheet,  View, Checkbox, Text, Image, Divider, Provider , TouchableOpacity } from 'react-native'
 import React, { useState , useEffect} from 'react'
 import Header from '../components/Header';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { CheckBox } from 'react-native-elements';
 
 const header = 'Tên Phòng, Ban, Khoa,...'
@@ -121,9 +120,7 @@ const [showDropdown3, setShowDropdown3] = useState(false);
   const toggleDropdown1 = () => {
     setShowDropdown1(!showDropdown1);
   };
-  const getDropdownIcon = (isOpen) => {
-    return isOpen ? 'caret-up' : 'caret-down';
-  };
+
   const toggleDropdown2 = () => {
     setShowDropdown2(!showDropdown2);
   };

@@ -102,7 +102,7 @@ const NoticedetailScreen = ({navigation}) => {
             <Text style={styles.text}>Độ khẩn</Text>
         </View>
         <View style={styles.column2}>
-            <View style={{ backgroundColor :'#B8B8B8', width : '50%' , height : 30 , borderRadius : 10, marginHorizontal : 10, justifyContent :'center' }}>
+            <View style={{ backgroundColor :'#B8B8B8', width : '60%' , height : 30 , borderRadius : 10, marginHorizontal : 10, justifyContent :'center' }}>
             <Text style={styles.textradious}>{rate}</Text>
             </View>
            

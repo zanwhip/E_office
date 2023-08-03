@@ -1,11 +1,10 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
 import React ,{useState}from 'react'
 import { ScrollView } from 'react-native'
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import Modal from 'react-native-modal';
 import { TouchableOpacity } from 'react-native';
 import DetailWork from '../../components/DetailWork';
-import Entypo from 'react-native-vector-icons/Entypo';
+
 
 const prority = 'Cao'
 const time = '14/04/2003 - 14/05/2023'
@@ -26,7 +25,10 @@ const WorkDetailScreen = ({navigation}) => {
     const handleMenuItemPress = () => {
         setSidebarOpen(false);
     }
-
+    const handleGoBack = () => {
+      
+      navigation.goBack();
+    };
 
 
 
@@ -73,14 +75,11 @@ switch (process) {
     </Modal>
 
           <View style={styles.header}>
-     <Ionicons 
-    name="arrow-back-outline"
-    size={20}
-    color='#ffffff'
-    style ={{ left : 10 }}
-    onPress={() => navigation.goBack()}
-    />
+            <TouchableOpacity onPress={handleGoBack}>
+            <Image source={require('../../assets/image/goback.png')} style={{ width : 40, height : 40 }} />
    
+            </TouchableOpacity>
+         
     <View >
     <Text style={styles.textheader}>{header}</Text>
     </View>
@@ -129,30 +128,15 @@ switch (process) {
       <Text style={{ fontSize : 20, fontWeight :'700', marginVertical : 20, }}>Tài liệu</Text>
       <View style={styles.file}>
     <Text style={{ fontSize : 16,  }}>files/c4gJ_1631171358.xlsx</Text>
-    <Entypo 
-    name="download"
-    size={20}
-    color='#1668C7'
-    style ={{ left : 10 }}
-       />
+    <Image source={require('../../assets/image/download.png')} style={{ width : 40, height : 40 }} />
     </View>
     <View style={styles.file}>
     <Text style={{ fontSize : 16,  }}>files/c4gJ_1631171358.xlsx</Text>
-    <Entypo 
-    name="download"
-    size={20}
-    color='#1668C7'
-    style ={{ left : 10 }}
-       />
+    <Image source={require('../../assets/image/download.png')} style={{ width : 40, height : 40 }} />
     </View>
     <View style={styles.file}>
     <Text style={{ fontSize : 16,  }}>files/c4gJ_1631171358.xlsx</Text>
-    <Entypo 
-    name="download"
-    size={20}
-    color='#1668C7'
-    style ={{ left : 10 }}
-       />
+    <Image source={require('../../assets/image/download.png')} style={{ width : 40, height : 40 }} />
     </View>
             </ScrollView>
      
