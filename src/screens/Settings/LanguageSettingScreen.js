@@ -1,53 +1,47 @@
-import { StyleSheet, Text, View, Switch, TouchableOpacity, Image } from 'react-native'
-import React , { useState } from 'react'
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import React, { useState } from 'react';
 import Header from '../../components/Header';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import { CheckBox } from 'react-native-elements';
 
-const header = 'Thông báo'
+const header = 'Ngôn ngữ';
 
-const LanguageSettingScreen = ({navigation}) => {
-   
-    const [selectedOption, setSelectedOption] = useState(null);
-
-  const handleOptionChange = (optionName) => {
-    setSelectedOption(optionName);
-  }
-  
-  const OptionItem = ({ text,textsub, icon, isChecked, onPress, imageSource }) => {
-    return (
-      <View style={styles.option}>
-        <View style={styles.leftContent}>
-        {imageSource && <Image source={imageSource} style={styles.optionImage} />}
-          <FontAwesome name={icon} size={24} />
-          <Text style={styles.optionText}>{text} <Text style={{ fontWeight : '400', fontSize : 14 , }}>{textsub}</Text></Text>
-          
-        </View>
-        <CheckBox
-          checked={isChecked}
-          onPress={onPress}
-          checkedColor="green"
-          checkedIcon="dot-circle-o" // icon khi checkbox được chọn
-          uncheckedIcon="circle-o" // icon khi checkbox không được chọn
-        />
-      </View>
-    );
-  };
-  
-const NoticeSettingScreen = () => {
+const LanguageSettingScreen = ({ navigation }) => {
   const [selectedOption, setSelectedOption] = useState(null);
 
   const handleOptionChange = (optionName) => {
     setSelectedOption(optionName);
-  }
-}
+  };
+
+  const imageSourceSelected = require('../../assets/image/selected.png');
+  const imageSourceNotSelected = require('../../assets/image/unselected.png');
+
+  const OptionItem = ({ text, textsub, isChecked, onPress }) => {
+    return (
+      <TouchableOpacity style={styles.option} onPress={onPress}>
+         <View style={styles.textContainer}>
+          <Text style={styles.optionText}>{text}</Text>
+          <Text style={styles.subText}>{textsub}</Text>
+        </View>
+        <View style={styles.checkboxContainer}>
+          <Image
+            source={imageSourceSelected}
+            style={[styles.optionImage, { opacity: isChecked ? 1 : 0 }, { position: 'absolute', right: 10, zIndex: 1 }]}
+          />
+          <Image
+            source={imageSourceNotSelected}
+            style={[styles.optionImage, { opacity: isChecked ? 0 : 1 }, { position: 'absolute', right: 10, zIndex: 1 }]}
+          />
+        </View>
+       
+      </TouchableOpacity>
+    );
+  };
+
   return (
     <View style={styles.container}>
       <Header header={header} />
       <View style={styles.display}>
         <OptionItem
-          text="Tiếng Việt" 
-              
+          text="Tiếng Việt"
           isChecked={selectedOption === 'vietnamese'}
           onPress={() => handleOptionChange('vietnamese')}
         />
@@ -57,16 +51,12 @@ const NoticeSettingScreen = () => {
           isChecked={selectedOption === 'english'}
           onPress={() => handleOptionChange('english')}
         />
-        
       </View>
     </View>
-  )
-}
+  );
+};
 
-export default LanguageSettingScreen
-
-
-    const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
@@ -82,23 +72,30 @@ export default LanguageSettingScreen
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-  leftContent: {
-    flexDirection: 'column',
-    //alignItems: 'center',
-    justifyContent : 'center',
-    backgroundColor : '#ffffff',
-    width : '30%'
+  textContainer: {
+    flexDirection: 'column', // Hiển thị dòng chữ theo cột
+    alignItems: 'flex-end', // Căn phải dòng chữ
   },
   optionText: {
-    marginLeft: 10,
     fontSize: 18,
-    fontWeight : 'bold',
-    flexDirection : 'column',
-    
+    fontWeight: 'bold',
+    textAlign: 'right', // Căn phải nội dung của dòng chữ English
   },
-  optionImage: {
+  subText: {
+    fontSize: 14,
+    fontWeight: '400',
+    textAlign: 'right', // Căn phải nội dung của dòng chữ Tiếng Anh
+  },
+  checkboxContainer: {
+    position: 'relative',
     width: 30,
     height: 30,
-    marginRight: 10,
+    zIndex: 0,
+  },
+  optionImage: {
+    width: 50,
+    height: 50,
   },
 });
+
+export default LanguageSettingScreen;

@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { ScrollView, StyleSheet, Text, View, TouchableOpacity, Modal } from 'react-native';
+import { ScrollView, StyleSheet, Text, View, TouchableOpacity, Modal, Image } from 'react-native';
 import Header from '../../components/Header';
 import CalendarStrip from 'react-native-calendar-strip';
-import Octicons from 'react-native-vector-icons/Octicons';
+
 import moment from 'moment';
 import WeekEvent from '../../components/WeekEvent';
 import SwipeGesture from 'react-native-swipe-gestures';
 import Calendar from '../../components/Calendar';
+
 
 const header = 'Lịch tuần';
 
@@ -54,15 +55,15 @@ const ScheduleWeekScreen = () => {
         {/* Custom Week Header */}
         <View style={styles.weekHeaderContainer}>
           <TouchableOpacity onPress={handleLeftSwipe}>
-            <Octicons name="chevron-left" size={30} color="#e3e3e3" style={{ marginLeft: 50 }} />
+          <Image source={require('../../assets/image/leftwhite.png')} style={{ width : 30, height : 30 , marginHorizontal : 20 }} />
           </TouchableOpacity>
           <TouchableOpacity onPress={toggleCalendarModal}>
             <Text style={styles.weekHeaderText}>{`Tuần thứ ${currentWeekNumber}, năm ${selectedDate.format(
               'YYYY'
             )}`}</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={handleRightSwipe}>
-            <Octicons name="chevron-right" size={30} color="#e3e3e3" style={{ marginRight: 50 }} />
+          <TouchableOpacity onPress={handleRightSwipe} >
+          <Image source={require('../../assets/image/rightwhite.png')} style={{ width : 30, height : 30 , marginHorizontal : 20 }} />
           </TouchableOpacity>
         </View>
 
@@ -119,7 +120,7 @@ const ScheduleWeekScreen = () => {
         <Modal transparent={true} visible={isCalendarModalVisible} animationType="slide" onRequestClose={toggleCalendarModal}>
           <View style={styles.modalContainer}>
             <TouchableOpacity style={styles.closeButton} onPress={toggleCalendarModal}>
-              <Octicons name="x" size={30} color="#ffffff" />
+            <Image source={require('../../assets/image/close.png')} style={{ width : 40, height : 40 }} />
             </TouchableOpacity>
             <View style={styles.calendarContainer}>
               <Calendar currentDate={selectedDate.format('YYYY-MM-DD')} selectedDate={selectedDate.format('YYYY-MM-DD')} />

@@ -1,7 +1,6 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import AntDesign from 'react-native-vector-icons/AntDesign';
+
 import { ScrollView } from 'react-native';
 
 const extract = () => {
@@ -13,11 +12,7 @@ const extract = () => {
             </View>
         <Text style={styles.extactdetail}>Tờ trình về việc phê duyệt kế hoạch đào tạo năm học 2023 - 2024 của Viện Nghiên cứu và Đào tạo Việt - Anh</Text>
         <View style={styles.link}>
-        <AntDesign 
-    name="link"
-    size={20}
-    color='#1768D4'
-    />
+        <Image source={require('../assets/image/link.png')} style={{ width : 50, height : 50 }} />
             <Text style={{ color : '#1768D4',textDecorationLine: 'underline' }}>1569-247-ttr-vncdtva_1683875983.pdf</Text>
         </View>
         </View>
@@ -34,7 +29,6 @@ const styles = StyleSheet.create({
   },
   extraccontainer : {
     width : '90%',
-    height : 140,
     backgroundColor : '#ffffff',
     //paddingBottom : 10,
     marginLeft : 15,
@@ -65,7 +59,8 @@ const styles = StyleSheet.create({
     paddingHorizontal : 10,
     marginLeft : 10,
     marginRight : 10,
-    textDecorationLine: 'underline'
+    textDecorationLine: 'underline',
+    alignItems : 'center',
   },
   properties : {
     fontWeight :'700',

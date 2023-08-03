@@ -1,11 +1,7 @@
-import { StyleSheet, Text, View , Modal } from 'react-native';
+import { StyleSheet, Text, View , Modal,Image } from 'react-native';
 import React, { useState } from 'react';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import Octicons from 'react-native-vector-icons/Octicons';
-import Feather from 'react-native-vector-icons/Feather';
 import { TouchableOpacity } from 'react-native';
-import SelectDropdown from 'react-native-select-dropdown';
 import WeekSchedule from '../../components/WeekSchedule';
 import Calendar from '../../components/Calendar';
 import moment from 'moment';
@@ -57,16 +53,21 @@ const [selectedDate, setSelectedDate] = useState(moment());
         <View>
           <Text style={styles.textheader}>{header}</Text>
         </View>
-        <TouchableOpacity>
-          <Feather name="plus" size={30} color="#ffffff" style={{}} onPress={() => navigation.navigate('SetSchedule')} />
+        <TouchableOpacity onPress={() => navigation.navigate('SetSchedule')}>
+        <Image source={require('../../assets/image/plus.png')} style={{ width : 50, height : 50 }} />
         </TouchableOpacity>
       </View>
 
       <View style={styles.filter}>
+        <View style={{ flexDirection :'row' }}>
         <TouchableOpacity style={styles.calendar}  onPress={toggleCalendarModal} >
           <Text style={{ fontSize : 18, fontWeight : 'bold',  }}>Tuần 50, năm 2023</Text>
         </TouchableOpacity>
-
+        <TouchableOpacity style={styles.more}   >
+        <Image source={require('../../assets/image/filterblue.png')} style={{ width : 30, height : 30 }} />
+        </TouchableOpacity>
+        </View>
+       
  {/* Calendar Modal */}
  <Modal transparent={true} visible={isCalendarModalVisible} animationType="slide" onRequestClose={toggleCalendarModal}>
           <View style={styles.modalContainer}>
@@ -78,72 +79,6 @@ const [selectedDate, setSelectedDate] = useState(moment());
             </View>
           </View>
         </Modal>
-
-        <View style={styles.dropdownContainer}>
-          <SelectDropdown
-            data={type}
-            defaultButtonText="Loại"
-            onSelect={(selectedItem, index) => {
-              console.log(selectedItem, index);
-            }}
-            buttonTextAfterSelection={(selectedItem, index) => {
-              return selectedItem;
-            }}
-            rowTextForSelection={(item, index) => {
-              return item;
-            }}
-            buttonStyle={isTypeDropdownOpen ? styles.activeDropdownButton : styles.dropdownButton}
-            buttonTextStyle={isTypeDropdownOpen ? styles.activeDropdownButtonText : styles.dropdownButtonText}
-            renderDropdownIcon={() => (
-              <FontAwesome name={isTypeDropdownOpen ? 'caret-up' : 'caret-down'} size={20} color="#ffffff" />
-            )}
-            dropdownStyle={styles.dropdownStyle}
-            onDropdownOpen={toggleTypeDropdown}
-            onDropdownClose={toggleTypeDropdown}
-          />
-          <SelectDropdown
-            data={status}
-            defaultButtonText="Trạng thái"
-            onSelect={(selectedItem, index) => {
-              console.log(selectedItem, index);
-            }}
-            buttonTextAfterSelection={(selectedItem, index) => {
-              return selectedItem;
-            }}
-            rowTextForSelection={(item, index) => {
-              return item;
-            }}
-            buttonStyle={isStatusDropdownOpen ? styles.activeDropdownButton : styles.dropdownButton}
-            buttonTextStyle={isStatusDropdownOpen ? styles.activeDropdownButtonText : styles.dropdownButtonText}
-            renderDropdownIcon={() => (
-              <FontAwesome name={isStatusDropdownOpen ? 'caret-up' : 'caret-down'} size={20} color="#ffffff" />
-            )}
-            dropdownStyle={styles.dropdownStyle}
-            onDropdownOpen={toggleStatusDropdown}
-            onDropdownClose={toggleStatusDropdown}
-          />
-          <SelectDropdown
-            data={schedule}
-            defaultButtonText="Lịch"
-            onSelect={(selectedItem, index) => {
-              console.log(selectedItem, index);
-            }}
-            buttonTextAfterSelection={(selectedItem, index) => {
-              return selectedItem;
-            }}
-            rowTextForSelection={(item, index) => {
-              return item;
-            }}
-            buttonStyle={isScheduleDropdownOpen ? styles.activeDropdownButton : styles.dropdownButton}
-            buttonTextStyle={isScheduleDropdownOpen ? styles.activeDropdownButtonText : styles.dropdownButtonText}
-            renderDropdownIcon={() => (
-              <FontAwesome name={isScheduleDropdownOpen ? 'caret-up' : 'caret-down'} size={20} color="#ffffff" />
-            )}
-            dropdownStyle={styles.dropdownStyle}
-            onDropdownOpen={toggleScheduleDropdown}
-            onDropdownClose={toggleScheduleDropdown}
-          />
-        </View>
       </View>
       <View style={styles.displayschedule}>
       <Text style={{ paddingBottom : 10,fontSize : 18, fontWeight : 'bold',  }}>Lịch tuần Đại Học Đả Nẵng - Tuần 50</Text>
@@ -187,13 +122,24 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   calendar: {
-    width: '90%',
+    width: '75%',
     backgroundColor: '#fff',
     height: 50,
     borderRadius: 10,
     alignItems : 'center', 
-    justifyContent : 'center'
+    justifyContent : 'center',
+    marginHorizontal : 10,
   },
+  more: {
+    width: '15%',
+    backgroundColor: '#fff',
+    height: 50,
+    borderRadius: 10,
+    alignItems : 'center', 
+    justifyContent : 'center',
+    marginHorizontal : 10,
+  },
+  
   dropdownContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',

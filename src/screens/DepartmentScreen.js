@@ -1,4 +1,4 @@
-import { StyleSheet,  View, Checkbox, Text, Menu, Divider, Provider , TouchableOpacity } from 'react-native'
+import { StyleSheet,  View, Checkbox, Text, Image, Divider, Provider , TouchableOpacity } from 'react-native'
 import React, { useState , useEffect} from 'react'
 import Header from '../components/Header';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -136,11 +136,11 @@ const [showDropdown3, setShowDropdown3] = useState(false);
         <View>
         <View style={styles.option}>
         <TouchableOpacity style={{ flexDirection :"row" }} onPress={toggleDropdown1}>
-        <FontAwesome          
-        name={getDropdownIcon(showDropdown1)}
-          size={20}
-          color='#000000'
-          style={{marginLeft : 20}}/>
+        {showDropdown1 ? (
+        <Image source={require('../assets/image/drop_up.png')} style={{ width : 30, height : 30 ,  }} />
+      ) : (
+        <Image source={require('../assets/image/drop_down.png')} style={{ width : 30, height : 30,  }} />
+      )}
         <Text style={styles.optiontext}>Hội đồng DHDN</Text>
         </TouchableOpacity>
          <CheckBox
@@ -178,11 +178,11 @@ const [showDropdown3, setShowDropdown3] = useState(false);
 <View>
         <View style={styles.option}>
         <TouchableOpacity style={{ flexDirection :"row" }} onPress={toggleDropdown2}>
-        <FontAwesome          
-        name={getDropdownIcon(showDropdown2)}
-          size={20}
-          color='#000000'
-          style={{marginLeft : 20}}/>
+        {showDropdown2 ? (
+        <Image source={require('../assets/image/drop_up.png')} style={{ width : 30, height : 30 ,  }} />
+      ) : (
+        <Image source={require('../assets/image/drop_down.png')} style={{ width : 30, height : 30,  }} />
+      )}
         <Text style={styles.optiontext}>Hội đồng DHDN 2</Text>
         </TouchableOpacity>
          <CheckBox

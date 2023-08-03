@@ -1,9 +1,6 @@
 import { StyleSheet, Text, View, Image, ScrollView, TouchableWithoutFeedback } from 'react-native'
-import Entypo from 'react-native-vector-icons/Entypo';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import React , {useState}from 'react'
 import { TouchableOpacity } from 'react-native';
-import Header from '../components/Header';
 import Menu from '../components/Menu';
 import Modal from 'react-native-modal';
 

@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
 import { TouchableOpacity } from 'react-native'
-import AntDesign from 'react-native-vector-icons/AntDesign';
 import { useNavigation } from '@react-navigation/native';
 
 const DataMonth = ({
@@ -25,11 +24,7 @@ const DataMonth = ({
         </View>
 
         <View>
-        <AntDesign 
-            name="right"
-            size={20}
-            color='#000000'
-            style={{top : 0, right :3, top :'40%'}}/>
+        <Image source={require('../assets/image/right.png')} style={{ width : 40, height : 40, justifyContent : 'center', alignItems :'center', marginVertical : '40%' }} />
         </View>
     </View>
    </TouchableOpacity>

@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
-import Ionicons from 'react-native-vector-icons/Ionicons';
+
 import { useNavigation } from '@react-navigation/native';
 
 import React from 'react'
@@ -19,7 +19,8 @@ const Header = ({header}) => {
     <View >
     <Text style={styles.textheader}>{header}</Text>
     </View>
-    <View></View>
+
+    <View style={{ width : 45 }}></View>
      </View>
     </View>
   )

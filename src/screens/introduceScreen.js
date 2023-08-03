@@ -1,7 +1,5 @@
-import { StyleSheet, Text, View, Linking, Alert } from 'react-native'
+import { StyleSheet, Text, View, Linking, Alert, Image } from 'react-native'
 import React from 'react'
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import AntDesign from 'react-native-vector-icons/AntDesign';
 import Header from '../components/Header';
 import { TouchableOpacity } from 'react-native';
 
@@ -46,42 +44,26 @@ const IntroduceScreen = ({navigation}) => {
         onPress={() => navigation.navigate('OpenLetter')}
         >
             <Text style={styles.subcontent}>Lời ngỏ </Text>
-            <AntDesign 
-            name="right"
-            size={20}
-            color='#000000'
-            />
+            <Image source={require('../assets/image/right.png')} style={{ width : 40, height : 40 }} />
         </TouchableOpacity>
         <TouchableOpacity
          style={styles.subcontentcontainer}
          onPress={() => navigation.navigate('Mission')}
          >
             <Text style={styles.subcontent}>Sứ mạng - tầm nhìn </Text>
-            <AntDesign 
-            name="right"
-            size={20}
-            color='#000000'
-            />
+            <Image source={require('../assets/image/right.png')} style={{ width : 40, height : 40 }} />
         </TouchableOpacity>
         <TouchableOpacity
         onPress={() => navigation.navigate('History')}
         style={styles.subcontentcontainer}>
             <Text style={styles.subcontent}>Lịch sử hình thành </Text>
-            <AntDesign 
-            name="right"
-            size={20}
-            color='#000000'
-            />
+            <Image source={require('../assets/image/right.png')} style={{ width : 40, height : 40 }} />
         </TouchableOpacity>
         <TouchableOpacity
          onPress={handleOpenLink}
         style={styles.subcontentcontainer}>
             <Text style={styles.subcontent}>Cơ cấu tổ chức </Text>
-            <AntDesign 
-            name="right"
-            size={20}
-            color='#000000'
-           />
+            <Image source={require('../assets/image/right.png')} style={{ width : 40, height : 40 }} />
         </TouchableOpacity>
         <TouchableOpacity style={styles.subcontentcontainer}
          onPress={() => navigation.navigate('TypicalPerson')}>
@@ -91,21 +73,13 @@ const IntroduceScreen = ({navigation}) => {
            
             >
                 Gương mặt tiêu biểu </Text>
-            <AntDesign 
-            name="right"
-            size={20}
-            color='#000000'
-            />
+                <Image source={require('../assets/image/right.png')} style={{ width : 40, height : 40 }} />
         </TouchableOpacity>
         <TouchableOpacity 
         onPress={handlePress}
         style={styles.subcontentcontainer}>
             <Text style={styles.subcontent}>Website Đại Học Đà Nẵng  </Text>
-            <AntDesign 
-            name="right"
-            size={20}
-            color='#000000'
-            />
+            <Image source={require('../assets/image/right.png')} style={{ width : 40, height : 40 }} />
 
         </TouchableOpacity>
 

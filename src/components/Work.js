@@ -1,6 +1,6 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
-import Entypo from 'react-native-vector-icons/Entypo';
+
 import { TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
@@ -11,27 +11,25 @@ const Work = ({status, title, date, rate}) => {
       };
 
 
-    let dotColor = '';
-    let displayStatus = '';
-  
-    // Xác định màu sắc dựa trên trạng thái
-    switch (status) {
-      case 'A':
-        dotColor = '#F29100';
-        displayStatus = 'Đang thực hiện';
-        break;
-      case 'B':
-        dotColor = '#20AD72';
-        displayStatus = 'Đã hoàn thành';
-        break;
-        case 'C':
-        dotColor = '#959595';
-        displayStatus = 'Tạm dừng';
-        break;
-      default:
-        dotColor = '#AAAAAA';
-        break;
-    }
+      let dotImageSource = require('../assets/image/dotgray.png'); // Mặc định dotImage là ccc.png
+
+      // Xác định hình ảnh dựa trên trạng thái
+      switch (status) {
+        case 'A':
+          Colortext = '#20AD72';
+          dotImageSource = require('../assets/image/dotgreen.png');
+          break;
+        case 'B':
+          Colortext = '#DB6A18';
+          dotImageSource = require('../assets/image/dotorange.png');
+          break;
+          case 'C':
+          Colortext = '#858585';
+          dotImageSource = require('../assets/image/dotgray.png');
+          break;
+          default:
+          break;
+      }
     
     let textcolorRate = '';
     let backgroundColorRate = '';
@@ -72,13 +70,13 @@ const Work = ({status, title, date, rate}) => {
         <Text style={styles.namenotice}>{title}</Text>
         <View style={styles.description}>
         <Text style={styles.date}>{date}</Text>
-        <View style={{ flexDirection : 'row',}}>
-        <Entypo 
-            name="dot-single"
-            size={40}
-            style={{ color : dotColor , marginRight : 0 ,alignItems :'center', left : 0  }}/>
-        <Text style={{  fontSize : 14, alignItems :'center', color : dotColor, marginRight : 5, marginVertical : 11}}>{displayStatus}</Text>
-        </View>
+        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', }}>
+           
+            <Image source={dotImageSource} style={{ width: 10, height: 10, alignItems: 'center', left: 0, marginHorizontal : 10 }} />
+            <Text style={{ fontSize: 14, alignItems: 'center', marginRight: 5, marginVertical: 11 , color : Colortext}}>
+              {status === 'A' ? 'Đã hoàn thành ' : status === 'B' ? 'Đang hoàn thành' :status === 'C' ? 'Tạm dừng' : ''}
+            </Text>
+          </View>
          </View>
       </View>
     </TouchableOpacity>

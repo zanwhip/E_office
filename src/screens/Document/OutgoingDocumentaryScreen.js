@@ -1,13 +1,10 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native'
 import React, {useState} from 'react'
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import Documentary from '../../components/Documentary';
 import { ScrollView } from 'react-native';
-import Entypo from 'react-native-vector-icons/Entypo';
 import Header from '../../components/Header';
 import Modal from 'react-native-modal';
 import { TextInput } from 'react-native';
-//import {MaterialCommunityIcons} from 'react-native-vector-icons/MaterialCommunityIcons';
 import Filter from '../../components/Filter';
 
 const header = 'Văn bản đi'
@@ -45,8 +42,8 @@ const OutgoingDocumentaryScreen = () => {
      <Header header={header} />
      
      <View style={{ width : '100%', height : 60,flexDirection : 'row', justifyContent : 'center' }}>
-      <View style={{ backgroundColor : '#ffffff', width : '80%', flexDirection :'row' , borderRadius : 8, height : 50, marginHorizontal : 10,marginVertical : 10,borderWidth : 0.5, paddingHorizontal : 10,}}>
-      <Ionicons name="search" size={30} color="#e3e3e3" style={{ marginVertical : 10 }} />
+      <View style={{ backgroundColor : '#ffffff', width : '80%', flexDirection :'row' , borderRadius : 8, height : 50, marginHorizontal : 10,marginVertical : 10,borderWidth : 0.5, paddingHorizontal : 10, alignItems :'center'}}>
+      <Image source={require('../../assets/image/search.png')} style={{ width : 40, height : 40 , }} />
       <TextInput name="content" placeholder='Nhập thông tin...'/>
       </View>
        <TouchableOpacity 

@@ -1,6 +1,5 @@
   import { StyleSheet, Text, View, Modal, Image , TouchableWithoutFeedback } from 'react-native'
 import React ,{useState} from 'react'
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import { ScrollView } from 'react-native';
 import Extract from '../../components/Extract';
 import { TouchableOpacity } from 'react-native';

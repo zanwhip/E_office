@@ -1,19 +1,20 @@
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity,Modal, Image } from 'react-native';
 import React, { useState } from 'react';
 import Header from '../../components/Header';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import AntDesign from 'react-native-vector-icons/AntDesign';
 import SelectDropdown from 'react-native-select-dropdown';
 import { TextInput } from 'react-native';
 import { ScrollView } from 'react-native';
+import WeekDay from '../../components/WeekDay';
 
 const address = ["Hội trường - 41 Lê Duẩn", "Phòng 0804 Khu B - 41 Lê Duẩn", "Phòng 0805 - 41 Lê Duẩn", "Phòng 0806 Khu B - 41 Lê Duẩn", "Phòng 2C"];
-const header = 'Đăng kí lịch';
+const header = 'Sửa lịch';
 const EditScheduleScreen = () => {
-  const [selectedOption, setSelectedOption] = useState('DHDN');
+  const [selectedOption, setSelectedOption] = useState(null);
   const [selectedLocation, setSelectedLocation] = useState('Chọn địa điểm'); // Default value for location dropdown
-
+  const [isSidebarVisible, setSidebarVisibility] = useState(false);
   const [isAddressDropdownOpen, setIsAddressDropdownOpen] = useState(false);
+  const [isCalendarModalVisible, setCalendarModalVisible] = useState(false);
   const handleOptionPress = (option) => {
     setSelectedOption(option);
   };
@@ -25,7 +26,12 @@ const EditScheduleScreen = () => {
   const toggleAddressDropdown = () => {
     setIsAddressDropdownOpen((prevValue) => !prevValue);
   };
-
+  const toggleCalendarModal = () => {
+    setCalendarModalVisible((prev) => !prev);
+  };
+  const showSidebar = () => {
+    setSidebarVisibility(true);
+  };
   const CustomRowText = ({ item }) => {
     return <Text style={styles.dropdownSelectedText}>{item}</Text>;
   };
@@ -55,15 +61,31 @@ const EditScheduleScreen = () => {
         </View>
 
         <Text style={styles.label}>Thời gian<Text style={{ fontSize : 16, fontWeight : 'bold', color : '#FF4444' }}>*</Text></Text>
-        <TouchableOpacity style={styles.time}>
+        <TouchableOpacity style={styles.time} onPress={toggleCalendarModal}>
           <Text style={{ fontSize: 16 }}>Nhấp để chọn</Text>
-          <AntDesign
-            name="right"
-            size={20}
-            color="#000000"
-          />
+          <Image source={require('../../assets/image/right.png')} style={{ width : 40, height : 40 }} />
         </TouchableOpacity>
-
+        <Modal transparent={true} visible={isCalendarModalVisible} animationType="slide" onRequestClose={toggleCalendarModal}>
+          <View style={styles.modalContainer}>
+          
+            <View style={styles.calendarContainer}>
+              <WeekDay />
+              <TouchableOpacity
+           style={{
+            width: '100%',
+            backgroundColor: '#fff',
+            height: 50,
+            justifyContent: 'center',
+            paddingHorizontal: '44%',
+             borderRadius: 10,
+          }}
+          onPress={toggleCalendarModal}
+           >
+          <Text style={{ fontSize: 17, color: '#000000', fontWeight: '500',marginVertical : '30%', }}> Hủy</Text>
+        </TouchableOpacity>
+            </View>
+          </View>
+        </Modal>
         <Text style={styles.label}>Địa điểm<Text style={{ fontSize : 16, fontWeight : 'bold', color : '#FF4444' }}>*</Text></Text>
         <SelectDropdown
           data={address}
@@ -81,7 +103,7 @@ const EditScheduleScreen = () => {
           buttonStyle={isAddressDropdownOpen ? styles.activeDropdownButton : styles.dropdownButton}
           buttonTextStyle={isAddressDropdownOpen ? styles.activeDropdownButtonText : styles.dropdownButtonText}
           renderDropdownIcon={() => (
-            <FontAwesome name={isAddressDropdownOpen ? 'caret-up' : 'caret-down'} size={20} color="#000000" />
+            <Image source={require('../../assets/image/dropdown.png')} style={{ width : 25, height : 25 }} />
           )}
           dropdownStyle={styles.dropdownStyle}
           onDropdownOpen={toggleAddressDropdown}
@@ -90,16 +112,16 @@ const EditScheduleScreen = () => {
 
 
         <Text style={styles.label}>Nội dung<Text style={{ fontSize : 16, fontWeight : 'bold', color : '#FF4444' }}>*</Text></Text>
-        <TextInput name="content" placeholder='Tiếp đoàn Trường Quốc tế - Đại học Khon Kaen (Thái Lan)' multiline style={styles.input} />
+        <TextInput name="content" placeholder='Nhập thông tin...' multiline style={styles.input} />
 
         <Text style={styles.label}>Thành phần<Text style={{ fontSize : 16, fontWeight : 'bold', color : '#FF4444' }}>*</Text></Text>
-        <TextInput name="content" placeholder='PGĐ. Lê Quang Sơn; đại diện lãnh đạo các Ban: HTQT, CTHSSV, KHCN&MT' multiline style={styles.input} />
+        <TextInput name="content" placeholder='Nhập thông tin...' multiline style={styles.input} />
 
         <Text style={styles.label}>Chủ trì<Text style={{ fontSize : 16, fontWeight : 'bold', color : '#FF4444' }}>*</Text></Text>
-        <TextInput name="content" placeholder='PGĐ ĐHĐNPGS.TS. Lê Quang Sơn'  style={styles.input1} />
+        <TextInput name="content" placeholder='Nhập thông tin...'  style={styles.input1} />
 
         <Text style={styles.label}>Người đăng kí </Text>
-        <TextInput name="content" placeholder='Trịnh Quang Chinh' style={styles.input1} />
+        <TextInput name="content" placeholder='Nhập thông tin...' style={styles.input1} />
 
         <Text style={styles.label}>Số điện thoại<Text style={{ fontSize : 16, fontWeight : 'bold', color : '#FF4444' }}>*</Text></Text>
         <TextInput name="content" placeholder='Nhập thông tin...'  style={styles.input1} />
@@ -114,8 +136,9 @@ const EditScheduleScreen = () => {
         <TextInput name="content" placeholder='Nhập thông tin...'  style={styles.input1} />
 
         <View style={styles.button}>
-          <Text style={styles.buttontext}>Lưu thay đổi</Text>
+          <Text style={styles.buttontext}>Đăng kí</Text>
         </View>
+        <View style={{ height : 40 }}></View>
       </ScrollView>
     </View>
   );
@@ -164,13 +187,12 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     height: 50,
     paddingHorizontal: 10,
-    alignItems: 'center',
+    alignItems : 'center',
     marginVertical: 10,
     justifyContent: 'space-between',
   },
   dropdownContainer: {
     flexDirection: 'row',
-    justifyContent: 'flex-start',
     marginTop: 10,
     width: '90%',
   },
@@ -186,8 +208,9 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: '#fff', 
     borderRadius: 10,
-    paddingHorizontal: 10,
-    paddingVertical: 8,
+    marginVertical: 10,
+     paddingHorizontal: 10,
+      paddingVertical: 8,
    // textAlign : 'left',
   },
   dropdownButtonText: {
@@ -195,10 +218,9 @@ const styles = StyleSheet.create({
     color: '#000000', 
     fontWeight : '400',
     textAlign : 'left',
-   
   },
   activeDropdownButtonText: {
-    fontSize: 14,
+    fontSize: 16,
     color: '#000000', 
     textAlign : 'left',
   },
@@ -208,11 +230,29 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 10,
     width: '90%',
+    textAlign : 'left',
     marginTop: 5,
+  },
+  
+  modalContainer: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  
+  calendarContainer: {
+   // backgroundColor: 'white',
+    width: '80%',
+    height: '50%',
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   dropdownSelectedText: {
     fontSize: 14,
     color: '#000000', 
+    textAlign : 'left',
   },
   input : {
     width : '100%',

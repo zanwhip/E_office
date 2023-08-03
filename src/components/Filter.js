@@ -7,10 +7,9 @@ import {
   Image,
 } from 'react-native';
 import { CheckBox } from 'react-native-elements';
-import Icon from 'react-native-vector-icons/FontAwesome';
+
 import SelectDropdown from 'react-native-select-dropdown';
-import Entypo from 'react-native-vector-icons/Entypo';
-import AntDesign from 'react-native-vector-icons/AntDesign';
+
 import Calendar from './Calendar'
 
 const field = [
@@ -85,10 +84,7 @@ const Filter = () => {
           buttonStyle={styles.dropdownButton}
           buttonTextStyle={styles.dropdownButtonText}
           renderDropdownIcon={() => (
-            <Entypo
-              name={isDropdownOpen ? 'chevron-up' : 'chevron-down'}
-              size={20}
-              color="#000000" />
+            <Image source={require('../assets/image/down.png')} style={{ width : 40, height : 40 }} />
           )}
           dropdownStyle={styles.dropdownStyle}
           onDropdownOpen={toggleDropdown}
@@ -114,10 +110,7 @@ const Filter = () => {
           buttonStyle={styles.dropdownButton}
           buttonTextStyle={styles.dropdownButtonText}
           renderDropdownIcon={() => (
-            <Entypo
-              name={isDropdownOpen ? 'chevron-up' : 'chevron-down'}
-              size={20}
-              color="#000000" />
+            <Image source={require('../assets/image/down.png')} style={{ width : 40, height : 40 }} />
           )}
           dropdownStyle={styles.dropdownStyle}
           onDropdownOpen={toggleDropdown}
@@ -131,8 +124,8 @@ const Filter = () => {
           containerStyle={styles.checkboxContainer}
           textStyle={styles.checkboxText}
           title="Chưa xử lí"
-          checkedIcon={<Icon name="check-square" size={30} color="#1668C7" />}
-          uncheckedIcon={<Icon name="square" size={30} color="#ffffff" style={styles.checkboxIcon} />}
+          checkedIcon={ <Image source={require('../assets/image/checked.png')} style={{ width : 25, height : 25 }} />}
+          uncheckedIcon={<Image source={require('../assets/image/uncheck.png')} style={{ width : 25, height : 25 }}  />}
           checkedTitle="Chưa xử lí"
           checked={selectedOption === 'Option A'}
           onPress={() => handleOptionSelection('Option A')}
@@ -141,8 +134,8 @@ const Filter = () => {
           containerStyle={styles.checkboxContainer}
           textStyle={styles.checkboxText}
           title="Đang xử lí"
-          checkedIcon={<Icon name="check-square" size={30} color="#1668C7" />}
-          uncheckedIcon={<Icon name="square" size={30} color="#ffffff" style={styles.checkboxIcon} />}
+          checkedIcon={ <Image source={require('../assets/image/checked.png')} style={{ width : 25, height : 25 }} />}
+          uncheckedIcon={<Image source={require('../assets/image/uncheck.png')} style={{ width : 25, height : 25 }}  />}
           checkedTitle="Đang xử lí"
           checked={selectedOption === 'Option B'}
           onPress={() => handleOptionSelection('Option B')}
@@ -154,8 +147,8 @@ const Filter = () => {
           checkedTitle="Đã xử lí"
           checked={selectedOption === 'Option C'}
           onPress={() => handleOptionSelection('Option C')}
-          checkedIcon={<Icon name="check-square" size={30} color="#1668C7" />}
-          uncheckedIcon={<Icon name="square" size={30} color="#ffffff" style={styles.checkboxIcon} />}
+          checkedIcon={ <Image source={require('../assets/image/checked.png')} style={{ width : 25, height : 25 }} />}
+          uncheckedIcon={<Image source={require('../assets/image/uncheck.png')} style={{ width : 25, height : 25 }}  />}
         />
       </View>
 
@@ -163,20 +156,12 @@ const Filter = () => {
       <View style={styles.infor1}>
         <TouchableOpacity style={styles.time} onPress={showSidebar}>
           <Text style={styles.timeText}>Chọn ngày</Text>
-          <AntDesign
-            name="right"
-            size={20}
-            color="#000000"
-          />
+          <Image source={require('../assets/image/right.png')} style={{ width : 40, height : 40 }} />
         </TouchableOpacity>
         <Text style={styles.separator}>Đến</Text>
         <TouchableOpacity style={styles.time} onPress={showSidebar}>
           <Text style={styles.timeText}>Chọn ngày</Text>
-          <AntDesign
-            name="right"
-            size={20}
-            color="#000000"
-          />
+          <Image source={require('../assets/image/right.png')} style={{ width : 40, height : 40 }} />
         </TouchableOpacity>
       </View>
 
@@ -184,20 +169,12 @@ const Filter = () => {
       <View style={styles.infor1}>
         <TouchableOpacity style={styles.time} onPress={showSidebar}>
           <Text style={styles.timeText}>Chọn ngày</Text>
-          <AntDesign
-            name="right"
-            size={20}
-            color="#000000"
-          />
+          <Image source={require('../assets/image/right.png')} style={{ width : 40, height : 40 }} />
         </TouchableOpacity>
         <Text style={styles.separator}>Đến</Text>
         <TouchableOpacity style={styles.time} onPress={showSidebar}>
           <Text style={styles.timeText}>Chọn ngày</Text>
-          <AntDesign
-            name="right"
-            size={20}
-            color="#000000"
-          />
+          <Image source={require('../assets/image/right.png')} style={{ width : 40, height : 40 }} />
         </TouchableOpacity>
       </View>
 
@@ -208,8 +185,9 @@ const Filter = () => {
       {isSidebarVisible && (
         <View style={styles.sidebar}>
           <TouchableOpacity style={styles.closeButton} onPress={hideSidebar}>
-            <AntDesign name="close" size={30} color="#ffffff"  />
-          </TouchableOpacity>
+        
+      <Image source={require('../assets/image/close.png')} style={{ width : 40, height : 40 }} />
+               </TouchableOpacity>
          
           <View style={styles.calendarContainer}>
   <Calendar/>

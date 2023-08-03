@@ -1,7 +1,5 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
-import Entypo from 'react-native-vector-icons/Entypo';
-import { color } from 'react-native-reanimated';
 import { TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
@@ -16,19 +14,21 @@ const Documentary = ({status}) => {
         navigation.navigate('DocumentDetail');
       };
 
+       let dotImageSource = require('../assets/image/dotgray.png'); // Mặc định dotImage là ccc.png
+      let Colortext = null
   // Xác định màu sắc dựa trên trạng thái
   switch (status) {
     case 'A':
-      dotColor = '#20AD72';
-      displayStatus = 'Đã xử lí';
-      break;
+    Colortext = '#1EDC26';
+    dotImageSource = require('../assets/image/dotgreen.png');
+    break;
     case 'B':
-      dotColor = '#F29100';
-      displayStatus = 'Đang xử lí';
+       Colortext = '#DB6A18';
+      dotImageSource = require('../assets/image/dotorange.png');
       break;
     case 'C':
-      dotColor = '#AAAAAA';
-      displayStatus = 'Chưa xử lí';
+      Colortext = '#AAAAAA';
+      dotImageSource = require('../assets/image/dotgray.png');
       break;
     default:
       dotColor = '#ffffff';
@@ -48,13 +48,13 @@ const Documentary = ({status}) => {
         <Text style={{ color : '#B8B8B8', fontSize : 18,  }}>247/TTr-VNCĐTVA</Text>
         <View style={styles.description}>
         <Text style={styles.date}>30/07/2021</Text>
-        <View style={{ flexDirection : 'row' }}>
-        <Entypo 
-            name="dot-single"
-            size={40}
-            style={{ color : dotColor , top  : '8%', marginRight : 0  }}/>
-        <Text style={{  fontSize : 14, alignItems :'center',  top :'20%', color : dotColor }}>{displayStatus}</Text>
-        </View>
+        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', }}>
+           
+            <Image source={dotImageSource} style={{ width: 10, height: 10, alignItems: 'center', left: 0, marginHorizontal : 10 }} />
+            <Text style={{ fontSize: 14, alignItems: 'center', marginRight: 5, marginVertical: 11 , color : Colortext}}>
+              {status === 'A' ? 'Đã xử lí' : status === 'B' ? 'Đang xử lí' :  status === 'C' ? 'Chưa xử lí' : ''}
+            </Text>
+          </View>
          </View>
       </View>
     </TouchableOpacity>

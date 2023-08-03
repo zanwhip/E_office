@@ -1,9 +1,6 @@
-import { StyleSheet, Text, View, TouchableOpacity,Modal } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity,Modal, Image } from 'react-native';
 import React, { useState } from 'react';
 import Header from '../../components/Header';
-import Octicons from 'react-native-vector-icons/Octicons';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import AntDesign from 'react-native-vector-icons/AntDesign';
 import SelectDropdown from 'react-native-select-dropdown';
 import { TextInput } from 'react-native';
 import { ScrollView } from 'react-native';
@@ -65,11 +62,7 @@ const SetScheduleScreen = () => {
         <Text style={styles.label}>Thời gian<Text style={{ fontSize : 16, fontWeight : 'bold', color : '#FF4444' }}>*</Text></Text>
         <TouchableOpacity style={styles.time} onPress={toggleCalendarModal}>
           <Text style={{ fontSize: 16 }}>Nhấp để chọn</Text>
-          <AntDesign
-            name="right"
-            size={20}
-            color="#000000"
-          />
+          <Image source={require('../../assets/image/right.png')} style={{ width : 40, height : 40 }} />
         </TouchableOpacity>
         <Modal transparent={true} visible={isCalendarModalVisible} animationType="slide" onRequestClose={toggleCalendarModal}>
           <View style={styles.modalContainer}>
@@ -109,7 +102,7 @@ const SetScheduleScreen = () => {
           buttonStyle={isAddressDropdownOpen ? styles.activeDropdownButton : styles.dropdownButton}
           buttonTextStyle={isAddressDropdownOpen ? styles.activeDropdownButtonText : styles.dropdownButtonText}
           renderDropdownIcon={() => (
-            <FontAwesome name={isAddressDropdownOpen ? 'caret-up' : 'caret-down'} size={20} color="#000000" />
+            <Image source={require('../../assets/image/dropdown.png')} style={{ width : 25, height : 25 }} />
           )}
           dropdownStyle={styles.dropdownStyle}
           onDropdownOpen={toggleAddressDropdown}

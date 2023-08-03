@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import Entypo from 'react-native-vector-icons/Entypo';
+import { View, Text, TouchableOpacity, StyleSheet , Image} from 'react-native';
+
 const Month = ({ onMonthSelected, onYearSelected }) => {
   const [currentYear, setCurrentYear] = useState(2023); // Starting year
   const [selectedMonth, setSelectedMonth] = useState(null);
@@ -72,11 +72,11 @@ const Month = ({ onMonthSelected, onYearSelected }) => {
     <View style={styles.sidebar}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => changeYear(-1)}>
-        <Entypo name="chevron-left" size={30} color="#000" />
+        <Image source={require('../assets/image/left.png')} style={{ width : 40, height : 40 }} />
         </TouchableOpacity>
         <Text style={styles.year}>{currentYear}</Text>
         <TouchableOpacity onPress={() => changeYear(1)}>
-        <Entypo name="chevron-right" size={30} color="#000" />
+        <Image source={require('../assets/image/right.png')} style={{ width : 40, height : 40 }} />
         </TouchableOpacity>
       </View>
       <View style={styles.monthsContainer}>{renderMonths()}</View>

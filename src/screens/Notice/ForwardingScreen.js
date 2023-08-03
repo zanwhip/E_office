@@ -1,8 +1,6 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import Extract from '../../components/Extract';
-import AntDesign from 'react-native-vector-icons/AntDesign';
 import { TextInput } from 'react-native';
 import { ScrollView } from 'react-native';
 import Header from '../../components/Header';
@@ -30,11 +28,7 @@ const ForwardingScreen = ({navigation}) => {
      style={styles.button}
      onPress={() => navigation.navigate('Department')}> 
       <Text>Chọn Phòng, Ban, Khoa</Text>
-      <AntDesign 
-            name="right"
-            size={20}
-            color='#000000'
-          />
+      <Image source={require('../../assets/image/right.png')} style={{ width : 40, height : 40 }} />
        </TouchableOpacity>
        <View style={styles.typecontainer1}>
      <Text style={styles.typetext}>Nội dung bút phê</Text>

@@ -1,11 +1,7 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import Feather from 'react-native-vector-icons/Feather';
 import { ScrollView } from 'react-native';
 import Extract from '../../components/Extract';
-import Header from '../../components/Header';
 import { TouchableOpacity } from 'react-native';
 
 const number = '1569'
@@ -39,14 +35,10 @@ const NoticedetailScreen = ({navigation}) => {
     <View >
     <Text style={styles.textheader}>{header}</Text>
     </View>
-    <MaterialCommunityIcons 
-    name="near-me"
-    size={30}
-    color='#ffffff'
-    //style={{ marginRight : 2 }}
-    onPress={() => navigation.navigate('Forwarding')}
-    />
-    
+    <TouchableOpacity onPress={() => navigation.navigate('Forwarding')}>
+    <Image source={require('../../assets/image/forward.png')} style={{ width : 40, height : 40 }} />
+    </TouchableOpacity>
+        
      </View>
     </View>
     
@@ -197,11 +189,7 @@ const NoticedetailScreen = ({navigation}) => {
      style={styles.buttonforward}
      onPress={() => navigation.navigate('ReplyEmail')}
      >
-        <Feather 
-         name="rotate-cw"
-         size={30}
-         color='#ffffff'
-        />
+         <Image source={require('../../assets/image/reply.png')} style={{ width : 40, height : 40 }} />
      <Text style={styles.textforward}>Phản hồi email</Text>
      </TouchableOpacity>
      </View>

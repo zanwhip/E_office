@@ -1,7 +1,5 @@
 import { StyleSheet, Text, View, Image, TextInput, FlatList, TouchableOpacity, KeyboardAvoidingView, Platform } from 'react-native';
 import React, { useState, useRef } from 'react';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import Entypo from 'react-native-vector-icons/Entypo';
 import Modal from 'react-native-modal';
 import DetailWork from '../components/DetailWork';
 
@@ -96,7 +94,7 @@ const MessageScreen = ({navigation}) => {
             onChangeText={(text) => setMessageText(text)}
           />
           <TouchableOpacity style={styles.sendButton} onPress={sendMessage}>
-            <Ionicons name="send" size={20} color="#ffffff" />
+          <Image source={require('../assets/image/send.png')} style={{ width : 40, height : 40 }} />
           </TouchableOpacity>
         </View>
       </View>
@@ -128,6 +126,7 @@ const styles = StyleSheet.create({
   messagesContainer: {
     flex: 1,
     paddingHorizontal: 10,
+    
   },
   messageContainerMe: {
     backgroundColor: '#1668C7',
@@ -144,6 +143,7 @@ const styles = StyleSheet.create({
     maxWidth: '80%',
     alignSelf: 'flex-start',
     marginVertical: 5,
+    
   },
   messageText: {
     color: '#000000',
@@ -154,7 +154,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 10,
     borderTopWidth: 1,
-    borderTopColor: '#e3e3e3',
+    borderTopColor: '#ffffff',
+    backgroundColor : '#ffffff',
     height: 80,
     marginBottom: Platform.OS === 'ios' ? 0 : 10, // On Android, add some margin to avoid being overlapped by the keyboard
   },
@@ -164,10 +165,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     borderRadius: 10,
     borderWidth: 0.3,
+    backgroundColor : '#ffffff',
   },
   sendButton: {
     marginLeft: 10,
-    backgroundColor: '#1668C7',
+    backgroundColor: '#ffffff',
     padding: 10,
     borderRadius: 50,
   },

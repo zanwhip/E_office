@@ -1,8 +1,5 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import EvilIcons from 'react-native-vector-icons/EvilIcons';
-import Entypo from 'react-native-vector-icons/Entypo';
 import Header from '../components/Header';
 import { TouchableOpacity } from 'react-native';
 
@@ -20,58 +17,34 @@ const SettingScreen = ({navigation}) => {
             style={styles.adjustments}
             onPress={() => navigation.navigate('LanguageSetting')}
             >
-            <Ionicons 
-                name="language"
-                size={25}
-                style={{ marginLeft : 10, marginTop : 10 }}
-                />
+            <Image source={require('../assets/image/language.png')} style={{ width : 30, height : 30 , marginHorizontal : 10, marginVertical : 20}} />
                 <View style={{width : '80%', paddingHorizontal : 20,  }}>
                     <Text style={{ fontSize : 20, fontWeight : 'bold' }}>Ngôn ngữ</Text>
                     <Text  style={{ fontSize : 16, fontWeight : '400', marginTop : 10 }}>Tiếng việt</Text>
                 </View>
-                <EvilIcons 
-                name="chevron-right"
-                size={20}
-                style={{ marginLeft : 10, marginTop : 25 }}
-                />
+                <Image source={require('../assets/image/right.png')} style={{ width : 30, height : 30, marginVertical : 20 }} />
             </TouchableOpacity>
             <TouchableOpacity
              style={styles.adjustments}
              onPress={() => navigation.navigate('NoticeSetting')}
              >
-            <EvilIcons 
-                name="bell"
-                size={25}
-                style={{ marginLeft : 10, marginTop : 10 }}
-                />
+            <Image source={require('../assets/image/bellnotice.png')} style={{ width : 30, height : 30 , marginHorizontal : 10, marginVertical : 20}} />
                 <View style={{width : '80%', paddingHorizontal : 20,  }}>
                     <Text style={{ fontSize : 20, fontWeight : 'bold' }}>Thông báo</Text>
                     <Text  style={{ fontSize : 16, fontWeight : '400', marginTop : 10 }}>Rung</Text>
                 </View>
-                <EvilIcons 
-                name="chevron-right"
-                size={20}
-                style={{ marginLeft : 10, marginTop : 25 }}
-                />
+                <Image source={require('../assets/image/right.png')} style={{ width : 30, height : 30, marginVertical : 20 }} />
             </TouchableOpacity>
             <TouchableOpacity
              style={styles.adjustments}
              onPress={() => navigation.navigate('InterfaceSetting')}
              >
-            <EvilIcons 
-                name="spinner"
-                size={25}
-                style={{ marginLeft : 10, marginTop : 10 }}
-                />
+           <Image source={require('../assets/image/interface.png')} style={{ width : 30, height : 30, marginHorizontal : 10, marginVertical : 20 }} />
                 <View style={{width : '80%', paddingHorizontal : 20,  }}>
                     <Text style={{ fontSize : 20, fontWeight : 'bold' }}>Giao diện</Text>
                     <Text  style={{ fontSize : 16, fontWeight : '400', marginTop : 10 }}>Sáng</Text>
                 </View>
-                <EvilIcons 
-                name="chevron-right"
-                size={20}
-                style={{ marginLeft : 10, marginTop : 25 }}
-                />
+                <Image source={require('../assets/image/right.png')} style={{ width : 30, height : 30, marginVertical : 20 }} />
             </TouchableOpacity>
         </View>
     </View>

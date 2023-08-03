@@ -1,7 +1,5 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
 import React, {useState} from 'react'
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import Feather from 'react-native-vector-icons/Feather';
 import { TouchableOpacity } from 'react-native';
 import Modal from 'react-native-modal';
 import DetailSchedule from '../../components/DetailSchedule';

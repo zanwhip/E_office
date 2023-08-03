@@ -1,9 +1,7 @@
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View , Image} from 'react-native'
 import React, {useState} from 'react'
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-
 import { useNavigation } from '@react-navigation/native';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+
 
 const Menu = ({ handleMenuItemPress, isSidebarOpen }) => {
  
@@ -81,6 +79,9 @@ const Menu = ({ handleMenuItemPress, isSidebarOpen }) => {
       const getcolorDropdownIcon = (isOpen) => {
         return isOpen ? '#ffffff' : '#1668C7';
       };
+      const getcolorDropdownBank = (isOpen) => {
+        return isOpen ? '../../assets/image/bankwhite.png' : '../../assets/image/bankblue.png';
+      };
       const getcolorDropdownBackground = (isOpen) => {
         return isOpen ? '#1668c7' : '#ffffff';
       };
@@ -114,29 +115,30 @@ const Menu = ({ handleMenuItemPress, isSidebarOpen }) => {
 <ScrollView style={styles.dropdowncontainer} contentContainerStyle={styles.contentContainer}>
       <TouchableOpacity style={[styles.menuItem , {backgroundColor : getcolorDropdownBackground(isDropdownAOpen), }]} onPress={toggleDropdownA}>
         <View style={{ flexDirection :'row' }}>
-        <FontAwesome 
-        name='bank'
-        size={20}
-        style={{ marginRight : 10 }}
-        color={getcolorDropdownIcon(isDropdownAOpen)}
-        />
+      
+         {isDropdownAOpen ? (
+        <Image source={require('../assets/image/bankwhite.png')} style={{ width : 20, height : 20 , marginRight : 10 }} />
+      ) : (
+        <Image source={require('../assets/image/bankblue.png')} style={{ width : 20, height : 20, marginRight : 10 }} />
+      )}
           <Text style={[styles.menuItemText, {color : getcolorDropdownIcon(isDropdownAOpen)}]}>Điều hành tác nghiệp</Text>
         </View>
         
-          <FontAwesome
-          
-          name={getDropdownIcon(isDropdownAOpen)}
-          size={20}
-          color={getcolorDropdownIcon(isDropdownAOpen)}/>
+        {isDropdownAOpen ? (
+        <Image source={require('../assets/image/drop_up_white.png')} style={{ width : 30, height : 30 ,  }} />
+      ) : (
+        <Image source={require('../assets/image/drop_down_blue.png')} style={{ width : 30, height : 30,  }} />
+      )}
         </TouchableOpacity>
         {isDropdownAOpen && (
           <View style={styles.dropdown}>
             <TouchableOpacity style={[styles.dropdownItem , {backgroundColor : getcolorDropdownBackgroundsub(isDropdownA1Open)}]} onPress={toggleDropdownA1}>
               <Text style={styles.dropdownItemText}>Văn bản đến</Text>
-              <FontAwesome
-                name={getDropdownIcon(isDropdownA1Open)}
-                size={20}
-                color={'#1668c7'} />
+              {isDropdownA1Open ? (
+        <Image source={require('../assets/image/drop_up_blue.png')} style={{ width : 30, height : 30 ,  }} />
+      ) : (
+        <Image source={require('../assets/image/drop_down_blue.png')} style={{ width : 30, height : 30,  }} />
+      )}
             </TouchableOpacity>
             {isDropdownA1Open && (
               <View style={styles.subDropdown}>
@@ -148,11 +150,11 @@ const Menu = ({ handleMenuItemPress, isSidebarOpen }) => {
 
             <TouchableOpacity style={[styles.dropdownItem , {backgroundColor : getcolorDropdownBackgroundsub(isDropdownA2Open)}]} onPress={toggleDropdownA2}>
               <Text style={styles.dropdownItemText}>Văn bản đi</Text>
-              <FontAwesome
-                name={getDropdownIcon(isDropdownA2Open)}
-                size={20}
-                color={'#1668c7'}
-              />
+              {isDropdownA2Open ? (
+        <Image source={require('../assets/image/drop_up_blue.png')} style={{ width : 30, height : 30 ,  }} />
+      ) : (
+        <Image source={require('../assets/image/drop_down_blue.png')} style={{ width : 30, height : 30,  }} />
+      )}
             </TouchableOpacity>
             {isDropdownA2Open && (
               <View style={styles.subDropdown} >
@@ -166,11 +168,11 @@ const Menu = ({ handleMenuItemPress, isSidebarOpen }) => {
            
 <TouchableOpacity style={[styles.dropdownItem , {backgroundColor : getcolorDropdownBackgroundsub(isDropdownA3Open)}]} onPress={toggleDropdownA3}>
               <Text style={styles.dropdownItemText}>Điều hành tác nghiệp</Text>
-              <FontAwesome
-                name={getDropdownIcon(isDropdownA3Open)}
-                size={20}
-                color={'#1668c7'}
-              />
+              {isDropdownA3Open ? (
+        <Image source={require('../assets/image/drop_up_blue.png')} style={{ width : 30, height : 30 ,  }} />
+      ) : (
+        <Image source={require('../assets/image/drop_down_blue.png')} style={{ width : 30, height : 30,  }} />
+      )}
             </TouchableOpacity>
             {isDropdownA3Open && (
               <View style={styles.subDropdown}>
@@ -210,19 +212,19 @@ const Menu = ({ handleMenuItemPress, isSidebarOpen }) => {
       <TouchableOpacity style={[styles.menuItem , {backgroundColor : getcolorDropdownBackground(isDropdownBOpen), }]} onPress={toggleDropdownB}>
        
         <View style={{ flexDirection :'row' }}>
-        <FontAwesome5 
-        name='percentage'
-        size={20}
-        style={{ marginRight : 10 }}
-        color={getcolorDropdownIcon(isDropdownBOpen)} 
-        />
+        {isDropdownBOpen ? (
+        <Image source={require('../assets/image/percentwhite.png')} style={{  width : 20, height : 20, marginRight : 10 }} />
+      ) : (
+        <Image source={require('../assets/image/percentblue.png')} style={{ width : 20, height : 20, marginRight : 10 }} />
+      )}
          <Text style={[styles.menuItemText, {color : getcolorDropdownIcon(isDropdownBOpen)}]}>Tra cứu Lương - Thuế</Text>
         </View>
          
-          <FontAwesome
-                name={getDropdownIcon(isDropdownBOpen)}
-                size={20}
-                color={getcolorDropdownIcon(isDropdownBOpen)} />
+        {isDropdownBOpen ? (
+        <Image source={require('../assets/image/drop_up_white.png')} style={{ width : 30, height : 30 ,  }} />
+      ) : (
+        <Image source={require('../assets/image/drop_down_blue.png')} style={{ width : 30, height : 30,  }} />
+      )}
         </TouchableOpacity>
 
         {isDropdownBOpen && (
@@ -238,7 +240,7 @@ const Menu = ({ handleMenuItemPress, isSidebarOpen }) => {
         )}
         <TouchableOpacity style={styles.menuItem1}
          onPress={handleMenuScheduleWeek}>
-          <Image source={require('../assets/image/Calendar.png')} style={{ width : 22, height : 20, marginRight : 10 }} />
+          <Image source={require('../assets/image/Calendar.png')} style={{ width : 22, height : 22, marginRight : 10 }} />
           <Text style={styles.menuItemText}>Lịch tuần</Text>
         </TouchableOpacity>
 

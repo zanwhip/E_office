@@ -27,7 +27,10 @@ const LoginScreen = ({navigation}) => {
        >
         <Text style={styles.textbutton}>Google</Text>
       </TouchableOpacity>
+      <View style={{ alignItems : 'center', justifyContent : 'center',  }}>
       <Text style={styles.subtext}> Chọn đăng nhập bằng tài khoản mail <Text style={{ color : '#FF6262' }}>Office 365</Text> hoặc tài khoản <Text style={{ color :'#1668C7' }}>Gmail</Text> .</Text>
+      
+      </View>
            </View>
       <StatusBar style="auto" />
     </View>
@@ -45,7 +48,7 @@ const styles = StyleSheet.create({
         
       },
       box : {
-        height : 268,
+        height : '30%',
         width : '76%',
         backgroundColor : '#ffffff',
         alignItems : 'center',
@@ -55,8 +58,8 @@ const styles = StyleSheet.create({
     
       },
       image : {
-        height : 222.15,
-        width : 222.15,
+        height : '70%',
+        width : '70%',
       },
       Textcontainer : {
         alignItems : 'center',
@@ -79,7 +82,7 @@ const styles = StyleSheet.create({
         },
         buttonMicro : {
           height : 46,
-          width : 297,
+          width : '95%',
           backgroundColor : '#28ACDF',
           borderRadius : 31,
           marginTop : 10,
@@ -88,7 +91,7 @@ const styles = StyleSheet.create({
         },
         buttonGoogle : {
           height : 46,
-          width : 297,
+          width : '95%',
           backgroundColor : '#EA4335',
           borderRadius : 31,
           marginTop : 10,

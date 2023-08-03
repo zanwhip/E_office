@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, Modal,StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, Modal,StyleSheet, Image } from 'react-native';
 import moment from 'moment';
 import Header from '../components/Header'
 import { ScrollView } from 'react-native';
-import Octicons from 'react-native-vector-icons/Octicons';
+
 import Month from '../components/Month';
 const header = 'Xem Lương - Thuế cá nhân'
 
@@ -65,7 +65,7 @@ const SalaryScreen = () => {
         <Modal transparent={true} visible={isCalendarModalVisible} animationType="slide" onRequestClose={toggleCalendarModal}>
           <View style={styles.modalContainer}>
             <TouchableOpacity style={styles.closeButton} onPress={toggleCalendarModal}>
-              <Octicons name="x" size={30} color="#ffffff" />
+            <Image source={require('../assets/image/x.png')} style={{ width : 30, height : 30 }} />
             </TouchableOpacity>
             <View style={styles.calendarContainer}>
             <Month onMonthSelected={handleMonthSelected} />

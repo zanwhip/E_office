@@ -1,6 +1,6 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View , Image} from 'react-native'
 import React from 'react'
-import Entypo from 'react-native-vector-icons/Entypo';
+
 import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native';
 import WeekEvent from './WeekEvent';
@@ -8,21 +8,20 @@ import WeekEvent from './WeekEvent';
 
 
 const WeekSchedule = ({status,date, hour, person, task}) => {
-    let dotColor = '';
-    let displayStatus = '';
-  
-    // Xác định màu sắc dựa trên trạng thái
+   
+  let dotImageSource = require('../assets/image/dotgray.png'); // Mặc định dotImage là ccc.png
+
+  // Xác định hình ảnh dựa trên trạng thái
   switch (status) {
-    case 'A':
-      dotColor = '#20AD72';
-      displayStatus = 'Đã duyệt';
-      break;
     case 'B':
-      dotColor = '#BBBBBB';
-      displayStatus = 'Chưa duyệt';
+      Colortext = '#959595';
+      dotImageSource = require('../assets/image/dotgray.png');
       break;
-       default:
-      dotColor = '#ffffff';
+    case 'A':
+      Colortext = '#1EDC26';
+      dotImageSource = require('../assets/image/dotgreen.png');
+      break;
+      default:
       break;
   }
 
@@ -42,14 +41,13 @@ const WeekSchedule = ({status,date, hour, person, task}) => {
               <View style={styles.taskcontentcontainer}>
                 <Text style={styles.persontext}>{person}</Text>
                 <Text style={{ fontSize : 16 }}>{task}</Text>
-               <View style={styles.status}>
-               <Entypo 
-            name="dot-single"
-            size={40}
-            style={{ color : dotColor , top  : '8%', marginRight : 0  }}/>
-        <Text style={{  fontSize : 14, alignItems :'center',  top :'20%', color : dotColor }}>{displayStatus}</Text>
-       
-               </View>
+                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', }}>
+           
+           <Image source={dotImageSource} style={{ width: 10, height: 10, alignItems: 'center', left: 0, marginHorizontal : 10 }} />
+           <Text style={{ fontSize: 14, alignItems: 'center', marginRight: 5, marginVertical: 11 , color : Colortext}}>
+             {status === 'B' ? 'Chưa duyệt' : status === 'A' ? 'Đã duyệt' : ''}
+           </Text>
+         </View>
                
               
               </View>

@@ -1,10 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import { ScrollView } from 'react-native';
 import Notice from '../../components/Notice';
 import Header from '../../components/Header';
-import { TouchableOpacity } from 'react-native';
+
 
 const header = 'Thông báo'
 const NoticeScreen = ({navigation}) => {

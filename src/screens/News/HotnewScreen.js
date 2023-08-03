@@ -1,6 +1,4 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import Feather from 'react-native-vector-icons/Feather';
 import React from 'react'
 import { ScrollView } from 'react-native';
 import Imagepost from '../../components/Imagepost';
@@ -31,11 +29,7 @@ const HotnewScreen = ({navigation} ) => {
             <Text style={styles.captiontext}>Phát động Cuộc thi “Khởi nghiệp Công nghệ trong sinh viên” InTE-UD lần thứ III: Góp phần kiến tạo cộng đồng khởi nghiệp trẻ từ giảng đường</Text>
         </View>
         <View style={styles.date}>
-        <Feather 
-            name="clock"
-            size={20}
-            color='#000000'
-        />
+        <Image source={require('../../assets/image/clock.png')} style={{ width : 40, height : 40 }} />
             <Text style={styles.datetext}>09/07/2023</Text>
         </View>
         <View style={styles.openning}>

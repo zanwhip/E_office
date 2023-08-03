@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
 import { TouchableOpacity } from 'react-native'
-import AntDesign from 'react-native-vector-icons/AntDesign';
+
 import { useNavigation } from '@react-navigation/native';
 
 const Notice = () => {
@@ -18,11 +18,7 @@ const Notice = () => {
         </View>
 
         <View>
-        <AntDesign 
-            name="right"
-            size={20}
-            color='#000000'
-            style={{top : 30, }}/>
+        <Image source={require('../assets/image/right.png')} style={{ width : 40, height : 40 , marginVertical : '40%' }} />
         
         </View>
         
@@ -46,7 +42,7 @@ const styles = StyleSheet.create({
      },
        newtext : {
         fontSize : 18,
-        fontWeight : '300',
+        fontWeight : '500',
         width: '100%',
         
         
