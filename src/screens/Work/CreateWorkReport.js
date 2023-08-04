@@ -27,7 +27,7 @@ const CreateWorkReport = () => {
         <SelectDropdown
           style={styles.dropdown}
           data={status}
-          defaultButtonText="Tất cả"
+          defaultButtonText="Đang xử lý"
           onSelect={(selectedItem, index) => {
             console.log(selectedItem, index);
           }}
@@ -53,7 +53,7 @@ const CreateWorkReport = () => {
      </ScrollView>
   
      <TouchableOpacity style={styles.buttonforward} >
-        <Text style={styles.textforward}>Gửi</Text>
+        <Text style={styles.textforward}>Gửi báo cáo</Text>
       </TouchableOpacity>
      </View>
  
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
         paddingVertical : 20,
     }, input : {
         width : '100%',
-        height : 40,
+        height : 45,
         borderRadius : 8,
         borderWidth : 0.5,
         backgroundColor : '#FFFFFF',

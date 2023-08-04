@@ -32,10 +32,10 @@ const DetailSchedule = ({ handleMenuItemPress, isSidebarOpen }) => {
         <Text style={[styles.text, selectedOption === 'Sửa' && styles.selectedText]}> Sửa</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        style={[styles.options, selectedOption === 'Duyệt lịch tuần' && styles.selectedOption]}
+        style={[styles.options, selectedOption === 'Duyệt lịch tuần' && styles.selectedOption ,{borderWidth : 0.5, borderColor :'1668c7'}]}
         onPress={handleMenuPressFile}
       >
-        <Text style={[styles.text, selectedOption === 'Duyệt lịch tuần' && styles.selectedText]}> Duyệt lịch tuần</Text>
+        <Text style={[styles.text, selectedOption === 'Duyệt lịch tuần' && styles.selectedText, ]}> Duyệt lịch tuần</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={[styles.options, selectedOption === 'Hủy lịch tuần' && styles.selectedOption]}
@@ -55,8 +55,7 @@ const styles = StyleSheet.create({
   container: {  
     flex: 1,     
       backgroundColor: '#fff',
-      borderBottomWidth: 1,
-      borderBottomColor: '#000000',
+     
       paddingTop : 100,
     
       
@@ -66,8 +65,7 @@ const styles = StyleSheet.create({
       width : '100%',
       height : 60,
       backgroundColor : '#ffffff',
-      borderWidth : 0.2,
-      borderColor : '#1668C7',
+      
       paddingHorizontal : 30,
       justifyContent : 'center'
     },

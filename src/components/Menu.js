@@ -319,7 +319,7 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         paddingHorizontal: 40,
         borderBottomWidth: 1,
-        borderBottomColor: '#cccccc',
+        borderBottomColor: '#1668c7',
         flexDirection : 'row',
         height : 60,
         backgroundColor : '#ffffff',

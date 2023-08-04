@@ -52,9 +52,7 @@ const InternalDocumentReceiveScreen = () => {
         <Image source={require('../../assets/image/filter.png')} style={{ width: 30, height: 30 }} />
         </TouchableOpacity>
       </View>
-     <View style={styles.typecontainer}>
-        <Text style={styles.typetext}>Văn bản : 24</Text>
-     </View>
+     
      <ScrollView style={styles.displaycontainer}>
      <Documentary status="A"/>
      <Documentary status="B" />

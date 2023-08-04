@@ -5,7 +5,9 @@ import Notice from '../../components/Notice';
 import Header from '../../components/Header';
 
 
-const header = 'Thông báo'
+const header = 'Thông báo';
+const status1 = 'A'; 
+const status2 = 'B'; 
 const NoticeScreen = ({navigation}) => {
   return (
     <View>
@@ -14,13 +16,14 @@ const NoticeScreen = ({navigation}) => {
      <View style={styles.datamonth}>
      <ScrollView style={styles.datacontainer}>
          
-     <Notice />
-     <Notice />
-     <Notice />
-     <Notice />
-     <Notice />
-     <Notice />
-     <Notice />
+     <Notice status="A" />
+     <Notice status="B" />
+     <Notice status="A" />
+     <Notice status="B"/>
+     <Notice status="A" />
+     <Notice status="B" />
+     <Notice status="A" />
+     <Notice status="B"/>
     </ScrollView>
      </View>
     </View>

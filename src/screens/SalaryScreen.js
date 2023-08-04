@@ -12,7 +12,7 @@ const SalaryScreen = () => {
   const [selectedDate, setSelectedDate] = useState(moment());
   const [isCalendarModalVisible, setCalendarModalVisible] = useState(false);
   const [selectedMonthText, setSelectedMonthText] = useState('May');
-
+  const [selectedOption, setSelectedOption] = useState('Danh sách lương và phụ cấp')
   const handleDateSelected = (date) => {
     setSelectedDate(moment(date));
     
@@ -52,7 +52,9 @@ const SalaryScreen = () => {
   const handleRightSwipe = () => {
     setSelectedDate((prevDate) => moment(prevDate).subtract(1, 'week'));
   };
-
+  const handleUpdateSelectedOption = (newSelectedOption) => {
+    setSelectedOption(newSelectedOption);
+  };
   // Function to toggle the Calendar modal
   const toggleCalendarModal = () => {
     setCalendarModalVisible((prev) => !prev);
@@ -60,6 +62,8 @@ const SalaryScreen = () => {
   const getCurrentYear = () => {
     return new Date().getFullYear();
   };
+
+
   return (
     <View style={styles.container}>
         <Modal transparent={true} visible={isCalendarModalVisible} animationType="slide" onRequestClose={toggleCalendarModal}>
@@ -68,18 +72,18 @@ const SalaryScreen = () => {
             <Image source={require('../assets/image/x.png')} style={{ width : 30, height : 30 }} />
             </TouchableOpacity>
             <View style={styles.calendarContainer}>
-            <Month onMonthSelected={handleMonthSelected} />
+            <Month onMonthSelected={handleMonthSelected} isCalendarModalVisible={true} updateSelectedOption={handleUpdateSelectedOption}/>
             </View>
           </View>
         </Modal>
          <Header header={header} />
          <View style={styles.Selectcontainer}>
               <TouchableOpacity style={styles.monthpicker} onPress={toggleCalendarModal}>
-              <Text style={styles.monthtext}> {getMonthInVietnamese(selectedMonthText)}, năm {getCurrentYear()} </Text>
+              <Text style={styles.monthtext}> {getMonthInVietnamese(selectedMonthText)} năm {getCurrentYear()} </Text>
               </TouchableOpacity>
         </View>
         <View style={styles.titlecontainer}>
-        <Text style={styles.title}>Danh sách lương và phụ cấp</Text>
+        <Text style={styles.title}>{selectedOption}</Text>
         </View>
         <ScrollView style={styles.displaycontainer}>
           <View style={styles.properties}>
@@ -202,6 +206,28 @@ const SalaryScreen = () => {
           </View>
 
           
+          <View style={styles.properties}>
+          <View style={styles.propertiesname}>
+            <Text style={styles.propertiestext}>Phụ cấp ưu đãi nghề </Text>
+          </View>
+          <View style ={styles.unitcontainer}>
+            <View style={styles.unit}>
+            <Text>Tỷ lệ</Text>
+            </View>
+            <View style={styles.unit}>
+              <Text>Số tiền</Text>
+            </View>            
+          </View>
+          <View style={styles.content}>
+          <View style={styles.contentcontainer}>
+            <Text>0</Text>
+          </View>
+          <View style={styles.contentcontainer}>
+            <Text>0</Text>
+          </View>
+          </View>
+          </View>
+
           <View style={styles.properties}>
           <View style={styles.propertiesname}>
             <Text style={styles.propertiestext}>Phụ cấp khác </Text>
@@ -460,7 +486,8 @@ const styles = StyleSheet.create({
   },
     content : {
       flexDirection : 'column',
-      justifyContent :'center'
+      justifyContent :'center',
+      flex: 2,
     },
     contentcontainer : {
       backgroundColor : '#ffffff',
@@ -470,14 +497,17 @@ const styles = StyleSheet.create({
     },
     unitcontainer : {
      width : '20%',
-    
+     flex: 1,
+     height : '100%',
+    backgroundColor : '#eeeeee'
     },
     unit : {
       flexDirection : 'column',
       paddingHorizontal : 4,
       paddingVertical : 10,
       //width : '20%',
-      height : 40,
+      flex: 1,
+      height : '10%',
       backgroundColor : '#eeeeee',
       marginBottom : 1,
       //borderBottomWidth : 0.2
@@ -486,6 +516,7 @@ const styles = StyleSheet.create({
     },
     propertiestext : {
       fontSize : 18,
+      flex: 1,
       fontWeight : '400',
       color : '#000000'
     },

@@ -114,8 +114,7 @@ const styles = StyleSheet.create({
         marginLeft : 80,
     },
     contentcontainer : {
-        marginTop : 30,
-        paddingHorizontal : 15,
+        marginTop : 15,
         width : '100%',
         backgroundColor : '#e3e3e3'
 
@@ -124,8 +123,8 @@ const styles = StyleSheet.create({
         width : '100%',
         height : 70,
         backgroundColor : '#ffffff',
-        marginTop : 10,
-        borderRadius : 10,
+        marginTop : 5,
+       
         flexDirection : 'row',
         alignItems : 'center',
         paddingHorizontal : 20,

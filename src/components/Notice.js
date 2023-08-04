@@ -4,16 +4,31 @@ import { TouchableOpacity } from 'react-native'
 
 import { useNavigation } from '@react-navigation/native';
 
-const Notice = () => {
+
+const Notice = ({status}) => {
     const navigation = useNavigation();
     const handleNavigate = () => {
         navigation.navigate('Noticedetail');
       };
+      
+switch (status) {
+    case 'A':
+    textweight = 'bold';
+    backgroundColor = '#FFF5F5';
+    break;
+    case 'B':
+    textweight = '400';
+    backgroundColor = '#FFFFFF';
+    
+    default:
+      dotColor = '#ffffff';
+      break;
+  }
   return (
    <TouchableOpacity onPress={handleNavigate}>
-    <View style={styles.container} >
+    <View style={[styles.container , {backgroundColor : backgroundColor}]} >
          <View>
-          <Text style={styles.newtext}>Bạn vừa nhận được văn bản mới</Text>
+          <Text style={[styles.newtext , { fontWeight : textweight }]}>Bạn vừa nhận được văn bản mới</Text>
         <Text style={styles.date}>5 ngày trước </Text>
         </View>
 
@@ -35,21 +50,19 @@ const styles = StyleSheet.create({
         marginTop : 10,
         height : 80,
         width : '100%',
-        backgroundColor : '#ffffff',
-        justifyContent : 'space-between',
+       justifyContent : 'space-between',
         paddingHorizontal : 20
         
      },
        newtext : {
         fontSize : 18,
-        fontWeight : '500',
         width: '100%',
         
         
      },
     date : {
         fontStyle : 'italic',
-        marginTop : '15%',
+        marginTop : '10%',
        // marginLeft : 10
     }
 })

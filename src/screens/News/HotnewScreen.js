@@ -29,7 +29,7 @@ const HotnewScreen = ({navigation} ) => {
             <Text style={styles.captiontext}>Phát động Cuộc thi “Khởi nghiệp Công nghệ trong sinh viên” InTE-UD lần thứ III: Góp phần kiến tạo cộng đồng khởi nghiệp trẻ từ giảng đường</Text>
         </View>
         <View style={styles.date}>
-        <Image source={require('../../assets/image/clock.png')} style={{ width : 40, height : 40 }} />
+        <Image source={require('../../assets/image/clock.png')} style={{ width : 30, height : 30 ,  }} />
             <Text style={styles.datetext}>09/07/2023</Text>
         </View>
         <View style={styles.openning}>
@@ -86,25 +86,29 @@ displaycontainer : {
     fontStyle : 'italic',
     fontSize : 14,
     marginLeft : 10,
+    marginTop : 8, 
   }, 
   openning : {
     //paddingHorizontal : 10,
     marginTop : 10,
     justifyContent : 'center',
     textAlign : 'justify',
-   
+    
 
   },
   openningtext : {
     fontSize : 15,
     fontWeight : 600,
     textAlign : 'justify',
-    fontWeight : 'bold'
+    fontWeight : 'bold',
+    lineHeight : 28,
+
   },
   newtext : {
     fontSize : 15,
-    fontWeight : 600,
+    fontWeight : "600",
     textAlign : 'justify',
-    fontWeight : '400'
+    fontWeight : '400',
+    lineHeight : 28,
   }
 })

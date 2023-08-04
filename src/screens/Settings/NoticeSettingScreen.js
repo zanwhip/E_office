@@ -53,7 +53,7 @@ const NoticeSettingScreen = ({ navigation }) => {
           imageSource={imageSourceAaa}
         />
         <OptionItem
-          text="Rung + Chương"
+          text="Rung + chuông"
           isChecked={selectedOption === 'rungchuong'}
           onPress={() => handleOptionChange('rungchuong')}
           imageSource={imageSourceBbb}

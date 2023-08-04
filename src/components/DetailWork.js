@@ -41,10 +41,10 @@ const DetailWork = ({ handleMenuItemPress, isSidebarOpen }) => {
      
 
       <TouchableOpacity
-        style={[styles.options, selectedOption === 'Thảo luận' && styles.selectedOption]}
+        style={[styles.options, selectedOption === 'Thảo luận' && styles.selectedOption , {borderWidth : 0.5, borderColor : '#1668c7'}]}
         onPress={handleMenuPressMess}
       >
-        <Text style={[styles.text, selectedOption === 'Thảo luận' && styles.selectedText]}>Thảo luận</Text>
+        <Text style={[styles.text, selectedOption === 'Thảo luận' && styles.selectedText, ]}>Thảo luận</Text>
         {/* Display the red button with the unread message count */}
         {unreadMessageCount > 0 && (
           <View style={styles.unreadMessageButton}>
@@ -69,8 +69,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    borderBottomWidth: 1,
-    borderBottomColor: '#000000',
+   
     paddingTop: 100,
   },
   options: {
@@ -78,9 +77,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 60,
     backgroundColor: '#fff',
-    borderWidth: 0.2,
-    borderColor: '#1668C7',
-    paddingHorizontal: 30,
+     paddingHorizontal: 30,
     justifyContent: 'center',
     position: 'relative', // Add this to position the unreadMessageButton absolutely
   },

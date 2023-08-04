@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet , Image} from 'react-native';
 
-const Month = ({ onMonthSelected, onYearSelected }) => {
+const Month = ({ onMonthSelected, onYearSelected, updateSelectedOption  }) => {
   const [currentYear, setCurrentYear] = useState(2023); // Starting year
   const [selectedMonth, setSelectedMonth] = useState(null);
   const [isAAASelected, setIsAAASelected] = useState(false);
   const [isBBBSelected, setIsBBBSelected] = useState(false);
-  const [sidebarVisible, setSidebarVisible] = useState(true);
-  
-
+  const [month, setMonth] = useState(null);
+  const [selectMonth, setSelectMonth] = useState(null);
+  const [selectOption, setSelectOption] = useState(null);
   const changeYear = (offset) => {
     setCurrentYear(currentYear + offset);
     setSelectedMonth(null); // Reset selectedMonth when changing year
@@ -22,28 +22,35 @@ const Month = ({ onMonthSelected, onYearSelected }) => {
 
    const handleMonthPress = (month) => {
     setSelectedMonth(month);
+    setSelectMonth(month);
     setIsAAASelected(false);
     setIsBBBSelected(false);
-    onMonthSelected(`${month}`);
-  
+   
     console.log(`Selected: ${month} ${currentYear}`);
+   
   };
-
  const handleCheckboxPress = (checkbox) => {
     if (checkbox === 'AAA') {
       setIsAAASelected(!isAAASelected);
       setIsBBBSelected(false);
+      setSelectOption(isAAASelected ? null : 'Danh sách lương và phụ cấp');
       console.log(`AAA is selected: ${!isAAASelected}`);
     } else if (checkbox === 'BBB') {
       setIsAAASelected(false);
       setIsBBBSelected(!isBBBSelected);
+      setSelectOption(isBBBSelected ? null : 'Danh sách tổng thu nhập thuế');
       console.log(`BBB is selected: ${!isBBBSelected}`);
     }
+   
   };
-  const handleCCCPress = () => {
-    setSidebarVisible(false);
+  
+  const handlePress = () => {
+    updateSelectedOption(selectOption); 
+    onMonthSelected(`${selectedMonth}`);
+    console.log(`Month selected is: ${selectedMonth} ${currentYear} ---- Option selected is : ${selectOption}`);
+    
   };
-
+ 
   const renderMonths = () => {
     const rows = [];
     for (let i = 0; i < months.length; i += 4) {
@@ -92,7 +99,7 @@ const Month = ({ onMonthSelected, onYearSelected }) => {
         <Text>Danh sách tổng thu nhập thuế</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.buttonCCC} onPress={handleCCCPress}>
+      <TouchableOpacity style={styles.buttonCCC} onPress={handlePress}>
         <Text style={{fontSize : 18, fontWeight : '600', color : '#fff'  }}>Tra cứu</Text>
       </TouchableOpacity>
 

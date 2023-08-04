@@ -42,9 +42,6 @@ const NoticedetailScreen = ({navigation}) => {
      </View>
     </View>
     
-     <View style={styles.typecontainer}>
-        <Text style={styles.typetext}>Loại hình: Văn bản đến</Text>
-     </View>
    <View style={styles.contentContainer}>
      <ScrollView style={styles.displaycontainer} >
      <Extract />
@@ -248,7 +245,7 @@ textheader : {
   },
   displaycontainer : {
     width : '100%',
-    height : '85%',
+    height : '91%',
     backgroundColor : '#e3e3e3',
  
   },

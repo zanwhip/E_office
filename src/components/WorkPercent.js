@@ -14,11 +14,11 @@ const WorkPercent = ({ status, completionPercentage }) => {
 
   // Xác định hình ảnh dựa trên trạng thái
   switch (status) {
-    case 'B':
+    case 'A':
       Colortext = '#959595';
       dotImageSource = require('../assets/image/dotgray.png');
       break;
-    case 'A':
+    case 'B':
       Colortext = '#1EDC26';
       dotImageSource = require('../assets/image/dotgreen.png');
       break;
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     fontStyle: 'italic',
     marginVertical: 5,
-    marginRight: 70,
+    marginRight: '25%',
   },
   description: {
     flexDirection: 'row',

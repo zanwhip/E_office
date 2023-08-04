@@ -136,7 +136,7 @@ const EditScheduleScreen = () => {
         <TextInput name="content" placeholder='Nhập thông tin...'  style={styles.input1} />
 
         <View style={styles.button}>
-          <Text style={styles.buttontext}>Đăng kí</Text>
+          <Text style={styles.buttontext}>Lưu thay đổi</Text>
         </View>
         <View style={{ height : 40 }}></View>
       </ScrollView>

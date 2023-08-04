@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
         
     },
     displaycontainer : {
-        paddingHorizontal : 5,
+     
         paddingVertical : 20,
     },
     sidebarModal: {

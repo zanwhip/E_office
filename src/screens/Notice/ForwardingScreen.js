@@ -95,8 +95,9 @@ typetext : {
 
 },
 button : {
-  borderRadius : 5,
+  borderRadius : 8,
   width : '100%',
+  height : '18%',
   paddingHorizontal :  12,
   paddingVertical : 16,
   alignItems : 'center',
@@ -108,7 +109,7 @@ button : {
 },
 input : {
   width : '100%',
-  height : 100,
+  height : '40%',
   borderRadius : 10,
   borderWidth : 0.5,
   backgroundColor : '#FFFFFF',

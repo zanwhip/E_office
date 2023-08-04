@@ -53,7 +53,8 @@ const styles = StyleSheet.create({
 
     },
     date : {
-        marginTop : 20,
-        marginLeft : 10
+        marginTop : 10,
+        marginLeft : 10,
+        fontStyle : 'italic'
     }
 })

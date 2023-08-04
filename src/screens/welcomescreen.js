@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
     Header :{
         backgroundColor : '#0051AE',
         width : '100%',
-        height : 180,
+        height : '21%',
         position : 'absolute',
         top : 0,
         left : 0,

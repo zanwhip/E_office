@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, FlatList } from 'react
 import { LinearGradient } from 'expo-linear-gradient';
 import News from '../../components/News';
 import Header from '../../components/Header';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const header = 'Tin tức - Sự kiện';
 
@@ -37,7 +38,7 @@ const NewScreen = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <Header header={header} />
 
       <View style={styles.banner}>
@@ -58,7 +59,7 @@ const NewScreen = ({ navigation }) => {
         keyExtractor={(item, index) => index.toString()}
         ListHeaderComponent={<Text style={styles.textTitle}>Tin tức - Sự kiện</Text>}
       />
-    </View>
+    </ScrollView>
   );
 };
 
@@ -73,7 +74,7 @@ const styles = StyleSheet.create({
   banner: {
     backgroundColor: '#1668C7',
     width: '100%',
-    height: 300,
+    height: '19.5%',
   },
   bannerItem: {
     width: 350,
@@ -103,7 +104,7 @@ const styles = StyleSheet.create({
   textContainer: {
     position: 'absolute',
     flexDirection : 'row',
-    bottom: 16,
+    bottom: '10%',
     left: 16,
     right: 16,
   },

@@ -1,9 +1,19 @@
-import { StyleSheet, Text, View, Image, Linking } from 'react-native';
+import { StyleSheet, Text, View, Image, Linking, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { ScrollView } from 'react-native';
 import Hyperlink from 'react-native-hyperlink';
 import DataMonth from '../components/DataMonth';
 import Header from '../components/Header';
+import ImageViewer from 'react-native-image-zoom-viewer';
+
+
+const images = [
+  {
+    url:'https://www.udn.vn/app/webroot/upload/images/Thang1_2020.jpg',
+    
+  },
+
+];
 
 const hightlight = 'Số liệu CBVC Đại học Đà Nẵng năm 2020';
 const content =
@@ -15,7 +25,19 @@ const StatisticsScreen = ({ navigation }) => {
   const handleLinkPress = () => {
     Linking.openURL(link);
   };
+ 
+  const renderImage = (image) => {
+    return (
+      <TouchableOpacity onPress={() => openImageViewer(image)}>
+        <Image style={styles.thumbnail} source={{ uri: image.url }} resizeMode="contain" />
+      </TouchableOpacity>
+    );
+  };
 
+  const openImageViewer = (image) => {
+    const index = images.indexOf(image);
+    ImageViewer.open(images, { index });
+  };
   return (
     <View style={styles.container}>
       <Header header={header} />
@@ -31,11 +53,12 @@ const StatisticsScreen = ({ navigation }) => {
               fontWeight: '400',
               textAlign: 'justify',
               lineHeight: 20,
+              lineHeight : 24,
             }}
           >
             {content}
           </Text>
-          <Image source={require('../assets/image/statistics.png')} style={{ width: '100%', height: 200 }} />
+          {images.map((image) => renderImage(image))}
           <Hyperlink linkDefault={true} linkStyle={{ color: '#2980b9', textDecorationLine: 'underline' }} onPress={handleLinkPress}>
             <Text style={{ marginVertical: 10, fontSize: 14 }}>{link}</Text>
           </Hyperlink>
@@ -64,4 +87,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 20,
   },
+  thumbnail : {
+  width :'100%',
+  height : '100%'
+  }
 });
+  
