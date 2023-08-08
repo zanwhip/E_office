@@ -1,18 +1,33 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Extract from '../../components/Extract';
 import { TextInput } from 'react-native';
 import { ScrollView } from 'react-native';
 import Header from '../../components/Header';
 import { TouchableOpacity } from 'react-native';
+import DepartmentScreen from '../DepartmentScreen';
+import { useRoute } from '@react-navigation/native';
+
 
 const header = 'Chuyển tiếp văn bản'
 
 const ForwardingScreen = ({navigation}) => {
+  const route = useRoute();
   const handleOnPress = () => {
     console.log('Chuyển tiếp văn bản');
     navigation.goBack();
   };
+  const [selectedTrueOptions, setSelectedTrueOptions] = useState([]);
+
+  useEffect(() => {
+    if (route.params && route.params.selectedTrueOptions) {
+      setSelectedTrueOptions(route.params.selectedTrueOptions);
+    }
+  }, [route.params]);
+  // Function to update selected options
+  // const updateSelectedOptions = (selected) => {
+  //   setSelectedOptions(selected);
+  // };
   return (
     
     <View style={styles.container}>
@@ -26,10 +41,16 @@ const ForwardingScreen = ({navigation}) => {
      </View>
      <TouchableOpacity 
      style={styles.button}
-     onPress={() => navigation.navigate('Department')}> 
+     onPress={() =>   navigation.navigate('Department')}> 
       <Text>Chọn Phòng, Ban, Khoa</Text>
       <Image source={require('../../assets/image/right.png')} style={{ width : 40, height : 40 }} />
        </TouchableOpacity>
+       <Text style={styles.department}>
+       {selectedTrueOptions.length > 0
+            ? ` ${selectedTrueOptions.join(', ')}`
+            : ''}
+
+       </Text>
        <View style={styles.typecontainer1}>
      <Text style={styles.typetext}>Nội dung bút phê</Text>
      </View>
@@ -134,6 +155,10 @@ textforward : {
   color : '#ffffff',
   fontWeight : 'bold',
  
+}, 
+department : {
+  fontSize : 16,
+  fontWeight : '600',
 }
 
 })

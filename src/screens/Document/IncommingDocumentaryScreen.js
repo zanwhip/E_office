@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native'
 import React, {useState} from 'react'
 import Documentary from '../../components/Documentary';
+
 import { ScrollView } from 'react-native';
 import Header from '../../components/Header';
 import Modal from 'react-native-modal';
@@ -33,6 +34,16 @@ const IncomingDocumentaryScreen = () => {
       style={styles.sidebarModal}
     >
       <View style={styles.sidebar}>
+      <View style={styles.headersidebar} >
+            <View style={{ flexDirection : 'row' }}>
+            <View style={styles.headerIcon} />
+        <Text style={styles.headerText}>Bộ lọc nâng cao</Text>
+            </View>
+        
+            <TouchableOpacity style={styles.close} onPress={toggleSidebarFilter}>
+            <Image source={require('../../assets/image/close.png')} style={{ width : 50, height : 50 , marginRight : 40}} />
+            </TouchableOpacity>
+            </View>
          <Filter />
       </View>
     </Modal>
@@ -130,5 +141,40 @@ sidebar: {
   width: '100%',
   height: '100%',
   backgroundColor: '#f2f2f2',
+},
+
+headerIcon: {
+  width: 20,
+  backgroundColor: '#1668C7',
+  borderRadius: 5,
+},
+headersidebar : {
+ height : 120,
+ flexDirection :'row',
+ justifyContent : 'space-between'
+},
+headerIcon : {
+  marginTop : 80,
+  backgroundColor : '#1668c7',
+  height : 40,
+  width : 20,
+  marginHorizontal : 10,
+  borderRadius : 8,
+},
+headerText : {
+  marginTop : 90,
+  fontSize : 22,
+  fontWeight :'700',
+
+},
+close : {
+  marginTop : 70,
+  marginRight : 30,
+  borderRadius : 50,
+  width : 50,
+  height : 50,
+  paddingHorizontal : 12,
+  paddingVertical : 5,
+  
 },
 })

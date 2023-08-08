@@ -3,11 +3,11 @@ import React, { useState , useEffect} from 'react'
 import Header from '../components/Header';
 import { CheckBox } from 'react-native-elements';
 
-const header = 'Tên Phòng, Ban, Khoa,...'
+
 import selectedImage from '../assets/image/checked.png';
 import unselectedImage from '../assets/image/uncheck.png';
-
-const DepartmentScreen = () => {
+const header = 'Tên Phòng, Ban, Khoa,...'
+const DepartmentScreen = ({navigation, route}) => {
   const [selectedOptions, setSelectedOptions] = useState({
     DHDN1: false,
          DHDN1A: false,
@@ -24,6 +24,12 @@ const DepartmentScreen = () => {
     DHDN5: false,
     DHDN6: false,
   });
+
+  useEffect(() => {
+    if (route.params && route.params.updateSelectedOptions) {
+      route.params.updateSelectedOptions(selectedOptions);
+    }
+  }, [selectedOptions]);
 
 const [showDropdown1, setShowDropdown1] = useState(false);
 const [showDropdown2, setShowDropdown2] = useState(false);
@@ -61,6 +67,7 @@ const [showDropdown3, setShowDropdown3] = useState(false);
           [checkboxName]: !prevOptions[checkboxName],
         };
       }
+      
     });
   };
 
@@ -113,10 +120,16 @@ const [showDropdown3, setShowDropdown3] = useState(false);
           [checkboxName]: !prevOptions[checkboxName],
         };
       }
+      
     });
   };
 
-
+  const [selectedCount, setSelectedCount] = useState(''); // New state for selected count
+  useEffect(() => {
+    // Calculate the count of selected options
+    const count = Object.values(selectedOptions).filter(value => value).length;
+    setSelectedCount(count);
+  }, [selectedOptions]);
 
 
   const toggleDropdown1 = () => {
@@ -127,10 +140,32 @@ const [showDropdown3, setShowDropdown3] = useState(false);
     setShowDropdown2(!showDropdown2);
   };
 
-
+  const handleGoBack = () => {
+    const selectedTrueOptions = Object.keys(selectedOptions).filter(option => selectedOptions[option]);
+    navigation.navigate('Forwarding', { selectedTrueOptions: selectedTrueOptions });
+    console.log('Selected Options:', selectedTrueOptions);
+  };
+  
+  
+  const headerText = selectedCount > 0 ? `Đã chọn ${selectedCount} ` : header;
   return (
     <View style={styles.container} >
-       <Header header={header} />
+      
+      <View style={styles.header}>
+            <TouchableOpacity onPress={handleGoBack}>
+            <Image source={require('../assets/image/goback.png')} style={{ width : 40, height : 40 }} />
+   
+            </TouchableOpacity>
+         
+    <View >
+    <Text style={styles.textheader}>{headerText}</Text>
+    
+    </View>
+    <TouchableOpacity   onPress={handleGoBack}>
+    <Image source={require('../assets/image/done.png')} style={{ right : 0, width : 35, height : 35 }}  />
+    </TouchableOpacity>
+   
+    </View>
        <View style={styles.display}>
         <View>
         <View style={styles.option}>
@@ -285,6 +320,27 @@ option : {
   backgroundColor :'#ffffff'
   
 },
+
+header : {
+  flexDirection : 'row',
+  width : '100%',
+  height : 80,
+  backgroundColor : '#1668C7',
+  paddingTop : 40,
+  alignContent : 'center',
+  paddingHorizontal : 10,
+  
+  
+  justifyContent : 'space-between'
+
+},
+textheader : {
+  fontSize : 22,
+  color : '#ffffff',
+  fontWeight : 'bold',
+
+},
+
 optionsub : {
    justifyContent:'space-between' ,
     height :60, 
@@ -317,5 +373,15 @@ icon : {
   width : 30,
   height : 30,
 
-}
+},
+selectedCount: {
+  fontSize: 18,
+  color: '#ffffff',
+  fontWeight: 'bold',
+  marginLeft: 10,
+  backgroundColor: '#FF6F00', // Add a background color to the count
+  borderRadius: 15, // To make it look like a circle
+  paddingHorizontal: 8,
+  paddingVertical: 4,
+},
 })

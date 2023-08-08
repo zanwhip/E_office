@@ -35,6 +35,16 @@ const InternalDocumentSendScreen = () => {
       style={styles.sidebarModal}
     >
       <View style={styles.sidebar}>
+      <View style={styles.headersidebar} >
+            <View style={{ flexDirection : 'row' }}>
+            <View style={styles.headerIcon} />
+        <Text style={styles.headerText}>Bộ lọc nâng cao</Text>
+            </View>
+        
+            <TouchableOpacity style={styles.close} onPress={toggleSidebarFilter}>
+            <Image source={require('../../assets/image/close.png')} style={{ width : 50, height : 50 , marginRight : 40}} />
+            </TouchableOpacity>
+            </View>
          <Filter />
       </View>
     </Modal>

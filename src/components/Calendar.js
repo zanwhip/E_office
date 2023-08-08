@@ -10,7 +10,7 @@ const Calendar = ({ currentDate, selectedDate, closeSidebar, toggleCalendarModal
 
 
   useEffect(() => {
-    const selectedDateObject = parse(selectedDate, 'yyyy-MM-dd', new Date());
+    const selectedDateObject = parse(selectedDate, 'dd/MM/yyyy', new Date());
     
     if (!isNaN(selectedDateObject)) {
       setSelectedWeek(getWeekNumber(selectedDateObject));

@@ -59,13 +59,7 @@ const Filter = () => {
 
   return (
     <ScrollView style={styles.container}>
-      <View style={styles.header}>
-        <View style={styles.headerIcon} />
-        <Text style={styles.headerText}>Bộ lọc nâng cao</Text>
-        <TouchableOpacity onPress={hideSidebar} >
-          <Image source={require('../assets/image/cancel.png')} style={styles.cancelIcon} />
-        </TouchableOpacity>
-      </View>
+     
 
       <View style={styles.infor}>
         <Text style={styles.infortext}>Lĩnh vực</Text>
@@ -203,13 +197,14 @@ const Filter = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#f2f2f2',
     paddingHorizontal: 15,
-    paddingVertical: 80,
+
+    marginTop : 30,
   },
   header: {
     width: '100%',
-    backgroundColor: '#fff',
+    backgroundColor: '#f2f2f2',
     height: 50,
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -233,7 +228,7 @@ const styles = StyleSheet.create({
     left: 5,
   },
   infor: {
-    backgroundColor: '#fff',
+    backgroundColor: '#f2f2f2',
     paddingTop: 10,
     paddingHorizontal: 10,
   },
@@ -269,7 +264,7 @@ const styles = StyleSheet.create({
   },
   dropdownStyle: {
     backgroundColor: '#fff',
-    borderWidth: 1,
+    //borderWidth: 1,
     borderColor: '#cccccc',
     borderRadius: 8,
     marginTop: 5,
@@ -278,7 +273,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#f2f2f2',
     borderWidth: 0,
   },
   checkboxText: {
@@ -295,7 +290,7 @@ const styles = StyleSheet.create({
   },
   infor1: {
     flexDirection: 'row',
-    backgroundColor: '#fff',
+    backgroundColor: '#f2f2f2',
     paddingHorizontal: 10,
   },
   time: {
@@ -326,7 +321,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   searchButtonText: {
-    color: '#ffffff',
+    color: '#f2f2f2',
     fontWeight: '700',
     textAlign: 'center',
   },

@@ -36,6 +36,8 @@ import ScheduleWeekScreen from '../screens/Schedule/ScheduleWeekScreen';
 import CreateWorkReport from '../screens/Work/CreateWorkReport';
 import DocumentDetailScreen from '../screens/Document/DocumentDetailScreen';
 import ReplyDocumentScreen from '../screens/Document/ReplyDocumentScreen';
+import DetailReportScreen from '../screens/Work/DetailReportScreen';
+import EditDetailReportScreen from '../screens/Work/EditDetailReportScreen';
 
 
 
@@ -91,6 +93,8 @@ const Navigators = () => {
            <Stack.Screen name="EditSchedule" component={EditScheduleScreen} /> 
            <Stack.Screen name="ScheduleWeek" component={ScheduleWeekScreen} />
            <Stack.Screen name="CreateWorkReport" component={CreateWorkReport} />
+           <Stack.Screen name="DetailReport" component={DetailReportScreen} />
+           <Stack.Screen name="EditDetailReport" component={EditDetailReportScreen} />
           </Stack.Navigator>
       </NavigationContainer>
     );

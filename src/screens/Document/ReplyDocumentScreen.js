@@ -1,12 +1,14 @@
 import { StyleSheet, Text, View, TextInput, Alert, TouchableOpacity, ScrollView } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import Header from '../../components/Header';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'; // Thêm thư viện
+import SuccessAlert from '../../components/SuccessAlert ';
 
 
 const header = 'Phản hồi email';
 
 const ReplyDocumentScreen = ({navigation}) => {
+  const [successAlertVisible, setSuccessAlertVisible] = useState(false);
   const handleSendButtonPress = () => {
     // Display the alert when the "Gửi" (Send) button is pressed
     Alert.alert(
@@ -21,16 +23,14 @@ const ReplyDocumentScreen = ({navigation}) => {
         {
           text: 'Đồng ý',
           onPress: () => {
-            // Perform the action for "Đồng ý" (OK) here.
-            // For example, you can trigger the email sending logic.
-            // This can be an API call or any other action you want to perform.
+            setSuccessAlertVisible(true);
             navigation.navigate('DocumentDetail')
             console.log('Đồng ý Pressed');
-            // Add your email sending logic here...
+            
           },
         },
       ],
-      { cancelable: false } // Prevent tapping outside of the alert to dismiss it
+      { cancelable: false } 
     );
   };
 
@@ -64,7 +64,7 @@ const ReplyDocumentScreen = ({navigation}) => {
         <Text style={styles.textforward}>Gửi</Text>
       </TouchableOpacity>
        
-      
+      <SuccessAlert visible={successAlertVisible} onClose={() => setSuccessAlertVisible(false)} />
     </View>
   );
 };

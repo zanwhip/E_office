@@ -194,9 +194,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: 10,
     width: '90%',
+   
   },
   dropdownButton: {
     width: '100%',
+    height : 50,
     backgroundColor: '#fff', 
     borderRadius: 10,
     paddingHorizontal: 10,
