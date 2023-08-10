@@ -1,9 +1,51 @@
 import { StyleSheet, Text,Image, View, StatusBar } from 'react-native'
-import React from 'react'
+import React, {useState} from 'react'
 import { TouchableOpacity } from 'react-native'
 import Header from '../components/Header';
+import { prefetchConfiguration } from 'react-native-app-auth';
+ import { authorize } from 'react-native-app-auth';
 
+
+ 
+ const config = {
+  clientId: 'devoffice  ',
+  redirectUrl: 'eoffice://callback',
+  scopes: ['openid', 'profile'],
+  serviceConfiguration: {
+    authorizationEndpoint: 'https://id.udn.vn:8443/auth/auth',
+    tokenEndpoint: 'https://id.udn.vn:8443/auth/token',
+  },
+  }
+  
 const LoginScreen = ({navigation}) => {
+  const [accessToken, setAccessToken] = useState(null);
+  const [refreshToken, setRefreshToken] = useState(null);
+
+  const handleSignInMicrosoft = async () => {
+    
+    try {
+      const result = await authorize(config);
+      console.log('Authorization result:', result);
+
+      // Lưu access token và refresh token
+      setAccessToken(result.accessToken);
+      setRefreshToken(result.refreshToken);
+
+      // Sau khi xác thực thành công, điều hướng người dùng đến màn hình khác
+      navigation.navigate('Welcome');
+    } catch (error) {
+      console.error('Microsoft Login Error:', error);
+      if (error.response) {
+        console.error('Response data:', error.response.data);
+      }
+      if (error.request) {
+        console.error('Request:', error.request);
+      }
+      console.error('Error message:', error.message);
+    }
+    // navigation.navigate('Welcome')
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.image}>
@@ -17,7 +59,7 @@ const LoginScreen = ({navigation}) => {
       <Text style={{  marginVertical : 10,fontSize : 20,color : '#000000',fontWeight :'bold', }}>Đăng nhập</Text>
       <TouchableOpacity 
       style={styles.buttonMicro}
-      onPress={() => navigation.navigate('Welcome')}
+      onPress={handleSignInMicrosoft}
       >
         <Text style={styles.textbutton}>Microsoft</Text>
       </TouchableOpacity>

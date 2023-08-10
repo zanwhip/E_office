@@ -166,8 +166,8 @@ const NoticedetailScreen = ({navigation}) => {
         </View>
         </View>
         <View style={styles.row}>
-        <View style={{backgroundColor : '#E5B300', width : '35%',   paddingHorizontal : 10,}}>
-            <Text style={{ marginHorizontal : 10, marginVertical : 20, fontSize : 16, fontWeight : '600' , color : '#ffffff'}}>Nội dung bút phê</Text>
+        <View style={styles.column1}>
+            <Text style={styles.text}>Nội dung bút phê</Text>
         </View>
         <View style={styles.column2}>
             <Text style={styles.text1}>{comment}</Text>

@@ -105,19 +105,22 @@ const styles = StyleSheet.create({
     textAlign : 'justify',
     zIndex: 1,
     marginVertical : 15,
+    lineHeight: 30,
   },
   subcontent0 : {
     textAlign : 'justify',
     fontSize : 20,
     fontWeight : 'bold',
     marginVertical : 15,
-    color : '#125BAC'
+    color : '#125BAC',
+    lineHeight: 30,
   },
   subcontent : {
     textAlign : 'justify',
     fontSize : 16,
     fontWeight : '400',
     marginVertical : 5,
+    lineHeight: 30,
   },
   contentdisplay : {
     paddingHorizontal : 10,
@@ -138,5 +141,6 @@ const styles = StyleSheet.create({
     fontSize : 16,
     fontWeight : '400',
     marginVertical : 10,
+    lineHeight: 30,
   }
 })

@@ -61,12 +61,14 @@ const styles = StyleSheet.create({
     textAlign : 'justify',
     zIndex: 1,
     marginVertical : 20,
+    lineHeight: 30,
   },
   subcontent : {
     textAlign : 'justify',
     fontSize : 16,
     fontWeight : '400',
     marginVertical : 20,
+    lineHeight: 30,
   },
   contentdisplay : {
     paddingHorizontal : 10,

@@ -71,6 +71,7 @@ const styles = StyleSheet.create({
         fontSize : 14,
         fontWeight : 400,
         marginVertical : 5,
+        lineHeight: 30,
         
         
     },

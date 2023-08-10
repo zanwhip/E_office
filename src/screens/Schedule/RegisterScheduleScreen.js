@@ -139,9 +139,9 @@ const RegisterScheduleScreen = ({navigation}) => {
       </View>
             </View>
 
-            <View style={styles.searchButton}>
+            <TouchableOpacity style={styles.searchButton} onPress={toggleSidebarFilter}  >
         <Text style={styles.searchButtonText}>Tìm kiếm</Text>
-      </View>
+      </TouchableOpacity>
         </View>
         </Modal>
 
@@ -171,7 +171,8 @@ const RegisterScheduleScreen = ({navigation}) => {
  <Modal transparent={true} visible={isCalendarModalVisible} animationType="slide" onRequestClose={toggleCalendarModal}>
           <View style={styles.modalContainer}>
             <TouchableOpacity style={styles.closeButton} onPress={toggleCalendarModal}>
-              <Octicons name="x" size={30} color="#ffffff" />
+            <Image source={require('../../assets/image/close.png')} style={{ width : 40, height : 40, marginLeft : '90%' }} />
+             
             </TouchableOpacity>
             <View style={styles.calendarContainer}>
               <Calendar currentDate={selectedDate.format('YYYY-MM-DD')} selectedDate={selectedDate.format('YYYY-MM-DD')} />

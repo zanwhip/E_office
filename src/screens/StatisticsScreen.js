@@ -26,13 +26,6 @@ const StatisticsScreen = ({ navigation }) => {
     Linking.openURL(link);
   };
  
-  const renderImage = (image) => {
-    return (
-      <TouchableOpacity onPress={() => openImageViewer(image)}>
-        <Image style={styles.thumbnail} source={{ uri: image.url }} resizeMode="contain" />
-      </TouchableOpacity>
-    );
-  };
 
   const openImageViewer = (image) => {
     const index = images.indexOf(image);
@@ -58,10 +51,8 @@ const StatisticsScreen = ({ navigation }) => {
           >
             {content}
           </Text>
-          {images.map((image) => renderImage(image))}
-          <Hyperlink linkDefault={true} linkStyle={{ color: '#2980b9', textDecorationLine: 'underline' }} onPress={handleLinkPress}>
-            <Text style={{ marginVertical: 10, fontSize: 14 }}>{link}</Text>
-          </Hyperlink>
+          <Image source={require('../assets/image/statistics.png')} style={styles.thumbnail} />
+          <Text>{link}</Text>
         </ScrollView>
       </View>
     </View>
@@ -89,7 +80,7 @@ const styles = StyleSheet.create({
   },
   thumbnail : {
   width :'100%',
-  height : '100%'
+  height : '60%'
   }
 });
   
