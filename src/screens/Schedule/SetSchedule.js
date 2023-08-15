@@ -20,7 +20,7 @@ const SetScheduleScreen = () => {
 
   const handleLocationChange = (location) => {
     setSelectedLocation(location);
-    toggleAddressDropdown(); // Close the dropdown after selecting a location
+    toggleAddressDropdown(); 
   };
   const toggleAddressDropdown = () => {
     setIsAddressDropdownOpen((prevValue) => !prevValue);

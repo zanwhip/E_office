@@ -3,6 +3,7 @@
     "name": "EOffice",
     "slug": "eoffice",
     "version": "1.1.0",
+    "scheme": "exp://com.eoffice.app.exp.direct//redirect",
     "sdkVersion": "48.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -12,19 +13,17 @@
       "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "y"
+      "bundleIdentifier": "com.eoffice.app"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.E_office.myapp"
+      "package": "com.eoffice.app"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -34,7 +33,18 @@
         "projectId": "5a4fbef5-a3e1-4c47-8c73-48faccdb2984"
       }
     },
-    "owner": "zanwhip",
-    "scheme": "eoffice"
+  
+    "hooks": {
+      "postPublish": [
+        {
+          "file": "sentry-expo/upload-sourcemaps",
+          "config": {
+            "organization": "zanwhip",
+            "project": "eoffice",
+            "authToken": "exp://com.eoffice.app.exp.direct//redirect"
+          }
+        }
+      ]
+    }
   }
 }

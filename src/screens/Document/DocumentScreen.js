@@ -8,12 +8,13 @@ const header = 'Các văn bản'
 const status1 = 'A'; 
 const status2 = 'B'; 
 const status3 = 'C'; 
+const count = 6;
 const DocumentScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
      <Header header={header} />
      <View style={styles.typecontainer}>
-        <Text style={styles.typetext}>Có 6 văn bản mới đến</Text>
+        <Text style={styles.typetext}>Có +{count}+ văn bản mới đến</Text>
      </View>
      <ScrollView style={styles.displaycontainer}>
      <Documentary status="A"/>

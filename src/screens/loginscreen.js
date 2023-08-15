@@ -1,51 +1,67 @@
-import { StyleSheet, Text,Image, View, StatusBar } from 'react-native'
-import React, {useState} from 'react'
-import { TouchableOpacity } from 'react-native'
-import Header from '../components/Header';
-import { prefetchConfiguration } from 'react-native-app-auth';
- import { authorize } from 'react-native-app-auth';
+import { StyleSheet, Text, Image, View, StatusBar,  } from 'react-native'
+import React from 'react'
+import { TouchableOpacity } from 'react-native';
+import { useAuthRequest, useAutoDiscovery } from 'expo-auth-session';
+import { makeRedirectUri } from 'expo-auth-session';
+import { useState } from 'react';
+import * as WebBrowser from 'expo-web-browser';
+import * as Linking from 'expo-linking';
 
+const callbackUrl = Linking.makeUrl('redirect');
 
- 
- const config = {
-  clientId: 'devoffice  ',
-  redirectUrl: 'eoffice://callback',
-  scopes: ['openid', 'profile'],
-  serviceConfiguration: {
-    authorizationEndpoint: 'https://id.udn.vn:8443/auth/auth',
-    tokenEndpoint: 'https://id.udn.vn:8443/auth/token',
-  },
-  }
-  
-const LoginScreen = ({navigation}) => {
+WebBrowser.maybeCompleteAuthSession();
+
+const LoginScreen = ({ navigation }) => {
   const [accessToken, setAccessToken] = useState(null);
   const [refreshToken, setRefreshToken] = useState(null);
+  const discovery = useAutoDiscovery('https://id.udn.vn:8443/auth/realms/UDN');
 
-  const handleSignInMicrosoft = async () => {
+ //Cung cấp lại URLcallback : eoffice://10.0.9.131:19000-redirect
+
+  const [request, result, promptAsync] = useAuthRequest(
+    {
+     clientId: 'devoffice',
+      redirectUri: 'exp://com.eoffice.app.exp.direct//redirect',
+      scopes: ['openid', 'profile', 'email'],
+      
+    },  
+    discovery
     
-    try {
-      const result = await authorize(config);
-      console.log('Authorization result:', result);
+  );
 
-      // Lưu access token và refresh token
-      setAccessToken(result.accessToken);
-      setRefreshToken(result.refreshToken);
+  
+  const handleSignIn =async() => {
+    console.log('Handling sign-in...');
+      try {
+      console.log('Before promptAsync');
+          //xác thực chưa hoàn tất
+          console.log(authResult) 
+          console.log(promptAsync) 
+      const authResult = await promptAsync();
+      console.log('After promptAsync');
+      console.log(authResult);
+      if (authResult.type === 'success') {
+        setAccessToken(authResult.params.access_token);
+        setRefreshToken(authResult.params.refresh_token);
+        console.log('Xac thuc Thanh cong ');
+        
+        WebBrowser.dismissBrowser();
 
-      // Sau khi xác thực thành công, điều hướng người dùng đến màn hình khác
-      navigation.navigate('Welcome');
+        
+        
+        console.log('Vao trang Welcome ');
+
+      } else if (authResult.type === 'error') {
+        console.error('Keycloak Login Error:', authResult.error);
+      }
+      else {
+        console.log('...............................'); 
+      }
     } catch (error) {
-      console.error('Microsoft Login Error:', error);
-      if (error.response) {
-        console.error('Response data:', error.response.data);
-      }
-      if (error.request) {
-        console.error('Request:', error.request);
-      }
-      console.error('Error message:', error.message);
+      console.error('Keycloak Login Error:', error);
     }
-    // navigation.navigate('Welcome')
+    
   };
-
   return (
     <View style={styles.container}>
       <View style={styles.image}>
@@ -57,10 +73,7 @@ const LoginScreen = ({navigation}) => {
       </View>
      <View style={styles.box}> 
       <Text style={{  marginVertical : 10,fontSize : 20,color : '#000000',fontWeight :'bold', }}>Đăng nhập</Text>
-      <TouchableOpacity 
-      style={styles.buttonMicro}
-      onPress={handleSignInMicrosoft}
-      >
+      <TouchableOpacity style={styles.buttonMicro} onPress={handleSignIn}>
         <Text style={styles.textbutton}>Microsoft</Text>
       </TouchableOpacity>
       <TouchableOpacity
@@ -74,7 +87,7 @@ const LoginScreen = ({navigation}) => {
       
       </View>
            </View>
-      <StatusBar style="auto" />
+      <StatusBar style="auto"/>
     </View>
   )
 }
